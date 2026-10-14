@@ -2,8 +2,9 @@
 // Usage: node scripts/fetch-news.mjs        (run build-data.mjs first; it picks the countries)
 // Writes data/news.js → window.DISPLACEMENT_NEWS
 // GDELT asks for no more than one request every 5 seconds and blocks an address for about a minute
-// when it sees more, so requests are spaced out and a block is waited out. Progress is saved after
-// every country, and countries that still fail keep their previous headlines.
+// when it sees more. To stay well under that, countries are searched in groups (one request per group)
+// and each headline is assigned to the countries named in its title. Progress is saved after every
+// group, and countries with no new match keep their previous headlines.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -14,6 +15,7 @@ const GDELT = "https://api.gdeltproject.org/api/v2/doc/doc";
 const TOPIC = "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
 const TIMESPAN = "14d";
 const PER_COUNTRY = 8;
+const GROUP_SIZE = 7;
 const PAUSE_MS = 8000;
 const BLOCK_WAIT_MS = 65000;
 const MAX_MINUTES = Number(process.env.NEWS_MAX_MINUTES || 40);
@@ -21,16 +23,18 @@ const MAX_MINUTES = Number(process.env.NEWS_MAX_MINUTES || 40);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function buildQuery(terms) {
+  // GDELT rejects short quoted phrases ("Mali", "Chad"), so only multi-word names keep their quotes.
+  terms = terms.map((t) => (/^"[^ ]+"$/.test(t) ? t.slice(1, -1) : t));
   const place = terms.length > 1 ? `(${terms.join(" OR ")})` : terms[0];
   return `${place} ${TOPIC} sourcelang:english`;
 }
 
-async function search(terms) {
+async function search(terms, maxrecords = PER_COUNTRY * 2) {
   const qs = new URLSearchParams({
     query: buildQuery(terms),
     mode: "artlist",
     format: "json",
-    maxrecords: String(PER_COUNTRY * 2),
+    maxrecords: String(maxrecords),
     timespan: TIMESPAN,
     sort: "hybridrel",
   });
@@ -51,7 +55,7 @@ async function search(terms) {
 }
 
 // Same story syndicated across outlets shows up many times; keep the first of each title.
-function tidy(articles) {
+function tidy(articles, cap = PER_COUNTRY) {
   const seen = new Set();
   const out = [];
   for (const a of articles) {
@@ -67,7 +71,7 @@ function tidy(articles) {
       domain: a.domain || new URL(a.url).hostname,
       date: d ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : null,
     });
-    if (out.length >= PER_COUNTRY) break;
+    if (out.length >= cap) break;
   }
   return out;
 }
@@ -98,21 +102,32 @@ async function main() {
     byCountry,
   })};
 `);
+  const escapeRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const termRegex = (t) => new RegExp("\\b" + escapeRe(t.replace(/"/g, "")) + "\\b", "i");
   let failed = 0, fetched = 0;
-  for (const [i, t] of targets.entries()) {
+  for (let g = 0; g < targets.length; g += GROUP_SIZE) {
     if ((Date.now() - started) / 60000 > MAX_MINUTES) {
       console.log(`  Stopping after ${MAX_MINUTES} minutes; the rest keep their previous headlines.`);
       break;
     }
+    const group = targets.slice(g, g + GROUP_SIZE);
+    const label = group.map((t) => t.id).join(" ");
     try {
-      byCountry[t.id] = tidy(await search(t.terms));
-      checkedAt[t.id] = new Date().toISOString();
-      fetched++;
+      const articles = tidy(await search(group.flatMap((t) => t.terms), 250), 250);
+      for (const t of group) {
+        const res = t.terms.map(termRegex);
+        const mine = articles.filter((a) => res.some((r) => r.test(a.title))).slice(0, PER_COUNTRY);
+        if (mine.length) {
+          byCountry[t.id] = mine;
+          checkedAt[t.id] = new Date().toISOString();
+          fetched++;
+        }
+      }
       await save();
-      console.log(`  ${String(i + 1).padStart(2)}/${targets.length} ${t.id} ${byCountry[t.id].length} articles`);
+      console.log(`  ${label}: ${articles.length} articles → ${group.map((t) => `${t.id} ${byCountry[t.id]?.length || 0}`).join(", ")}`);
     } catch (err) {
-      failed++;
-      console.log(`  ${t.id} skipped: ${err.message}`);
+      failed += group.length;
+      console.log(`  ${label} skipped: ${err.message}`);
     }
     await sleep(PAUSE_MS);
   }
