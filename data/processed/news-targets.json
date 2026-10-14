@@ -1,0 +1,356 @@
+[
+  {
+    "id": "UKR",
+    "name": "Ukraine",
+    "terms": [
+      "Ukraine",
+      "Ukrainian"
+    ]
+  },
+  {
+    "id": "SYR",
+    "name": "Syrian Arab Rep.",
+    "terms": [
+      "Syria",
+      "Syrian"
+    ]
+  },
+  {
+    "id": "SDN",
+    "name": "Sudan",
+    "terms": [
+      "\"Sudan\""
+    ]
+  },
+  {
+    "id": "AFG",
+    "name": "Afghanistan",
+    "terms": [
+      "Afghanistan",
+      "Afghan"
+    ]
+  },
+  {
+    "id": "SSD",
+    "name": "South Sudan",
+    "terms": [
+      "\"South Sudan\""
+    ]
+  },
+  {
+    "id": "MMR",
+    "name": "Myanmar",
+    "terms": [
+      "Myanmar",
+      "Rohingya"
+    ]
+  },
+  {
+    "id": "COD",
+    "name": "Dem. Rep. of the Congo",
+    "terms": [
+      "\"DR Congo\"",
+      "\"Democratic Republic of the Congo\"",
+      "\"eastern Congo\""
+    ]
+  },
+  {
+    "id": "SOM",
+    "name": "Somalia",
+    "terms": [
+      "\"Somalia\""
+    ]
+  },
+  {
+    "id": "CAF",
+    "name": "Central African Rep.",
+    "terms": [
+      "\"Central African Republic\""
+    ]
+  },
+  {
+    "id": "ERI",
+    "name": "Eritrea",
+    "terms": [
+      "\"Eritrea\""
+    ]
+  },
+  {
+    "id": "MLI",
+    "name": "Mali",
+    "terms": [
+      "\"Mali\""
+    ]
+  },
+  {
+    "id": "NGA",
+    "name": "Nigeria",
+    "terms": [
+      "\"Nigeria\""
+    ]
+  },
+  {
+    "id": "VEN",
+    "name": "Venezuela (Bolivarian Republic of)",
+    "terms": [
+      "Venezuela",
+      "Venezuelan"
+    ]
+  },
+  {
+    "id": "BFA",
+    "name": "Burkina Faso",
+    "terms": [
+      "\"Burkina Faso\""
+    ]
+  },
+  {
+    "id": "BDI",
+    "name": "Burundi",
+    "terms": [
+      "\"Burundi\""
+    ]
+  },
+  {
+    "id": "IRQ",
+    "name": "Iraq",
+    "terms": [
+      "\"Iraq\""
+    ]
+  },
+  {
+    "id": "RWA",
+    "name": "Rwanda",
+    "terms": [
+      "\"Rwanda\""
+    ]
+  },
+  {
+    "id": "HTI",
+    "name": "Haiti",
+    "terms": [
+      "\"Haiti\""
+    ]
+  },
+  {
+    "id": "ESH",
+    "name": "Western Sahara",
+    "terms": [
+      "\"Western Sahara\""
+    ]
+  },
+  {
+    "id": "ETH",
+    "name": "Ethiopia",
+    "terms": [
+      "\"Ethiopia\""
+    ]
+  },
+  {
+    "id": "IRN",
+    "name": "Iran (Islamic Rep. of)",
+    "terms": [
+      "Iran"
+    ]
+  },
+  {
+    "id": "CHN",
+    "name": "China",
+    "terms": [
+      "\"China\""
+    ]
+  },
+  {
+    "id": "TUR",
+    "name": "Türkiye",
+    "terms": [
+      "Turkey",
+      "Türkiye"
+    ]
+  },
+  {
+    "id": "LKA",
+    "name": "Sri Lanka",
+    "terms": [
+      "\"Sri Lanka\""
+    ]
+  },
+  {
+    "id": "CMR",
+    "name": "Cameroon",
+    "terms": [
+      "\"Cameroon\""
+    ]
+  },
+  {
+    "id": "NER",
+    "name": "Niger",
+    "terms": [
+      "\"Niger\""
+    ]
+  },
+  {
+    "id": "YEM",
+    "name": "Yemen",
+    "terms": [
+      "\"Yemen\""
+    ]
+  },
+  {
+    "id": "MRT",
+    "name": "Mauritania",
+    "terms": [
+      "\"Mauritania\""
+    ]
+  },
+  {
+    "id": "GIN",
+    "name": "Guinea",
+    "terms": [
+      "\"Guinea\""
+    ]
+  },
+  {
+    "id": "CUB",
+    "name": "Cuba",
+    "terms": [
+      "\"Cuba\""
+    ]
+  },
+  {
+    "id": "NIC",
+    "name": "Nicaragua",
+    "terms": [
+      "\"Nicaragua\""
+    ]
+  },
+  {
+    "id": "PSE",
+    "name": "State of Palestine",
+    "terms": [
+      "Gaza",
+      "\"West Bank\"",
+      "Palestinian"
+    ]
+  },
+  {
+    "id": "PAK",
+    "name": "Pakistan",
+    "terms": [
+      "\"Pakistan\""
+    ]
+  },
+  {
+    "id": "MEX",
+    "name": "Mexico",
+    "terms": [
+      "\"Mexico\""
+    ]
+  },
+  {
+    "id": "ECU",
+    "name": "Ecuador",
+    "terms": [
+      "\"Ecuador\""
+    ]
+  },
+  {
+    "id": "DEU",
+    "name": "Germany",
+    "terms": [
+      "\"Germany\""
+    ]
+  },
+  {
+    "id": "UGA",
+    "name": "Uganda",
+    "terms": [
+      "\"Uganda\""
+    ]
+  },
+  {
+    "id": "TCD",
+    "name": "Chad",
+    "terms": [
+      "\"Chad\""
+    ]
+  },
+  {
+    "id": "BGD",
+    "name": "Bangladesh",
+    "terms": [
+      "\"Bangladesh\""
+    ]
+  },
+  {
+    "id": "POL",
+    "name": "Poland",
+    "terms": [
+      "\"Poland\""
+    ]
+  },
+  {
+    "id": "FRA",
+    "name": "France",
+    "terms": [
+      "\"France\""
+    ]
+  },
+  {
+    "id": "KEN",
+    "name": "Kenya",
+    "terms": [
+      "\"Kenya\""
+    ]
+  },
+  {
+    "id": "GBR",
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "terms": [
+      "\"United Kingdom\"",
+      "Britain"
+    ]
+  },
+  {
+    "id": "LBY",
+    "name": "Libya",
+    "terms": [
+      "\"Libya\""
+    ]
+  },
+  {
+    "id": "CAN",
+    "name": "Canada",
+    "terms": [
+      "\"Canada\""
+    ]
+  },
+  {
+    "id": "ESP",
+    "name": "Spain",
+    "terms": [
+      "\"Spain\""
+    ]
+  },
+  {
+    "id": "CIV",
+    "name": "Cote d'Ivoire",
+    "terms": [
+      "\"Ivory Coast\""
+    ]
+  },
+  {
+    "id": "COL",
+    "name": "Colombia",
+    "terms": [
+      "\"Colombia\""
+    ]
+  },
+  {
+    "id": "SLV",
+    "name": "El Salvador",
+    "terms": [
+      "\"El Salvador\""
+    ]
+  }
+]

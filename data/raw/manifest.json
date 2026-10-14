@@ -1,0 +1,32 @@
+{
+  "retrievedAt": "2026-10-14T16:22:15.864Z",
+  "files": {
+    "unhcr_countries.json": {
+      "url": "https://api.unhcr.org/population/v1/countries/",
+      "rows": 232
+    },
+    "unhcr_population_matrix_2010_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/population/?year=YYYY&coo_all=true&coa_all=true",
+      "rows": 83364
+    },
+    "unhcr_population_by_origin_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2025&coo_all=true",
+      "rows": 5054
+    },
+    "unhcr_population_by_host_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2025&coa_all=true",
+      "rows": 4333
+    },
+    "idmc_idps_by_country_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/idmc/?yearFrom=2000&yearTo=2025&coo_all=true",
+      "rows": 924
+    },
+    "geo/countries-50m.json": {
+      "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json"
+    },
+    "geo/world-countries.json": {
+      "url": "https://cdn.jsdelivr.net/npm/world-countries@5.1.0/countries.json"
+    }
+  },
+  "latestYear": 2025
+}

@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Displacement Change Monitor</title>
+<meta name="description" content="Countries ranked by how fast refugee and displacement figures are changing, with origin-to-host flow arrows and recent news.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: masthead with date stamps → one control strip → map beside a country dossier → ranked ledger → method notes. */
+:root {
+  --bg: #f1f3f4;
+  --surface: #ffffff;
+  --sea: #f5f8fa;
+  --ink: #111518;
+  --ink-2: #434b53;
+  --muted: #646d76;
+  --line: #dde1e4;
+  --line-strong: #bfc6cc;
+  --row-hover: #f3f6f8;
+  --row-sel: #e7edf2;
+  --land-faint: #e8ebed;
+  --hatch: #c3c9ce;
+  /* Diverging change scale: blue = fewer people, red = more. Validated per mode; light end clears 2:1 on the surface. */
+  --div-0: #104281; --div-1: #256abf; --div-2: #4f93e6; --div-3: #86b6ef;
+  --div-4: #d6dadd;
+  --div-5: #f2a08d; --div-6: #e2664d; --div-7: #bc3c27; --div-8: #82200f;
+  --up: #bc3c27;
+  --down: #256abf;
+  --flow-total: #2c343b;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1113; --surface: #161a1d; --sea: #1b2024; --ink: #eef1f3; --ink-2: #b7bec5; --muted: #8f979f;
+    --line: #283036; --line-strong: #3d464e; --row-hover: #1d2327; --row-sel: #252d33; --land-faint: #262c31; --hatch: #48515a;
+    --div-0: #a9cdf6; --div-1: #62a0ec; --div-2: #3478cf; --div-3: #245aa3; --div-4: #3b4147;
+    --div-5: #963526; --div-6: #c4442f; --div-7: #e8735c; --div-8: #f6ae9d;
+    --up: #e8735c; --down: #62a0ec; --flow-total: #d3d9de;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1113; --surface: #161a1d; --sea: #1b2024; --ink: #eef1f3; --ink-2: #b7bec5; --muted: #8f979f;
+  --line: #283036; --line-strong: #3d464e; --row-hover: #1d2327; --row-sel: #252d33; --land-faint: #262c31; --hatch: #48515a;
+  --div-0: #a9cdf6; --div-1: #62a0ec; --div-2: #3478cf; --div-3: #245aa3; --div-4: #3b4147;
+  --div-5: #963526; --div-6: #c4442f; --div-7: #e8735c; --div-8: #f6ae9d;
+  --up: #e8735c; --down: #62a0ec; --flow-total: #d3d9de;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-body); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+button, select, input { font: inherit; color: inherit; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.wrap { max-width: 1380px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 22px 56px; display: grid; gap: 18px; }
+
+/* Masthead */
+.masthead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 40px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--line-strong); }
+.eyebrow { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { margin: 0; font-family: var(--font-display); font-stretch: 72%; font-weight: 760; font-size: clamp(30px, 4.4vw, 50px); line-height: .98; letter-spacing: -.005em; text-wrap: balance; }
+.lede { margin: 10px 0 0; max-width: 64ch; color: var(--ink-2); }
+.stamps { margin: 0; display: grid; grid-template-columns: auto auto; gap: 4px 16px; font-size: 13px; }
+.stamps dt { color: var(--muted); }
+.stamps dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: end; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.field { display: grid; gap: 5px; min-width: 0; }
+.label, .field > label { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+select { height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 14px; max-width: 100%; }
+.seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden; }
+.seg button { height: 32px; padding: 0 11px; border: 0; border-left: 1px solid var(--line-strong); background: var(--surface); font-size: 13.5px; cursor: pointer; white-space: nowrap; }
+.seg button:first-child { border-left: 0; }
+.seg button:hover:not(:disabled) { background: var(--row-hover); }
+.seg button[aria-checked="true"] { background: var(--ink); color: var(--surface); font-weight: 600; }
+.seg button:disabled { cursor: not-allowed; opacity: .45; }
+.period { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.btn { height: 34px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 13.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn:hover { background: var(--row-hover); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.btn svg { width: 12px; height: 12px; fill: currentColor; }
+
+/* Map + panel */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 370px); gap: 16px; align-items: start; scroll-margin-top: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.map-card { position: relative; overflow: hidden; }
+.map-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding: 12px 14px 4px; }
+.map-title { margin: 0; font-family: var(--font-display); font-stretch: 85%; font-weight: 650; font-size: 18px; line-height: 1.2; }
+.map-hint { margin: 0; font-size: 12px; color: var(--muted); }
+#map-box { position: relative; }
+#map { display: block; width: 100%; height: auto; cursor: grab; }
+#map:active { cursor: grabbing; }
+.sea { fill: var(--sea); stroke: var(--line-strong); stroke-width: .75; vector-effect: non-scaling-stroke; }
+.country { stroke: var(--surface); stroke-width: .5; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .25s ease, opacity .25s ease; }
+.country:hover { stroke: var(--ink); stroke-width: 1.2; }
+.country.dim { opacity: .38; }
+.b0 { fill: var(--div-0); } .b1 { fill: var(--div-1); } .b2 { fill: var(--div-2); } .b3 { fill: var(--div-3); } .b4 { fill: var(--div-4); }
+.b5 { fill: var(--div-5); } .b6 { fill: var(--div-6); } .b7 { fill: var(--div-7); } .b8 { fill: var(--div-8); }
+.nodata { fill: url(#hatch); }
+.smallbase { fill: var(--land-faint); }
+.hatch-bg { fill: var(--land-faint); }
+.hatch-line { stroke: var(--hatch); stroke-width: 1.4; }
+.sel-outline { fill: none; stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.arrow-halo { fill: none; stroke: var(--sea); stroke-linecap: round; opacity: .92; }
+.arrow-shaft { fill: none; stroke-linecap: round; }
+.arrow-head { stroke: var(--sea); stroke-width: 1.2; stroke-linejoin: round; paint-order: stroke; }
+.arrow-hit { fill: none; stroke: transparent; pointer-events: stroke; }
+.arrow.up .arrow-shaft { stroke: var(--up); } .arrow.up .arrow-head { fill: var(--up); }
+.arrow.down .arrow-shaft { stroke: var(--down); } .arrow.down .arrow-head { fill: var(--down); }
+.arrow.total .arrow-shaft { stroke: var(--flow-total); } .arrow.total .arrow-head { fill: var(--flow-total); }
+.arrow:hover .arrow-shaft { stroke-opacity: .8; }
+.arrow-label { font: 700 11.5px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--sea); stroke-width: 3.5px; stroke-linejoin: round; pointer-events: none; font-variant-numeric: tabular-nums; }
+.node { fill: var(--surface); stroke: var(--ink); stroke-width: 2; pointer-events: none; }
+.zoom { position: absolute; top: 10px; right: 10px; display: grid; gap: 4px; }
+.zoom button { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); cursor: pointer; font-size: 17px; line-height: 1; }
+.zoom button:hover { background: var(--row-hover); }
+.tip { position: absolute; z-index: 5; max-width: 270px; padding: 9px 11px; border-radius: 5px; background: var(--ink); color: var(--surface); font-size: 12.5px; line-height: 1.4; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.tip strong { display: block; font-size: 13.5px; margin-bottom: 4px; }
+.tip-grid { display: grid; grid-template-columns: auto auto; gap: 1px 12px; font-variant-numeric: tabular-nums; }
+.tip-grid b { text-align: right; font-weight: 600; }
+.tip .tip-note { margin-top: 5px; opacity: .8; }
+
+/* Legend */
+.legend { display: flex; flex-wrap: wrap; gap: 14px 36px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
+.legend-block { display: grid; gap: 6px; min-width: 0; flex: 1 1 280px; max-width: 460px; }
+.legend-title { margin: 0; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.scale { width: 100%; display: grid; gap: 3px; }
+.swatches { display: grid; grid-template-columns: repeat(9, 1fr); height: 12px; gap: 2px; }
+.swatches span { border-radius: 2px; }
+.swatches span:nth-child(1) { background: var(--div-0); } .swatches span:nth-child(2) { background: var(--div-1); }
+.swatches span:nth-child(3) { background: var(--div-2); } .swatches span:nth-child(4) { background: var(--div-3); }
+.swatches span:nth-child(5) { background: var(--div-4); } .swatches span:nth-child(6) { background: var(--div-5); }
+.swatches span:nth-child(7) { background: var(--div-6); } .swatches span:nth-child(8) { background: var(--div-7); }
+.swatches span:nth-child(9) { background: var(--div-8); }
+.ticks { position: relative; height: 15px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.ends { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--ink-2); }
+.keys { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--ink-2); }
+.keys li { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 14px; height: 12px; border-radius: 2px; display: inline-block; flex: none; }
+.sw.nodata { background: repeating-linear-gradient(45deg, var(--hatch) 0 1.5px, var(--land-faint) 1.5px 4px); }
+.sw.smallbase { background: var(--land-faint); outline: 1px solid var(--line-strong); outline-offset: -1px; }
+.arrow-key svg { display: block; }
+.arrow-key .k-up { fill: var(--up); stroke: var(--up); }
+.arrow-key .k-down { fill: var(--down); stroke: var(--down); }
+.arrow-key .k-total { fill: var(--flow-total); stroke: var(--flow-total); }
+
+/* Panel */
+.panel { padding: 16px; display: grid; gap: 18px; align-content: start; position: sticky; top: max(12px, env(safe-area-inset-top, 0px)); max-height: calc(100vh - 24px); overflow: auto; }
+.panel h2 { margin: 2px 0 0; font-family: var(--font-display); font-stretch: 78%; font-weight: 720; font-size: 28px; line-height: 1.02; text-wrap: balance; }
+.panel h3 { margin: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.panel .sub { margin: 4px 0 0; color: var(--ink-2); font-size: 13.5px; }
+.back { justify-self: start; margin-bottom: 8px; padding: 4px 8px 4px 4px; border: 0; background: none; color: var(--ink-2); font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 4px; }
+.back:hover { background: var(--row-hover); color: var(--ink); }
+.chip { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 3px 9px 3px 7px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+.glyph { font-size: 10px; line-height: 1; }
+.glyph.up { color: var(--up); } .glyph.down { color: var(--down); } .glyph.flat, .glyph.none { color: var(--muted); }
+.figs { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.figs div { min-width: 0; }
+.figs dt { font-size: 12px; color: var(--muted); }
+.figs dd { margin: 1px 0 0; font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.figs .hero { grid-column: 1 / -1; }
+.figs .hero dd { font-family: var(--font-display); font-stretch: 85%; font-size: 34px; font-weight: 700; line-height: 1.05; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.figs .hero dd small { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--ink-2); }
+.figs .hero .glyph { font-size: 18px; }
+.na { color: var(--muted); font-style: italic; font-weight: 400; font-size: .85em; }
+.note { margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
+.rank-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.rank-list button { width: 100%; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; grid-template-rows: auto 4px; column-gap: 8px; row-gap: 3px; align-items: center; padding: 6px 6px; border: 0; border-radius: 4px; background: none; text-align: left; cursor: pointer; font-size: 14px; }
+.rank-list button:hover { background: var(--row-hover); }
+.rank-list .rk { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.rank-list .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rank-list .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.rank-list .bar { grid-column: 2 / -1; height: 4px; border-radius: 2px; background: var(--land-faint); overflow: hidden; }
+.rank-list .bar i { display: block; height: 100%; border-radius: 2px; }
+.rank-list .bar i.up { background: var(--up); } .rank-list .bar i.down { background: var(--down); }
+.spark { margin: 0; }
+.spark svg { display: block; width: 100%; height: auto; overflow: visible; }
+.spark .grid { stroke: var(--line); stroke-width: 1; }
+.spark .base { stroke: var(--line-strong); stroke-width: 1; }
+.spark .band { fill: var(--row-sel); }
+.spark-area { fill: var(--ink); opacity: .07; }
+.spark-line { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
+.spark-seg { fill: none; stroke-width: 2.5; stroke: var(--muted); }
+.spark-seg.up { stroke: var(--up); } .spark-seg.down { stroke: var(--down); }
+.spark-dot { fill: var(--muted); stroke: var(--surface); stroke-width: 2; }
+.spark-dot.up { fill: var(--up); } .spark-dot.down { fill: var(--down); }
+.spark-axis { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.spark-hover line { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 2; }
+.spark-hover circle { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
+.spark-hover text { font-size: 11.5px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; font-variant-numeric: tabular-nums; }
+.spark-hit { fill: transparent; }
+.spark figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.context { margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
+.context div { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 6px; }
+.context dt { color: var(--ink-2); }
+.context dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.mini { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.mini th { text-align: left; font-size: 11px; font-weight: 600; color: var(--muted); padding: 0 0 4px; border-bottom: 1px solid var(--line-strong); }
+.mini td { padding: 5px 0; border-bottom: 1px solid var(--line); }
+.mini td + td { white-space: nowrap; }
+.mini td + td, .mini th + th { text-align: right; padding-left: 10px; }
+.mini .nm { overflow-wrap: anywhere; }
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.news a { font-weight: 600; font-size: 14px; line-height: 1.35; text-decoration: none; }
+.news a:hover { text-decoration: underline; }
+.news .meta { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
+.news-group + .news-group { margin-top: 12px; }
+.news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 13.5px; }
+
+/* Ledger */
+.ledger-head { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; padding: 14px 14px 10px; }
+.ledger-head h2 { margin: 0; font-family: var(--font-display); font-stretch: 80%; font-weight: 720; font-size: 26px; line-height: 1.1; }
+.ledger-head p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+input[type="search"] { height: 34px; width: 210px; max-width: 100%; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 14px; }
+.table-wrap { overflow-x: auto; border-top: 1px solid var(--line); }
+table.rank { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.rank th { padding: 0; text-align: left; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+table.rank th button, table.rank th span { display: flex; align-items: center; gap: 4px; width: 100%; padding: 9px 10px; border: 0; background: none; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
+table.rank th span { cursor: default; }
+table.rank th.num button { justify-content: flex-end; }
+table.rank th button:hover { color: var(--ink); }
+table.rank th[aria-sort] button { color: var(--ink); }
+table.rank td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.rank .num { text-align: right; }
+table.rank tbody tr { cursor: pointer; }
+table.rank tbody tr:hover { background: var(--row-hover); }
+table.rank tbody tr.is-sel { background: var(--row-sel); }
+.rk-cell { color: var(--muted); width: 1%; }
+.row-btn { padding: 0; border: 0; background: none; font-weight: 600; cursor: pointer; text-align: left; }
+.iso { margin-left: 6px; font-size: 11px; font-weight: 500; letter-spacing: .04em; color: var(--muted); }
+.chg { display: inline-flex; align-items: center; gap: 6px; }
+.chg .sw { width: 10px; height: 10px; }
+.sw.b0 { background: var(--div-0); } .sw.b1 { background: var(--div-1); } .sw.b2 { background: var(--div-2); } .sw.b3 { background: var(--div-3); } .sw.b4 { background: var(--div-4); }
+.sw.b5 { background: var(--div-5); } .sw.b6 { background: var(--div-6); } .sw.b7 { background: var(--div-7); } .sw.b8 { background: var(--div-8); }
+.tiny { display: block; }
+.tiny path { fill: none; stroke: var(--ink-2); stroke-width: 1.25; }
+.tiny circle { fill: var(--ink); }
+.ledger-foot { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 12px 14px; font-size: 13px; color: var(--muted); }
+
+/* Notes */
+.notes { padding: 20px 14px 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 22px 36px; border-top: 1px solid var(--line-strong); }
+.notes h2 { grid-column: 1 / -1; margin: 0; font-family: var(--font-display); font-stretch: 80%; font-weight: 720; font-size: 26px; }
+.notes section { max-width: 62ch; }
+.notes h3 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
+.notes p, .notes li { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); }
+.notes ul { margin: 0; padding-left: 18px; }
+.foot { font-size: 12.5px; color: var(--muted); padding: 4px 14px; }
+.boot-error { padding: 16px; border: 1px solid var(--up); border-radius: var(--radius); background: var(--surface); }
+
+@media (max-width: 1020px) {
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .panel { position: static; max-height: none; }
+}
+@media (max-width: 640px) {
+  .masthead { grid-template-columns: minmax(0, 1fr); }
+  .controls { gap: 12px 14px; }
+  .seg button { padding: 0 9px; font-size: 13px; }
+  .ticks span:nth-child(even) { display: none; }
+  .map-hint { display: none; }
+  .zoom button { width: 30px; height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .country { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Refugee and displacement statistics · <span id="eyebrow-period">year-end figures</span></p>
+      <h1>Displacement Change Monitor</h1>
+      <p class="lede">Which displacement situations grew or shrank the most between two year-end counts. Red means more people displaced, blue means fewer. Click a country to see where people went, the figures behind its rank, and recent news.</p>
+    </div>
+    <dl class="stamps" aria-label="Dates">
+      <dt>Statistics cover</dt><dd id="stamp-period">—</dd>
+      <dt>Latest UNHCR year</dt><dd id="stamp-latest">—</dd>
+      <dt>UNHCR data retrieved</dt><dd id="stamp-retrieved">—</dd>
+      <dt>News retrieved</dt><dd id="stamp-news">—</dd>
+    </dl>
+  </header>
+
+  <p class="boot-error" id="boot-error" hidden>The data files didn't load. Keep the <code>data</code> folder next to this page and reload.</p>
+
+  <section class="controls" aria-label="What the map shows">
+    <div class="field">
+      <label for="metric">Measure</label>
+      <select id="metric">
+        <option value="ref">Refugees under UNHCR's mandate</option>
+        <option value="intl">All needing international protection</option>
+        <option value="asy">Asylum-seekers</option>
+        <option value="idmc">Internally displaced (IDMC)</option>
+      </select>
+    </div>
+    <div class="field">
+      <span class="label" id="view-l">Count people by</span>
+      <div class="seg" role="radiogroup" aria-labelledby="view-l" id="view" data-key="view">
+        <button type="button" role="radio" data-v="o">Country of origin</button>
+        <button type="button" role="radio" data-v="h">Host country</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label">Period, 31 Dec to 31 Dec</span>
+      <div class="period">
+        <select id="from" aria-label="Start year"></select>
+        <span aria-hidden="true">→</span>
+        <select id="to" aria-label="End year"></select>
+        <button type="button" class="btn" id="play" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><path id="play-icon" d="M2 1l9 5-9 5z"/></svg><span id="play-text">Play years</span></button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label" id="rank-l">Rank and color by</span>
+      <div class="seg" role="radiogroup" aria-labelledby="rank-l" id="rank" data-key="rank">
+        <button type="button" role="radio" data-v="abs">Change in people</button>
+        <button type="button" role="radio" data-v="pct">% change</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label" id="arrows-l">Flow arrows</span>
+      <div class="seg" role="radiogroup" aria-labelledby="arrows-l" id="arrows" data-key="arrows">
+        <button type="button" role="radio" data-v="change">Change</button>
+        <button type="button" role="radio" data-v="total">Total at end</button>
+        <button type="button" role="radio" data-v="off">Off</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="stage">
+    <div class="card map-card">
+      <div class="map-head">
+        <h2 class="map-title" id="map-title">Change in refugees</h2>
+        <p class="map-hint">Drag to pan · Ctrl + scroll to zoom · Click a country</p>
+      </div>
+      <div id="map-box">
+        <svg id="map" role="img" aria-labelledby="map-title map-desc">
+          <desc id="map-desc">World map colored by change in the selected measure. The ranked table below lists the same figures.</desc>
+          <defs>
+            <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect class="hatch-bg" width="5" height="5"></rect>
+              <line class="hatch-line" x1="0" y1="0" x2="0" y2="5"></line>
+            </pattern>
+          </defs>
+        </svg>
+        <div class="zoom">
+          <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+          <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+          <button type="button" id="zoom-reset" aria-label="Reset zoom"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5V2h3M12 5V2H9M2 9v3h3M12 9v3H9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        </div>
+        <div class="tip" id="tip" hidden></div>
+      </div>
+      <div class="legend">
+        <div class="legend-block">
+          <p class="legend-title" id="legend-title">Change in people</p>
+          <div class="scale">
+            <div class="swatches" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="ticks" id="legend-ticks"></div>
+            <div class="ends"><span>▼ Fewer</span><span>More ▲</span></div>
+          </div>
+          <ul class="keys">
+            <li><span class="sw nodata"></span>No figure for one or both years</li>
+            <li id="key-smallbase" hidden><span class="sw smallbase"></span>Under 1,000 at start, not ranked by %</li>
+          </ul>
+        </div>
+        <div class="legend-block arrow-key" id="arrow-key">
+          <p class="legend-title" id="arrow-key-title">Flow arrows: origin → host</p>
+          <svg width="230" height="28" viewBox="0 0 230 28" aria-hidden="true" id="arrow-key-svg"></svg>
+          <p class="note" id="arrow-key-note" style="margin:0">Width shows the number of people.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="card panel" id="panel" aria-live="polite"></aside>
+  </section>
+
+  <section class="card ledger" aria-labelledby="ledger-title">
+    <div class="ledger-head">
+      <div>
+        <h2 id="ledger-title">Ranking</h2>
+        <p id="ledger-sub">Largest increase first</p>
+      </div>
+      <div class="filters">
+        <div class="field"><label for="q">Find a country</label><input type="search" id="q" placeholder="Name or ISO code" autocomplete="off"></div>
+        <div class="field"><label for="area">Region</label><select id="area"><option value="">All regions</option></select></div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="rank" id="rank-table">
+        <caption class="sr-only" id="table-caption">Countries ranked by change</caption>
+        <thead><tr>
+          <th class="num" data-k="rank"><button type="button">#</button></th>
+          <th data-k="name"><button type="button">Country</button></th>
+          <th data-k="area"><button type="button">Region</button></th>
+          <th class="num" data-k="start"><button type="button" id="th-start">Start</button></th>
+          <th class="num" data-k="end"><button type="button" id="th-end">End</button></th>
+          <th class="num" data-k="change"><button type="button">Change</button></th>
+          <th class="num" data-k="pct"><button type="button">% change</button></th>
+          <th><span id="th-trend">Trend</span></th>
+        </tr></thead>
+        <tbody id="rank-body"></tbody>
+      </table>
+    </div>
+    <div class="ledger-foot">
+      <span id="ledger-count"></span>
+      <button type="button" class="btn" id="show-all">Show all</button>
+    </div>
+  </section>
+
+  <section class="notes" aria-labelledby="notes-title">
+    <h2 id="notes-title">About the data</h2>
+    <section>
+      <h3>What each measure counts</h3>
+      <ul>
+        <li><b>Refugees under UNHCR's mandate:</b> people recognized as refugees or in refugee-like situations. Palestine refugees under UNRWA's mandate are not included.</li>
+        <li><b>Asylum-seekers:</b> people whose asylum claims were still pending at year-end.</li>
+        <li><b>All needing international protection:</b> refugees, asylum-seekers and "other people in need of international protection," a group UNHCR reports from 2018 onward.</li>
+        <li><b>Internally displaced (IDMC):</b> people displaced by conflict and violence inside their own country, as estimated by the Internal Displacement Monitoring Centre.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>How change is calculated</h3>
+      <p>Every figure is a count on 31 December. Change is the end-year count minus the start-year count. Percentage change is shown only when the start figure is above zero. Ranking by % leaves out countries that started under 1,000 people, so tiny numbers don't top the list.</p>
+      <p>If either year has no figure, the country is marked unavailable and is not ranked. "Country of origin" counts people by where they fled from. "Host country" counts them by where they live now.</p>
+    </section>
+    <section>
+      <h3>What the arrows show</h3>
+      <p>Each arrow runs from a country of origin to a host country. In "Change" mode, its width is how much that group grew or shrank over the period: red for growth, blue for decline. In "Total at end" mode, its width is the number of people at the end of the period.</p>
+      <p>Arrows compare year-end counts. They are not counts of journeys. A shrinking corridor can mean returns, moves elsewhere, naturalization or a revised count. Arrows start and end at a reference point inside each country. People of unknown origin or who are stateless have no point on the map, so they appear in lists only.</p>
+    </section>
+    <section>
+      <h3>Checks on the numbers</h3>
+      <p id="verify-text">Each origin-to-host figure is added up and compared with UNHCR's own published totals.</p>
+      <p>The ranking compares the same two dates for every country. It flags situations worth a closer look. It is not a full assessment of humanitarian conditions.</p>
+    </section>
+    <section>
+      <h3>Read before relying on a ranking</h3>
+      <p>Large swings can come from how a government counts people, not only from new displacement or returns. In UNHCR's 2025 figures, refugees hosted in Iran fell from 3.49 million to 0.77 million, and people of unknown origin needing international protection rose by about 1.5 million. Check UNHCR's notes before reading a swing like that as movement on the ground.</p>
+      <p>UNHCR publishes year-end figures once a year, months after the year closes. The newest comparison is therefore at least several months old.</p>
+    </section>
+    <section>
+      <h3>News headlines</h3>
+      <p>Headlines come from GDELT's news search. They are English-language articles from the last 14 days that mention the country alongside words like refugees, displaced or asylum. They are matched automatically and not checked by this tool, so some may be off-topic.</p>
+      <p id="news-mode-text"></p>
+    </section>
+    <section>
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://api.unhcr.org/docs/refugee-statistics.html" target="_blank" rel="noopener">UNHCR Refugee Population Statistics API</a>, the source of every UNHCR figure here</li>
+        <li><a href="https://www.unhcr.org/refugee-statistics/" target="_blank" rel="noopener">UNHCR Refugee Data Finder</a> and <a href="https://www.unhcr.org/refugee-statistics/methodology" target="_blank" rel="noopener">its methodology</a></li>
+        <li><a href="https://www.internal-displacement.org/database/displacement-data/" target="_blank" rel="noopener">IDMC Global Internal Displacement Database</a>, published through the UNHCR API</li>
+        <li><a href="https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/" target="_blank" rel="noopener">GDELT DOC 2.0 news search</a></li>
+        <li>Boundaries: Natural Earth via <a href="https://github.com/topojson/world-atlas" target="_blank" rel="noopener">world-atlas</a>. Boundaries and names do not imply endorsement by UNHCR or the project team.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Updates</h3>
+      <p>On the project's GitHub Pages site, a scheduled job downloads all figures and headlines again every day and re-runs the checks before publishing. If a check fails, the previous data stays up. When UNHCR adds a new year, the default comparison moves to it.</p>
+    </section>
+  </section>
+  <p class="foot" id="foot"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="data/world.js"></script>
+<script src="data/dashboard-data.js"></script>
+<script src="data/news.js"></script>
+<script>
+(() => {
+  "use strict";
+  const D = window.DISPLACEMENT_DATA;
+  const TOPO = window.WORLD_TOPO;
+  const NEWS = window.DISPLACEMENT_NEWS || null;
+  if (!D || !TOPO || !window.d3 || !window.topojson) {
+    document.getElementById("boot-error").hidden = false;
+    return;
+  }
+
+  // ---------- Constants ----------
+  const [Y0, YN] = D.meta.years;
+  const [FY0, FYN] = D.meta.flowYears;
+  const C = D.countries;
+  const IDX = new Map(C.map((c, i) => [c.id, i]));
+  const API = D.meta.api;
+  const METRICS = {
+    ref: { label: "Refugees under UNHCR's mandate", noun: "refugees", o: "ref_o", h: "ref_h", cols: [2] },
+    intl: { label: "All needing international protection", noun: "people needing international protection", o: "intl_o", h: "intl_h", cols: [2, 3, 4] },
+    asy: { label: "Asylum-seekers", noun: "asylum-seekers", o: "asy_o", h: "asy_h", cols: [3] },
+    idmc: { label: "Internally displaced (IDMC)", noun: "internally displaced people", o: "idmc", h: "idmc", cols: null },
+  };
+  const BINS = {
+    abs: [-500000, -100000, -10000, -1000, 1000, 10000, 100000, 500000],
+    pct: [-75, -50, -20, -5, 5, 20, 50, 100],
+  };
+  const MIN_BASE = 1000;
+  const ARROWS_WORLD = 15, ARROWS_COUNTRY = 12, ARROW_LABELS = 4, TABLE_TOP = 25;
+  const LIVE_NEWS = /(^|\.)github\.io$/.test(location.hostname) || ["localhost", "127.0.0.1"].includes(location.hostname);
+  const REDUCE_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const state = { metric: "ref", view: "o", from: FYN - 1, to: FYN, rank: "abs", arrows: "change", sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
+
+  // ---------- Formatting ----------
+  const fmtInt = d3.format(",");
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  const sign = (v) => (v > 0 ? "+" : v < 0 ? "−" : "");
+  function compact(v) {
+    const a = Math.abs(v);
+    if (a >= 1e6) return (a / 1e6).toFixed(a >= 1e7 ? 1 : 2).replace(/\.?0+$/, "") + "M";
+    if (a >= 1e3) return Math.round(a / 1e3) + "k";
+    return String(Math.round(a));
+  }
+  const full = (v) => (v == null ? '<span class="na">Unavailable</span>' : fmtInt(v));
+  const fullText = (v) => (v == null ? "unavailable" : fmtInt(v));
+  const signedFull = (v) => (v == null ? '<span class="na">Unavailable</span>' : sign(v) + fmtInt(Math.abs(v)));
+  const signedCompact = (v) => (v === 0 ? "0" : sign(v) + compact(v));
+  const pctText = (p) => (p == null ? "n/a" : sign(Math.round(p * 10)) + (Math.abs(p) >= 100 ? Math.round(Math.abs(p)) : Math.abs(p).toFixed(1)) + "%");
+  const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—");
+  const dir = (v) => (v == null ? "none" : v > 0 ? "up" : v < 0 ? "down" : "flat");
+  const glyph = (v) => `<span class="glyph ${dir(v)}" aria-hidden="true">${v == null ? "–" : v > 0 ? "▲" : v < 0 ? "▼" : "●"}</span>`;
+  const at = (arr, y) => (arr ? arr[y - Y0] ?? null : null);
+  const metric = () => METRICS[state.metric];
+  const seriesKey = () => (state.view === "h" ? metric().h : metric().o);
+  const viewLabel = () => (state.metric === "idmc" ? "Inside the country" : state.view === "o" ? "By country of origin" : "By host country");
+
+  // ---------- Rows: one per country for the current measure, view and period ----------
+  let rows = [], rowByIdx = new Map(), rankedCount = 0;
+  function computeRows() {
+    const s = D.series[seriesKey()] || {};
+    rows = [];
+    for (const [k, arr] of Object.entries(s)) {
+      const i = +k, a = at(arr, state.from), b = at(arr, state.to);
+      if (a == null && b == null) continue;
+      const change = a != null && b != null ? b - a : null;
+      const pct = change != null && a > 0 ? (change / a) * 100 : null;
+      const score = state.rank === "abs" ? change : pct != null && a >= MIN_BASE ? pct : null;
+      rows.push({ i, c: C[i], start: a, end: b, change, pct, score, arr });
+    }
+    rows.sort((x, y) => (y.score ?? -Infinity) - (x.score ?? -Infinity) || (y.end ?? 0) - (x.end ?? 0));
+    rankedCount = 0;
+    for (const r of rows) r.rank = r.score != null ? ++rankedCount : null;
+    rowByIdx = new Map(rows.map((r) => [r.i, r]));
+  }
+  function binClass(row) {
+    if (!row || row.start == null || row.end == null) return "nodata";
+    if (row.score == null) return "smallbase";
+    return "b" + d3.bisectRight(BINS[state.rank], row.score);
+  }
+
+  // ---------- Flows ----------
+  const flowCache = new Map();
+  function flowMap(year) {
+    const cols = metric().cols;
+    if (!cols) return null;
+    const key = state.metric + "|" + year;
+    if (flowCache.has(key)) return flowCache.get(key);
+    const out = new Map();
+    for (const r of D.flows.byYear[year] || []) {
+      let v = 0;
+      for (const c of cols) v += r[c];
+      if (v) out.set(r[0] * 1024 + r[1], v);
+    }
+    flowCache.set(key, out);
+    return out;
+  }
+  // Every origin→host pair touching the selection (or all pairs), with its start, end and change.
+  function corridors() {
+    const A = flowMap(state.from), B = flowMap(state.to);
+    if (!A || !B) return [];
+    const out = [];
+    for (const k of new Set([...A.keys(), ...B.keys()])) {
+      const o = Math.floor(k / 1024), h = k % 1024;
+      if (state.sel != null && (state.view === "o" ? o : h) !== state.sel) continue;
+      const a = A.get(k) || 0, b = B.get(k) || 0;
+      out.push({ o, h, a, b, change: b - a, pct: a > 0 ? ((b - a) / a) * 100 : null });
+    }
+    return out;
+  }
+  function arrowList() {
+    if (state.arrows === "off" || !metric().cols) return [];
+    let list = corridors();
+    list = state.arrows === "change"
+      ? list.filter((d) => d.change !== 0).sort((x, y) => Math.abs(y.change) - Math.abs(x.change))
+      : list.filter((d) => d.b > 0).sort((x, y) => y.b - x.b);
+    return list.slice(0, state.sel != null ? ARROWS_COUNTRY : ARROWS_WORLD);
+  }
+
+  // ---------- Map ----------
+  const mapBox = document.getElementById("map-box");
+  const svg = d3.select("#map");
+  const gRoot = svg.append("g");
+  const sea = gRoot.append("path").datum({ type: "Sphere" }).attr("class", "sea");
+  const gCountries = gRoot.append("g");
+  const gSel = gRoot.append("g");
+  const gArrows = svg.append("g");
+  const features = topojson.feature(TOPO, TOPO.objects.countries).features.filter((f) => f.properties.name !== "Antarctica");
+  for (const f of features) f.idx = f.properties.iso != null ? IDX.get(f.properties.iso) ?? null : null;
+  const projection = d3.geoEqualEarth();
+  const geoPath = d3.geoPath(projection);
+  let W = 0, H = 0, transform = d3.zoomIdentity, currentArrows = [], focusSet = null;
+
+  const countryPaths = gCountries.selectAll("path").data(features).join("path").attr("class", "country")
+    .on("pointermove", (ev, f) => showCountryTip(ev, f))
+    .on("pointerleave", hideTip)
+    .on("click", (ev, f) => { if (f.idx != null) select(f.idx === state.sel ? null : f.idx); });
+  sea.on("click", () => select(null));
+
+  const zoom = d3.zoom().scaleExtent([1, 8])
+    .filter((ev) => (ev.type === "wheel" ? ev.ctrlKey || ev.metaKey : !ev.button))
+    .on("zoom", (ev) => { transform = ev.transform; gRoot.attr("transform", transform); drawArrows(false); hideTip(); });
+  svg.call(zoom).style("touch-action", "pan-y");
+  const zoomBy = (k) => svg.transition().duration(REDUCE_MOTION ? 0 : 300).call(zoom.scaleBy, k);
+  document.getElementById("zoom-in").onclick = () => zoomBy(1.6);
+  document.getElementById("zoom-out").onclick = () => zoomBy(1 / 1.6);
+  document.getElementById("zoom-reset").onclick = () => svg.transition().duration(REDUCE_MOTION ? 0 : 300).call(zoom.transform, d3.zoomIdentity);
+
+  function layout() {
+    const w = Math.round(mapBox.clientWidth);
+    if (!w || w === W) return;
+    W = w;
+    H = Math.max(220, Math.round(W * 0.47));
+    svg.attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    projection.fitExtent([[6, 6], [W - 6, H - 6]], { type: "FeatureCollection", features });
+    sea.attr("d", geoPath);
+    countryPaths.attr("d", geoPath);
+    zoom.extent([[0, 0], [W, H]]).translateExtent([[0, 0], [W, H]]);
+    transform = d3.zoomIdentity;
+    svg.call(zoom.transform, transform);
+    drawSelection();
+    drawArrows(false);
+  }
+  new ResizeObserver(() => layout()).observe(mapBox);
+
+  function paintMap() {
+    countryPaths.attr("class", (f) => {
+      const row = f.idx != null ? rowByIdx.get(f.idx) : null;
+      return "country " + binClass(row) + (focusSet && !focusSet.has(f.idx) ? " dim" : "");
+    });
+  }
+  function drawSelection() {
+    gSel.selectAll("path").data(features.filter((f) => f.idx != null && f.idx === state.sel)).join("path").attr("class", "sel-outline").attr("d", geoPath);
+  }
+
+  function point(i) {
+    const c = C[i];
+    if (c.lat == null) return null;
+    const p = projection([c.lon, c.lat]);
+    return p ? transform.apply(p) : null;
+  }
+  // A curved shaft that bends to the right of travel, so A→B and B→A never overlap, plus a solid head.
+  function arrowGeom(p0, p1, w) {
+    const dx = p1[0] - p0[0], dy = p1[1] - p0[1], d = Math.hypot(dx, dy);
+    if (d < 6) return null;
+    const nx = -dy / d, ny = dx / d, bend = 0.2;
+    const c = [(p0[0] + p1[0]) / 2 + nx * d * bend, (p0[1] + p1[1]) / 2 + ny * d * bend];
+    let tx = p1[0] - c[0], ty = p1[1] - c[1];
+    const tl = Math.hypot(tx, ty) || 1;
+    tx /= tl; ty /= tl;
+    const head = Math.min(d * 0.45, Math.max(8, w * 1.7 + 5));
+    const hw = Math.max(head * 0.55, w * 0.85 + 3);
+    const tip = [p1[0] - tx * 2, p1[1] - ty * 2];
+    const back = [tip[0] - tx * head, tip[1] - ty * head];
+    const base = [tip[0] - tx * head * 0.8, tip[1] - ty * head * 0.8];
+    const L = [back[0] - ty * hw, back[1] + tx * hw], R = [back[0] + ty * hw, back[1] - tx * hw];
+    const f = (v) => v[0].toFixed(1) + "," + v[1].toFixed(1);
+    return {
+      shaft: `M${f(p0)}Q${f(c)} ${f(base)}`,
+      head: `M${f(tip)}L${f(L)}L${f(R)}Z`,
+      mid: [0.25 * p0[0] + 0.5 * c[0] + 0.25 * base[0], 0.25 * p0[1] + 0.5 * c[1] + 0.25 * base[1]],
+    };
+  }
+  function drawArrows(animate) {
+    gArrows.selectAll("*").remove();
+    if (!currentArrows.length || !W) return;
+    const val = (d) => (state.arrows === "change" ? Math.abs(d.change) : d.b);
+    const wScale = d3.scaleSqrt().domain([0, d3.max(currentArrows, val) || 1]).range([1.2, state.sel != null ? 11 : 9]);
+    const drawn = [];
+    for (const d of [...currentArrows].sort((x, y) => val(y) - val(x))) {
+      const p0 = point(d.o), p1 = point(d.h);
+      if (!p0 || !p1) continue;
+      const w = wScale(val(d)), g = arrowGeom(p0, p1, w);
+      if (g) drawn.push({ d, w, g });
+    }
+    const groups = gArrows.selectAll("g.arrow").data(drawn).join("g")
+      .attr("class", (x) => "arrow " + (state.arrows === "total" ? "total" : x.d.change > 0 ? "up" : "down"));
+    const halos = groups.append("path").attr("class", "arrow-halo").attr("d", (x) => x.g.shaft).attr("stroke-width", (x) => x.w + 3);
+    const shafts = groups.append("path").attr("class", "arrow-shaft").attr("d", (x) => x.g.shaft).attr("stroke-width", (x) => x.w);
+    const heads = groups.append("path").attr("class", "arrow-head").attr("d", (x) => x.g.head);
+    groups.append("path").attr("class", "arrow-hit").attr("d", (x) => x.g.shaft).attr("stroke-width", (x) => Math.max(14, x.w + 8))
+      .on("pointermove", (ev, x) => showArrowTip(ev, x.d)).on("pointerleave", hideTip);
+    // Label the biggest arrows only, skipping any label that would collide with one already placed.
+    const placed = [], labels = [];
+    for (const x of drawn) {
+      if (labels.length >= (W < 600 ? 2 : ARROW_LABELS)) break;
+      const text = state.arrows === "change" ? signedCompact(x.d.change) : compact(x.d.b);
+      const bw = text.length * 7 + 6, bh = 15, cx = x.g.mid[0], cy = x.g.mid[1] - 7;
+      const box = [cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2];
+      if (box[0] < 0 || box[2] > W || box[1] < 0) continue;
+      if (placed.some((p) => box[0] < p[2] && box[2] > p[0] && box[1] < p[3] && box[3] > p[1])) continue;
+      placed.push(box);
+      labels.push({ x, text });
+    }
+    gArrows.selectAll("text.arrow-label").data(labels).join("text").attr("class", "arrow-label")
+      .attr("x", (l) => l.x.g.mid[0]).attr("y", (l) => l.x.g.mid[1]).attr("dy", "-0.45em").attr("text-anchor", "middle")
+      .text((l) => l.text);
+    if (state.sel != null) {
+      const p = point(state.sel);
+      if (p) gArrows.append("circle").attr("class", "node").attr("cx", p[0]).attr("cy", p[1]).attr("r", 4.5);
+    }
+    if (animate && !REDUCE_MOTION) {
+      for (const sel of [halos, shafts]) {
+        sel.each(function () {
+          const len = this.getTotalLength();
+          d3.select(this).attr("stroke-dasharray", `${len} ${len}`).attr("stroke-dashoffset", len)
+            .transition().duration(650).ease(d3.easeCubicOut).attr("stroke-dashoffset", 0)
+            .on("end", function () { d3.select(this).attr("stroke-dasharray", null).attr("stroke-dashoffset", null); });
+        });
+      }
+      heads.attr("opacity", 0).transition().delay(480).duration(220).attr("opacity", 1);
+    }
+  }
+
+  // Frame the selected country and the far ends of its arrows; zoom back out when nothing is selected.
+  function zoomToSelection() {
+    if (!W) return;
+    const t = REDUCE_MOTION ? 0 : 600;
+    if (state.sel == null) { svg.transition().duration(t).call(zoom.transform, d3.zoomIdentity); return; }
+    const ids = [state.sel, ...currentArrows.map((d) => (state.view === "o" ? d.h : d.o))];
+    const pts = ids.map((i) => C[i]).filter((c) => c.lat != null).map((c) => projection([c.lon, c.lat])).filter(Boolean);
+    if (!pts.length) return;
+    const [x0, x1] = d3.extent(pts, (p) => p[0]), [y0, y1] = d3.extent(pts, (p) => p[1]);
+    const k = Math.max(1, Math.min(4, 0.75 / Math.max((x1 - x0 + 40) / W, (y1 - y0 + 40) / H)));
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    svg.transition().duration(t).call(zoom.transform, d3.zoomIdentity.translate(W / 2 - k * cx, H / 2 - k * cy).scale(k));
+  }
+
+  // ---------- Tooltips ----------
+  const tip = document.getElementById("tip");
+  function placeTip(ev, html) {
+    tip.innerHTML = html;
+    tip.hidden = false;
+    const box = mapBox.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = ev.clientX - box.left + 14, y = ev.clientY - box.top + 14;
+    if (x + tw > box.width - 6) x = ev.clientX - box.left - tw - 14;
+    if (y + th > box.height - 6) y = ev.clientY - box.top - th - 14;
+    tip.style.left = Math.max(6, x) + "px";
+    tip.style.top = Math.max(6, y) + "px";
+  }
+  function hideTip() { tip.hidden = true; }
+  function showCountryTip(ev, f) {
+    const row = f.idx != null ? rowByIdx.get(f.idx) : null;
+    const name = f.idx != null ? C[f.idx].name : f.properties.name;
+    if (!row) {
+      placeTip(ev, `<strong>${esc(name)}</strong>No ${esc(metric().noun)} reported for ${state.from} or ${state.to}.`);
+      return;
+    }
+    placeTip(ev, `<strong>${esc(name)}</strong><div class="tip-grid">
+      <span>31 Dec ${state.from}</span><b>${full(row.start)}</b>
+      <span>31 Dec ${state.to}</span><b>${full(row.end)}</b>
+      <span>Change</span><b>${signedFull(row.change)}</b>
+      <span>% change</span><b>${pctText(row.pct)}</b>
+      <span>Rank</span><b>${row.rank ? `#${row.rank} of ${rankedCount}` : "not ranked"}</b></div>
+      ${f.idx !== state.sel ? '<div class="tip-note">Click for details and flows</div>' : ""}`);
+  }
+  function showArrowTip(ev, d) {
+    placeTip(ev, `<strong>${esc(C[d.o].name)} → ${esc(C[d.h].name)}</strong><div class="tip-grid">
+      <span>31 Dec ${state.from}</span><b>${fmtInt(d.a)}</b>
+      <span>31 Dec ${state.to}</span><b>${fmtInt(d.b)}</b>
+      <span>Change</span><b>${signedFull(d.change)}</b>
+      <span>% change</span><b>${pctText(d.pct)}</b></div>
+      <div class="tip-note">${esc(cap(metric().noun))} from ${esc(C[d.o].name)} living in ${esc(C[d.h].name)}</div>`);
+  }
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  // ---------- Legend ----------
+  function renderLegend() {
+    const t = BINS[state.rank];
+    document.getElementById("legend-ticks").innerHTML = t
+      .map((v, k) => `<span style="left:${(((k + 1) / 9) * 100).toFixed(2)}%">${state.rank === "abs" ? signedCompact(v) : sign(v) + Math.abs(v) + "%"}</span>`)
+      .join("");
+    document.getElementById("legend-title").textContent =
+      `${state.rank === "abs" ? "Change in" : "% change in"} ${metric().noun}, 31 Dec ${state.from} → 31 Dec ${state.to}`;
+    document.getElementById("key-smallbase").hidden = state.rank !== "pct";
+    const key = document.getElementById("arrow-key");
+    key.hidden = !metric().cols || state.arrows === "off";
+    const ks = d3.select("#arrow-key-svg");
+    ks.selectAll("*").remove();
+    const sample = (x, cls, w, label) => {
+      const g = arrowGeom([x, 20], [x + 58, 20], w);
+      ks.append("path").attr("d", g.shaft).attr("class", cls).attr("fill", "none").attr("stroke-width", w).attr("stroke-linecap", "round");
+      ks.append("path").attr("d", g.head).attr("class", cls).attr("stroke-width", 0);
+      ks.append("text").attr("x", x + 64).attr("y", 23).attr("font-size", 11.5).attr("fill", "var(--ink-2)").text(label);
+    };
+    if (state.arrows === "change") {
+      sample(2, "k-up", 5, "Grew");
+      sample(118, "k-down", 5, "Shrank");
+      document.getElementById("arrow-key-note").textContent = "Width shows how many people the corridor gained or lost.";
+    } else {
+      sample(2, "k-total", 5, "People at end of period");
+      document.getElementById("arrow-key-note").textContent = "Width shows how many people live in the host country.";
+    }
+    document.getElementById("arrow-key-title").textContent = state.sel != null
+      ? `Flow arrows: ${state.view === "o" ? `from ${C[state.sel].name} to hosts` : `into ${C[state.sel].name} from origins`}`
+      : `Flow arrows: ${state.arrows === "change" ? `${ARROWS_WORLD} largest corridor changes` : `${ARROWS_WORLD} largest corridors`}, origin → host`;
+    document.getElementById("map-title").textContent =
+      `${state.rank === "abs" ? "Change in" : "% change in"} ${metric().noun}, ${state.from}–${state.to}` +
+      (state.metric === "idmc" ? "" : state.view === "o" ? ", by country of origin" : ", by host country");
+  }
+
+  // ---------- Panel ----------
+  const panel = document.getElementById("panel");
+  panel.addEventListener("click", (e) => {
+    const s = e.target.closest("[data-select]");
+    if (s) { select(+s.dataset.select); return; }
+    if (e.target.closest("[data-clear]")) select(null);
+  });
+
+  function rankItem(r, maxAbs) {
+    const pctW = maxAbs ? Math.max(2, (Math.abs(r.score) / maxAbs) * 100) : 0;
+    const val = state.rank === "abs" ? signedCompact(r.change) : pctText(r.pct);
+    return `<li><button type="button" data-select="${r.i}"><span class="rk">${r.rank}</span><span class="nm">${esc(r.c.name)}</span><span class="val">${val}</span><span class="bar"><i class="${dir(r.score)}" style="width:${pctW.toFixed(1)}%"></i></span></button></li>`;
+  }
+
+  function corridorTable(list, perspective) {
+    if (!list.length) return `<p class="note">No corridors with ${esc(metric().noun)} in these years.</p>`;
+    return `<table class="mini"><thead><tr><th>${perspective}</th><th>${state.to}</th><th>Change</th></tr></thead><tbody>${list
+      .map((d) => {
+        const other = C[state.sel == null ? d.o : state.view === "o" ? d.h : d.o];
+        const name = state.sel == null ? `${C[d.o].name} → ${C[d.h].name}` : other.name;
+        const off = state.sel == null ? (C[d.o].lat == null || C[d.h].lat == null) : other.lat == null;
+        return `<tr><td class="nm">${esc(name)}${off ? ' <span class="na">(no map point)</span>' : ""}</td><td>${fmtInt(d.b)}</td><td>${glyph(d.change)} ${signedCompact(d.change)}</td></tr>`;
+      })
+      .join("")}</tbody></table>`;
+  }
+
+  function renderOverview() {
+    const both = rows.filter((r) => r.start != null && r.end != null);
+    const s = d3.sum(both, (r) => r.start), e = d3.sum(both, (r) => r.end), ch = e - s;
+    const ranked = rows.filter((r) => r.score != null);
+    const ups = ranked.filter((r) => r.score > 0).slice(0, 5);
+    const downs = ranked.filter((r) => r.score < 0).slice(-3).reverse();
+    const maxAbs = d3.max([...ups, ...downs], (r) => Math.abs(r.score)) || 0;
+    const m = metric();
+    let arrowsHtml;
+    if (!m.cols) arrowsHtml = `<p class="note">Internal displacement happens inside one country, so this measure has no cross-border arrows.</p>`;
+    else if (state.arrows === "off") arrowsHtml = `<p class="note">Arrows are off. Turn them on with "Flow arrows" above the map.</p>`;
+    else arrowsHtml = corridorTable(currentArrows, "Origin → host");
+    panel.innerHTML = `
+      <div>
+        <p class="eyebrow">All countries · ${esc(viewLabel())}</p>
+        <h2>${esc(m.label)}</h2>
+        <p class="sub">31 Dec ${state.from} → 31 Dec ${state.to}</p>
+      </div>
+      <dl class="figs">
+        <div><dt>31 Dec ${state.from}</dt><dd>${fmtInt(s)}</dd></div>
+        <div><dt>31 Dec ${state.to}</dt><dd>${fmtInt(e)}</dd></div>
+        <div class="hero"><dt>Change</dt><dd>${glyph(ch)}${signedCompact(ch)}<small>${pctText(s > 0 ? (ch / s) * 100 : null)}</small></dd></div>
+      </dl>
+      <p class="note" style="margin-top:-8px">Total of the ${both.length} countries with figures for both years.</p>
+      <section><h3>${state.rank === "abs" ? "Largest increases" : "Fastest growth"}</h3>
+        ${ups.length ? `<ol class="rank-list">${ups.map((r) => rankItem(r, maxAbs)).join("")}</ol>` : '<p class="note">No country grew over this period.</p>'}</section>
+      <section><h3>${state.rank === "abs" ? "Largest decreases" : "Fastest decline"}</h3>
+        ${downs.length ? `<ol class="rank-list">${downs.map((r) => rankItem(r, maxAbs)).join("")}</ol>` : '<p class="note">No country declined over this period.</p>'}</section>
+      <section><h3>${m.cols && state.arrows !== "off" ? (state.arrows === "change" ? "Corridors that changed most" : "Largest corridors") : "Flow arrows"}</h3>${arrowsHtml}</section>
+      ${overviewNews(ups)}`;
+  }
+
+  function overviewNews(ups) {
+    if (!NEWS) return "";
+    const picks = ups.filter((r) => NEWS.byCountry?.[r.c.id]?.length).slice(0, 3);
+    if (!picks.length) return "";
+    return `<section><h3>In the news: fastest-rising countries</h3>${picks
+      .map((r) => `<div class="news-group"><button type="button" class="news-country" data-select="${r.i}">${esc(r.c.name)}</button>${newsList(NEWS.byCountry[r.c.id].slice(0, 2))}</div>`)
+      .join("")}<p class="note">GDELT headlines retrieved ${fmtDate(NEWS.retrievedAt)}. Matched automatically, not checked.</p></section>`;
+  }
+
+  function newsList(items) {
+    const safe = items.filter((a) => /^https?:\/\//i.test(a.url));
+    if (!safe.length) return '<p class="note">No matching headlines in the last 14 days.</p>';
+    return `<ul class="news">${safe
+      .map((a) => `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a><span class="meta">${esc(a.domain)}${a.date ? " · " + fmtDate(a.date) : ""}</span></li>`)
+      .join("")}</ul>`;
+  }
+
+  function sourceLinks(c) {
+    const p = `yearFrom=${state.from}&yearTo=${state.to}`;
+    const code = encodeURIComponent(c.code);
+    const links = [];
+    if (state.metric === "idmc") {
+      links.push([`${API}/idmc/?${p}&coo=${code}`, "UNHCR API: these IDMC figures"]);
+      links.push(["https://www.internal-displacement.org/database/displacement-data/", "IDMC displacement database"]);
+    } else if (state.view === "o") {
+      links.push([`${API}/population/?${p}&coo=${code}`, "UNHCR API: these totals"]);
+      links.push([`${API}/population/?${p}&coo=${code}&coa_all=true`, "UNHCR API: breakdown by host country"]);
+    } else {
+      links.push([`${API}/population/?${p}&coa=${code}`, "UNHCR API: these totals"]);
+      links.push([`${API}/population/?${p}&coa=${code}&coo_all=true`, "UNHCR API: breakdown by origin"]);
+    }
+    links.push(["https://www.unhcr.org/refugee-statistics/", "UNHCR Refugee Data Finder"]);
+    return `<ul class="links">${links.map(([u, t]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul>`;
+  }
+
+  function statusChip(row) {
+    if (!row || row.change == null) return `<span class="chip">${glyph(null)} No figure for this period</span>`;
+    const flat = Math.abs(row.change) < 1000;
+    const word = flat ? "Little change" : row.change > 0 ? "Rising" : "Falling";
+    const rank = row.rank ? ` · #${row.rank} of ${rankedCount}` : state.rank === "pct" ? " · not ranked by %" : "";
+    return `<span class="chip">${glyph(flat ? 0 : row.change)} ${word}${rank}</span>`;
+  }
+
+  function renderCountry(i) {
+    const c = C[i], m = metric();
+    const arr = D.series[seriesKey()]?.[i] || null;
+    const row = rowByIdx.get(i) || null;
+    const start = row?.start ?? null, end = row?.end ?? null, ch = row?.change ?? null;
+    const ctx = [];
+    if (state.view === "o" && state.metric !== "idmc" && state.metric !== "asy") {
+      const ret = at(D.series.ret_o?.[i], state.to);
+      if (ret != null) ctx.push([`Refugees who returned to ${c.name} during ${state.to}`, fmtInt(ret)]);
+    }
+    if (state.metric !== "idmc") {
+      const idp = at(D.series.idmc?.[i], state.to);
+      if (idp != null) ctx.push([`Internally displaced in ${c.name}, end-${state.to} (IDMC)`, fmtInt(idp)]);
+    } else {
+      const refs = at(D.series.ref_o?.[i], state.to);
+      if (refs != null) ctx.push([`Refugees from ${c.name} abroad, end-${state.to}`, fmtInt(refs)]);
+    }
+    let flowHtml = "";
+    if (m.cols) {
+      const all = corridors().filter((d) => d.a > 0 || d.b > 0).sort((x, y) => y.b - x.b || Math.abs(y.change) - Math.abs(x.change));
+      const top = all.slice(0, 10);
+      const heading = state.view === "o" ? `Where ${m.noun} from ${c.name} live` : `Where ${m.noun} in ${c.name} come from`;
+      flowHtml = `<section><h3>${esc(heading)}</h3>${corridorTable(top, state.view === "o" ? "Host country" : "Origin")}
+        ${all.length > top.length ? `<p class="note">Top 10 of ${all.length} ${state.view === "o" ? "host countries" : "origins"}, by size at end of ${state.to}.</p>` : ""}</section>`;
+    }
+    panel.innerHTML = `
+      <div>
+        <button type="button" class="back" data-clear>← All countries</button>
+        <p class="eyebrow">${esc(c.region || c.area || "No region")} · ${esc(viewLabel())}</p>
+        <h2>${esc(c.name)}</h2>
+        ${statusChip(row)}
+      </div>
+      <dl class="figs">
+        <div><dt>31 Dec ${state.from}</dt><dd>${full(start)}</dd></div>
+        <div><dt>31 Dec ${state.to}</dt><dd>${full(end)}</dd></div>
+        <div class="hero"><dt>Change in ${esc(m.noun)}</dt><dd>${ch == null ? '<span class="na">Unavailable</span>' : `${glyph(ch)}${signedFull(ch)}<small>${pctText(row.pct)}</small>`}</dd></div>
+      </dl>
+      ${row?.pct == null && ch != null ? `<p class="note" style="margin-top:-8px">% change not shown: the ${state.from} figure was zero.</p>` : ""}
+      <figure class="spark"><svg id="spark" role="img" aria-label="${esc(m.label)} for ${esc(c.name)}, ${Y0} to ${YN}"></svg>
+        <figcaption>${esc(cap(m.noun))}, ${Y0}–${YN}. Shaded: the period you're comparing. Hover for each year.</figcaption></figure>
+      ${ctx.length ? `<dl class="context">${ctx.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
+      ${flowHtml}
+      <section><h3>Recent news</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
+      <section><h3>Check the source</h3>${sourceLinks(c)}
+        <p class="note">Figures are counts on 31 December of each year. UNHCR data retrieved ${fmtDate(D.meta.retrievedAt)}.</p></section>`;
+    drawPanelSpark(arr, row);
+    loadLiveNews(i);
+  }
+
+  function drawPanelSpark(arr, row) {
+    const el = document.getElementById("spark");
+    if (!el) return;
+    const w = Math.max(220, el.parentElement.clientWidth || 300), h = 112, m = { t: 18, r: 6, b: 18, l: 6 };
+    const s = d3.select(el).attr("viewBox", `0 0 ${w} ${h}`).attr("width", w).attr("height", h);
+    const pts = d3.range(Y0, YN + 1).map((y) => ({ y, v: at(arr, y) }));
+    const def = pts.filter((p) => p.v != null);
+    if (!def.length) {
+      s.append("text").attr("class", "spark-axis").attr("x", w / 2).attr("y", h / 2).attr("text-anchor", "middle").text("No figures reported for this measure");
+      return;
+    }
+    const x = d3.scaleLinear().domain([Y0, YN]).range([m.l, w - m.r]);
+    const y = d3.scaleLinear().domain([0, d3.max(def, (p) => p.v) || 1]).nice(3).range([h - m.b, m.t]);
+    const top = y.domain()[1];
+    s.append("rect").attr("class", "band").attr("x", x(state.from)).attr("width", x(state.to) - x(state.from)).attr("y", m.t).attr("height", y(0) - m.t);
+    s.append("line").attr("class", "grid").attr("x1", m.l).attr("x2", w - m.r).attr("y1", y(top)).attr("y2", y(top));
+    s.append("line").attr("class", "base").attr("x1", m.l).attr("x2", w - m.r).attr("y1", y(0)).attr("y2", y(0));
+    const line = d3.line().defined((p) => p.v != null).x((p) => x(p.y)).y((p) => y(p.v));
+    const area = d3.area().defined((p) => p.v != null).x((p) => x(p.y)).y0(y(0)).y1((p) => y(p.v));
+    s.append("path").attr("class", "spark-area").attr("d", area(pts));
+    s.append("path").attr("class", "spark-line").attr("d", line(pts));
+    const cls = dir(row?.change);
+    s.append("path").attr("class", "spark-seg " + cls).attr("d", line(pts.filter((p) => p.y >= state.from && p.y <= state.to)));
+    for (const yr of [state.from, state.to]) {
+      const v = at(arr, yr);
+      if (v != null) s.append("circle").attr("class", "spark-dot " + cls).attr("cx", x(yr)).attr("cy", y(v)).attr("r", 4);
+    }
+    const topLabel = s.append("text").attr("class", "spark-axis").attr("x", m.l).attr("y", y(top) - 5).text(compact(top));
+    s.append("text").attr("class", "spark-axis").attr("x", m.l).attr("y", h - 3).text(Y0);
+    s.append("text").attr("class", "spark-axis").attr("x", w - m.r).attr("y", h - 3).attr("text-anchor", "end").text(YN);
+    const hover = s.append("g").attr("class", "spark-hover").style("display", "none");
+    hover.append("line").attr("y1", m.t).attr("y2", y(0));
+    const dot = hover.append("circle").attr("r", 3.5);
+    const label = hover.append("text").attr("y", 12);
+    s.append("rect").attr("class", "spark-hit").attr("x", 0).attr("y", 0).attr("width", w).attr("height", h)
+      .on("pointermove", (ev) => {
+        const yr = Math.max(Y0, Math.min(YN, Math.round(x.invert(d3.pointer(ev)[0]))));
+        const v = at(arr, yr), right = x(yr) > w * 0.6;
+        hover.style("display", null).attr("transform", `translate(${x(yr)},0)`);
+        dot.style("display", v != null ? null : "none").attr("cy", v != null ? y(v) : 0);
+        label.text(`${yr}: ${v != null ? fmtInt(v) : "not reported"}`).attr("text-anchor", right ? "end" : "start").attr("dx", right ? -6 : 6);
+        topLabel.style("display", "none");
+      })
+      .on("pointerleave", () => { hover.style("display", "none"); topLabel.style("display", null); });
+  }
+
+  // ---------- News for one country: saved headlines, refreshed live where the host allows it ----------
+  const liveCache = new Map();
+  function countryNewsHtml(i) {
+    const c = C[i];
+    if (liveCache.has(c.id)) return newsList(liveCache.get(c.id)) + `<p class="note">Live from GDELT, last 14 days.</p>`;
+    const saved = NEWS?.byCountry?.[c.id];
+    if (saved) {
+      const when = NEWS.checkedAt?.[c.id] || NEWS.retrievedAt;
+      return newsList(saved) + `<p class="note">GDELT headlines retrieved ${fmtDate(when)}.${LIVE_NEWS ? " Checking for newer ones…" : ""}</p>`;
+    }
+    if (LIVE_NEWS) return '<p class="note">Loading headlines from GDELT…</p>';
+    return `<p class="note">No saved headlines for ${esc(c.name)}. The daily update saves news for the ${NEWS ? Object.keys(NEWS.byCountry || {}).length : 0} countries with the largest or fastest-changing displacement. The GitHub Pages version loads headlines for any country.</p>`;
+  }
+  async function loadLiveNews(i) {
+    const c = C[i];
+    if (!LIVE_NEWS || liveCache.has(c.id) || c.lat == null || !c.news?.length) return;
+    const place = c.news.length > 1 ? `(${c.news.join(" OR ")})` : c.news[0];
+    const topic = NEWS?.topic || "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
+    const qs = new URLSearchParams({ query: `${place} ${topic} sourcelang:english`, mode: "artlist", format: "json", maxrecords: "16", timespan: "14d", sort: "hybridrel" });
+    try {
+      const res = await fetch("https://api.gdeltproject.org/api/v2/doc/doc?" + qs, { signal: AbortSignal.timeout(9000) });
+      const text = (await res.text()).trim();
+      if (!res.ok || (text && !text.startsWith("{"))) throw new Error("busy");
+      const seen = new Set(), items = [];
+      for (const a of text ? JSON.parse(text).articles || [] : []) {
+        const title = (a.title || "").replace(/\s+([:,;.!?])/g, "$1").replace(/\s{2,}/g, " ").trim();
+        const norm = title.toLowerCase().replace(/[^a-z0-9]+/g, " ").slice(0, 60);
+        if (!title || seen.has(norm) || !/^https?:\/\//i.test(a.url || "")) continue;
+        seen.add(norm);
+        const d = a.seendate || "";
+        items.push({ title, url: a.url, domain: a.domain, date: d ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : null });
+        if (items.length >= 8) break;
+      }
+      liveCache.set(c.id, items);
+    } catch {
+      // Live search unavailable (rate limit or offline): keep the saved headlines.
+      if (state.sel === i) {
+        const box = document.getElementById("news-box");
+        const saved = NEWS?.byCountry?.[c.id];
+        if (box) box.innerHTML = saved ? newsList(saved) + `<p class="note">GDELT headlines retrieved ${fmtDate(NEWS.checkedAt?.[c.id] || NEWS.retrievedAt)}. Live search is busy; try again in a minute.</p>` : '<p class="note">GDELT is busy right now. Try again in a minute.</p>';
+      }
+      return;
+    }
+    if (state.sel === i) {
+      const box = document.getElementById("news-box");
+      if (box) box.innerHTML = countryNewsHtml(i);
+    }
+  }
+
+  function renderPanel() {
+    if (state.sel == null) renderOverview();
+    else renderCountry(state.sel);
+  }
+
+  // ---------- Table ----------
+  const tbody = document.getElementById("rank-body");
+  const areaSel = document.getElementById("area");
+  for (const a of [...new Set(C.map((c) => c.area).filter(Boolean))].sort()) areaSel.add(new Option(a, a));
+
+  function tinySpark(arr) {
+    const w = 84, h = 22, vals = d3.range(FY0, YN + 1).map((y) => at(arr, y));
+    const max = d3.max(vals) || 0;
+    if (!max) return `<svg class="tiny" width="${w}" height="${h}" aria-hidden="true"></svg>`;
+    const x = (k) => 1 + (k * (w - 2)) / (vals.length - 1), y = (v) => h - 2 - (v / max) * (h - 5);
+    let d = "", pen = false;
+    vals.forEach((v, k) => {
+      if (v == null) { pen = false; return; }
+      d += (pen ? "L" : "M") + x(k).toFixed(1) + "," + y(v).toFixed(1);
+      pen = true;
+    });
+    const dots = [state.from - FY0, state.to - FY0].filter((k) => vals[k] != null).map((k) => `<circle cx="${x(k).toFixed(1)}" cy="${y(vals[k]).toFixed(1)}" r="2.2"/>`).join("");
+    return `<svg class="tiny" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}"/>${dots}</svg>`;
+  }
+
+  function renderTable() {
+    const q = state.q.trim().toLowerCase();
+    let list = rows.filter((r) => (!state.area || r.c.area === state.area) && (!q || r.c.name.toLowerCase().includes(q) || r.c.id.toLowerCase() === q));
+    const { key, dir: sd } = state.sort;
+    const val = {
+      rank: (r) => r.rank, name: (r) => r.c.name, area: (r) => r.c.area || "", start: (r) => r.start, end: (r) => r.end, change: (r) => r.change, pct: (r) => r.pct,
+    }[key];
+    list = [...list].sort((a, b) => {
+      const va = val(a), vb = val(b);
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      return (typeof va === "string" ? va.localeCompare(vb) : va - vb) * sd;
+    });
+    const shown = state.showAll ? list : list.slice(0, TABLE_TOP);
+    tbody.innerHTML = shown.map((r) => `<tr data-i="${r.i}"${r.i === state.sel ? ' class="is-sel"' : ""}>
+      <td class="num rk-cell">${r.rank ?? "–"}</td>
+      <td><button type="button" class="row-btn" data-select="${r.i}">${esc(r.c.name)}</button><span class="iso">${esc(r.c.id)}</span></td>
+      <td>${esc(r.c.area || "")}</td>
+      <td class="num">${full(r.start)}</td>
+      <td class="num">${full(r.end)}</td>
+      <td class="num"><span class="chg">${r.change == null ? "" : `<span class="sw ${binClass(r)}"></span>`}${r.change == null ? '<span class="na">Unavailable</span>' : signedFull(r.change)}</span></td>
+      <td class="num">${r.change == null ? '<span class="na">Unavailable</span>' : pctText(r.pct)}</td>
+      <td>${tinySpark(r.arr)}</td></tr>`).join("");
+    for (const th of document.querySelectorAll("#rank-table th[data-k]")) {
+      if (th.dataset.k === key) th.setAttribute("aria-sort", sd === 1 ? "ascending" : "descending");
+      else th.removeAttribute("aria-sort");
+    }
+    document.getElementById("th-start").textContent = `31 Dec ${state.from}`;
+    document.getElementById("th-end").textContent = `31 Dec ${state.to}`;
+    document.getElementById("th-trend").textContent = `Trend ${FY0}–${YN}`;
+    document.getElementById("ledger-title").textContent = `Ranking: ${metric().noun}, ${state.from}–${state.to}`;
+    document.getElementById("ledger-sub").textContent =
+      `${viewLabel()} · ${state.rank === "abs" ? "largest increase in people first" : `fastest % growth first (countries starting with ${fmtInt(MIN_BASE)} or more)`}`;
+    document.getElementById("table-caption").textContent = document.getElementById("ledger-title").textContent;
+    document.getElementById("ledger-count").textContent = `Showing ${shown.length} of ${list.length} countries · ${rankedCount} ranked`;
+    const more = document.getElementById("show-all");
+    more.hidden = list.length <= TABLE_TOP;
+    more.textContent = state.showAll ? `Show top ${TABLE_TOP}` : `Show all ${list.length}`;
+  }
+  tbody.addEventListener("click", (e) => {
+    const tr = e.target.closest("tr[data-i]");
+    if (!tr) return;
+    select(+tr.dataset.i);
+    document.getElementById("stage").scrollIntoView({ behavior: REDUCE_MOTION ? "auto" : "smooth", block: "start" });
+  });
+  document.querySelector("#rank-table thead").addEventListener("click", (e) => {
+    const th = e.target.closest("th[data-k]");
+    if (!th) return;
+    const k = th.dataset.k;
+    state.sort = state.sort.key === k ? { key: k, dir: -state.sort.dir } : { key: k, dir: k === "rank" || k === "name" || k === "area" ? 1 : -1 };
+    renderTable();
+  });
+  document.getElementById("show-all").onclick = () => { state.showAll = !state.showAll; renderTable(); };
+  document.getElementById("q").addEventListener("input", (e) => { state.q = e.target.value; renderTable(); });
+  areaSel.addEventListener("change", (e) => { state.area = e.target.value; renderTable(); });
+
+  // ---------- Controls ----------
+  const fromSel = document.getElementById("from"), toSel = document.getElementById("to");
+  for (let y = FY0; y < FYN; y++) fromSel.add(new Option(y, y));
+  for (let y = FY0 + 1; y <= FYN; y++) toSel.add(new Option(y, y));
+  document.getElementById("metric").addEventListener("change", (e) => { state.metric = e.target.value; update(); });
+  fromSel.addEventListener("change", () => {
+    state.from = +fromSel.value;
+    if (state.from >= state.to) state.to = state.from + 1;
+    stopPlay(); update();
+  });
+  toSel.addEventListener("change", () => {
+    state.to = +toSel.value;
+    if (state.from >= state.to) state.from = state.to - 1;
+    stopPlay(); update();
+  });
+  for (const seg of document.querySelectorAll(".seg")) {
+    seg.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-v]");
+      if (!b || b.disabled) return;
+      state[seg.dataset.key] = b.dataset.v;
+      update();
+    });
+  }
+  function syncControls() {
+    document.getElementById("metric").value = state.metric;
+    fromSel.value = state.from;
+    toSel.value = state.to;
+    for (const seg of document.querySelectorAll(".seg")) {
+      for (const b of seg.querySelectorAll("button")) b.setAttribute("aria-checked", String(state[seg.dataset.key] === b.dataset.v));
+    }
+    const noFlows = !metric().cols;
+    for (const b of document.querySelectorAll("#view button, #arrows button")) b.disabled = noFlows;
+  }
+
+  // Play: slide the comparison window one year at a time, keeping its length.
+  let playTimer = null;
+  const playBtn = document.getElementById("play");
+  function stopPlay() {
+    if (!playTimer) return;
+    clearInterval(playTimer);
+    playTimer = null;
+    playBtn.setAttribute("aria-pressed", "false");
+    document.getElementById("play-text").textContent = "Play years";
+    document.getElementById("play-icon").setAttribute("d", "M2 1l9 5-9 5z");
+  }
+  playBtn.onclick = () => {
+    if (playTimer) { stopPlay(); return; }
+    const span = state.to - state.from;
+    state.from = FY0;
+    state.to = FY0 + span;
+    update();
+    playBtn.setAttribute("aria-pressed", "true");
+    document.getElementById("play-text").textContent = "Pause";
+    document.getElementById("play-icon").setAttribute("d", "M2 1h3v10H2zM7 1h3v10H7z");
+    playTimer = setInterval(() => {
+      if (state.to >= FYN) { stopPlay(); return; }
+      state.from++;
+      state.to++;
+      update();
+    }, 1700);
+  };
+
+  // ---------- Selection & update ----------
+  function select(i) {
+    const changed = i !== state.sel;
+    state.sel = i;
+    update();
+    if (changed) zoomToSelection();
+    try { history.replaceState(null, "", i == null ? location.pathname + location.search : "#" + C[i].id); } catch (_) { /* sandboxed frames may refuse */ }
+  }
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.sel != null) select(null); });
+
+  function renderStamps() {
+    document.getElementById("stamp-period").textContent = `31 Dec ${state.from} – 31 Dec ${state.to}`;
+    document.getElementById("eyebrow-period").textContent = `year-end ${state.from} vs ${state.to}`;
+  }
+
+  function update() {
+    computeRows();
+    currentArrows = arrowList();
+    focusSet = state.sel != null && currentArrows.length ? new Set([state.sel, ...currentArrows.map((d) => (state.view === "o" ? d.h : d.o))]) : null;
+    paintMap();
+    drawSelection();
+    drawArrows(true);
+    renderLegend();
+    renderPanel();
+    renderTable();
+    renderStamps();
+    syncControls();
+  }
+
+  // ---------- Static text ----------
+  document.getElementById("stamp-latest").textContent = `${YN} (31 Dec)`;
+  document.getElementById("stamp-retrieved").textContent = fmtDate(D.meta.retrievedAt);
+  document.getElementById("stamp-news").textContent = NEWS ? fmtDate(NEWS.retrievedAt) : "Not yet retrieved";
+  const v = D.meta.verification;
+  document.getElementById("verify-text").textContent =
+    `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
+  document.getElementById("news-mode-text").textContent = LIVE_NEWS
+    ? "This copy loads fresh headlines when you open a country and falls back to the saved set if GDELT is busy."
+    : "This copy shows the saved set of headlines from the last update.";
+  document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;
+
+  // A link ending in #SDN (any ISO3 code) opens that country.
+  const fromHash = (location.hash || "").slice(1).toUpperCase();
+  if (IDX.has(fromHash)) state.sel = IDX.get(fromHash);
+  window.addEventListener("hashchange", () => {
+    const id = (location.hash || "").slice(1).toUpperCase();
+    const i = IDX.has(id) ? IDX.get(id) : null;
+    if (i !== state.sel) { state.sel = i; update(); zoomToSelection(); }
+  });
+  layout();
+  update();
+  if (state.sel != null) zoomToSelection();
+})();
+</script>
+</body>
+</html>
