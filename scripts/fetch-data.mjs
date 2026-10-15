@@ -8,43 +8,17 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { API, SERIES_FROM, getJSON, getAll, fingerprint } from "./unhcr-fingerprint.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW = join(ROOT, "data", "raw");
-const API = "https://api.unhcr.org/population/v1";
 
 const args = Object.fromEntries(
   process.argv.slice(2).reduce((acc, a, i, all) => (a.startsWith("--") ? [...acc, [a.slice(2), all[i + 1]]] : acc), [])
 );
-const SERIES_FROM = 2000; // origin/host totals go back further for trend lines
 const FROM = Number(args.from ?? 2010); // origin x host matrix (flows)
 
 const POP_FIELDS = ["refugees", "asylum_seekers", "returned_refugees", "idps", "returned_idps", "stateless", "ooc", "oip", "hst"];
-
-async function getJSON(url, tries = 4) {
-  for (let i = 1; ; i++) {
-    try {
-      const res = await fetch(url, { headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
-    } catch (err) {
-      if (i >= tries) throw new Error(`${url} failed: ${err.message}`);
-      await new Promise((r) => setTimeout(r, 1500 * i));
-    }
-  }
-}
-
-// Walks every page of a UNHCR endpoint and returns all items.
-async function getAll(path, params) {
-  const items = [];
-  for (let page = 1; ; page++) {
-    const qs = new URLSearchParams({ ...params, limit: 10000, page });
-    const json = await getJSON(`${API}/${path}/?${qs}`);
-    items.push(...json.items);
-    if (page >= (json.maxPages || 1)) break;
-  }
-  return items;
-}
 
 function toCSV(rows, columns) {
   const cell = (v) => {
@@ -122,6 +96,8 @@ async function main() {
     manifest.files[name] = { url };
   }
 
+  // Lets check-unhcr.mjs tell later whether UNHCR has published anything new.
+  manifest.fingerprint = await fingerprint();
   await save("manifest.json", JSON.stringify(manifest, null, 2));
   console.log("Done. Next: node scripts/build-data.mjs");
 }

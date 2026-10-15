@@ -8,7 +8,7 @@ An interactive map that ranks displacement situations by how fast they are chang
 - **Flow arrows:** origin → host corridors for any period from 2010 to 2025, sized by people and colored by whether the corridor grew or shrank. Click a country to see only its corridors.
 - **Country panel:** start and end figures, change and % change, a 2000–2025 trend, top host countries or origins, returns, IDMC internal displacement, recent news, and links to the exact UNHCR API query behind the numbers.
 - **Ranked table:** sortable and searchable, with the same figures as the map. Missing figures are marked "Unavailable".
-- **Self-updating:** a GitHub Actions job re-downloads everything daily, checks the numbers, and republishes the site.
+- **Self-updating:** every hour a GitHub Actions job reads the newest GDELT news and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
 
 ## Data
 
@@ -53,7 +53,13 @@ You can also open `index.html` straight from disk. Served from localhost or GitH
 
 ## Automatic updates and hosting
 
-`.github/workflows/update-and-deploy.yml` runs every day at 06:17 UTC (and on demand from the Actions tab). It runs the three scripts, commits any changed data, and publishes the site to GitHub Pages. Every push to `main` also republishes the site.
+`.github/workflows/update-and-deploy.yml` runs every hour (at :47), on every push to `main`, and on demand from the Actions tab:
+
+1. `check-unhcr.mjs` compares a fingerprint of UNHCR's published totals with the one saved at the last download. Only if they differ, because of a new year or a revision, does it run `fetch-data.mjs` and `build-data.mjs` and commit the new data.
+2. `fetch-news.mjs` reads the last 2 hours of GDELT news files and merges them into the 14-day headline history taken from the live site.
+3. The site is republished. News is committed to the repo once a day; the other runs only publish.
+
+If the totals check fails after a UNHCR release, the run fails, nothing is published, and GitHub emails the repo owner.
 
 One-time setup: in the repo go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 

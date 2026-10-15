@@ -1,8 +1,12 @@
-# Keeps the dashboard current without anyone touching it:
-#  - every day: re-download UNHCR + IDMC figures and GDELT headlines, re-run the checks, commit any changes
-#  - after that, and on every push to main: publish the site to GitHub Pages
-# If the numbers no longer add up (build-data.mjs exits with an error), nothing is committed or published,
-# so the live site keeps the last good data.
+# Keeps the dashboard current without anyone touching it. Every hour (and on every push to main):
+#  1. Starts from the headlines already on the live site, so the 14-day news history carries over.
+#  2. Asks UNHCR for a fingerprint of its figures. Only if UNHCR or IDMC published something new or revised
+#     does it re-download everything, rebuild, re-check the totals, and commit the new data.
+#  3. Reads the newest GDELT news files for displacement headlines.
+#  4. Publishes the site to GitHub Pages.
+# News is committed to the repo once a day (06:xx UTC); the other hourly runs only publish.
+# If the totals check fails after a UNHCR release, the run fails, nothing is published or committed,
+# and GitHub emails the repo owner, so the live site keeps the last good data.
 
 name: Update data and deploy
 
@@ -10,12 +14,16 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 6 * * *" # 06:17 UTC daily
+    - cron: "47 * * * *" # every hour at :47
   workflow_dispatch:
     inputs:
       news_hours:
-        description: "Hours of GDELT news files to read (24 for a normal day; more to catch up)"
-        default: "24"
+        description: "Hours of GDELT news files to read (2 for a normal hourly run; more to catch up)"
+        default: "2"
+      force_data:
+        description: "Re-download UNHCR data even if nothing changed"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -27,50 +35,64 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  refresh:
-    if: github.event_name != 'push'
+  update:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
+    env:
+      SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Download UNHCR, IDMC and map data
-        run: node scripts/fetch-data.mjs
-      - name: Build dashboard data and check it against UNHCR's totals
-        run: node scripts/build-data.mjs
-      - name: Read GDELT news files for displacement headlines (keeps the previous set on failure)
+
+      - name: Start from the headlines on the live site
+        run: curl -fsSL "$SITE_URL/data/news.js" -o data/news.js || echo "Live site not reachable; using the repo copy."
+
+      - name: Check whether UNHCR or IDMC published new figures
+        id: unhcr
+        run: node scripts/check-unhcr.mjs
+
+      - name: Download and rebuild UNHCR data (only when something changed)
+        if: steps.unhcr.outputs.changed == 'true' || inputs.force_data
+        run: |
+          node scripts/fetch-data.mjs
+          node scripts/build-data.mjs
+
+      - name: Read GDELT news files for displacement headlines
         run: node scripts/fetch-news.mjs
         env:
-          NEWS_HOURS: ${{ inputs.news_hours || '24' }}
+          NEWS_HOURS: ${{ inputs.news_hours || '2' }}
         continue-on-error: true
-      - name: Commit changed data
+
+      - name: Save to the repo (new UNHCR data, or the daily news snapshot)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
           if git diff --cached --quiet; then
-            echo "No data changes."
+            echo "Nothing new to save."
+          elif [ "${{ steps.unhcr.outputs.changed }}" = "true" ] || [ "${{ inputs.force_data }}" = "true" ]; then
+            git commit -m "New UNHCR data $(date -u +%Y-%m-%d)"
+            git pull --rebase -q origin main && git push
+          elif [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            git commit -m "Daily news snapshot $(date -u +%Y-%m-%d)"
+            git pull --rebase -q origin main && git push
           else
-            git commit -m "Update data $(date -u +%Y-%m-%d)"
-            git push
+            echo "Hourly news update: published to the site without a commit."
           fi
 
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
   deploy:
-    needs: refresh
-    if: ${{ !cancelled() && (needs.refresh.result == 'success' || needs.refresh.result == 'skipped') }}
+    needs: update
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main # includes the data commit made by the refresh job
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
       - id: deployment
         uses: actions/deploy-pages@v4

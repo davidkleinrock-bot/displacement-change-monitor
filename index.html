@@ -466,7 +466,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     </section>
     <section>
       <h3>Updates</h3>
-      <p>On the project's GitHub Pages site, a scheduled job downloads all figures and headlines again every day and re-runs the checks before publishing. If a check fails, the previous data stays up. When UNHCR adds a new year, the default comparison moves to it.</p>
+      <p>On the project's GitHub Pages site, an automatic job runs every hour. It reads the newest GDELT news files and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. When UNHCR adds a new year, the default comparison moves to it. An open page picks up new headlines every 30 minutes.</p>
     </section>
   </section>
   <p class="foot" id="foot"></p>
@@ -482,7 +482,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   "use strict";
   const D = window.DISPLACEMENT_DATA;
   const TOPO = window.WORLD_TOPO;
-  const NEWS = window.DISPLACEMENT_NEWS || null;
+  let NEWS = window.DISPLACEMENT_NEWS || null;
   if (!D || !TOPO || !window.d3 || !window.topojson) {
     document.getElementById("boot-error").hidden = false;
     return;
@@ -1251,6 +1251,26 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;
 
   // A link ending in #SDN (any ISO3 code) opens that country.
+  // The site republishes headlines hourly; an open page checks for them every 30 minutes.
+  if (/^https?:$/.test(location.protocol)) {
+    setInterval(() => {
+      const s = document.createElement("script");
+      s.src = "data/news.js?t=" + Date.now();
+      s.onload = () => {
+        const fresh = window.DISPLACEMENT_NEWS;
+        if (fresh && fresh.retrievedAt !== NEWS?.retrievedAt) {
+          NEWS = fresh;
+          liveCache.clear();
+          document.getElementById("stamp-news").textContent = fmtDate(NEWS.retrievedAt);
+          renderPanel();
+        }
+        s.remove();
+      };
+      s.onerror = () => s.remove();
+      document.body.appendChild(s);
+    }, 30 * 60 * 1000);
+  }
+
   const fromHash = (location.hash || "").slice(1).toUpperCase();
   if (IDX.has(fromHash)) state.sel = IDX.get(fromHash);
   window.addEventListener("hashchange", () => {
