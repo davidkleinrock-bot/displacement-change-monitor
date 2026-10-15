@@ -63,6 +63,9 @@ async function download(url) {
 const decode = (s) =>
   s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/\s+/g, " ").trim();
+// Copy a string out of the big file text. Without this, V8 keeps each whole 15-minute file in memory
+// for as long as any headline cut from it is kept, and a multi-day run runs out of memory.
+const own = (s) => (s == null ? s : Buffer.from(s, "utf8").toString("utf8"));
 const norm = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().slice(0, 70);
 const escapeRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -159,10 +162,11 @@ async function main() {
         if (type === "2" || type === "3") iso = "USA"; // US state or city
         else if (type === "1") {
           iso = nameToIso(fullname);
-          if (iso && fips) fipsToIso.set(fips, iso);
+          if (iso && fips && !fipsToIso.has(fips)) fipsToIso.set(own(fips), iso);
         } else iso = fipsToIso.get(fips) ?? nameToIso(fullname.split(",").pop());
         if (iso) counts.set(iso, (counts.get(iso) || 0) + 1);
-        else if (type === "1" && fullname) unmatched.set(fullname, (unmatched.get(fullname) || 0) + 1);
+        else if (type === "1" && fullname && !unmatched.has(fullname)) unmatched.set(own(fullname), 1);
+        else if (type === "1" && fullname) unmatched.set(fullname, unmatched.get(fullname) + 1);
       }
       const named = new Set(headlineTerms.filter(([, re]) => re.test(title)).map(([iso]) => iso));
       const tagged = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, MAX_COUNTRIES_PER_ARTICLE).map(([iso]) => iso);
@@ -172,14 +176,14 @@ async function main() {
 
       const d = r[COL.date] || "";
       const item = {
-        title,
-        url: r[COL.url],
-        domain: r[COL.source] || new URL(r[COL.url]).hostname,
-        date: d ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : null,
+        title: own(title),
+        url: own(r[COL.url]),
+        domain: own(r[COL.source] || new URL(r[COL.url]).hostname),
+        date: d ? own(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`) : null,
       };
       for (const iso of countries) {
         if (!found.has(iso)) found.set(iso, new Map());
-        const key = norm(title);
+        const key = own(norm(title));
         if (!found.get(iso).has(key)) found.get(iso).set(key, { ...item, named: named.has(iso) });
       }
     }
@@ -225,7 +229,7 @@ async function main() {
   };
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
   const top = [...unmatched.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([n]) => n);
-  console.log(`Read ${files} files, ${articles.toLocaleString()} articles; ${kept} displacement headlines.`);
+  console.log(`Read ${files} files, ${articles.toLocaleString()} articles; ${kept} displacement headlines (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
   console.log(`Saved data/news.js: ${Object.keys(byCountry).length} countries with headlines.`);
   if (top.length) console.log(`Place names not matched to a country (most common): ${top.join("; ")}`);
 }
