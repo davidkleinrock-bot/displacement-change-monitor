@@ -451,7 +451,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     </section>
     <section>
       <h3>News headlines</h3>
-      <p>Headlines come from GDELT's news search. They are English-language articles from the last 14 days that mention the country alongside words like refugees, displaced or asylum. They are matched automatically and not checked by this tool, so some may be off-topic.</p>
+      <p>Headlines come from GDELT, which tracks news coverage worldwide and tags each article with the countries it covers. Each day the update reads every English-language article GDELT logged in the past 24 hours and keeps those whose headline mentions refugees, displacement, asylum, evacuations, migrants or deportations. Headlines stay for 14 days. They are matched automatically and not checked by this tool, so some may be off-topic.</p>
       <p id="news-mode-text"></p>
     </section>
     <section>
@@ -460,7 +460,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
         <li><a href="https://api.unhcr.org/docs/refugee-statistics.html" target="_blank" rel="noopener">UNHCR Refugee Population Statistics API</a>, the source of every UNHCR figure here</li>
         <li><a href="https://www.unhcr.org/refugee-statistics/" target="_blank" rel="noopener">UNHCR Refugee Data Finder</a> and <a href="https://www.unhcr.org/refugee-statistics/methodology" target="_blank" rel="noopener">its methodology</a></li>
         <li><a href="https://www.internal-displacement.org/database/displacement-data/" target="_blank" rel="noopener">IDMC Global Internal Displacement Database</a>, published through the UNHCR API</li>
-        <li><a href="https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/" target="_blank" rel="noopener">GDELT DOC 2.0 news search</a></li>
+        <li><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener">GDELT 2.0 news files</a> (Global Knowledge Graph)</li>
         <li>Boundaries: Natural Earth via <a href="https://github.com/topojson/world-atlas" target="_blank" rel="noopener">world-atlas</a>. Boundaries and names do not imply endorsement by UNHCR or the project team.</li>
       </ul>
     </section>
@@ -1023,14 +1023,15 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     const saved = NEWS?.byCountry?.[c.id];
     if (saved) {
       const when = NEWS.checkedAt?.[c.id] || NEWS.retrievedAt;
-      return newsList(saved) + `<p class="note">GDELT headlines retrieved ${fmtDate(when)}.${LIVE_NEWS ? " Checking for newer ones…" : ""}</p>`;
+      return newsList(saved) + `<p class="note">From GDELT's news files, updated ${fmtDate(when)}.</p>`;
     }
     if (LIVE_NEWS) return '<p class="note">Loading headlines from GDELT…</p>';
-    return `<p class="note">No saved headlines for ${esc(c.name)}. The daily update saves news for the ${NEWS ? Object.keys(NEWS.byCountry || {}).length : 0} countries with the largest or fastest-changing displacement. The GitHub Pages version loads headlines for any country.</p>`;
+    return `<p class="note">No displacement headlines about ${esc(c.name)} in GDELT's news files from the last 14 days.</p>`;
   }
   async function loadLiveNews(i) {
     const c = C[i];
-    if (!LIVE_NEWS || liveCache.has(c.id) || c.lat == null || !c.news?.length) return;
+    // Only search live when the daily files had nothing for this country.
+    if (!LIVE_NEWS || liveCache.has(c.id) || NEWS?.byCountry?.[c.id]?.length || c.lat == null || !c.news?.length) return;
     const place = c.news.length > 1 ? `(${c.news.join(" OR ")})` : c.news[0];
     const topic = NEWS?.topic || "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
     const qs = new URLSearchParams({ query: `${place} ${topic} sourcelang:english`, mode: "artlist", format: "json", maxrecords: "16", timespan: "14d", sort: "hybridrel" });
@@ -1245,8 +1246,8 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   document.getElementById("verify-text").textContent =
     `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
   document.getElementById("news-mode-text").textContent = LIVE_NEWS
-    ? "This copy loads fresh headlines when you open a country and falls back to the saved set if GDELT is busy."
-    : "This copy shows the saved set of headlines from the last update.";
+    ? "If the daily files have nothing for a country, this copy also searches GDELT live when you open it."
+    : "This copy shows the headlines saved at the last update.";
   document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;
 
   // A link ending in #SDN (any ISO3 code) opens that country.

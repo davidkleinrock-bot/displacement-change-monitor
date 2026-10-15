@@ -5,7 +5,6 @@
 //   data/world.js                 window.WORLD_TOPO (map shapes keyed by ISO3)
 //   data/verification.json        flows-vs-published-totals check
 //   data/processed/country_totals.csv   long-format totals for spot checks in a spreadsheet
-//   data/processed/news-targets.json    countries fetch-news.mjs should search for
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -201,26 +200,7 @@ async function main() {
     throw new Error("Flows no longer add up to UNHCR's published totals; see data/verification.json. Dashboard files were not updated.");
   }
 
-  // ---- News targets: countries the dashboard features most ---------------------
-  const yi = latest - firstYear;
-  const top = (metric, n, by) =>
-    Object.entries(series[metric] || {})
-      .map(([id, v]) => [id, by(v)])
-      .filter(([id, s]) => s !== null && countries.get(id)?.lat !== null)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, n)
-      .map(([id]) => id);
-  const size = (v) => v[yi];
-  const growth = (v) => (v[yi] === null || v[yi - 1] === null ? null : v[yi] - v[yi - 1]);
-  const targets = [...new Set([
-    ...top("ref_o", 25, size), ...top("ref_o", 20, growth), ...top("intl_o", 15, growth),
-    ...top("ref_h", 15, size), ...top("ref_h", 12, growth), ...top("idmc", 15, size), ...top("idmc", 10, growth),
-  ])];
   await mkdir(join(OUT, "processed"), { recursive: true });
-  await writeFile(
-    join(OUT, "processed", "news-targets.json"),
-    JSON.stringify(targets.map((id) => ({ id, name: countries.get(id).name, terms: countries.get(id).news })), null, 2)
-  );
 
   // ---- Long CSV for spreadsheet spot checks ------------------------------------
   const labels = { ref_o: "refugees_by_origin", asy_o: "asylum_seekers_by_origin", intl_o: "intl_protection_by_origin", ret_o: "returned_refugees_to_origin", ref_h: "refugees_by_host", asy_h: "asylum_seekers_by_host", intl_h: "intl_protection_by_host", idmc: "idps_conflict_idmc" };
@@ -255,7 +235,6 @@ async function main() {
   const unmapped = countryList.filter((c) => !c.mapped).map((c) => c.id);
   console.log(`Countries: ${countryList.length} (${unmapped.length} without a map shape: ${unmapped.join(" ")})`);
   console.log(`Flow rows: ${Object.values(flows).reduce((s, f) => s + f.length, 0)} across ${flowYears.length} years`);
-  console.log(`News targets: ${targets.length}`);
 }
 
 main().catch((err) => {

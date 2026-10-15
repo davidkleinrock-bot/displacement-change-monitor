@@ -12,6 +12,10 @@ on:
   schedule:
     - cron: "17 6 * * *" # 06:17 UTC daily
   workflow_dispatch:
+    inputs:
+      news_hours:
+        description: "Hours of GDELT news files to read (24 for a normal day; more to catch up)"
+        default: "24"
 
 permissions:
   contents: write
@@ -36,8 +40,10 @@ jobs:
         run: node scripts/fetch-data.mjs
       - name: Build dashboard data and check it against UNHCR's totals
         run: node scripts/build-data.mjs
-      - name: Download news headlines (keeps the previous set if GDELT is busy)
+      - name: Read GDELT news files for displacement headlines (keeps the previous set on failure)
         run: node scripts/fetch-news.mjs
+        env:
+          NEWS_HOURS: ${{ inputs.news_hours || '24' }}
         continue-on-error: true
       - name: Commit changed data
         run: |

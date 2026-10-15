@@ -20,7 +20,7 @@ An interactive map that ranks displacement situations by how fast they are chang
 | Country names, codes, regions | same API, `/countries/` | `data/raw/unhcr_countries.json` |
 | Map shapes (Natural Earth 1:50m) | [world-atlas](https://github.com/topojson/world-atlas) | `data/raw/geo/countries-50m.json` |
 | ISO codes and country reference points for arrows | [world-countries](https://github.com/mledoze/countries) | `data/raw/geo/world-countries.json` |
-| News headlines, last 14 days | [GDELT DOC 2.0 API](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/) | `data/news.js` |
+| Displacement headlines by country, rolling 14 days | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, every 15 minutes) | `data/news.js` |
 
 `data/raw/manifest.json` records when each file was downloaded and from which URL. The dashboard shows both the dates the statistics cover (31 December of each year) and the date they were retrieved.
 
@@ -45,7 +45,7 @@ Requires Node 18 or newer. There are no packages to install.
 ```bash
 node scripts/fetch-data.mjs     # download UNHCR, IDMC and map data into data/raw/
 node scripts/build-data.mjs     # build data/*.js and run the checks
-node scripts/fetch-news.mjs     # save GDELT headlines (takes a few minutes; GDELT allows 1 request / 5 s)
+node scripts/fetch-news.mjs     # read the last 24 h of GDELT news files (~2 min; NEWS_HOURS=72 to look further back)
 node scripts/serve.mjs          # open http://localhost:8080
 ```
 
@@ -65,7 +65,7 @@ data/dashboard-data.js         countries, yearly totals, origin→host flows (bu
 data/world.js                  map shapes keyed by ISO3 (built)
 data/news.js                   saved headlines (fetched)
 data/verification.json         result of the totals check
-data/processed/                long-format CSV and the news search list
+data/processed/                long-format CSV for spot checks
 data/raw/                      untouched downloads + manifest
 scripts/                       fetch, build, news and local server scripts
 ```
