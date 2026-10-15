@@ -1,5 +1,5 @@
 {
-  "retrievedAt": "2026-10-15T05:40:12.756Z",
+  "retrievedAt": "2026-10-15T05:42:56.066Z",
   "files": {
     "unhcr_countries.json": {
       "url": "https://api.unhcr.org/population/v1/countries/",
@@ -28,5 +28,6 @@
       "url": "https://cdn.jsdelivr.net/npm/world-countries@5.1.0/countries.json"
     }
   },
-  "latestYear": 2025
+  "latestYear": 2025,
+  "fingerprint": "b63409cd000f898b"
 }
