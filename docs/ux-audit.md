@@ -43,7 +43,7 @@ Severity: **High** means it blocks a core task or excludes users. **Medium** mea
 | 1 | No way to get a figure into a report. Users had to retype numbers and work out the source line themselves. | High | **Fixed.** A "Summary for your brief" box for the world view and every country, with plain sentences and Copy summary, Copy citation and Copy link buttons. |
 | 2 | Links didn't reproduce the view. Only the country was kept, so a colleague opening the link saw a different measure or period. | High | **Fixed.** The address now carries measure, count-by, period, ranking and arrows, plus the country (`?measure=refugees&by=origin&from=2024&to=2025…#SDN`). |
 | 3 | Charting library and fonts loaded from public CDNs, which government networks often block. If d3 failed, the whole page failed. | High | **Fixed.** d3, topojson-client and the Public Sans font are served from the site itself (`vendor/`). |
-| 4 | News came from any outlet GDELT indexes, including ones widely rated unreliable. | High | **Fixed.** Only outlets rated reliable by public repositories (see "News sources" below). |
+| 4 | News came from any outlet GDELT indexes, including ones widely rated unreliable, small local papers, and stories about individuals or unrelated "evacuations". | High | **Fixed.** Only outlets rated reliable with national or international reach, and only headlines about forced displacement that name the country and aren't profiles or opinion (see "News sources" below). |
 | 5 | "Unknown origin", "Stateless" and "Tibetan" looked like countries and could top a ranking, as Unknown origin did for "All needing international protection", 2024–2025. | High | **Fixed.** They are labeled "Not a country", explained in the panel and in About, and never ranked. |
 | 6 | Territories weren't distinguished from states (Puerto Rico, Guam, Gibraltar…). | Medium | **Fixed.** Labeled with the governing country ("US territory", "UK overseas territory", "Part of France (overseas department)"…) in the table, tooltip, panel and brief. |
 | 7 | No print or PDF layout. | Medium | **Fixed.** "Print or save as PDF" in the title band, with a print stylesheet that drops the controls and keeps the map, brief and table. |
@@ -59,28 +59,38 @@ Severity: **High** means it blocks a core task or excludes users. **Medium** mea
 
 ## News sources: how "reputable" is defined
 
-Defined from public rating repositories, not by us. Built by `scripts/fetch-sources.mjs`, refreshed daily, and saved with the reason for each outlet in `data/processed/news-sources.json`.
+Defined from public repositories, not by us. Built by `scripts/fetch-sources.mjs`, refreshed daily, and saved with the reason for each outlet in `data/processed/news-sources.json`.
 
 **An outlet is shown if any one of these holds:**
 
 1. [Wikipedia's Perennial Sources list](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) rates it **generally reliable** in every entry for that domain.
-2. Wikipedia has not rated it, or rates it reliable only for some sections, topics or periods (for example, The Guardian is rated reliable but its blogs are not). In that case it qualifies if its aggregate score in [Lin et al. (2023), *PNAS Nexus*](https://doi.org/10.1093/pnasnexus/pgad286) is **above 0.66**. Lin et al. combine six expert news-quality rating sets into one 0–1 score for 11,000+ domains, and 0.66 is the cut-off later work uses for "reliable".
-3. It is an **intergovernmental organization**: a `.int` domain ([IANA grants .int only to treaty-based intergovernmental bodies](https://www.iana.org/domains/int/policy)) or un.org.
+2. Wikipedia has not rated it, or rates it reliable only for some sections, topics or periods (for example, The Guardian is rated reliable but its blogs are not). It then needs **both** of these:
+   - **Quality:** an aggregate score **above 0.66** in [Lin et al. (2023), *PNAS Nexus*](https://doi.org/10.1093/pnasnexus/pgad286). Lin et al. combine six expert news-quality rating sets into one 0–1 score for 11,000+ domains, and 0.66 is the cut-off later work uses for "reliable".
+   - **Reach:** national or international, measured as a place among the **10,000 most-visited websites** in the [Tranco research ranking](https://tranco-list.eu). The quality ratings also cover small local papers and TV stations; this keeps them out.
+3. It is an **intergovernmental or UN system organization**: a `.int` domain ([IANA grants .int only to treaty-based intergovernmental bodies](https://www.iana.org/domains/int/policy)), un.org, or an agency in the [UN system directory](https://unsceb.org/directory) such as UNHCR or WFP.
 
 **Excluded:** anything Wikipedia never rates generally reliable (no consensus, generally unreliable, deprecated, blacklisted), whatever its score.
+
+**Which headlines count.** A headline from a qualifying outlet is kept only if all of these hold:
+
+- **Forced displacement:** it uses forced-displacement terms (refugees, asylum, internally displaced, stateless, returnees). Looser words ("fled", "evacuated", "displacement") count only with conflict words or scale, and not in stories about jobs, AI or the wealthy.
+- **Names the country:** it names the country it is listed under, or its people.
+- **Reporting, not profile or opinion:** it is not built around one person ("She fled…", "From refugee to mayor") and is not opinion, an editorial, a podcast or a live blog.
 
 **Examples**
 
 | Status | Outlets |
 |---|---|
-| In | Reuters, AP, BBC, Al Jazeera, NYT, The Guardian, Bloomberg, France 24, DW, The New Humanitarian, AllAfrica |
-| Out | Fox News, New York Post, Xinhua, Anadolu Agency, Daily Mail, RT, Breitbart |
+| In | Reuters, AP, BBC, Al Jazeera, NYT, The Guardian, Bloomberg, France 24, DW, CBC, Euronews, Dawn, Punch, UNHCR, WFP |
+| Out (rated unreliable) | Fox News, New York Post, Xinhua, Anadolu Agency, Daily Mail, RT, Breitbart |
+| Out (local reach) | Wyoming News, CT Mirror, WAtoday, WTOP, KIRO 7, Big News Network |
 
-In a sample of 6 hours of GDELT coverage, 111 of 166 displacement headlines (67%) were left out because their outlet wasn't rated reliable.
+The outlet list has about 590 outlets; about 3,100 outlets with good quality scores were left out as local. In a 12-hour sample, 98 displacement headlines appeared. Of those, 83 came from outlets not rated reliable or with only local reach, 4 were profiles or opinion, and 6 named no country.
 
 **Limits**
 
-- Both repositories lean toward English-language and Western outlets. Good local outlets that nobody has rated are left out.
+- Both repositories lean toward English-language and Western outlets.
+- **The New Humanitarian is a loss.** It is the main specialist outlet on crises, but ranks about 26,000th by traffic, so the reach rule drops it. To bring humanitarian-sector outlets back on a principled basis, request a free ReliefWeb API app name ([apidoc.reliefweb.int](https://apidoc.reliefweb.int/parameters#appname)) and add "sources UN OCHA's ReliefWeb republishes" as a fourth rule.
 - The Lin et al. data repository has no license file. We download it at build time, don't redistribute it, and cite the paper.
 
 ## Usability test script for 23 October (about 15 minutes per person)

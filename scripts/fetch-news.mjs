@@ -5,9 +5,12 @@
 //
 // GDELT publishes every article it sees as bulk "Global Knowledge Graph" files every 15 minutes
 // (http://data.gdeltproject.org/gdeltv2/). Downloading those files is how GDELT expects bulk users to
-// work, so this never touches the rate-limited search API. For each article we keep it if its headline
-// is about displacement, then file it under the countries GDELT tagged in it (and any country the
-// headline names). Headlines from earlier runs are kept for 14 days, so coverage builds up day by day.
+// work, so this never touches the rate-limited search API. An article is kept only if:
+//   - its outlet is on data/processed/news-sources.json (rated reliable, national or international reach);
+//   - its headline is about forced displacement (see isDisplacement below);
+//   - its headline names the country it is filed under, or that country's people;
+//   - it is not a profile of one person, an opinion piece, a podcast or a live blog.
+// Headlines from earlier runs are re-checked and kept for 14 days, so coverage builds up day by day.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { inflateRawSync } from "node:zlib";
@@ -20,15 +23,37 @@ const HOURS = Number(process.env.NEWS_HOURS || 24);
 const KEEP_DAYS = 14;
 const PER_COUNTRY = 8;
 const PARALLEL = 4;
-const MAX_COUNTRIES_PER_ARTICLE = 3;
-
-// Headline must mention displacement. GDELT's own theme tags are too loose to rely on alone.
-const TOPIC = /\b(refugees?|displace(d|ment|s)?|asylum|evacuat\w*|fled|flee(s|ing)?|exodus|idps?|internally displaced|migrants?|returnees?|deport\w*|stateless)\b/i;
+// Headline must be about forced displacement. GDELT's own theme tags are too loose to rely on.
+// Core terms count on their own. Words like "fled" or "evacuated" count only with a conflict word or a
+// sense of scale, so wildfire evacuations and suspects "fleeing" are left out. Deadly or mass migrant
+// crossings count; other migration and deportation stories do not.
+const CORE = /\b(refugees?|internally displaced|idps?|asylum|stateless(ness)?|returnees?)\b/i;
+// Looser words ("displacement", "fled") also describe job losses, emigration of the wealthy and so on.
+const LOOSE = /\b(displace(d|ment|s)|forcibly)\b/i;
+const NOT_FORCED = /\b(AI|automation|jobs?|workers?|workforce|labou?r market|billionaires?|millionaires?|wealthy|tax(es)?|tourists?|investors?|expats?|retirees|stocks?|shares)\b/i;
+const FLIGHT = /\b(fle(e|es|eing|d)|evacuat\w*|exodus|uproot\w*)\b/i;
+const CONFLICT = /\b(wars?|fighting|violence|conflict|attacks?|bombing|bombardment|shelling|air ?strikes?|offensive|clashes|siege|gangs?|militias?|rebels?|famine|massacres?|genocide|persecution|troops|army|militants?|insurgents?|occupation)\b/i;
+const SCALE = /\b(\d[\d,.]*|thousands|millions?|hundreds|tens of thousands)\b/i;
+const CROSSING = /\bmigrants?\b.*\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b|\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b.*\bmigrants?\b/i;
+const isDisplacement = (t) =>
+  CORE.test(t) ||
+  (!NOT_FORCED.test(t) && (LOOSE.test(t) || (FLIGHT.test(t) && (CONFLICT.test(t) || SCALE.test(t))) || CROSSING.test(t)));
+// Profiles of one person, opinion and other sections a brief can't cite as reporting.
+const PERSONAL = [
+  /^['"‘“]?(she|he|they|i|we|my|our|his|her|their|meet)\b/i,
+  /\b(she|he)('s| is| was| has| had)\b/i,
+  /^from\b.+\bto\b/i,
+  /\b(a|an|one)\s+(\w+\s)?(woman|man|mother|mom|father|dad|boy|girl|teen|teenager|student|nurse|family|couple|child|grandmother|grandfather|pastor)\b/i,
+  /\b(his|her) (story|journey|life|family|wife|husband|son|daughter|mother|father|dream)\b/i,
+];
+const SECTION_TITLE = /^(opinion|editorial|podcast|letters?|column|commentary|live|watch|video|photos?|review|quiz)\b\s*[:|–-]/i;
+const SECTION_URL = /\/(opinion|opinions|editorials?|letters?|obituar\w*|podcasts?|sports?|lifestyle|life-?style|entertainment|arts?|culture|food|travel|commentisfree|comment|blogs?|videos?|live|liveblog|live-news)\//i;
+const isPersonalOrOpinion = (title, url) => PERSONAL.some((re) => re.test(title)) || SECTION_TITLE.test(title) || SECTION_URL.test(url || "");
 // The same idea in GDELT search syntax, used by the dashboard's optional live search.
 const TOPIC_QUERY = "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
 
 // GKG 2.1 columns we read (tab-separated).
-const COL = { date: 1, source: 3, url: 4, locations: 9, extras: 26 };
+const COL = { date: 1, source: 3, url: 4, extras: 26 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -93,43 +118,23 @@ async function readJS(path) {
   return JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
 }
 
-// Country name → ISO3, from UNHCR's names, world-countries names and spellings, plus GDELT's own wording.
-async function countryIndex() {
+// Words in a headline that point at a country: its names plus demonyms ("Sudanese", "Afghans").
+async function headlineTerms() {
   const data = await readJS("data/dashboard-data.js");
   const wc = JSON.parse(await readFile(join(ROOT, "data", "raw", "geo", "world-countries.json"), "utf8"));
-  const known = new Set(data.countries.map((c) => c.id));
-  const byName = new Map();
-  const add = (name, iso) => { if (name && known.has(iso)) byName.set(name.toLowerCase(), iso); };
-  for (const c of data.countries) add(c.name, c.id);
-  for (const c of wc) {
-    if (c.cca3 === "UNK") continue; // world-countries uses UNK for Kosovo; UNHCR uses it for "Unknown"
-    add(c.name.common, c.cca3);
-    add(c.name.official, c.cca3);
-    for (const s of c.altSpellings || []) if (s.length > 3) add(s, c.cca3);
-  }
-  const gdelt = {
-    "congo": "COG", "democratic republic of the congo": "COD", "congo, democratic republic of the": "COD",
-    "burma": "MMR", "ivory coast": "CIV", "cote d'ivoire": "CIV", "turkey": "TUR", "iran": "IRN", "syria": "SYR",
-    "russia": "RUS", "south korea": "KOR", "north korea": "PRK", "laos": "LAO", "vietnam": "VNM", "tanzania": "TZA",
-    "bolivia": "BOL", "venezuela": "VEN", "moldova": "MDA", "gaza strip": "PSE", "west bank": "PSE", "palestine": "PSE",
-    "kosovo": "SRB", "macedonia": "MKD", "swaziland": "SWZ", "czech republic": "CZE", "the bahamas": "BHS", "the gambia": "GMB",
-    "united kingdom": "GBR", "united states": "USA", "east timor": "TLS", "cape verde": "CPV", "micronesia": "FSM",
-  };
-  for (const [n, iso] of Object.entries(gdelt)) add(n, iso);
-
-  // Words in a headline that point at a country: its names plus demonyms ("Sudanese", "Afghan").
-  const headlineTerms = [];
+  const terms = new Map();
   for (const c of data.countries) {
-    if (c.lat == null) continue;
+    if (c.lat == null) continue; // Unknown origin, Stateless, Tibetan: not places
     const w = wc.find((x) => x.cca3 === c.id);
     const words = new Set([
       ...(c.news || []).map((t) => t.replace(/"/g, "")),
       w?.name?.common,
       w?.demonyms?.eng?.m,
     ].filter((t) => t && t.length > 3));
-    if (words.size) headlineTerms.push([c.id, new RegExp(`\\b(${[...words].map(escapeRe).join("|")})\\b`, "i")]);
+    // Singular or plural: "South African", "South Africans".
+    if (words.size) terms.set(c.id, new RegExp(`\\b(${[...words].map(escapeRe).join("|")})s?\\b`, "i"));
   }
-  return { byName, headlineTerms, data };
+  return terms;
 }
 
 function slots(lastStamp, hours) {
@@ -145,63 +150,39 @@ function slots(lastStamp, hours) {
 }
 
 async function main() {
-  const { byName, headlineTerms } = await countryIndex();
+  const terms = await headlineTerms();
   const reputable = await reputableChecker();
-  let dropped = 0;
   const index = await (await fetch(`${FEED}/lastupdate.txt`)).text();
   const last = index.match(/(\d{14})\.gkg\.csv\.zip/)?.[1];
   if (!last) throw new Error("Could not read GDELT's lastupdate.txt");
   const stamps = slots(last, HOURS);
   console.log(`Reading ${stamps.length} GDELT news files (${HOURS} hours up to ${last})…`);
 
-  // GDELT tags places with FIPS country codes. Learn FIPS → ISO3 from country-level tags, whose name we can match.
-  const fipsToIso = new Map();
-  const nameToIso = (raw) => {
-    const n = raw.trim().toLowerCase();
-    if (byName.has(n)) return byName.get(n);
-    const m = n.match(/^(.+?), (.+)$/); // "congo, republic of the" → "republic of the congo"
-    return m ? byName.get(`${m[2]} ${m[1]}`) ?? byName.get(m[1]) : undefined;
-  };
   const found = new Map(); // ISO3 → Map(normTitle → item)
-  const unmatched = new Map();
-  let files = 0, articles = 0, kept = 0;
+  const counts = { files: 0, articles: 0, topical: 0, personal: 0, outlet: 0, unnamed: 0, kept: 0 };
 
   const handle = (text) => {
     for (const line of text.split("\n")) {
       if (!line) continue;
       const r = line.split("\t");
-      articles++;
+      counts.articles++;
       const title = decode(r[COL.extras]?.match(/<PAGE_TITLE>(.*?)<\/PAGE_TITLE>/)?.[1] || "");
-      if (!title || !TOPIC.test(title) || !/^https?:\/\//.test(r[COL.url] || "")) continue;
-      const domain = r[COL.source] || new URL(r[COL.url]).hostname;
+      const url = r[COL.url] || "";
+      if (!title || !isDisplacement(title) || !/^https?:\/\//.test(url)) continue;
+      counts.topical++;
+      if (isPersonalOrOpinion(title, url)) { counts.personal++; continue; }
+      const domain = r[COL.source] || new URL(url).hostname;
       const basis = reputable(domain);
-      if (!basis) { dropped++; continue; }
-
-      // Countries GDELT tagged in the article, by how often they come up.
-      const counts = new Map();
-      for (const loc of (r[COL.locations] || "").split(";")) {
-        if (!loc) continue;
-        const [type, fullname = "", fips = ""] = loc.split("#");
-        let iso;
-        if (type === "2" || type === "3") iso = "USA"; // US state or city
-        else if (type === "1") {
-          iso = nameToIso(fullname);
-          if (iso && fips && !fipsToIso.has(fips)) fipsToIso.set(own(fips), iso);
-        } else iso = fipsToIso.get(fips) ?? nameToIso(fullname.split(",").pop());
-        if (iso) counts.set(iso, (counts.get(iso) || 0) + 1);
-        else if (type === "1" && fullname && !unmatched.has(fullname)) unmatched.set(own(fullname), 1);
-        else if (type === "1" && fullname) unmatched.set(fullname, unmatched.get(fullname) + 1);
-      }
-      const named = new Set(headlineTerms.filter(([, re]) => re.test(title)).map(([iso]) => iso));
-      const tagged = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, MAX_COUNTRIES_PER_ARTICLE).map(([iso]) => iso);
-      const countries = new Set([...named, ...tagged]);
-      if (!countries.size) continue;
-      kept++;
+      if (!basis) { counts.outlet++; continue; }
+      // File it only under countries the headline itself names; GDELT's location tags catch passing mentions.
+      const countries = [...terms].filter(([, re]) => re.test(title)).map(([iso]) => iso);
+      if (!countries.length) { counts.unnamed++; continue; }
+      counts.kept++;
 
       const d = r[COL.date] || "";
       const item = {
         title: own(title),
-        url: own(r[COL.url]),
+        url: own(url),
         domain: own(domain),
         basis: own(basis),
         date: d ? own(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`) : null,
@@ -209,7 +190,7 @@ async function main() {
       for (const iso of countries) {
         if (!found.has(iso)) found.set(iso, new Map());
         const key = own(norm(title));
-        if (!found.get(iso).has(key)) found.get(iso).set(key, { ...item, named: named.has(iso) });
+        if (!found.get(iso).has(key)) found.get(iso).set(key, item);
       }
     }
   };
@@ -219,13 +200,14 @@ async function main() {
     const bufs = await Promise.all(batch.map((s) => download(`${FEED}/${s}.gkg.csv.zip`).catch((e) => (console.log(`  ${s} skipped: ${e.message}`), null))));
     for (const buf of bufs) {
       if (!buf) continue;
-      try { handle(unzipFirst(buf)); files++; } catch (e) { console.log(`  a file could not be read: ${e.message}`); }
+      try { handle(unzipFirst(buf)); counts.files++; } catch (e) { console.log(`  a file could not be read: ${e.message}`); }
     }
-    if ((i / PARALLEL) % 6 === 5) console.log(`  ${files} files, ${kept} displacement headlines so far`);
+    if ((i / PARALLEL) % 6 === 5) console.log(`  ${counts.files} files, ${counts.kept} headlines kept so far`);
   }
-  if (!files) throw new Error("No GDELT files could be read; keeping the previous data/news.js");
+  if (!counts.files) throw new Error("No GDELT files could be read; keeping the previous data/news.js");
 
-  // Merge with earlier runs, keep the last 14 days, best first: headline names the country, then newest.
+  // Merge with earlier runs and keep the last 14 days, newest first. Earlier headlines are re-checked
+  // against today's rules and outlet list, so tightening a rule also cleans what is already saved.
   let previous = {};
   try { previous = await readJS("data/news.js"); } catch { /* first run */ }
   const cutoff = new Date(Date.now() - KEEP_DAYS * 86400000).toISOString().slice(0, 10);
@@ -234,15 +216,13 @@ async function main() {
     const merged = new Map();
     for (const a of [...(found.get(iso)?.values() || []), ...(previous.byCountry?.[iso] || [])]) {
       if (a.date && a.date < cutoff) continue;
+      if (!isDisplacement(a.title) || isPersonalOrOpinion(a.title, a.url) || !terms.get(iso)?.test(a.title)) continue;
       const basis = reputable(a.domain);
-      if (!basis) continue; // earlier headlines are re-checked against today's list
-      a.basis = basis;
+      if (!basis) continue;
       const k = norm(a.title);
-      if (!merged.has(k)) merged.set(k, a);
+      if (!merged.has(k)) merged.set(k, { title: a.title, url: a.url, domain: a.domain, basis, date: a.date });
     }
-    const list = [...merged.values()]
-      .sort((a, b) => (b.named === true) - (a.named === true) || (b.date || "").localeCompare(a.date || ""))
-      .slice(0, PER_COUNTRY);
+    const list = [...merged.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, PER_COUNTRY);
     if (list.length) byCountry[iso] = list;
   }
 
@@ -253,15 +233,14 @@ async function main() {
     window: { hours: HOURS, upTo: last, keepDays: KEEP_DAYS },
     timespan: `${KEEP_DAYS}d`,
     topic: TOPIC_QUERY,
-    reputable: "Only outlets rated reliable by Wikipedia's Perennial Sources list or Lin et al. (2023), or intergovernmental organizations. See data/processed/news-sources.json.",
+    reputable: "Only outlets rated reliable by Wikipedia's Perennial Sources list, or by Lin et al. (2023) with national or international reach (Tranco top 10,000), or intergovernmental and UN system organizations. See data/processed/news-sources.json.",
+    rules: "Headline must be about forced displacement, name the country it is filed under, and not be a personal profile, opinion piece, podcast or live blog.",
     byCountry,
   };
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
-  const top = [...unmatched.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([n]) => n);
-  console.log(`Read ${files} files, ${articles.toLocaleString()} articles; ${kept} displacement headlines (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
-  console.log(`Left out ${dropped} displacement headlines from outlets not rated reliable.`);
+  console.log(`Read ${counts.files} files, ${counts.articles.toLocaleString()} articles (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
+  console.log(`Displacement headlines: ${counts.topical}. Left out: ${counts.personal} profiles/opinion, ${counts.outlet} from outlets not rated reliable or local, ${counts.unnamed} not naming a country. Kept: ${counts.kept}.`);
   console.log(`Saved data/news.js: ${Object.keys(byCountry).length} countries with headlines.`);
-  if (top.length) console.log(`Place names not matched to a country (most common): ${top.join("; ")}`);
 }
 
 main().catch((err) => {

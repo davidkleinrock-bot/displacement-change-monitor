@@ -9,7 +9,7 @@ An interactive map that ranks displacement situations by how fast they are chang
 - **Country panel:** start and end figures, change and % change, a 2000–2025 trend, top host countries or origins, returns, IDMC internal displacement, recent news, and links to the exact UNHCR API query behind the numbers.
 - **Ranked table:** sortable and searchable, with the same figures as the map. Missing figures are marked "Unavailable". Territories are labeled with their governing country; "Unknown origin", "Stateless" and "Tibetan" are explained and never ranked.
 - **Briefing tools:** key-findings sentences at the top, plus a "Summary for your brief" for the world and every country with Copy summary, Copy citation and Copy link buttons. Links reproduce the exact view. Download the map as PNG or the table as CSV, or print/save as PDF.
-- **News from rated outlets only:** headlines come from outlets rated reliable by Wikipedia's Perennial Sources list or Lin et al. (2023) news-quality ratings, plus intergovernmental organizations. See [the audit](docs/ux-audit.md#news-sources-how-reputable-is-defined).
+- **News from rated outlets only:** headlines about forced displacement, from outlets rated reliable (Wikipedia's Perennial Sources list, or Lin et al. 2023 quality scores plus national or international reach in the Tranco ranking) and UN/intergovernmental bodies. Personal profiles, opinion and local news are left out. See [the audit](docs/ux-audit.md#news-sources-how-reputable-is-defined).
 - **Self-updating:** every hour a GitHub Actions job reads the newest GDELT news and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
 
 ## Data
@@ -23,7 +23,7 @@ An interactive map that ranks displacement situations by how fast they are chang
 | Map shapes (Natural Earth 1:50m) | [world-atlas](https://github.com/topojson/world-atlas) | `data/raw/geo/countries-50m.json` |
 | ISO codes and country reference points for arrows | [world-countries](https://github.com/mledoze/countries) | `data/raw/geo/world-countries.json` |
 | Displacement headlines by country, rolling 14 days | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, every 15 minutes) | `data/news.js` |
-| Which news outlets count as reputable | [Wikipedia: Perennial sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) (CC BY-SA 4.0) and [Lin et al. 2023](https://doi.org/10.1093/pnasnexus/pgad286) ([data](https://github.com/hauselin/domain-quality-ratings)) | `data/processed/news-sources.json` (raw downloads in `data/raw/sources/` are not committed) |
+| Which news outlets count as reputable | [Wikipedia: Perennial sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) (CC BY-SA 4.0), [Lin et al. 2023](https://doi.org/10.1093/pnasnexus/pgad286) ([data](https://github.com/hauselin/domain-quality-ratings)) and the [Tranco](https://tranco-list.eu) top-10,000 sites | `data/processed/news-sources.json` (raw downloads in `data/raw/sources/` are not committed) |
 
 `data/raw/manifest.json` records when each file was downloaded and from which URL. The dashboard shows both the dates the statistics cover (31 December of each year) and the date they were retrieved.
 

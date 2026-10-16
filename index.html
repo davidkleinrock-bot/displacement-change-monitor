@@ -530,14 +530,20 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>News headlines and which outlets count</h3>
-      <p>Headlines come from GDELT, which tracks news coverage worldwide and tags each article with the countries it covers. Every hour the site reads the latest articles and keeps those whose headline mentions refugees, displacement, asylum, evacuations, migrants or deportations, for 14 days.</p>
-      <p>Only outlets rated reliable by public rating repositories are shown:</p>
+      <p>Headlines come from GDELT, which tracks news coverage worldwide. Every hour the site reads the latest articles and keeps a headline for 14 days only if all of these hold:</p>
       <ul>
-        <li>Outlets that <a href="https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources" target="_blank" rel="noopener">Wikipedia's Perennial Sources list</a> rates generally reliable.</li>
-        <li>Where Wikipedia has not rated an outlet, or rates it reliable only for some sections, topics or periods: outlets scoring above 0.66 (of 1) in <a href="https://doi.org/10.1093/pnasnexus/pgad286" target="_blank" rel="noopener">Lin et al. (2023)</a>, which combines six expert news-quality rating sets.</li>
-        <li>Intergovernmental organizations: <a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a> and un.org.</li>
+        <li><b>It is about forced displacement.</b> It mentions refugees, asylum, internally displaced people, statelessness or returnees. Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "millions"), so wildfire evacuations, crime suspects and job "displacement" are left out.</li>
+        <li><b>It names the country</b> it is listed under, or that country's people.</li>
+        <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person, opinion pieces, podcasts and live blogs are left out.</li>
+        <li><b>The outlet is rated reliable and has national or international reach</b>, by public repositories:
+          <ul>
+            <li>outlets <a href="https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources" target="_blank" rel="noopener">Wikipedia's Perennial Sources list</a> rates generally reliable;</li>
+            <li>where Wikipedia has not rated an outlet, or rates it reliable only for some sections: a score above 0.66 (of 1) in <a href="https://doi.org/10.1093/pnasnexus/pgad286" target="_blank" rel="noopener">Lin et al. (2023)</a>, which combines six expert news-quality rating sets, <em>and</em> a place among the 10,000 most-visited websites in the <a href="https://tranco-list.eu" target="_blank" rel="noopener">Tranco research ranking</a>, which leaves out small local papers;</li>
+            <li>intergovernmental and UN system organizations (<a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a>, un.org, UNHCR, WFP and others in the <a href="https://unsceb.org/directory" target="_blank" rel="noopener">UN system directory</a>).</li>
+          </ul>
+        </li>
       </ul>
-      <p>Outlets Wikipedia never rates generally reliable (no consensus, generally unreliable, deprecated or blacklisted) are left out. Headlines are matched to countries automatically and are not checked by this tool. The full list, with the reason each outlet qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
+      <p>Outlets Wikipedia never rates generally reliable are always left out. Headlines are still matched automatically and are not checked by this tool. The full outlet list, with the reason each qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
     </section>
     <section>
       <h3>Using figures in a brief</h3>
@@ -605,7 +611,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     view: { o: "origin", h: "host" },
     rank: { abs: "people", pct: "percent" },
   };
-  const BASIS = { wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", lin2023: "Lin et al. (2023) news-quality score above 0.66", intergovernmental: "Intergovernmental organization" };
+  const BASIS = { wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", lin2023: "Lin et al. (2023) news-quality score above 0.66", tranco: "Among the 10,000 most-visited websites (Tranco)", intergovernmental: "Intergovernmental or UN system organization" };
 
   const state = { ...DEFAULTS, sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
 
