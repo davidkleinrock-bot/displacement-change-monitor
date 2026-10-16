@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-10-16T17:05:04.197Z",
+ "builtAt": "2026-10-16T18:02:29.504Z",
  "definition": "An outlet counts as reputable if Wikipedia's Perennial Sources list rates it generally reliable; or, where Wikipedia has not rated it or rates it reliable only for some sections, topics or periods, if its Lin et al. (2023) aggregate quality score is above 0.66 and it is among the 10,000 most-visited websites in the Tranco ranking (national or international reach); or if it is an intergovernmental or UN system organization. Outlets Wikipedia never rates generally reliable (no consensus, mixed, generally unreliable, deprecated, blacklisted) are excluded.",
  "sources": {
   "wikipedia": {
