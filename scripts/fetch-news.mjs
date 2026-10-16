@@ -160,6 +160,7 @@ async function main() {
 
   const found = new Map(); // ISO3 → Map(normTitle → item)
   const counts = { files: 0, articles: 0, topical: 0, personal: 0, outlet: 0, unnamed: 0, kept: 0 };
+  const leftOut = new Map(); // outlet → displacement headlines left out, for reviewing the outlet rules
 
   const handle = (text) => {
     for (const line of text.split("\n")) {
@@ -173,7 +174,7 @@ async function main() {
       if (isPersonalOrOpinion(title, url)) { counts.personal++; continue; }
       const domain = r[COL.source] || new URL(url).hostname;
       const basis = reputable(domain);
-      if (!basis) { counts.outlet++; continue; }
+      if (!basis) { counts.outlet++; leftOut.set(leftOut.has(domain) ? domain : own(domain), (leftOut.get(domain) || 0) + 1); continue; }
       // File it only under countries the headline itself names; GDELT's location tags catch passing mentions.
       const countries = [...terms].filter(([, re]) => re.test(title)).map(([iso]) => iso);
       if (!countries.length) { counts.unnamed++; continue; }
@@ -241,6 +242,8 @@ async function main() {
   console.log(`Read ${counts.files} files, ${counts.articles.toLocaleString()} articles (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
   console.log(`Displacement headlines: ${counts.topical}. Left out: ${counts.personal} profiles/opinion, ${counts.outlet} from outlets not rated reliable or local, ${counts.unnamed} not naming a country. Kept: ${counts.kept}.`);
   console.log(`Saved data/news.js: ${Object.keys(byCountry).length} countries with headlines.`);
+  const top = [...leftOut].sort((a, b) => b[1] - a[1]).slice(0, 25).map(([d, n]) => `${d} ${n}`);
+  if (top.length) console.log(`Outlets with the most displacement headlines left out: ${top.join(", ")}`);
 }
 
 main().catch((err) => {
