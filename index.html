@@ -382,7 +382,6 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <select id="from" aria-label="Start year"></select>
         <span aria-hidden="true">→</span>
         <select id="to" aria-label="End year"></select>
-        <button type="button" class="btn" id="play" aria-pressed="false" aria-label="Animate the period year by year"><svg viewBox="0 0 12 12" aria-hidden="true"><path id="play-icon" d="M2 1l9 5-9 5z"/></svg><span id="play-text">Animate</span></button>
       </div>
     </div>
     <div class="field">
@@ -1445,12 +1444,12 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   fromSel.addEventListener("change", () => {
     state.from = +fromSel.value;
     if (state.from >= state.to) state.to = state.from + 1;
-    stopPlay(); update();
+    update();
   });
   toSel.addEventListener("change", () => {
     state.to = +toSel.value;
     if (state.from >= state.to) state.from = state.to - 1;
-    stopPlay(); update();
+    update();
   });
   for (const seg of document.querySelectorAll(".seg")) {
     seg.addEventListener("click", (e) => {
@@ -1472,7 +1471,6 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     });
   }
   document.getElementById("reset").onclick = () => {
-    stopPlay();
     Object.assign(state, DEFAULTS, { sel: null });
     update();
     zoomToSelection();
@@ -1491,34 +1489,6 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       }
     }
   }
-
-  // Animate: slide the comparison window one year at a time, keeping its length.
-  let playTimer = null;
-  const playBtn = document.getElementById("play");
-  function stopPlay() {
-    if (!playTimer) return;
-    clearInterval(playTimer);
-    playTimer = null;
-    playBtn.setAttribute("aria-pressed", "false");
-    document.getElementById("play-text").textContent = "Animate";
-    document.getElementById("play-icon").setAttribute("d", "M2 1l9 5-9 5z");
-  }
-  playBtn.onclick = () => {
-    if (playTimer) { stopPlay(); return; }
-    const span = state.to - state.from;
-    state.from = FY0;
-    state.to = FY0 + span;
-    update();
-    playBtn.setAttribute("aria-pressed", "true");
-    document.getElementById("play-text").textContent = "Stop";
-    document.getElementById("play-icon").setAttribute("d", "M2 1h8v10H2z");
-    playTimer = setInterval(() => {
-      if (state.to >= FYN) { stopPlay(); return; }
-      state.from++;
-      state.to++;
-      update();
-    }, 1700);
-  };
 
   // ---------- Shareable state in the address ----------
   function shareURL() {

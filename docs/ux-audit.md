@@ -49,7 +49,7 @@ Severity: **High** means it blocks a core task or excludes users. **Medium** mea
 | 7 | No print or PDF layout. | Medium | **Fixed.** "Print or save as PDF" in the title band, with a print stylesheet that drops the controls and keeps the map, brief and table. |
 | 8 | No exports for slides or spreadsheets. | Medium | **Fixed.** "Download map (PNG)" includes the title, legend, source line and link. "Download table (CSV)" includes the source, the dates covered and the retrieval date on every row. |
 | 9 | The key answer ("what changed most?") sat in the side panel, below the fold on laptops. | Medium | **Fixed.** Key-findings sentences sit at the top: worldwide change, largest increase, largest decrease and fastest-growing corridor. Each opens its country. |
-| 10 | "Play years" label read as gimmicky. | Low | **Fixed.** Renamed "Animate" / "Stop". |
+| 10 | "Play years" animation read as gimmicky and didn't serve a briefing task. | Low | **Fixed.** Removed. The start and end year selectors cover any period. |
 | 11 | The interactive map was marked `role="img"`, which hides its controls from screen readers. No skip link; toggles didn't respond to arrow keys; some text was 11 px. | Medium | **Fixed.** The map is now a labeled group pointing to the table. Added a skip link to the ranking table, arrow-key navigation in the toggles, and a 12 px minimum for text. |
 | 12 | No quick way back to the default view after exploring. | Low | **Fixed.** "Reset" button, as on Carnegie's trackers. |
 | 13 | The date of the data wasn't prominent. | Low | **Fixed.** "Data updated … · UNHCR figures through 31 Dec 2025 · News updated …" under the title. |
