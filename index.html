@@ -4,25 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Displacement Change Monitor</title>
-<meta name="description" content="Countries ranked by how fast refugee and displacement figures are changing, with origin-to-host flow arrows and recent news.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<meta name="description" content="Countries ranked by how fast refugee and displacement figures are changing, with origin-to-host flow arrows, briefing-ready summaries and news from rated outlets.">
 <style>
-/* Layout: masthead with date stamps → one control strip → map beside a country dossier → ranked ledger → method notes. */
+/* Layout: navy title band with update stamp → key-findings sentences → one control strip → map beside a
+   country dossier with a copy-ready brief → ranked table with CSV export → About the data. */
+@font-face { font-family: "Public Sans"; src: url("vendor/fonts/public-sans-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Public Sans"; src: url("vendor/fonts/public-sans-latin-wght-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
 :root {
-  --bg: #f1f3f4;
+  --bg: #f4f5f7;
   --surface: #ffffff;
-  --sea: #f5f8fa;
-  --ink: #111518;
-  --ink-2: #434b53;
-  --muted: #646d76;
-  --line: #dde1e4;
-  --line-strong: #bfc6cc;
-  --row-hover: #f3f6f8;
-  --row-sel: #e7edf2;
-  --land-faint: #e8ebed;
-  --hatch: #c3c9ce;
+  --sea: #f2f5f8;
+  --ink: #1d2228;
+  --ink-2: #47505a;
+  --muted: #5b6470;
+  --line: #dfe3e8;
+  --line-strong: #c2c9d1;
+  --navy: #0f2d4c;
+  --on-navy: #ffffff;
+  --on-navy-2: #c6d3e0;
+  --sel-bg: #0f2d4c;
+  --sel-fg: #ffffff;
+  --tint: #e8eef5;
+  --row-hover: #f1f4f7;
+  --land-faint: #e8ebee;
+  --hatch: #c3c9cf;
+  --focus: #1f5c99;
   /* Diverging change scale: blue = fewer people, red = more. Validated per mode; light end clears 2:1 on the surface. */
   --div-0: #104281; --div-1: #256abf; --div-2: #4f93e6; --div-3: #86b6ef;
   --div-4: #d6dadd;
@@ -30,14 +36,14 @@
   --up: #bc3c27;
   --down: #256abf;
   --flow-total: #2c343b;
-  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --radius: 6px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0e1113; --surface: #161a1d; --sea: #1b2024; --ink: #eef1f3; --ink-2: #b7bec5; --muted: #8f979f;
-    --line: #283036; --line-strong: #3d464e; --row-hover: #1d2327; --row-sel: #252d33; --land-faint: #262c31; --hatch: #48515a;
+    --bg: #0e1116; --surface: #161b21; --sea: #1a2027; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #939ca6;
+    --line: #29313a; --line-strong: #3b444e; --navy: #0b1f35; --on-navy: #ffffff; --on-navy-2: #b8c7d6;
+    --sel-bg: #dbe6f2; --sel-fg: #0e1116; --tint: #1f2a36; --row-hover: #1b2129; --land-faint: #262c32; --hatch: #48515a; --focus: #9cc0e8;
     --div-0: #a9cdf6; --div-1: #62a0ec; --div-2: #3478cf; --div-3: #245aa3; --div-4: #3b4147;
     --div-5: #963526; --div-6: #c4442f; --div-7: #e8735c; --div-8: #f6ae9d;
     --up: #e8735c; --down: #62a0ec; --flow-total: #d3d9de;
@@ -45,8 +51,9 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0e1113; --surface: #161a1d; --sea: #1b2024; --ink: #eef1f3; --ink-2: #b7bec5; --muted: #8f979f;
-  --line: #283036; --line-strong: #3d464e; --row-hover: #1d2327; --row-sel: #252d33; --land-faint: #262c31; --hatch: #48515a;
+  --bg: #0e1116; --surface: #161b21; --sea: #1a2027; --ink: #eef1f4; --ink-2: #b9c1c9; --muted: #939ca6;
+  --line: #29313a; --line-strong: #3b444e; --navy: #0b1f35; --on-navy: #ffffff; --on-navy-2: #b8c7d6;
+  --sel-bg: #dbe6f2; --sel-fg: #0e1116; --tint: #1f2a36; --row-hover: #1b2129; --land-faint: #262c32; --hatch: #48515a; --focus: #9cc0e8;
   --div-0: #a9cdf6; --div-1: #62a0ec; --div-2: #3478cf; --div-3: #245aa3; --div-4: #3b4147;
   --div-5: #963526; --div-6: #c4442f; --div-7: #e8735c; --div-8: #f6ae9d;
   --up: #e8735c; --down: #62a0ec; --flow-total: #d3d9de;
@@ -56,48 +63,67 @@
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-body); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--font); }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 button, select, input { font: inherit; color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -60px; z-index: 20; padding: 10px 14px; background: var(--surface); color: var(--ink); border: 2px solid var(--focus); border-radius: 4px; font-weight: 600; }
+.skip:focus { top: max(12px, env(safe-area-inset-top, 0px)); }
 
-.wrap { max-width: 1380px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 22px 56px; display: grid; gap: 18px; }
+/* Title band */
+.band { background: var(--navy); color: var(--on-navy); }
+.band-inner { max-width: 1380px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 28px 24px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 40px; align-items: end; }
+.kicker { margin: 0 0 8px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--on-navy-2); }
+h1 { margin: 0; font-size: clamp(30px, 4.2vw, 46px); font-weight: 700; line-height: 1.05; letter-spacing: -.015em; }
+.lede { margin: 10px 0 0; max-width: 66ch; color: var(--on-navy-2); font-size: 17px; }
+.updated { margin: 14px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--on-navy); }
+.updated span { font-variant-numeric: tabular-nums; }
+.band-links { display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: flex-end; }
+.band-links a, .band-links button { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(255,255,255,.4); border-radius: 4px; background: transparent; color: var(--on-navy); font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.band-links a:hover, .band-links button:hover { background: rgba(255,255,255,.12); }
 
-/* Masthead */
-.masthead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 40px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--line-strong); }
-.eyebrow { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-h1 { margin: 0; font-family: var(--font-display); font-stretch: 72%; font-weight: 760; font-size: clamp(30px, 4.4vw, 50px); line-height: .98; letter-spacing: -.005em; text-wrap: balance; }
-.lede { margin: 10px 0 0; max-width: 64ch; color: var(--ink-2); }
-.stamps { margin: 0; display: grid; grid-template-columns: auto auto; gap: 4px 16px; font-size: 13px; }
-.stamps dt { color: var(--muted); }
-.stamps dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1380px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 32px); padding-block: 20px 56px; display: grid; gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; }
+
+/* Key findings */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px; }
+.tile { display: grid; gap: 4px; align-content: start; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); text-align: left; font: inherit; color: inherit; }
+button.tile { cursor: pointer; }
+button.tile:hover { border-color: var(--line-strong); background: var(--row-hover); }
+.tile-label { font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.tile-big { font-size: 30px; font-weight: 700; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.tile-big small { font-size: 15px; font-weight: 600; color: var(--ink-2); }
+.tile-text { font-size: 14.5px; color: var(--ink-2); }
 
 /* Controls */
-.controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: end; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: end; padding: 12px 14px; }
 .field { display: grid; gap: 5px; min-width: 0; }
-.label, .field > label { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-select { height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 14px; max-width: 100%; }
-.seg { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden; }
-.seg button { height: 32px; padding: 0 11px; border: 0; border-left: 1px solid var(--line-strong); background: var(--surface); font-size: 13.5px; cursor: pointer; white-space: nowrap; }
+.label, .field > label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 15px; max-width: 100%; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden; }
+.seg button { min-height: 36px; padding: 0 12px; border: 0; border-left: 1px solid var(--line-strong); background: var(--surface); font-size: 14.5px; cursor: pointer; white-space: nowrap; }
 .seg button:first-child { border-left: 0; }
 .seg button:hover:not(:disabled) { background: var(--row-hover); }
-.seg button[aria-checked="true"] { background: var(--ink); color: var(--surface); font-weight: 600; }
+.seg button[aria-checked="true"] { background: var(--sel-bg); color: var(--sel-fg); font-weight: 600; }
 .seg button:disabled { cursor: not-allowed; opacity: .45; }
 .period { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.btn { height: 34px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 13.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn { min-height: 38px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 14.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
 .btn:hover { background: var(--row-hover); }
-.btn[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--sel-bg); color: var(--sel-fg); border-color: var(--sel-bg); }
 .btn svg { width: 12px; height: 12px; fill: currentColor; }
+.btn.small { min-height: 32px; font-size: 13.5px; padding: 0 10px; }
+.reset { margin-left: auto; }
 
 /* Map + panel */
-.stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 370px); gap: 16px; align-items: start; scroll-margin-top: 12px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); gap: 16px; align-items: start; scroll-margin-top: 12px; }
 .map-card { position: relative; overflow: hidden; }
-.map-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding: 12px 14px 4px; }
-.map-title { margin: 0; font-family: var(--font-display); font-stretch: 85%; font-weight: 650; font-size: 18px; line-height: 1.2; }
-.map-hint { margin: 0; font-size: 12px; color: var(--muted); }
+.map-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding: 12px 14px 4px; }
+.map-title { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.25; }
+.map-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.map-hint { margin: 0; font-size: 13px; color: var(--muted); }
 #map-box { position: relative; }
 #map { display: block; width: 100%; height: auto; cursor: grab; }
 #map:active { cursor: grabbing; }
@@ -120,21 +146,22 @@ select { height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .arrow.down .arrow-shaft { stroke: var(--down); } .arrow.down .arrow-head { fill: var(--down); }
 .arrow.total .arrow-shaft { stroke: var(--flow-total); } .arrow.total .arrow-head { fill: var(--flow-total); }
 .arrow:hover .arrow-shaft { stroke-opacity: .8; }
-.arrow-label { font: 700 11.5px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--sea); stroke-width: 3.5px; stroke-linejoin: round; pointer-events: none; font-variant-numeric: tabular-nums; }
+.arrow-label { font: 700 12px var(--font); fill: var(--ink); paint-order: stroke; stroke: var(--sea); stroke-width: 3.5px; stroke-linejoin: round; pointer-events: none; font-variant-numeric: tabular-nums; }
 .node { fill: var(--surface); stroke: var(--ink); stroke-width: 2; pointer-events: none; }
 .zoom { position: absolute; top: 10px; right: 10px; display: grid; gap: 4px; }
-.zoom button { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); cursor: pointer; font-size: 17px; line-height: 1; }
+.zoom button { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); cursor: pointer; font-size: 18px; line-height: 1; }
 .zoom button:hover { background: var(--row-hover); }
-.tip { position: absolute; z-index: 5; max-width: 270px; padding: 9px 11px; border-radius: 5px; background: var(--ink); color: var(--surface); font-size: 12.5px; line-height: 1.4; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
-.tip strong { display: block; font-size: 13.5px; margin-bottom: 4px; }
-.tip-grid { display: grid; grid-template-columns: auto auto; gap: 1px 12px; font-variant-numeric: tabular-nums; }
+.tip { position: absolute; z-index: 5; max-width: 280px; padding: 9px 11px; border-radius: 5px; background: var(--ink); color: var(--surface); font-size: 13px; line-height: 1.4; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.tip strong { display: block; font-size: 14px; }
+.tip .tip-tag { display: block; margin-bottom: 4px; opacity: .8; }
+.tip-grid { display: grid; grid-template-columns: auto auto; gap: 1px 12px; margin-top: 4px; font-variant-numeric: tabular-nums; }
 .tip-grid b { text-align: right; font-weight: 600; }
 .tip .tip-note { margin-top: 5px; opacity: .8; }
 
 /* Legend */
 .legend { display: flex; flex-wrap: wrap; gap: 14px 36px; padding: 10px 14px 14px; border-top: 1px solid var(--line); }
-.legend-block { display: grid; gap: 6px; min-width: 0; flex: 1 1 280px; max-width: 460px; }
-.legend-title { margin: 0; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.legend-block { display: grid; gap: 6px; min-width: 0; flex: 1 1 280px; max-width: 470px; }
+.legend-title { margin: 0; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 .scale { width: 100%; display: grid; gap: 3px; }
 .swatches { display: grid; grid-template-columns: repeat(9, 1fr); height: 12px; gap: 2px; }
 .swatches span { border-radius: 2px; }
@@ -143,43 +170,53 @@ select { height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .swatches span:nth-child(5) { background: var(--div-4); } .swatches span:nth-child(6) { background: var(--div-5); }
 .swatches span:nth-child(7) { background: var(--div-6); } .swatches span:nth-child(8) { background: var(--div-7); }
 .swatches span:nth-child(9) { background: var(--div-8); }
-.ticks { position: relative; height: 15px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ticks { position: relative; height: 16px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
-.ends { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--ink-2); }
-.keys { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--ink-2); }
+.ends { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.keys { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); }
 .keys li { display: inline-flex; align-items: center; gap: 6px; }
 .sw { width: 14px; height: 12px; border-radius: 2px; display: inline-block; flex: none; }
 .sw.nodata { background: repeating-linear-gradient(45deg, var(--hatch) 0 1.5px, var(--land-faint) 1.5px 4px); }
 .sw.smallbase { background: var(--land-faint); outline: 1px solid var(--line-strong); outline-offset: -1px; }
+.sw.b0 { background: var(--div-0); } .sw.b1 { background: var(--div-1); } .sw.b2 { background: var(--div-2); } .sw.b3 { background: var(--div-3); } .sw.b4 { background: var(--div-4); }
+.sw.b5 { background: var(--div-5); } .sw.b6 { background: var(--div-6); } .sw.b7 { background: var(--div-7); } .sw.b8 { background: var(--div-8); }
 .arrow-key svg { display: block; }
 .arrow-key .k-up { fill: var(--up); stroke: var(--up); }
 .arrow-key .k-down { fill: var(--down); stroke: var(--down); }
 .arrow-key .k-total { fill: var(--flow-total); stroke: var(--flow-total); }
+.arrow-key text { fill: var(--ink-2); font-size: 12.5px; }
 
 /* Panel */
 .panel { padding: 16px; display: grid; gap: 18px; align-content: start; position: sticky; top: max(12px, env(safe-area-inset-top, 0px)); max-height: calc(100vh - 24px); overflow: auto; }
-.panel h2 { margin: 2px 0 0; font-family: var(--font-display); font-stretch: 78%; font-weight: 720; font-size: 28px; line-height: 1.02; text-wrap: balance; }
-.panel h3 { margin: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-.panel .sub { margin: 4px 0 0; color: var(--ink-2); font-size: 13.5px; }
-.back { justify-self: start; margin-bottom: 8px; padding: 4px 8px 4px 4px; border: 0; background: none; color: var(--ink-2); font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 4px; }
+.panel h2 { margin: 2px 0 0; font-size: 26px; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+.panel h3 { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.eyebrow { margin: 0 0 4px; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.panel .sub { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; }
+.back { justify-self: start; margin-bottom: 8px; padding: 6px 8px 6px 4px; border: 0; background: none; color: var(--ink-2); font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 4px; }
 .back:hover { background: var(--row-hover); color: var(--ink); }
-.chip { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 3px 9px 3px 7px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+.chip { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 3px 10px 3px 8px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 13px; font-weight: 600; }
 .glyph { font-size: 10px; line-height: 1; }
 .glyph.up { color: var(--up); } .glyph.down { color: var(--down); } .glyph.flat, .glyph.none { color: var(--muted); }
+.callout { margin: 0; padding: 10px 12px; border-left: 3px solid var(--line-strong); background: var(--row-hover); font-size: 14px; color: var(--ink-2); }
 .figs { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
 .figs div { min-width: 0; }
-.figs dt { font-size: 12px; color: var(--muted); }
+.figs dt { font-size: 13px; color: var(--muted); }
 .figs dd { margin: 1px 0 0; font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .figs .hero { grid-column: 1 / -1; }
-.figs .hero dd { font-family: var(--font-display); font-stretch: 85%; font-size: 34px; font-weight: 700; line-height: 1.05; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.figs .hero dd small { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--ink-2); }
+.figs .hero dd { font-size: 32px; font-weight: 700; line-height: 1.05; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.figs .hero dd small { font-size: 15px; font-weight: 600; color: var(--ink-2); }
 .figs .hero .glyph { font-size: 18px; }
-.na { color: var(--muted); font-style: italic; font-weight: 400; font-size: .85em; }
-.note { margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
+.na { color: var(--muted); font-style: italic; font-weight: 400; font-size: .9em; }
+.note { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+.brief { display: grid; gap: 10px; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--tint); }
+.brief h3 { margin: 0; }
+.brief p { margin: 0; font-size: 14.5px; line-height: 1.5; }
+.brief .cite { font-size: 12.5px; color: var(--ink-2); overflow-wrap: anywhere; }
+.brief-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .rank-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-.rank-list button { width: 100%; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; grid-template-rows: auto 4px; column-gap: 8px; row-gap: 3px; align-items: center; padding: 6px 6px; border: 0; border-radius: 4px; background: none; text-align: left; cursor: pointer; font-size: 14px; }
+.rank-list button { width: 100%; display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; grid-template-rows: auto 4px; column-gap: 8px; row-gap: 3px; align-items: center; padding: 6px; border: 0; border-radius: 4px; background: none; text-align: left; cursor: pointer; font-size: 14.5px; }
 .rank-list button:hover { background: var(--row-hover); }
-.rank-list .rk { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.rank-list .rk { color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
 .rank-list .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rank-list .val { font-weight: 600; font-variant-numeric: tabular-nums; }
 .rank-list .bar { grid-column: 2 / -1; height: 4px; border-radius: 2px; background: var(--land-faint); overflow: hidden; }
@@ -189,114 +226,140 @@ select { height: 34px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .spark svg { display: block; width: 100%; height: auto; overflow: visible; }
 .spark .grid { stroke: var(--line); stroke-width: 1; }
 .spark .base { stroke: var(--line-strong); stroke-width: 1; }
-.spark .band { fill: var(--row-sel); }
+.spark .band { fill: var(--tint); }
 .spark-area { fill: var(--ink); opacity: .07; }
 .spark-line { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
 .spark-seg { fill: none; stroke-width: 2.5; stroke: var(--muted); }
 .spark-seg.up { stroke: var(--up); } .spark-seg.down { stroke: var(--down); }
 .spark-dot { fill: var(--muted); stroke: var(--surface); stroke-width: 2; }
 .spark-dot.up { fill: var(--up); } .spark-dot.down { fill: var(--down); }
-.spark-axis { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.spark-axis { font-size: 12px; fill: var(--muted); font-variant-numeric: tabular-nums; }
 .spark-hover line { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 2; }
 .spark-hover circle { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
-.spark-hover text { font-size: 11.5px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; font-variant-numeric: tabular-nums; }
+.spark-hover text { font-size: 12px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; font-variant-numeric: tabular-nums; }
 .spark-hit { fill: transparent; }
-.spark figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.context { margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
+.spark figcaption { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.context { margin: 0; display: grid; gap: 6px; font-size: 14px; }
 .context div { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 6px; }
 .context dt { color: var(--ink-2); }
 .context dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
-.mini { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
-.mini th { text-align: left; font-size: 11px; font-weight: 600; color: var(--muted); padding: 0 0 4px; border-bottom: 1px solid var(--line-strong); }
+.mini { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.mini th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 0 0 4px; border-bottom: 1px solid var(--line-strong); }
 .mini td { padding: 5px 0; border-bottom: 1px solid var(--line); }
-.mini td + td { white-space: nowrap; }
-.mini td + td, .mini th + th { text-align: right; padding-left: 10px; }
+.mini td + td, .mini th + th { text-align: right; padding-left: 10px; white-space: nowrap; }
 .mini .nm { overflow-wrap: anywhere; }
 .news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.news a { font-weight: 600; font-size: 14px; line-height: 1.35; text-decoration: none; }
+.news a { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-decoration: none; }
 .news a:hover { text-decoration: underline; }
-.news .meta { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
+.news .meta { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
 .news-group + .news-group { margin-top: 12px; }
-.news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
-.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 13.5px; }
+.news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 14px; }
 
 /* Ledger */
-.ledger-head { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; padding: 14px 14px 10px; }
-.ledger-head h2 { margin: 0; font-family: var(--font-display); font-stretch: 80%; font-weight: 720; font-size: 26px; line-height: 1.1; }
-.ledger-head p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.ledger-head { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; padding: 14px 14px 10px; scroll-margin-top: 12px; }
+.ledger-head h2 { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.15; }
+.ledger-head p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
 .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
-input[type="search"] { height: 34px; width: 210px; max-width: 100%; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 14px; }
+input[type="search"] { height: 38px; width: 220px; max-width: 100%; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface); font-size: 15px; }
 .table-wrap { overflow-x: auto; border-top: 1px solid var(--line); }
-table.rank { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.rank { width: 100%; border-collapse: collapse; font-size: 14.5px; font-variant-numeric: tabular-nums; }
 table.rank th { padding: 0; text-align: left; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
-table.rank th button, table.rank th span { display: flex; align-items: center; gap: 4px; width: 100%; padding: 9px 10px; border: 0; background: none; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
+table.rank th button, table.rank th span { display: flex; align-items: center; gap: 4px; width: 100%; padding: 10px; border: 0; background: none; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
 table.rank th span { cursor: default; }
 table.rank th.num button { justify-content: flex-end; }
 table.rank th button:hover { color: var(--ink); }
 table.rank th[aria-sort] button { color: var(--ink); }
-table.rank td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.rank th[aria-sort="ascending"] button::after { content: "▲"; font-size: 9px; }
+table.rank th[aria-sort="descending"] button::after { content: "▼"; font-size: 9px; }
+table.rank td { padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; vertical-align: top; }
 table.rank .num { text-align: right; }
 table.rank tbody tr { cursor: pointer; }
 table.rank tbody tr:hover { background: var(--row-hover); }
-table.rank tbody tr.is-sel { background: var(--row-sel); }
+table.rank tbody tr.is-sel { background: var(--tint); }
 .rk-cell { color: var(--muted); width: 1%; }
 .row-btn { padding: 0; border: 0; background: none; font-weight: 600; cursor: pointer; text-align: left; }
-.iso { margin-left: 6px; font-size: 11px; font-weight: 500; letter-spacing: .04em; color: var(--muted); }
+.iso { margin-left: 6px; font-size: 12px; font-weight: 500; letter-spacing: .04em; color: var(--muted); }
+.tag { display: block; font-size: 12.5px; color: var(--muted); white-space: normal; max-width: 34ch; }
 .chg { display: inline-flex; align-items: center; gap: 6px; }
 .chg .sw { width: 10px; height: 10px; }
-.sw.b0 { background: var(--div-0); } .sw.b1 { background: var(--div-1); } .sw.b2 { background: var(--div-2); } .sw.b3 { background: var(--div-3); } .sw.b4 { background: var(--div-4); }
-.sw.b5 { background: var(--div-5); } .sw.b6 { background: var(--div-6); } .sw.b7 { background: var(--div-7); } .sw.b8 { background: var(--div-8); }
 .tiny { display: block; }
 .tiny path { fill: none; stroke: var(--ink-2); stroke-width: 1.25; }
 .tiny circle { fill: var(--ink); }
-.ledger-foot { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 12px 14px; font-size: 13px; color: var(--muted); }
+.ledger-foot { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 12px 14px; font-size: 14px; color: var(--muted); }
+.ledger-foot .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* Notes */
-.notes { padding: 20px 14px 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 22px 36px; border-top: 1px solid var(--line-strong); }
-.notes h2 { grid-column: 1 / -1; margin: 0; font-family: var(--font-display); font-stretch: 80%; font-weight: 720; font-size: 26px; }
-.notes section { max-width: 62ch; }
-.notes h3 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
-.notes p, .notes li { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); }
+.notes { padding: 20px 14px 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px 36px; border-top: 1px solid var(--line-strong); scroll-margin-top: 12px; }
+.notes h2 { grid-column: 1 / -1; margin: 0; font-size: 24px; font-weight: 700; }
+.notes section { max-width: 64ch; }
+.notes h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+.notes p, .notes li { margin: 0 0 8px; font-size: 14.5px; color: var(--ink-2); }
 .notes ul { margin: 0; padding-left: 18px; }
-.foot { font-size: 12.5px; color: var(--muted); padding: 4px 14px; }
+.foot { font-size: 13px; color: var(--muted); padding: 4px 14px; }
 .boot-error { padding: 16px; border: 1px solid var(--up); border-radius: var(--radius); background: var(--surface); }
 
 @media (max-width: 1020px) {
   .stage { grid-template-columns: minmax(0, 1fr); }
   .panel { position: static; max-height: none; }
 }
-@media (max-width: 640px) {
-  .masthead { grid-template-columns: minmax(0, 1fr); }
-  .controls { gap: 12px 14px; }
-  .seg button { padding: 0 9px; font-size: 13px; }
+@media (max-width: 680px) {
+  .band-inner { grid-template-columns: minmax(0, 1fr); }
+  .band-links { justify-content: flex-start; }
   .ticks span:nth-child(even) { display: none; }
   .map-hint { display: none; }
-  .zoom button { width: 30px; height: 30px; }
+  .reset { margin-left: 0; }
+  .tile-big { font-size: 26px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .country { transition: none; }
 }
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff; --surface: #ffffff; --sea: #ffffff; --ink: #000000; --ink-2: #222222; --muted: #444444;
+    --line: #cccccc; --line-strong: #999999; --tint: #f2f2f2; --row-hover: #ffffff;
+    color-scheme: light;
+  }
+  body { font-size: 12px; }
+  .band { background: none; color: #000; border-bottom: 2px solid #000; }
+  .band .lede, .kicker { color: #222; }
+  .updated { color: #000; }
+  .band-links, .controls, .zoom, .map-hint, .map-tools, .brief-actions, .ledger-foot .actions, .filters, .skip, .back, .spark-hit, #news-section, .reset { display: none !important; }
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .panel { position: static; max-height: none; overflow: visible; }
+  .card, .tile, .brief { break-inside: avoid; }
+  .ledger { break-before: page; }
+  a { text-decoration: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="masthead">
+<a class="skip" href="#ranking">Skip to the ranking table</a>
+<header class="band">
+  <div class="band-inner">
     <div>
-      <p class="eyebrow">Refugee and displacement statistics · <span id="eyebrow-period">year-end figures</span></p>
+      <p class="kicker">Refugee and displacement statistics</p>
       <h1>Displacement Change Monitor</h1>
-      <p class="lede">Which displacement situations grew or shrank the most between two year-end counts. Red means more people displaced, blue means fewer. Click a country to see where people went, the figures behind its rank, and recent news.</p>
+      <p class="lede">Which displacement situations grew or shrank the most between two year-end counts. Every figure can be copied into a brief with its source.</p>
+      <p class="updated">Data updated <span id="stamp-retrieved">—</span> · UNHCR figures through <span id="stamp-latest">—</span> · News updated <span id="stamp-news">—</span></p>
     </div>
-    <dl class="stamps" aria-label="Dates">
-      <dt>Statistics cover</dt><dd id="stamp-period">—</dd>
-      <dt>Latest UNHCR year</dt><dd id="stamp-latest">—</dd>
-      <dt>UNHCR data retrieved</dt><dd id="stamp-retrieved">—</dd>
-      <dt>News retrieved</dt><dd id="stamp-news">—</dd>
-    </dl>
-  </header>
+    <nav class="band-links" aria-label="Page links">
+      <a href="#about">About the data</a>
+      <a href="https://github.com/davidkleinrock-bot/displacement-change-monitor" target="_blank" rel="noopener">Data and code</a>
+      <button type="button" id="print-btn">Print or save as PDF</button>
+    </nav>
+  </div>
+</header>
 
-  <p class="boot-error" id="boot-error" hidden>The data files didn't load. Keep the <code>data</code> folder next to this page and reload.</p>
+<main class="wrap">
+  <p class="boot-error" id="boot-error" hidden>The dashboard's files didn't load. Keep the <code>data</code> and <code>vendor</code> folders next to this page and reload.</p>
 
-  <section class="controls" aria-label="What the map shows">
+  <section aria-labelledby="findings-title">
+    <h2 id="findings-title" class="sr-only">Key findings for the selected period</h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="card controls" aria-label="What the map shows">
     <div class="field">
       <label for="metric">Measure</label>
       <select id="metric">
@@ -319,7 +382,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
         <select id="from" aria-label="Start year"></select>
         <span aria-hidden="true">→</span>
         <select id="to" aria-label="End year"></select>
-        <button type="button" class="btn" id="play" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><path id="play-icon" d="M2 1l9 5-9 5z"/></svg><span id="play-text">Play years</span></button>
+        <button type="button" class="btn" id="play" aria-pressed="false" aria-label="Animate the period year by year"><svg viewBox="0 0 12 12" aria-hidden="true"><path id="play-icon" d="M2 1l9 5-9 5z"/></svg><span id="play-text">Animate</span></button>
       </div>
     </div>
     <div class="field">
@@ -337,17 +400,21 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
         <button type="button" role="radio" data-v="off">Off</button>
       </div>
     </div>
+    <button type="button" class="btn reset" id="reset">Reset</button>
   </section>
 
   <section class="stage" id="stage">
     <div class="card map-card">
       <div class="map-head">
         <h2 class="map-title" id="map-title">Change in refugees</h2>
-        <p class="map-hint">Drag to pan · Ctrl + scroll to zoom · Click a country</p>
+        <div class="map-tools">
+          <p class="map-hint">Drag to pan · Ctrl + scroll to zoom · Click a country</p>
+          <button type="button" class="btn small" id="png-btn">Download map (PNG)</button>
+        </div>
       </div>
       <div id="map-box">
-        <svg id="map" role="img" aria-labelledby="map-title map-desc">
-          <desc id="map-desc">World map colored by change in the selected measure. The ranked table below lists the same figures.</desc>
+        <svg id="map" role="group" aria-labelledby="map-title" aria-describedby="map-desc">
+          <desc id="map-desc">World map colored by change in the selected measure. Keyboard and screen reader users: the ranking table below lists every figure on the map.</desc>
           <defs>
             <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
               <rect class="hatch-bg" width="5" height="5"></rect>
@@ -377,7 +444,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
         </div>
         <div class="legend-block arrow-key" id="arrow-key">
           <p class="legend-title" id="arrow-key-title">Flow arrows: origin → host</p>
-          <svg width="230" height="28" viewBox="0 0 230 28" aria-hidden="true" id="arrow-key-svg"></svg>
+          <svg width="240" height="28" viewBox="0 0 240 28" aria-hidden="true" id="arrow-key-svg"></svg>
           <p class="note" id="arrow-key-note" style="margin:0">Width shows the number of people.</p>
         </div>
       </div>
@@ -386,7 +453,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   </section>
 
   <section class="card ledger" aria-labelledby="ledger-title">
-    <div class="ledger-head">
+    <div class="ledger-head" id="ranking">
       <div>
         <h2 id="ledger-title">Ranking</h2>
         <p id="ledger-sub">Largest increase first</p>
@@ -414,11 +481,14 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     </div>
     <div class="ledger-foot">
       <span id="ledger-count"></span>
-      <button type="button" class="btn" id="show-all">Show all</button>
+      <div class="actions">
+        <button type="button" class="btn small" id="csv-btn">Download table (CSV)</button>
+        <button type="button" class="btn small" id="show-all">Show all</button>
+      </div>
     </div>
   </section>
 
-  <section class="notes" aria-labelledby="notes-title">
+  <section class="notes" id="about" aria-labelledby="notes-title">
     <h2 id="notes-title">About the data</h2>
     <section>
       <h3>What each measure counts</h3>
@@ -430,6 +500,16 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       </ul>
     </section>
     <section>
+      <h3>Rows that are not countries</h3>
+      <ul>
+        <li><b>Unknown origin:</b> not a place. It counts people whose host country did not report where they came from. Changes in it usually reflect how a host government reports, not new movement.</li>
+        <li><b>Stateless:</b> people no state considers its nationals, counted where UNHCR reports them as an origin group.</li>
+        <li><b>Tibetan:</b> UNHCR reports Tibetans as their own origin group, separate from China.</li>
+        <li><b>Territories</b> are labeled with the country that governs them, for example "Puerto Rico, US territory". Hong Kong and Macao are labeled as special administrative regions of China.</li>
+      </ul>
+      <p>Unknown origin, Stateless and Tibetan appear in the table but are not ranked, so they never top a list of countries.</p>
+    </section>
+    <section>
       <h3>How change is calculated</h3>
       <p>Every figure is a count on 31 December. Change is the end-year count minus the start-year count. Percentage change is shown only when the start figure is above zero. Ranking by % leaves out countries that started under 1,000 people, so tiny numbers don't top the list.</p>
       <p>If either year has no figure, the country is marked unavailable and is not ranked. "Country of origin" counts people by where they fled from. "Host country" counts them by where they live now.</p>
@@ -437,12 +517,12 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     <section>
       <h3>What the arrows show</h3>
       <p>Each arrow runs from a country of origin to a host country. In "Change" mode, its width is how much that group grew or shrank over the period: red for growth, blue for decline. In "Total at end" mode, its width is the number of people at the end of the period.</p>
-      <p>Arrows compare year-end counts. They are not counts of journeys. A shrinking corridor can mean returns, moves elsewhere, naturalization or a revised count. Arrows start and end at a reference point inside each country. People of unknown origin or who are stateless have no point on the map, so they appear in lists only.</p>
+      <p>Arrows compare year-end counts. They are not counts of journeys. A shrinking corridor can mean returns, moves elsewhere, naturalization or a revised count. Arrows start and end at a reference point inside each country.</p>
     </section>
     <section>
       <h3>Checks on the numbers</h3>
       <p id="verify-text">Each origin-to-host figure is added up and compared with UNHCR's own published totals.</p>
-      <p>The ranking compares the same two dates for every country. It flags situations worth a closer look. It is not a full assessment of humanitarian conditions.</p>
+      <p>The ranking flags situations worth a closer look. It is not a full assessment of humanitarian conditions.</p>
     </section>
     <section>
       <h3>Read before relying on a ranking</h3>
@@ -450,9 +530,19 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       <p>UNHCR publishes year-end figures once a year, months after the year closes. The newest comparison is therefore at least several months old.</p>
     </section>
     <section>
-      <h3>News headlines</h3>
-      <p>Headlines come from GDELT, which tracks news coverage worldwide and tags each article with the countries it covers. Each day the update reads every English-language article GDELT logged in the past 24 hours and keeps those whose headline mentions refugees, displacement, asylum, evacuations, migrants or deportations. Headlines stay for 14 days. They are matched automatically and not checked by this tool, so some may be off-topic.</p>
-      <p id="news-mode-text"></p>
+      <h3>News headlines and which outlets count</h3>
+      <p>Headlines come from GDELT, which tracks news coverage worldwide and tags each article with the countries it covers. Every hour the site reads the latest articles and keeps those whose headline mentions refugees, displacement, asylum, evacuations, migrants or deportations, for 14 days.</p>
+      <p>Only outlets rated reliable by public rating repositories are shown:</p>
+      <ul>
+        <li>Outlets that <a href="https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources" target="_blank" rel="noopener">Wikipedia's Perennial Sources list</a> rates generally reliable.</li>
+        <li>Where Wikipedia has not rated an outlet, or rates it reliable only for some sections, topics or periods: outlets scoring above 0.66 (of 1) in <a href="https://doi.org/10.1093/pnasnexus/pgad286" target="_blank" rel="noopener">Lin et al. (2023)</a>, which combines six expert news-quality rating sets.</li>
+        <li>Intergovernmental organizations: <a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a> and un.org.</li>
+      </ul>
+      <p>Outlets Wikipedia never rates generally reliable (no consensus, generally unreliable, deprecated or blacklisted) are left out. Headlines are matched to countries automatically and are not checked by this tool. The full list, with the reason each outlet qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
+    </section>
+    <section>
+      <h3>Using figures in a brief</h3>
+      <p>Open a country, or use the world view, and copy the summary from the "Summary for your brief" box. "Copy citation" gives the source line, with the dates the figures cover and when they were retrieved. "Copy link to this view" opens exactly what you see: the same measure, period and country. "Download map (PNG)" saves the map with its title, legend and source for slides.</p>
     </section>
     <section>
       <h3>Sources</h3>
@@ -465,15 +555,16 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       </ul>
     </section>
     <section>
-      <h3>Updates</h3>
-      <p>On the project's GitHub Pages site, an automatic job runs every hour. It reads the newest GDELT news files and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. When UNHCR adds a new year, the default comparison moves to it. An open page picks up new headlines every 30 minutes.</p>
+      <h3>Updates and accessibility</h3>
+      <p>An automatic job runs every hour. It reads the newest GDELT news files and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
+      <p>The ranking table holds every figure shown on the map, so the dashboard can be used with a keyboard or screen reader. Report problems through the GitHub repository.</p>
     </section>
   </section>
   <p class="foot" id="foot"></p>
-</div>
+</main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="vendor/d3.v7.8.5.min.js"></script>
+<script src="vendor/topojson-client.v3.1.0.min.js"></script>
 <script src="data/world.js"></script>
 <script src="data/dashboard-data.js"></script>
 <script src="data/news.js"></script>
@@ -504,12 +595,20 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     abs: [-500000, -100000, -10000, -1000, 1000, 10000, 100000, 500000],
     pct: [-75, -50, -20, -5, 5, 20, 50, 100],
   };
+  const NOT_PLACES = new Set(["UNK", "XXA", "TIB"]); // shown, never ranked
   const MIN_BASE = 1000;
   const ARROWS_WORLD = 15, ARROWS_COUNTRY = 12, ARROW_LABELS = 4, TABLE_TOP = 25;
-  const LIVE_NEWS = /(^|\.)github\.io$/.test(location.hostname) || ["localhost", "127.0.0.1"].includes(location.hostname);
   const REDUCE_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const EMBEDDED = window.self !== window.top; // inside a sandboxed viewer: printing and downloads are blocked
+  const DEFAULTS = { metric: "ref", view: "o", from: FYN - 1, to: FYN, rank: "abs", arrows: "change" };
+  const PARAM = {
+    metric: { ref: "refugees", intl: "protection", asy: "asylum", idmc: "idps" },
+    view: { o: "origin", h: "host" },
+    rank: { abs: "people", pct: "percent" },
+  };
+  const BASIS = { wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", lin2023: "Lin et al. (2023) news-quality score above 0.66", intergovernmental: "Intergovernmental organization" };
 
-  const state = { metric: "ref", view: "o", from: FYN - 1, to: FYN, rank: "abs", arrows: "change", sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
+  const state = { ...DEFAULTS, sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
 
   // ---------- Formatting ----------
   const fmtInt = d3.format(",");
@@ -521,18 +620,27 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     if (a >= 1e3) return Math.round(a / 1e3) + "k";
     return String(Math.round(a));
   }
+  function words(v) { // 28.5 million, 726,364
+    const a = Math.abs(v);
+    if (a >= 1e6) return (a / 1e6).toFixed(1).replace(/\.0$/, "") + " million";
+    return fmtInt(Math.round(a));
+  }
   const full = (v) => (v == null ? '<span class="na">Unavailable</span>' : fmtInt(v));
-  const fullText = (v) => (v == null ? "unavailable" : fmtInt(v));
   const signedFull = (v) => (v == null ? '<span class="na">Unavailable</span>' : sign(v) + fmtInt(Math.abs(v)));
   const signedCompact = (v) => (v === 0 ? "0" : sign(v) + compact(v));
   const pctText = (p) => (p == null ? "n/a" : sign(Math.round(p * 10)) + (Math.abs(p) >= 100 ? Math.round(Math.abs(p)) : Math.abs(p).toFixed(1)) + "%");
   const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—");
+  const fmtLong = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "—");
   const dir = (v) => (v == null ? "none" : v > 0 ? "up" : v < 0 ? "down" : "flat");
   const glyph = (v) => `<span class="glyph ${dir(v)}" aria-hidden="true">${v == null ? "–" : v > 0 ? "▲" : v < 0 ? "▼" : "●"}</span>`;
+  const ordinal = (n) => n + (["th", "st", "nd", "rd"][(n % 100 > 10 && n % 100 < 14) || n % 10 > 3 ? 0 : n % 10]);
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
   const at = (arr, y) => (arr ? arr[y - Y0] ?? null : null);
   const metric = () => METRICS[state.metric];
   const seriesKey = () => (state.view === "h" ? metric().h : metric().o);
   const viewLabel = () => (state.metric === "idmc" ? "Inside the country" : state.view === "o" ? "By country of origin" : "By host country");
+  const tagOf = (c) => c.territory || (c.note ? "Not a country" : "");
+  const placesWord = () => (state.metric === "idmc" ? "countries" : state.view === "o" ? "countries of origin" : "host countries");
 
   // ---------- Rows: one per country for the current measure, view and period ----------
   let rows = [], rowByIdx = new Map(), rankedCount = 0;
@@ -542,10 +650,11 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     for (const [k, arr] of Object.entries(s)) {
       const i = +k, a = at(arr, state.from), b = at(arr, state.to);
       if (a == null && b == null) continue;
+      const notPlace = NOT_PLACES.has(C[i].id);
       const change = a != null && b != null ? b - a : null;
       const pct = change != null && a > 0 ? (change / a) * 100 : null;
-      const score = state.rank === "abs" ? change : pct != null && a >= MIN_BASE ? pct : null;
-      rows.push({ i, c: C[i], start: a, end: b, change, pct, score, arr });
+      const score = notPlace ? null : state.rank === "abs" ? change : pct != null && a >= MIN_BASE ? pct : null;
+      rows.push({ i, c: C[i], start: a, end: b, change, pct, score, notPlace, arr });
     }
     rows.sort((x, y) => (y.score ?? -Infinity) - (x.score ?? -Infinity) || (y.end ?? 0) - (x.end ?? 0));
     rankedCount = 0;
@@ -574,14 +683,14 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     flowCache.set(key, out);
     return out;
   }
-  // Every origin→host pair touching the selection (or all pairs), with its start, end and change.
-  function corridors() {
+  // Every origin→host pair touching country `only` (or all pairs), with its start, end and change.
+  function corridors(only = state.sel) {
     const A = flowMap(state.from), B = flowMap(state.to);
     if (!A || !B) return [];
     const out = [];
     for (const k of new Set([...A.keys(), ...B.keys()])) {
       const o = Math.floor(k / 1024), h = k % 1024;
-      if (state.sel != null && (state.view === "o" ? o : h) !== state.sel) continue;
+      if (only != null && (state.view === "o" ? o : h) !== only) continue;
       const a = A.get(k) || 0, b = B.get(k) || 0;
       out.push({ o, h, a, b, change: b - a, pct: a > 0 ? ((b - a) / a) * 100 : null });
     }
@@ -761,18 +870,20 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   function hideTip() { tip.hidden = true; }
   function showCountryTip(ev, f) {
     const row = f.idx != null ? rowByIdx.get(f.idx) : null;
-    const name = f.idx != null ? C[f.idx].name : f.properties.name;
+    const c = f.idx != null ? C[f.idx] : null;
+    const name = c ? c.name : f.properties.name;
+    const tag = c && tagOf(c) ? `<span class="tip-tag">${esc(tagOf(c))}</span>` : "";
     if (!row) {
-      placeTip(ev, `<strong>${esc(name)}</strong>No ${esc(metric().noun)} reported for ${state.from} or ${state.to}.`);
+      placeTip(ev, `<strong>${esc(name)}</strong>${tag}No ${esc(metric().noun)} reported for ${state.from} or ${state.to}.`);
       return;
     }
-    placeTip(ev, `<strong>${esc(name)}</strong><div class="tip-grid">
+    placeTip(ev, `<strong>${esc(name)}</strong>${tag}<div class="tip-grid">
       <span>31 Dec ${state.from}</span><b>${full(row.start)}</b>
       <span>31 Dec ${state.to}</span><b>${full(row.end)}</b>
       <span>Change</span><b>${signedFull(row.change)}</b>
       <span>% change</span><b>${pctText(row.pct)}</b>
       <span>Rank</span><b>${row.rank ? `#${row.rank} of ${rankedCount}` : "not ranked"}</b></div>
-      ${f.idx !== state.sel ? '<div class="tip-note">Click for details and flows</div>' : ""}`);
+      ${f.idx !== state.sel ? '<div class="tip-note">Click for details, flows and a brief</div>' : ""}`);
   }
   function showArrowTip(ev, d) {
     placeTip(ev, `<strong>${esc(C[d.o].name)} → ${esc(C[d.h].name)}</strong><div class="tip-grid">
@@ -782,9 +893,14 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       <span>% change</span><b>${pctText(d.pct)}</b></div>
       <div class="tip-note">${esc(cap(metric().noun))} from ${esc(C[d.o].name)} living in ${esc(C[d.h].name)}</div>`);
   }
-  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
   // ---------- Legend ----------
+  function arrowKeySample(ks, x, cls, w, label) {
+    const g = arrowGeom([x, 20], [x + 58, 20], w);
+    ks.append("path").attr("d", g.shaft).attr("class", cls).attr("fill", "none").attr("stroke-width", w).attr("stroke-linecap", "round");
+    ks.append("path").attr("d", g.head).attr("class", cls).attr("stroke-width", 0);
+    ks.append("text").attr("x", x + 64).attr("y", 24).text(label);
+  }
   function renderLegend() {
     const t = BINS[state.rank];
     document.getElementById("legend-ticks").innerHTML = t
@@ -793,31 +909,165 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     document.getElementById("legend-title").textContent =
       `${state.rank === "abs" ? "Change in" : "% change in"} ${metric().noun}, 31 Dec ${state.from} → 31 Dec ${state.to}`;
     document.getElementById("key-smallbase").hidden = state.rank !== "pct";
-    const key = document.getElementById("arrow-key");
-    key.hidden = !metric().cols || state.arrows === "off";
+    document.getElementById("arrow-key").hidden = !metric().cols || state.arrows === "off";
     const ks = d3.select("#arrow-key-svg");
     ks.selectAll("*").remove();
-    const sample = (x, cls, w, label) => {
-      const g = arrowGeom([x, 20], [x + 58, 20], w);
-      ks.append("path").attr("d", g.shaft).attr("class", cls).attr("fill", "none").attr("stroke-width", w).attr("stroke-linecap", "round");
-      ks.append("path").attr("d", g.head).attr("class", cls).attr("stroke-width", 0);
-      ks.append("text").attr("x", x + 64).attr("y", 23).attr("font-size", 11.5).attr("fill", "var(--ink-2)").text(label);
-    };
     if (state.arrows === "change") {
-      sample(2, "k-up", 5, "Grew");
-      sample(118, "k-down", 5, "Shrank");
+      arrowKeySample(ks, 2, "k-up", 5, "Grew");
+      arrowKeySample(ks, 122, "k-down", 5, "Shrank");
       document.getElementById("arrow-key-note").textContent = "Width shows how many people the corridor gained or lost.";
     } else {
-      sample(2, "k-total", 5, "People at end of period");
+      arrowKeySample(ks, 2, "k-total", 5, "People at end of period");
       document.getElementById("arrow-key-note").textContent = "Width shows how many people live in the host country.";
     }
     document.getElementById("arrow-key-title").textContent = state.sel != null
       ? `Flow arrows: ${state.view === "o" ? `from ${C[state.sel].name} to hosts` : `into ${C[state.sel].name} from origins`}`
       : `Flow arrows: ${state.arrows === "change" ? `${ARROWS_WORLD} largest corridor changes` : `${ARROWS_WORLD} largest corridors`}, origin → host`;
-    document.getElementById("map-title").textContent =
-      `${state.rank === "abs" ? "Change in" : "% change in"} ${metric().noun}, ${state.from}–${state.to}` +
-      (state.metric === "idmc" ? "" : state.view === "o" ? ", by country of origin" : ", by host country");
+    document.getElementById("map-title").textContent = mapTitle();
   }
+  const mapTitle = () =>
+    `${state.rank === "abs" ? "Change in" : "% change in"} ${metric().noun}, ${state.from}–${state.to}` +
+    (state.metric === "idmc" ? "" : state.view === "o" ? ", by country of origin" : ", by host country");
+
+  // ---------- Key findings (sentences, in the style of a tracker's headline figures) ----------
+  const tilesEl = document.getElementById("tiles");
+  tilesEl.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-select]");
+    if (t) { select(+t.dataset.select); document.getElementById("stage").scrollIntoView({ behavior: REDUCE_MOTION ? "auto" : "smooth", block: "start" }); }
+  });
+  function worldTotals() {
+    const both = rows.filter((r) => r.start != null && r.end != null);
+    const s = d3.sum(both, (r) => r.start), e = d3.sum(both, (r) => r.end);
+    return { s, e, ch: e - s, n: both.length };
+  }
+  const scoreText = (r) => (state.rank === "abs" ? signedCompact(r.change) : pctText(r.pct));
+  function renderTiles() {
+    const { s, e, ch } = worldTotals();
+    const ranked = rows.filter((r) => r.score != null);
+    const up = ranked.find((r) => r.score > 0);
+    const down = [...ranked].reverse().find((r) => r.score < 0);
+    const t = [];
+    t.push(`<div class="tile"><span class="tile-label">Worldwide, ${state.from}–${state.to}</span>
+      <span class="tile-big">${glyph(ch)} ${signedCompact(ch)}<small>${pctText(s > 0 ? (ch / s) * 100 : null)}</small></span>
+      <span class="tile-text">${esc(cap(metric().noun))} ${ch >= 0 ? "rose" : "fell"} to ${words(e)} between 31 Dec ${state.from} and 31 Dec ${state.to}.</span></div>`);
+    if (up) t.push(`<button type="button" class="tile" data-select="${up.i}"><span class="tile-label">Largest ${state.rank === "abs" ? "increase" : "% increase"}</span>
+      <span class="tile-big">${glyph(1)} ${scoreText(up)}</span>
+      <span class="tile-text">${esc(up.c.name)}: ${fmtInt(up.start)} → ${fmtInt(up.end)} ${esc(metric().noun)}.</span></button>`);
+    if (down) t.push(`<button type="button" class="tile" data-select="${down.i}"><span class="tile-label">Largest ${state.rank === "abs" ? "decrease" : "% decrease"}</span>
+      <span class="tile-big">${glyph(-1)} ${scoreText(down)}</span>
+      <span class="tile-text">${esc(down.c.name)}: ${fmtInt(down.start)} → ${fmtInt(down.end)} ${esc(metric().noun)}.</span></button>`);
+    if (metric().cols) {
+      const cor = corridors(null).filter((d) => d.change > 0 && !NOT_PLACES.has(C[d.o].id) && !NOT_PLACES.has(C[d.h].id)).sort((x, y) => y.change - x.change)[0];
+      if (cor) t.push(`<button type="button" class="tile" data-select="${state.view === "o" ? cor.o : cor.h}"><span class="tile-label">Fastest-growing corridor</span>
+        <span class="tile-big">${glyph(1)} ${signedCompact(cor.change)}</span>
+        <span class="tile-text">${esc(C[cor.o].name)} → ${esc(C[cor.h].name)}: ${fmtInt(cor.a)} → ${fmtInt(cor.b)}.</span></button>`);
+    } else {
+      const both = ranked.filter((r) => r.change != null);
+      const nUp = both.filter((r) => r.change > 0).length;
+      t.push(`<div class="tile"><span class="tile-label">Countries with more displaced</span>
+        <span class="tile-big">${nUp} <small>of ${both.length}</small></span>
+        <span class="tile-text">countries had more internally displaced people on 31 Dec ${state.to} than on 31 Dec ${state.from}.</span></div>`);
+    }
+    tilesEl.innerHTML = t.join("");
+  }
+
+  // ---------- Brief text: plain sentences ready to paste ----------
+  const org = () => (state.metric === "idmc" ? "IDMC" : "UNHCR");
+  function phrase(c) {
+    const n = metric().noun;
+    if (state.metric === "idmc") return `${n} in ${c.name}`;
+    return state.view === "o" ? `${n} from ${c.name}` : `${n} hosted in ${c.name}`;
+  }
+  function listNames(items) {
+    if (items.length <= 1) return items.join("");
+    return items.slice(0, -1).join(", ") + " and " + items.at(-1);
+  }
+  function overviewSummary() {
+    const { s, e, ch, n } = worldTotals();
+    const ranked = rows.filter((r) => r.score != null);
+    const ups = ranked.filter((r) => r.score > 0).slice(0, 3);
+    const downs = [...ranked].reverse().filter((r) => r.score < 0).slice(0, 2);
+    const val = (r) => (state.rank === "abs" ? sign(r.change) + fmtInt(Math.abs(r.change)) : pctText(r.pct));
+    let t = `Between 31 December ${state.from} and 31 December ${state.to}, the number of ${metric().noun} ${ch >= 0 ? "rose" : "fell"} by ${words(ch)} (${pctText(s > 0 ? (ch / s) * 100 : null)}) to ${words(e)}, counting the ${n} ${placesWord()} with figures for both dates.`;
+    if (ups.length) t += ` The largest ${state.rank === "abs" ? "increases" : "percentage increases"} were in ${listNames(ups.map((r) => `${r.c.name} (${val(r)})`))}.`;
+    if (downs.length) t += ` The largest ${state.rank === "abs" ? "decreases" : "percentage decreases"} were in ${listNames(downs.map((r) => `${r.c.name} (${val(r)})`))}.`;
+    return t + ` Source: ${org()}.`;
+  }
+  function countrySummary(i) {
+    const c = C[i], row = rowByIdx.get(i) || null;
+    if (!row || row.change == null) {
+      return `${org()} has no figure for ${phrase(c)} on both 31 December ${state.from} and 31 December ${state.to}.${c.note ? " " + c.note : ""}`;
+    }
+    const word = row.change > 0 ? "up" : row.change < 0 ? "down" : "unchanged from";
+    let t = `On 31 December ${state.to}, ${org()} counted ${fmtInt(row.end)} ${phrase(c)}`;
+    t += row.change === 0 ? `, unchanged from 31 December ${state.from}.` : `, ${word} ${fmtInt(Math.abs(row.change))}${row.pct != null ? ` (${pctText(row.pct)})` : ""} from ${fmtInt(row.start)} on 31 December ${state.from}.`;
+    if (row.rank) {
+      const kind = state.rank === "abs" ? "" : "percentage ";
+      if (row.change > 0) t += ` That is the ${row.rank === 1 ? "largest" : ordinal(row.rank) + "-largest"} ${kind}increase of the ${rankedCount} ${placesWord()} ranked.`;
+      else if (row.change < 0) {
+        const dr = rankedCount - row.rank + 1;
+        t += ` That is the ${dr === 1 ? "largest" : ordinal(dr) + "-largest"} ${kind}decrease of the ${rankedCount} ${placesWord()} ranked.`;
+      }
+    }
+    if (metric().cols) {
+      const top = corridors(i).filter((d) => d.b > 0).sort((x, y) => y.b - x.b).slice(0, 3);
+      if (top.length) {
+        const nm = (d) => `${C[state.view === "o" ? d.h : d.o].name} (${fmtInt(d.b)})`;
+        t += state.view === "o" ? ` Most lived in ${listNames(top.map(nm))}.` : ` Most came from ${listNames(top.map(nm))}.`;
+      }
+    }
+    if (state.view === "o" && (state.metric === "ref" || state.metric === "intl")) {
+      const ret = at(D.series.ret_o?.[i], state.to);
+      if (ret) t += ` ${fmtInt(ret)} refugees returned to ${c.name} during ${state.to}.`;
+    }
+    if (c.territory) t += ` ${c.name} is a ${c.territory.charAt(0).toLowerCase() + c.territory.slice(1)}.`;
+    if (c.note) t += " " + c.note;
+    return t;
+  }
+  function citation() {
+    const src = state.metric === "idmc"
+      ? "Internal Displacement Monitoring Centre (IDMC), Global Internal Displacement Database, via the UNHCR Refugee Population Statistics API"
+      : "UNHCR Refugee Population Statistics Database";
+    return `Source: ${src}, figures for 31 December ${state.from} and 31 December ${state.to}, retrieved ${fmtLong(D.meta.retrievedAt)}. Compiled with the Displacement Change Monitor: ${shareURL()}`;
+  }
+  function briefBox(text) {
+    return `<section class="brief" aria-labelledby="brief-h">
+      <h3 id="brief-h">Summary for your brief</h3>
+      <p id="brief-text">${esc(text)}</p>
+      <p class="cite" id="cite-text">${esc(citation())}</p>
+      <div class="brief-actions">
+        <button type="button" class="btn small" data-copy="summary">Copy summary</button>
+        <button type="button" class="btn small" data-copy="cite">Copy citation</button>
+        <button type="button" class="btn small" data-copy="link">Copy link to this view</button>
+      </div></section>`;
+  }
+  async function copyText(text, btn) {
+    let ok = true;
+    try { await navigator.clipboard.writeText(text); }
+    catch {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand("copy"); } catch { ok = false; }
+      ta.remove();
+    }
+    const old = btn.textContent;
+    btn.textContent = ok ? "Copied" : "Select and copy the text above";
+    setTimeout(() => { btn.textContent = old; }, 1600);
+  }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-copy]");
+    if (!b) return;
+    const kind = b.dataset.copy;
+    const text = kind === "link" ? shareURL()
+      : kind === "cite" ? citation()
+      : (document.getElementById("brief-text")?.textContent || "") + "\n" + citation();
+    copyText(text, b);
+  });
 
   // ---------- Panel ----------
   const panel = document.getElementById("panel");
@@ -829,8 +1079,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
 
   function rankItem(r, maxAbs) {
     const pctW = maxAbs ? Math.max(2, (Math.abs(r.score) / maxAbs) * 100) : 0;
-    const val = state.rank === "abs" ? signedCompact(r.change) : pctText(r.pct);
-    return `<li><button type="button" data-select="${r.i}"><span class="rk">${r.rank}</span><span class="nm">${esc(r.c.name)}</span><span class="val">${val}</span><span class="bar"><i class="${dir(r.score)}" style="width:${pctW.toFixed(1)}%"></i></span></button></li>`;
+    return `<li><button type="button" data-select="${r.i}"><span class="rk">${r.rank}</span><span class="nm">${esc(r.c.name)}</span><span class="val">${scoreText(r)}</span><span class="bar"><i class="${dir(r.score)}" style="width:${pctW.toFixed(1)}%"></i></span></button></li>`;
   }
 
   function corridorTable(list, perspective) {
@@ -846,8 +1095,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   }
 
   function renderOverview() {
-    const both = rows.filter((r) => r.start != null && r.end != null);
-    const s = d3.sum(both, (r) => r.start), e = d3.sum(both, (r) => r.end), ch = e - s;
+    const { s, e, ch, n } = worldTotals();
     const ranked = rows.filter((r) => r.score != null);
     const ups = ranked.filter((r) => r.score > 0).slice(0, 5);
     const downs = ranked.filter((r) => r.score < 0).slice(-3).reverse();
@@ -866,9 +1114,10 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       <dl class="figs">
         <div><dt>31 Dec ${state.from}</dt><dd>${fmtInt(s)}</dd></div>
         <div><dt>31 Dec ${state.to}</dt><dd>${fmtInt(e)}</dd></div>
-        <div class="hero"><dt>Change</dt><dd>${glyph(ch)}${signedCompact(ch)}<small>${pctText(s > 0 ? (ch / s) * 100 : null)}</small></dd></div>
+        <div class="hero"><dt>Change</dt><dd>${glyph(ch)}${signedFull(ch)}<small>${pctText(s > 0 ? (ch / s) * 100 : null)}</small></dd></div>
       </dl>
-      <p class="note" style="margin-top:-8px">Total of the ${both.length} countries with figures for both years.</p>
+      <p class="note" style="margin-top:-8px">Total of the ${n} ${placesWord()} with figures for both years.</p>
+      ${briefBox(overviewSummary())}
       <section><h3>${state.rank === "abs" ? "Largest increases" : "Fastest growth"}</h3>
         ${ups.length ? `<ol class="rank-list">${ups.map((r) => rankItem(r, maxAbs)).join("")}</ol>` : '<p class="note">No country grew over this period.</p>'}</section>
       <section><h3>${state.rank === "abs" ? "Largest decreases" : "Fastest decline"}</h3>
@@ -881,16 +1130,19 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     if (!NEWS) return "";
     const picks = ups.filter((r) => NEWS.byCountry?.[r.c.id]?.length).slice(0, 3);
     if (!picks.length) return "";
-    return `<section><h3>In the news: fastest-rising countries</h3>${picks
+    return `<section id="news-section"><h3>In the news: fastest-rising countries</h3>${picks
       .map((r) => `<div class="news-group"><button type="button" class="news-country" data-select="${r.i}">${esc(r.c.name)}</button>${newsList(NEWS.byCountry[r.c.id].slice(0, 2))}</div>`)
-      .join("")}<p class="note">GDELT headlines retrieved ${fmtDate(NEWS.retrievedAt)}. Matched automatically, not checked.</p></section>`;
+      .join("")}<p class="note">From outlets rated reliable (<a href="#about">how outlets are chosen</a>). Matched automatically, not checked.</p></section>`;
   }
 
   function newsList(items) {
     const safe = items.filter((a) => /^https?:\/\//i.test(a.url));
-    if (!safe.length) return '<p class="note">No matching headlines in the last 14 days.</p>';
+    if (!safe.length) return '<p class="note">No headlines from rated outlets in the last 14 days.</p>';
     return `<ul class="news">${safe
-      .map((a) => `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a><span class="meta">${esc(a.domain)}${a.date ? " · " + fmtDate(a.date) : ""}</span></li>`)
+      .map((a) => {
+        const basis = (a.basis || "").split("+").map((b) => BASIS[b]).filter(Boolean).join("; ");
+        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a><span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${esc(a.domain)}${a.date ? " · " + fmtDate(a.date) : ""}</span></li>`;
+      })
       .join("")}</ul>`;
   }
 
@@ -913,6 +1165,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   }
 
   function statusChip(row) {
+    if (row?.notPlace) return `<span class="chip">${glyph(null)} Not ranked: not a country</span>`;
     if (!row || row.change == null) return `<span class="chip">${glyph(null)} No figure for this period</span>`;
     const flat = Math.abs(row.change) < 1000;
     const word = flat ? "Little change" : row.change > 0 ? "Rising" : "Falling";
@@ -926,7 +1179,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     const row = rowByIdx.get(i) || null;
     const start = row?.start ?? null, end = row?.end ?? null, ch = row?.change ?? null;
     const ctx = [];
-    if (state.view === "o" && state.metric !== "idmc" && state.metric !== "asy") {
+    if (state.view === "o" && (state.metric === "ref" || state.metric === "intl")) {
       const ret = at(D.series.ret_o?.[i], state.to);
       if (ret != null) ctx.push([`Refugees who returned to ${c.name} during ${state.to}`, fmtInt(ret)]);
     }
@@ -939,34 +1192,36 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     }
     let flowHtml = "";
     if (m.cols) {
-      const all = corridors().filter((d) => d.a > 0 || d.b > 0).sort((x, y) => y.b - x.b || Math.abs(y.change) - Math.abs(x.change));
+      const all = corridors(i).filter((d) => d.a > 0 || d.b > 0).sort((x, y) => y.b - x.b || Math.abs(y.change) - Math.abs(x.change));
       const top = all.slice(0, 10);
       const heading = state.view === "o" ? `Where ${m.noun} from ${c.name} live` : `Where ${m.noun} in ${c.name} come from`;
       flowHtml = `<section><h3>${esc(heading)}</h3>${corridorTable(top, state.view === "o" ? "Host country" : "Origin")}
         ${all.length > top.length ? `<p class="note">Top 10 of ${all.length} ${state.view === "o" ? "host countries" : "origins"}, by size at end of ${state.to}.</p>` : ""}</section>`;
     }
+    const where = [c.territory, c.region || c.area].filter(Boolean).join(" · ") || "No region";
     panel.innerHTML = `
       <div>
         <button type="button" class="back" data-clear>← All countries</button>
-        <p class="eyebrow">${esc(c.region || c.area || "No region")} · ${esc(viewLabel())}</p>
+        <p class="eyebrow">${esc(where)} · ${esc(viewLabel())}</p>
         <h2>${esc(c.name)}</h2>
         ${statusChip(row)}
       </div>
+      ${c.note ? `<p class="callout">${esc(c.note)}</p>` : ""}
       <dl class="figs">
         <div><dt>31 Dec ${state.from}</dt><dd>${full(start)}</dd></div>
         <div><dt>31 Dec ${state.to}</dt><dd>${full(end)}</dd></div>
         <div class="hero"><dt>Change in ${esc(m.noun)}</dt><dd>${ch == null ? '<span class="na">Unavailable</span>' : `${glyph(ch)}${signedFull(ch)}<small>${pctText(row.pct)}</small>`}</dd></div>
       </dl>
       ${row?.pct == null && ch != null ? `<p class="note" style="margin-top:-8px">% change not shown: the ${state.from} figure was zero.</p>` : ""}
+      ${briefBox(countrySummary(i))}
       <figure class="spark"><svg id="spark" role="img" aria-label="${esc(m.label)} for ${esc(c.name)}, ${Y0} to ${YN}"></svg>
         <figcaption>${esc(cap(m.noun))}, ${Y0}–${YN}. Shaded: the period you're comparing. Hover for each year.</figcaption></figure>
       ${ctx.length ? `<dl class="context">${ctx.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
       ${flowHtml}
-      <section><h3>Recent news</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
+      <section id="news-section"><h3>Recent news from rated outlets</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
       <section><h3>Check the source</h3>${sourceLinks(c)}
         <p class="note">Figures are counts on 31 December of each year. UNHCR data retrieved ${fmtDate(D.meta.retrievedAt)}.</p></section>`;
     drawPanelSpark(arr, row);
-    loadLiveNews(i);
   }
 
   function drawPanelSpark(arr, row) {
@@ -1015,54 +1270,13 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       .on("pointerleave", () => { hover.style("display", "none"); topLabel.style("display", null); });
   }
 
-  // ---------- News for one country: saved headlines, refreshed live where the host allows it ----------
-  const liveCache = new Map();
   function countryNewsHtml(i) {
     const c = C[i];
-    if (liveCache.has(c.id)) return newsList(liveCache.get(c.id)) + `<p class="note">Live from GDELT, last 14 days.</p>`;
     const saved = NEWS?.byCountry?.[c.id];
-    if (saved) {
-      const when = NEWS.checkedAt?.[c.id] || NEWS.retrievedAt;
-      return newsList(saved) + `<p class="note">From GDELT's news files, updated ${fmtDate(when)}.</p>`;
+    if (saved?.length) {
+      return newsList(saved) + `<p class="note">Updated ${fmtDate(NEWS.retrievedAt)}. Only outlets rated reliable (<a href="#about">how outlets are chosen</a>). Matched automatically, not checked.</p>`;
     }
-    if (LIVE_NEWS) return '<p class="note">Loading headlines from GDELT…</p>';
-    return `<p class="note">No displacement headlines about ${esc(c.name)} in GDELT's news files from the last 14 days.</p>`;
-  }
-  async function loadLiveNews(i) {
-    const c = C[i];
-    // Only search live when the daily files had nothing for this country.
-    if (!LIVE_NEWS || liveCache.has(c.id) || NEWS?.byCountry?.[c.id]?.length || c.lat == null || !c.news?.length) return;
-    const place = c.news.length > 1 ? `(${c.news.join(" OR ")})` : c.news[0];
-    const topic = NEWS?.topic || "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
-    const qs = new URLSearchParams({ query: `${place} ${topic} sourcelang:english`, mode: "artlist", format: "json", maxrecords: "16", timespan: "14d", sort: "hybridrel" });
-    try {
-      const res = await fetch("https://api.gdeltproject.org/api/v2/doc/doc?" + qs, { signal: AbortSignal.timeout(9000) });
-      const text = (await res.text()).trim();
-      if (!res.ok || (text && !text.startsWith("{"))) throw new Error("busy");
-      const seen = new Set(), items = [];
-      for (const a of text ? JSON.parse(text).articles || [] : []) {
-        const title = (a.title || "").replace(/\s+([:,;.!?])/g, "$1").replace(/\s{2,}/g, " ").trim();
-        const norm = title.toLowerCase().replace(/[^a-z0-9]+/g, " ").slice(0, 60);
-        if (!title || seen.has(norm) || !/^https?:\/\//i.test(a.url || "")) continue;
-        seen.add(norm);
-        const d = a.seendate || "";
-        items.push({ title, url: a.url, domain: a.domain, date: d ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : null });
-        if (items.length >= 8) break;
-      }
-      liveCache.set(c.id, items);
-    } catch {
-      // Live search unavailable (rate limit or offline): keep the saved headlines.
-      if (state.sel === i) {
-        const box = document.getElementById("news-box");
-        const saved = NEWS?.byCountry?.[c.id];
-        if (box) box.innerHTML = saved ? newsList(saved) + `<p class="note">GDELT headlines retrieved ${fmtDate(NEWS.checkedAt?.[c.id] || NEWS.retrievedAt)}. Live search is busy; try again in a minute.</p>` : '<p class="note">GDELT is busy right now. Try again in a minute.</p>';
-      }
-      return;
-    }
-    if (state.sel === i) {
-      const box = document.getElementById("news-box");
-      if (box) box.innerHTML = countryNewsHtml(i);
-    }
+    return `<p class="note">No displacement headlines about ${esc(c.name)} from rated outlets in the last 14 days.</p>`;
   }
 
   function renderPanel() {
@@ -1090,32 +1304,37 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     return `<svg class="tiny" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}"/>${dots}</svg>`;
   }
 
-  function renderTable() {
+  function tableRows() {
     const q = state.q.trim().toLowerCase();
     let list = rows.filter((r) => (!state.area || r.c.area === state.area) && (!q || r.c.name.toLowerCase().includes(q) || r.c.id.toLowerCase() === q));
     const { key, dir: sd } = state.sort;
-    const val = {
-      rank: (r) => r.rank, name: (r) => r.c.name, area: (r) => r.c.area || "", start: (r) => r.start, end: (r) => r.end, change: (r) => r.change, pct: (r) => r.pct,
-    }[key];
-    list = [...list].sort((a, b) => {
+    const val = { rank: (r) => r.rank, name: (r) => r.c.name, area: (r) => r.c.area || "", start: (r) => r.start, end: (r) => r.end, change: (r) => r.change, pct: (r) => r.pct }[key];
+    return [...list].sort((a, b) => {
       const va = val(a), vb = val(b);
       if (va == null && vb == null) return 0;
       if (va == null) return 1;
       if (vb == null) return -1;
       return (typeof va === "string" ? va.localeCompare(vb) : va - vb) * sd;
     });
+  }
+
+  function renderTable() {
+    const list = tableRows();
     const shown = state.showAll ? list : list.slice(0, TABLE_TOP);
-    tbody.innerHTML = shown.map((r) => `<tr data-i="${r.i}"${r.i === state.sel ? ' class="is-sel"' : ""}>
+    tbody.innerHTML = shown.map((r) => {
+      const tag = tagOf(r.c);
+      return `<tr data-i="${r.i}"${r.i === state.sel ? ' class="is-sel"' : ""}>
       <td class="num rk-cell">${r.rank ?? "–"}</td>
-      <td><button type="button" class="row-btn" data-select="${r.i}">${esc(r.c.name)}</button><span class="iso">${esc(r.c.id)}</span></td>
+      <td><button type="button" class="row-btn" data-select="${r.i}">${esc(r.c.name)}</button><span class="iso">${esc(r.c.id)}</span>${tag ? `<span class="tag" title="${esc(r.c.note || "")}">${esc(tag)}</span>` : ""}</td>
       <td>${esc(r.c.area || "")}</td>
       <td class="num">${full(r.start)}</td>
       <td class="num">${full(r.end)}</td>
       <td class="num"><span class="chg">${r.change == null ? "" : `<span class="sw ${binClass(r)}"></span>`}${r.change == null ? '<span class="na">Unavailable</span>' : signedFull(r.change)}</span></td>
       <td class="num">${r.change == null ? '<span class="na">Unavailable</span>' : pctText(r.pct)}</td>
-      <td>${tinySpark(r.arr)}</td></tr>`).join("");
+      <td>${tinySpark(r.arr)}</td></tr>`;
+    }).join("");
     for (const th of document.querySelectorAll("#rank-table th[data-k]")) {
-      if (th.dataset.k === key) th.setAttribute("aria-sort", sd === 1 ? "ascending" : "descending");
+      if (th.dataset.k === state.sort.key) th.setAttribute("aria-sort", state.sort.dir === 1 ? "ascending" : "descending");
       else th.removeAttribute("aria-sort");
     }
     document.getElementById("th-start").textContent = `31 Dec ${state.from}`;
@@ -1125,7 +1344,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     document.getElementById("ledger-sub").textContent =
       `${viewLabel()} · ${state.rank === "abs" ? "largest increase in people first" : `fastest % growth first (countries starting with ${fmtInt(MIN_BASE)} or more)`}`;
     document.getElementById("table-caption").textContent = document.getElementById("ledger-title").textContent;
-    document.getElementById("ledger-count").textContent = `Showing ${shown.length} of ${list.length} countries · ${rankedCount} ranked`;
+    document.getElementById("ledger-count").textContent = `Showing ${shown.length} of ${list.length} · ${rankedCount} ranked`;
     const more = document.getElementById("show-all");
     more.hidden = list.length <= TABLE_TOP;
     more.textContent = state.showAll ? `Show top ${TABLE_TOP}` : `Show all ${list.length}`;
@@ -1146,6 +1365,77 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
   document.getElementById("show-all").onclick = () => { state.showAll = !state.showAll; renderTable(); };
   document.getElementById("q").addEventListener("input", (e) => { state.q = e.target.value; renderTable(); });
   areaSel.addEventListener("change", (e) => { state.area = e.target.value; renderTable(); });
+
+  // ---------- Exports: CSV, PNG, print ----------
+  const fileStem = () => `displacement-${PARAM.metric[state.metric]}-${PARAM.view[state.view]}-${state.from}-${state.to}`;
+  function saveBlob(blob, name) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }
+  document.getElementById("csv-btn").onclick = () => {
+    const cell = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
+    const head = ["rank", "country", "iso3", "status", "region", `figure_31dec${state.from}`, `figure_31dec${state.to}`, "change", "pct_change", "measure", "counted_by", "source", "retrieved"];
+    const src = state.metric === "idmc" ? "IDMC via UNHCR Refugee Population Statistics API" : "UNHCR Refugee Population Statistics Database";
+    const lines = tableRows().map((r) => [r.rank, r.c.name, r.c.id, tagOf(r.c), r.c.area, r.start, r.end, r.change, r.pct == null ? null : r.pct.toFixed(1), metric().label, viewLabel(), src, D.meta.retrievedAt.slice(0, 10)].map(cell).join(","));
+    saveBlob(new Blob(["﻿" + [head.join(","), ...lines].join("\n")], { type: "text/csv;charset=utf-8" }), fileStem() + ".csv");
+  };
+  document.getElementById("print-btn").onclick = () => window.print();
+  document.getElementById("png-btn").onclick = async (e) => {
+    const btn = e.currentTarget, label = btn.textContent;
+    btn.textContent = "Preparing…";
+    const root = document.documentElement, prevTheme = root.getAttribute("data-theme");
+    root.setAttribute("data-theme", "light"); // reports and slides want a light map
+    try {
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const node = svg.node(), clone = node.cloneNode(true);
+      const src = [node, ...node.querySelectorAll("*")], dst = [clone, ...clone.querySelectorAll("*")];
+      const props = ["fill", "fill-opacity", "stroke", "stroke-width", "stroke-opacity", "stroke-linecap", "stroke-linejoin", "opacity", "font-family", "font-size", "font-weight", "paint-order", "vector-effect", "display"];
+      src.forEach((el, k) => { const cs = getComputedStyle(el); for (const p of props) dst[k].style.setProperty(p, cs.getPropertyValue(p)); });
+      clone.querySelectorAll(".arrow-hit").forEach((n) => n.remove());
+      clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      clone.setAttribute("width", W);
+      clone.setAttribute("height", H);
+      const img = new Image();
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(clone));
+      await img.decode();
+      const css = getComputedStyle(root);
+      const pad = 24, top = 72, legH = 58, foot = 50, cw = Math.max(W, 640) + pad * 2, chh = top + H + legH + foot, scale = 2;
+      const cv = document.createElement("canvas");
+      cv.width = cw * scale; cv.height = chh * scale;
+      const ctx = cv.getContext("2d");
+      ctx.scale(scale, scale);
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, cw, chh);
+      ctx.fillStyle = "#1d2228"; ctx.font = "700 20px 'Public Sans', Arial, sans-serif";
+      ctx.fillText(mapTitle() + (state.sel != null ? ` · ${C[state.sel].name}` : ""), pad, 34);
+      ctx.fillStyle = "#47505a"; ctx.font = "400 13px 'Public Sans', Arial, sans-serif";
+      ctx.fillText(`31 December ${state.from} to 31 December ${state.to}. Red: more people; blue: fewer.` + (currentArrows.length ? " Arrows run from origin to host." : ""), pad, 56);
+      ctx.drawImage(img, pad, top, W, H);
+      const ly = top + H + 14, sw = 34;
+      BINS[state.rank].concat([null]).forEach((_, k) => { ctx.fillStyle = css.getPropertyValue(`--div-${k}`).trim(); ctx.fillRect(pad + k * (sw + 2), ly, sw, 10); });
+      ctx.fillStyle = "#47505a"; ctx.font = "400 11px 'Public Sans', Arial, sans-serif"; ctx.textAlign = "center";
+      BINS[state.rank].forEach((v, k) => ctx.fillText(state.rank === "abs" ? signedCompact(v) : sign(v) + Math.abs(v) + "%", pad + (k + 1) * (sw + 2) - 1, ly + 24));
+      ctx.textAlign = "left";
+      ctx.fillText(state.rank === "abs" ? "Change in people" : "% change", pad + 9 * (sw + 2) + 8, ly + 9);
+      ctx.font = "400 11.5px 'Public Sans', Arial, sans-serif"; ctx.fillStyle = "#47505a";
+      const srcLine = (state.metric === "idmc" ? "Source: IDMC via UNHCR Refugee Population Statistics API" : "Source: UNHCR Refugee Population Statistics Database") +
+        `, retrieved ${fmtLong(D.meta.retrievedAt)}. Boundaries: Natural Earth; they do not imply endorsement.`;
+      ctx.fillText(srcLine, pad, chh - 28);
+      ctx.fillText(shareURL(), pad, chh - 12);
+      cv.toBlob((blob) => saveBlob(blob, fileStem() + (state.sel != null ? "-" + C[state.sel].id : "") + ".png"), "image/png");
+    } catch (err) {
+      btn.textContent = "Couldn't create the image";
+      setTimeout(() => { btn.textContent = label; }, 2000);
+      return;
+    } finally {
+      if (prevTheme == null) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", prevTheme);
+    }
+    btn.textContent = label;
+  };
+  if (EMBEDDED) for (const id of ["print-btn", "png-btn", "csv-btn"]) document.getElementById(id).hidden = true;
 
   // ---------- Controls ----------
   const fromSel = document.getElementById("from"), toSel = document.getElementById("to");
@@ -1169,19 +1459,40 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
       state[seg.dataset.key] = b.dataset.v;
       update();
     });
+    // Arrow keys move the choice, as in any radio group.
+    seg.addEventListener("keydown", (e) => {
+      if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) return;
+      const bs = [...seg.querySelectorAll("button:not(:disabled)")];
+      const k = bs.indexOf(document.activeElement);
+      if (k < 0) return;
+      e.preventDefault();
+      const next = bs[(k + (e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 1) + bs.length) % bs.length];
+      next.click();
+      next.focus();
+    });
   }
+  document.getElementById("reset").onclick = () => {
+    stopPlay();
+    Object.assign(state, DEFAULTS, { sel: null });
+    update();
+    zoomToSelection();
+  };
   function syncControls() {
     document.getElementById("metric").value = state.metric;
     fromSel.value = state.from;
     toSel.value = state.to;
-    for (const seg of document.querySelectorAll(".seg")) {
-      for (const b of seg.querySelectorAll("button")) b.setAttribute("aria-checked", String(state[seg.dataset.key] === b.dataset.v));
-    }
     const noFlows = !metric().cols;
-    for (const b of document.querySelectorAll("#view button, #arrows button")) b.disabled = noFlows;
+    for (const seg of document.querySelectorAll(".seg")) {
+      for (const b of seg.querySelectorAll("button")) {
+        const on = state[seg.dataset.key] === b.dataset.v;
+        b.setAttribute("aria-checked", String(on));
+        b.tabIndex = on ? 0 : -1;
+        if (seg.id === "view" || seg.id === "arrows") b.disabled = noFlows;
+      }
+    }
   }
 
-  // Play: slide the comparison window one year at a time, keeping its length.
+  // Animate: slide the comparison window one year at a time, keeping its length.
   let playTimer = null;
   const playBtn = document.getElementById("play");
   function stopPlay() {
@@ -1189,7 +1500,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     clearInterval(playTimer);
     playTimer = null;
     playBtn.setAttribute("aria-pressed", "false");
-    document.getElementById("play-text").textContent = "Play years";
+    document.getElementById("play-text").textContent = "Animate";
     document.getElementById("play-icon").setAttribute("d", "M2 1l9 5-9 5z");
   }
   playBtn.onclick = () => {
@@ -1199,8 +1510,8 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     state.to = FY0 + span;
     update();
     playBtn.setAttribute("aria-pressed", "true");
-    document.getElementById("play-text").textContent = "Pause";
-    document.getElementById("play-icon").setAttribute("d", "M2 1h3v10H2zM7 1h3v10H7z");
+    document.getElementById("play-text").textContent = "Stop";
+    document.getElementById("play-icon").setAttribute("d", "M2 1h8v10H2z");
     playTimer = setInterval(() => {
       if (state.to >= FYN) { stopPlay(); return; }
       state.from++;
@@ -1209,20 +1520,43 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     }, 1700);
   };
 
+  // ---------- Shareable state in the address ----------
+  function shareURL() {
+    const q = new URLSearchParams({
+      measure: PARAM.metric[state.metric], by: PARAM.view[state.view], from: state.from, to: state.to,
+      rank: PARAM.rank[state.rank], arrows: state.arrows,
+    });
+    return location.origin + location.pathname + "?" + q + (state.sel != null ? "#" + C[state.sel].id : "");
+  }
+  function readURL() {
+    const q = new URLSearchParams(location.search);
+    const pick = (map, v) => Object.keys(map).find((k) => map[k] === v);
+    const m = pick(PARAM.metric, q.get("measure")); if (m) state.metric = m;
+    const v = pick(PARAM.view, q.get("by")); if (v) state.view = v;
+    const r = pick(PARAM.rank, q.get("rank")); if (r) state.rank = r;
+    if (["change", "total", "off"].includes(q.get("arrows"))) state.arrows = q.get("arrows");
+    const f = +q.get("from"), t = +q.get("to");
+    if (f >= FY0 && t <= FYN && f < t) { state.from = f; state.to = t; }
+    const id = (location.hash || "").slice(1).toUpperCase();
+    if (IDX.has(id)) state.sel = IDX.get(id);
+  }
+  function writeURL() {
+    try { history.replaceState(null, "", shareURL()); } catch (_) { /* sandboxed frames may refuse */ }
+  }
+
   // ---------- Selection & update ----------
   function select(i) {
     const changed = i !== state.sel;
     state.sel = i;
     update();
     if (changed) zoomToSelection();
-    try { history.replaceState(null, "", i == null ? location.pathname + location.search : "#" + C[i].id); } catch (_) { /* sandboxed frames may refuse */ }
   }
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.sel != null) select(null); });
-
-  function renderStamps() {
-    document.getElementById("stamp-period").textContent = `31 Dec ${state.from} – 31 Dec ${state.to}`;
-    document.getElementById("eyebrow-period").textContent = `year-end ${state.from} vs ${state.to}`;
-  }
+  window.addEventListener("hashchange", () => {
+    const id = (location.hash || "").slice(1).toUpperCase();
+    const i = IDX.has(id) ? IDX.get(id) : null;
+    if (i !== state.sel) { state.sel = i; update(); zoomToSelection(); }
+  });
 
   function update() {
     computeRows();
@@ -1232,25 +1566,22 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     drawSelection();
     drawArrows(true);
     renderLegend();
+    renderTiles();
     renderPanel();
     renderTable();
-    renderStamps();
     syncControls();
+    writeURL();
   }
 
   // ---------- Static text ----------
-  document.getElementById("stamp-latest").textContent = `${YN} (31 Dec)`;
+  document.getElementById("stamp-latest").textContent = `31 Dec ${YN}`;
   document.getElementById("stamp-retrieved").textContent = fmtDate(D.meta.retrievedAt);
-  document.getElementById("stamp-news").textContent = NEWS ? fmtDate(NEWS.retrievedAt) : "Not yet retrieved";
+  document.getElementById("stamp-news").textContent = NEWS ? fmtDate(NEWS.retrievedAt) : "not yet";
   const v = D.meta.verification;
   document.getElementById("verify-text").textContent =
     `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
-  document.getElementById("news-mode-text").textContent = LIVE_NEWS
-    ? "If the daily files have nothing for a country, this copy also searches GDELT live when you open it."
-    : "This copy shows the headlines saved at the last update.";
   document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;
 
-  // A link ending in #SDN (any ISO3 code) opens that country.
   // The site republishes headlines hourly; an open page checks for them every 30 minutes.
   if (/^https?:$/.test(location.protocol)) {
     setInterval(() => {
@@ -1260,7 +1591,6 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
         const fresh = window.DISPLACEMENT_NEWS;
         if (fresh && fresh.retrievedAt !== NEWS?.retrievedAt) {
           NEWS = fresh;
-          liveCache.clear();
           document.getElementById("stamp-news").textContent = fmtDate(NEWS.retrievedAt);
           renderPanel();
         }
@@ -1271,13 +1601,7 @@ table.rank tbody tr.is-sel { background: var(--row-sel); }
     }, 30 * 60 * 1000);
   }
 
-  const fromHash = (location.hash || "").slice(1).toUpperCase();
-  if (IDX.has(fromHash)) state.sel = IDX.get(fromHash);
-  window.addEventListener("hashchange", () => {
-    const id = (location.hash || "").slice(1).toUpperCase();
-    const i = IDX.has(id) ? IDX.get(id) : null;
-    if (i !== state.sel) { state.sel = i; update(); zoomToSelection(); }
-  });
+  readURL();
   layout();
   update();
   if (state.sel != null) zoomToSelection();

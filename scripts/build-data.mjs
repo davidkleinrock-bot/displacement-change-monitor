@@ -20,6 +20,31 @@ const API = "https://api.unhcr.org/population/v1";
 const SHAPE_OVERRIDES = { Kosovo: "SRB", Somaliland: "SOM", "N. Cyprus": "CYP" };
 // Display names that are too long for a table cell. Everything else keeps UNHCR's name.
 const NAME_OVERRIDES = { SRB: "Serbia and Kosovo (S/RES/1244)", UNK: "Unknown origin", XXA: "Stateless", TIB: "Tibetan" };
+// Territories: shown with the country that governs them, so a reader never mistakes them for states.
+const TERRITORIES = {
+  PRI: "US territory", GUM: "US territory", MNP: "US territory", VIR: "US territory", ASM: "US territory", UMI: "US territory",
+  AIA: "UK overseas territory", BMU: "UK overseas territory", CYM: "UK overseas territory", GIB: "UK overseas territory",
+  MSR: "UK overseas territory", TCA: "UK overseas territory", VGB: "UK overseas territory", SGS: "UK overseas territory",
+  FLK: "UK overseas territory", SHN: "UK overseas territory", IOT: "UK overseas territory", PCN: "UK overseas territory",
+  GLP: "Part of France (overseas department)", GUF: "Part of France (overseas department)", MTQ: "Part of France (overseas department)",
+  REU: "Part of France (overseas department)", MYT: "Part of France (overseas department)",
+  MAF: "French overseas collectivity", NCL: "French overseas collectivity", PYF: "French overseas collectivity",
+  SPM: "French overseas collectivity", WLF: "French overseas collectivity", BLM: "French overseas collectivity",
+  ABW: "Part of the Kingdom of the Netherlands", CUW: "Part of the Kingdom of the Netherlands", SXM: "Part of the Kingdom of the Netherlands",
+  BES: "Part of the Netherlands",
+  FRO: "Part of the Kingdom of Denmark", GRL: "Part of the Kingdom of Denmark",
+  SJM: "Norwegian territory", BVT: "Norwegian territory",
+  COK: "In free association with New Zealand", NIU: "In free association with New Zealand",
+  HKG: "Special administrative region of China", MAC: "Special administrative region of China",
+  ESH: "Non-self-governing territory (UN list)",
+};
+// Rows that are not places. Shown wherever the name appears.
+const NOTES = {
+  UNK: "Not a place. Counts people whose host country did not report where they came from. Changes here usually reflect how a host government reports, not new movement.",
+  XXA: "Not a place. Counts stateless people: those no state considers its nationals.",
+  TIB: "UNHCR reports Tibetans as their own origin group, separate from China.",
+  AB9: "Area claimed by both Sudan and South Sudan; IDMC reports it separately.",
+};
 // Plain search terms for the news search, where the UNHCR name would miss most coverage.
 const NEWS_TERMS = {
   COD: ['"DR Congo"', '"Democratic Republic of the Congo"', '"eastern Congo"'],
@@ -95,6 +120,8 @@ async function main() {
       lat: wc ? +wc.latlng[0].toFixed(2) : null,
       lon: wc ? +wc.latlng[1].toFixed(2) : null,
       news: (NEWS_TERMS[id] || [`"${wc?.name?.common || (name || id).trim()}"`]),
+      ...(TERRITORIES[id] ? { territory: TERRITORIES[id] } : {}),
+      ...(NOTES[id] ? { note: NOTES[id] } : {}),
     });
   };
   for (const c of unCountries) addCountry(key(c.iso, c.code), c.code, c.name, c.region, c.majorArea);

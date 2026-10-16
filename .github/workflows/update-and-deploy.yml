@@ -59,6 +59,14 @@ jobs:
           node scripts/fetch-data.mjs
           node scripts/build-data.mjs
 
+      - name: Refresh the list of reputable news outlets (daily, from Wikipedia and Lin et al. 2023)
+        run: |
+          if [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/fetch-sources.mjs || echo "Could not refresh; keeping the previous list."
+          else
+            echo "Using the saved list (refreshed daily at 06 UTC)."
+          fi
+
       - name: Read GDELT news files for displacement headlines
         run: node scripts/fetch-news.mjs
         env:

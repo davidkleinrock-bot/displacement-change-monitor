@@ -62,12 +62,31 @@ async function download(url) {
 
 const decode = (s) =>
   s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/\s+/g, " ").trim();
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/\s+/g, " ").trim();
 // Copy a string out of the big file text. Without this, V8 keeps each whole 15-minute file in memory
 // for as long as any headline cut from it is kept, and a multi-day run runs out of memory.
 const own = (s) => (s == null ? s : Buffer.from(s, "utf8").toString("utf8"));
 const norm = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().slice(0, 70);
 const escapeRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// Reputable outlets: the domain itself or a parent domain (edition.cnn.com → cnn.com) must be allowed,
+// and none may be excluded. Returns why the outlet is allowed, or null.
+async function reputableChecker() {
+  const list = JSON.parse(await readFile(join(ROOT, "data", "processed", "news-sources.json"), "utf8"));
+  return (domain) => {
+    const d = (domain || "").toLowerCase().replace(/^www\./, "");
+    const parts = d.split(".");
+    for (let i = 0; i < parts.length - 1; i++) {
+      const candidate = parts.slice(i).join(".");
+      if (list.excluded[candidate]) return null;
+      if (list.allowed[candidate]) return list.allowed[candidate].basis.join("+");
+    }
+    if (list.intergovernmental.suffixes.some((s) => d.endsWith(s))) return "intergovernmental";
+    if (list.intergovernmental.domains.some((x) => d === x || d.endsWith("." + x))) return "intergovernmental";
+    return null;
+  };
+}
 
 async function readJS(path) {
   const text = await readFile(join(ROOT, path), "utf8");
@@ -127,6 +146,8 @@ function slots(lastStamp, hours) {
 
 async function main() {
   const { byName, headlineTerms } = await countryIndex();
+  const reputable = await reputableChecker();
+  let dropped = 0;
   const index = await (await fetch(`${FEED}/lastupdate.txt`)).text();
   const last = index.match(/(\d{14})\.gkg\.csv\.zip/)?.[1];
   if (!last) throw new Error("Could not read GDELT's lastupdate.txt");
@@ -152,6 +173,9 @@ async function main() {
       articles++;
       const title = decode(r[COL.extras]?.match(/<PAGE_TITLE>(.*?)<\/PAGE_TITLE>/)?.[1] || "");
       if (!title || !TOPIC.test(title) || !/^https?:\/\//.test(r[COL.url] || "")) continue;
+      const domain = r[COL.source] || new URL(r[COL.url]).hostname;
+      const basis = reputable(domain);
+      if (!basis) { dropped++; continue; }
 
       // Countries GDELT tagged in the article, by how often they come up.
       const counts = new Map();
@@ -178,7 +202,8 @@ async function main() {
       const item = {
         title: own(title),
         url: own(r[COL.url]),
-        domain: own(r[COL.source] || new URL(r[COL.url]).hostname),
+        domain: own(domain),
+        basis: own(basis),
         date: d ? own(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`) : null,
       };
       for (const iso of countries) {
@@ -209,6 +234,9 @@ async function main() {
     const merged = new Map();
     for (const a of [...(found.get(iso)?.values() || []), ...(previous.byCountry?.[iso] || [])]) {
       if (a.date && a.date < cutoff) continue;
+      const basis = reputable(a.domain);
+      if (!basis) continue; // earlier headlines are re-checked against today's list
+      a.basis = basis;
       const k = norm(a.title);
       if (!merged.has(k)) merged.set(k, a);
     }
@@ -225,11 +253,13 @@ async function main() {
     window: { hours: HOURS, upTo: last, keepDays: KEEP_DAYS },
     timespan: `${KEEP_DAYS}d`,
     topic: TOPIC_QUERY,
+    reputable: "Only outlets rated reliable by Wikipedia's Perennial Sources list or Lin et al. (2023), or intergovernmental organizations. See data/processed/news-sources.json.",
     byCountry,
   };
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
   const top = [...unmatched.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([n]) => n);
   console.log(`Read ${files} files, ${articles.toLocaleString()} articles; ${kept} displacement headlines (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
+  console.log(`Left out ${dropped} displacement headlines from outlets not rated reliable.`);
   console.log(`Saved data/news.js: ${Object.keys(byCountry).length} countries with headlines.`);
   if (top.length) console.log(`Place names not matched to a country (most common): ${top.join("; ")}`);
 }
