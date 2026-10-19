@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-10-18T06:37:52.552Z",
+ "builtAt": "2026-10-19T06:57:48.264Z",
  "definition": "An outlet counts as reputable if Wikipedia's Perennial Sources list rates it generally reliable; or, where Wikipedia has not rated it or rates it reliable only for some sections, topics or periods, if its Lin et al. (2023) aggregate quality score is above 0.66 and it is among the 10,000 most-visited websites in the Tranco ranking (national or international reach); or if it is an intergovernmental or UN system organization. Outlets Wikipedia never rates generally reliable (no consensus, mixed, generally unreliable, deprecated, blacklisted) are excluded.",
  "sources": {
   "wikipedia": {
@@ -18,11 +18,11 @@
   "tranco": {
    "title": "Tranco research ranking of the most-visited websites",
    "url": "https://tranco-list.eu",
-   "list": "8PX8V",
-   "listUrl": "https://tranco-list.eu/list/8PX8V/10000",
-   "created": "2026-10-17T22:00:02.210341",
+   "list": "467YX",
+   "listUrl": "https://tranco-list.eu/list/467YX/10000",
+   "created": "2026-10-18T22:00:01.985569",
    "top": 10000,
-   "leftOutAsLocal": 3109
+   "leftOutAsLocal": 3110
   },
   "intergovernmental": {
    "rule": "any .int domain, plus UN system organizations",
@@ -2064,14 +2064,6 @@
    "name": null
   },
   "hbr.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.877,
-   "name": null
-  },
-  "wral.com": {
    "basis": [
     "lin2023",
     "tranco"
