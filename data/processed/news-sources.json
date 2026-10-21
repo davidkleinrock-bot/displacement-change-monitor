@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-10-19T06:57:48.264Z",
+ "builtAt": "2026-10-21T06:36:18.660Z",
  "definition": "An outlet counts as reputable if Wikipedia's Perennial Sources list rates it generally reliable; or, where Wikipedia has not rated it or rates it reliable only for some sections, topics or periods, if its Lin et al. (2023) aggregate quality score is above 0.66 and it is among the 10,000 most-visited websites in the Tranco ranking (national or international reach); or if it is an intergovernmental or UN system organization. Outlets Wikipedia never rates generally reliable (no consensus, mixed, generally unreliable, deprecated, blacklisted) are excluded.",
  "sources": {
   "wikipedia": {
@@ -18,11 +18,11 @@
   "tranco": {
    "title": "Tranco research ranking of the most-visited websites",
    "url": "https://tranco-list.eu",
-   "list": "467YX",
-   "listUrl": "https://tranco-list.eu/list/467YX/10000",
-   "created": "2026-10-18T22:00:01.985569",
+   "list": "262W9",
+   "listUrl": "https://tranco-list.eu/list/262W9/10000",
+   "created": "2026-10-20T22:00:02.703082",
    "top": 10000,
-   "leftOutAsLocal": 3110
+   "leftOutAsLocal": 3111
   },
   "intergovernmental": {
    "rule": "any .int domain, plus UN system organizations",
@@ -2797,14 +2797,6 @@
     "tranco"
    ],
    "score": 0.817,
-   "name": null
-  },
-  "walesonline.co.uk": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.816,
    "name": null
   },
   "sports.yahoo.com": {
