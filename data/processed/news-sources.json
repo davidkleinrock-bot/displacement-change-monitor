@@ -1,5 +1,5 @@
 {
- "builtAt": "2026-10-21T06:36:18.660Z",
+ "builtAt": "2026-10-23T06:32:26.021Z",
  "definition": "An outlet counts as reputable if Wikipedia's Perennial Sources list rates it generally reliable; or, where Wikipedia has not rated it or rates it reliable only for some sections, topics or periods, if its Lin et al. (2023) aggregate quality score is above 0.66 and it is among the 10,000 most-visited websites in the Tranco ranking (national or international reach); or if it is an intergovernmental or UN system organization. Outlets Wikipedia never rates generally reliable (no consensus, mixed, generally unreliable, deprecated, blacklisted) are excluded.",
  "sources": {
   "wikipedia": {
@@ -18,11 +18,11 @@
   "tranco": {
    "title": "Tranco research ranking of the most-visited websites",
    "url": "https://tranco-list.eu",
-   "list": "262W9",
-   "listUrl": "https://tranco-list.eu/list/262W9/10000",
-   "created": "2026-10-20T22:00:02.703082",
+   "list": "56Z8N",
+   "listUrl": "https://tranco-list.eu/list/56Z8N/10000",
+   "created": "2026-10-22T22:00:01.893809",
    "top": 10000,
-   "leftOutAsLocal": 3111
+   "leftOutAsLocal": 3109
   },
   "intergovernmental": {
    "rule": "any .int domain, plus UN system organizations",
@@ -1791,6 +1791,14 @@
    "score": 0.909,
    "name": null
   },
+  "foreignaffairs.com": {
+   "basis": [
+    "lin2023",
+    "tranco"
+   ],
+   "score": 0.909,
+   "name": null
+  },
   "corriere.it": {
    "basis": [
     "lin2023",
@@ -2071,6 +2079,14 @@
    "score": 0.877,
    "name": null
   },
+  "wral.com": {
+   "basis": [
+    "lin2023",
+    "tranco"
+   ],
+   "score": 0.877,
+   "name": null
+  },
   "mercurynews.com": {
    "basis": [
     "lin2023",
@@ -2288,6 +2304,14 @@
    "name": null
   },
   "sbs.com.au": {
+   "basis": [
+    "lin2023",
+    "tranco"
+   ],
+   "score": 0.862,
+   "name": null
+  },
+  "insidehighered.com": {
    "basis": [
     "lin2023",
     "tranco"
@@ -4208,14 +4232,6 @@
    "name": null
   },
   "ca.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.685,
-   "name": null
-  },
-  "oxfordmail.co.uk": {
    "basis": [
     "lin2023",
     "tranco"
