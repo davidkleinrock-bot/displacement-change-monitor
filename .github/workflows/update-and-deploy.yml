@@ -55,8 +55,19 @@ jobs:
         with:
           node-version: 22
 
-      - name: Start from the headlines on the live site
-        run: curl -fsSL "$SITE_URL/data/news.js" -o data/news.js || echo "Live site not reachable; using the repo copy."
+      - name: Start from the newer of the live site's headlines and the repo's
+        run: |
+          if curl -fsSL "$SITE_URL/data/news.js" -o "$RUNNER_TEMP/live-news.js"; then
+            node -e '
+              const fs = require("fs");
+              const read = (p) => { try { const s = fs.readFileSync(p, "utf8"); return JSON.parse(s.slice(s.indexOf("{"), s.lastIndexOf("}") + 1)).retrievedAt || ""; } catch { return ""; } };
+              const live = read(process.argv[1]), repo = read("data/news.js");
+              if (live > repo) { fs.copyFileSync(process.argv[1], "data/news.js"); console.log(`Using the live site copy (${live}).`); }
+              else console.log(`Keeping the repo copy (${repo}); live is ${live || "unreadable"}.`);
+            ' "$RUNNER_TEMP/live-news.js"
+          else
+            echo "Live site not reachable; using the repo copy."
+          fi
 
       - name: Check whether UNHCR or IDMC published new figures
         id: unhcr

@@ -157,7 +157,10 @@ async function main(previous) {
     }
     if ((i / PARALLEL) % 25 === 24) console.log(`  ${counts.files} files read, ${counts.kept} headlines kept so far`);
   }
-  if (!counts.files) throw new Error("No GDELT files could be read");
+  // GDELT sometimes lists a file a few minutes before it can be downloaded. A short run with nothing to
+  // read yet is not a failure: the next run picks the file up, because it reads from checkedThrough.
+  if (!counts.files && stamps.length > 4) throw new Error("No GDELT files could be read");
+  const readThrough = counts.files ? last : previous?.checkedThrough || last;
 
   // Combine with earlier headlines, re-checking each one against today's rules and outlet list.
   const candidates = new Map();
@@ -207,7 +210,7 @@ async function main(previous) {
     status: "ok",
     retrievedAt: now.toISOString(),
     lastAttempt: { at: now.toISOString(), ok: true },
-    checkedThrough: last,
+    checkedThrough: readThrough,
     window,
     source: "GDELT 2.0 Global Knowledge Graph, 15-minute files",
     sourceUrl: "https://www.gdeltproject.org/data.html",
