@@ -35,7 +35,8 @@ export function checkDate(value, window) {
 // crossings count. Job "displacement" and emigration of the wealthy do not.
 const CORE = /\b(refugees?|internally displaced|idps?|asylum|stateless(ness)?|returnees?)\b/i;
 const LOOSE = /\b(displace(d|ment|s)|forcibly)\b/i;
-const NOT_FORCED = /\b(AI|automation|jobs?|workers?|workforce|labou?r market|billionaires?|millionaires?|wealthy|tax(es)?|tourists?|investors?|expats?|retirees|stocks?|shares)\b/i;
+// Evacuating diplomats, troops or foreign citizens is not forced displacement either.
+const NOT_FORCED = /\b(AI|automation|jobs?|workers?|workforce|labou?r market|billionaires?|millionaires?|wealthy|tax(es)?|tourists?|investors?|expats?|retirees|stocks?|shares|diplomats?|embass(y|ies)|citizens|nationals|staff|personnel)\b/i;
 const FLIGHT = /\b(fle(e|es|eing|d)|evacuat\w*|exodus|uproot\w*)\b/i;
 const CONFLICT = /\b(wars?|fighting|violence|conflict|attacks?|bombing|bombardment|shelling|air ?strikes?|offensive|clashes|siege|gangs?|militias?|rebels?|famine|massacres?|genocide|persecution|troops|army|militants?|insurgents?|occupation)\b/i;
 const SCALE = /\b(\d[\d,.]*|thousands|millions?|hundreds|tens of thousands)\b/i;
@@ -49,6 +50,7 @@ export const isDisplacement = (t) =>
 const PERSONAL = [
   /^['"‘“]?(she|he|they|i|we|my|our|his|her|their|meet)\b/i,
   /\b(she|he)('s| is| was| has| had)\b/i,
+  /:\s*['"‘“]?(she|he|they|i|we)\s/i, // "'Betrayal': She fought…"
   /^from\b.+\bto\b/i,
   /\b(a|an|one)\s+(\w+\s)?(woman|man|mother|mom|father|dad|boy|girl|teen|teenager|student|nurse|family|couple|child|grandmother|grandfather|pastor)\b/i,
   /\b(his|her) (story|journey|life|family|wife|husband|son|daughter|mother|father|dream)\b/i,
@@ -165,7 +167,7 @@ export function buildMatchers(countries, worldCountries) {
   return matchers;
 }
 
-const NOUNS = /^(?:['’]s)?(?:[\s,:;–-]+[\p{L}'’-]+){0,3}?[\s,:;–-]+['"‘“]?(refugees?|asylum(?:[- ]seekers?)?|migrants?|idps?|displaced|displacement|returnees?|civilians|families|people|residents|evacuees|children|women|exodus|influx|camps?|crisis|stateless|minorit(?:y|ies)|population|returns?|fle(?:e|es|eing|d)|evacuat\w*|forced|seek(?:s|ing)? asylum)\b/iu;
+const NOUNS = /^(?:['’]s)?(?:[\s,:;–-]+[\p{L}'’-]+){0,3}?[\s,:;–-]+['"‘“]?(refugees?|asylum(?:[- ]seekers?)?|migrants?|idps?|displaced|displacement|returnees?|civilians|families|people|residents|evacuees|children|women|exodus|influx|camps?|crisis|stateless|minorit(?:y|ies)|population|returns?|fle(?:e|es|eing|d)|forced|seek(?:s|ing)? asylum)\b/iu;
 const PREPS = /\b(in|from|into|out of|inside|across|to|toward|towards|off|near|along|at|leave|leaving|left|flee|flees|fleeing|fled|returns? to|returning to|returned to|back to|within|of)\s+(?:the\s+)?(?:[\p{L}-]+\s+)?$/iu;
 
 function findMatches(m, title) {

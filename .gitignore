@@ -4,3 +4,4 @@ Thumbs.db
 .claude/
 *.log
 data/raw/sources/
+memo-drafts/

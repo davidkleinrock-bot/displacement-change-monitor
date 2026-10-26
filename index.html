@@ -636,8 +636,11 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   const signedFull = (v) => (v == null ? '<span class="na">Unavailable</span>' : sign(v) + fmtInt(Math.abs(v)));
   const signedCompact = (v) => (v === 0 ? "0" : sign(v) + compact(v));
   const pctText = (p) => (p == null ? "n/a" : sign(Math.round(p * 10)) + (Math.abs(p) >= 100 ? Math.round(Math.abs(p)) : Math.abs(p).toFixed(1)) + "%");
-  const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—");
-  const fmtLong = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "—");
+  // A calendar date ("2026-08-26") is shown as that date everywhere; without timeZone "UTC" it would
+  // shift to the previous day for readers west of Greenwich. Timestamps are shown in the reader's time zone.
+  const dateOpts = (iso, month) => ({ day: "numeric", month, year: "numeric", ...(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? { timeZone: "UTC" } : {}) });
+  const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", dateOpts(iso, "short")) : "—");
+  const fmtLong = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", dateOpts(iso, "long")) : "—");
   const dir = (v) => (v == null ? "none" : v > 0 ? "up" : v < 0 ? "down" : "flat");
   const glyph = (v) => `<span class="glyph ${dir(v)}" aria-hidden="true">${v == null ? "–" : v > 0 ? "▲" : v < 0 ? "▼" : "●"}</span>`;
   const ordinal = (n) => n + (["th", "st", "nd", "rd"][(n % 100 > 10 && n % 100 < 14) || n % 10 > 3 ? 0 : n % 10]);
@@ -1418,7 +1421,8 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     const root = document.documentElement, prevTheme = root.getAttribute("data-theme");
     root.setAttribute("data-theme", "light"); // reports and slides want a light map
     try {
-      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      // No need to wait for a repaint: getComputedStyle below recalculates styles for the light theme,
+      // and waiting for a frame would hang in a tab the browser isn't drawing.
       const node = svg.node(), clone = node.cloneNode(true);
       const src = [node, ...node.querySelectorAll("*")], dst = [clone, ...clone.querySelectorAll("*")];
       const props = ["fill", "fill-opacity", "stroke", "stroke-width", "stroke-opacity", "stroke-linecap", "stroke-linejoin", "opacity", "font-family", "font-size", "font-weight", "paint-order", "vector-effect", "display"];

@@ -34,12 +34,14 @@ test("dates: both ends included; earlier, future, invalid and missing rejected",
 
 test("topic: forced displacement in, look-alikes out", () => {
   for (const t of ["UN says more than 230,000 displaced by fighting in Yemen since August", "Millions of Ukrainians Could Flee Again This Winter: UN", "At least 12 dead after migrant boat sinks off Gambia", "7,000 Nigerian refugees return home in 2026"]) assert.ok(isDisplacement(t), t);
+  for (const t of ["U.S. troops and diplomats evacuating Middle East posts, sources say", "Suspected insurgents attack Mozambique wildlife camp, US citizens evacuated"]) assert.ok(!isDisplacement(t), t);
   for (const t of ["Brush fires spark in Southern California, prompting evacuation orders", "Pickering murder suspect flees Canada, police say", "AI will not bring about displacement in public service", "It's not just billionaires fleeing Britain—a record 69,300 workers have left the U.K."]) assert.ok(!isDisplacement(t), t);
 });
 
 test("profiles, opinion and section pages are left out", () => {
   assert.ok(isPersonalOrOpinion("She fled Ukraine to safety in Alberta. Now, she's worried"));
   assert.ok(isPersonalOrOpinion("From Liberian refugee to Montana's first Black mayor"));
+  assert.ok(isPersonalOrOpinion("'Betrayal': She fought drug traffickers in Honduras, but was denied U.S. asylum"));
   assert.ok(isPersonalOrOpinion("Opinion: Welcoming refugees is what Jesus commands us to do"));
   assert.ok(isPersonalOrOpinion("Gaza refugees and the West", "https://example.com/opinion/2026/10/gaza"));
   assert.ok(!isPersonalOrOpinion("Sudanese refugees pour into eastern Chad", "https://example.com/world/africa/sudan"));
@@ -61,6 +63,7 @@ test("countries: aliases, abbreviations and shared demonyms", () => {
   assert.deepEqual(about("UK to cut asylum hotel use, says Home Office"), ["GBR"]);
   assert.deepEqual(about("Thousands displaced in Darfur as RSF advances"), ["SDN"]);
   assert.deepEqual(about("us and them: asylum debate heats up in Ireland"), ["IRL"]); // lower-case "us" is not the US
+  assert.deepEqual(about("US refugee admissions fall to record low"), ["USA"]); // the Oct 23 snapshot had no US articles because "US" wasn't matched
 });
 
 test("countries: the displaced country wins over a passing mention", () => {

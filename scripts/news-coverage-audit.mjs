@@ -38,11 +38,15 @@ async function main() {
   const data = await readJS("data/dashboard-data.js");
   const w = news.window || {};
   const searched = new Set(news.searched || []);
+  const NOT_PLACES = new Set(["UNK", "XXA", "TIB"]); // Unknown origin, Stateless, Tibetan
+  // Only rows that appear in the dashboard: those with figures in at least one series.
+  const shown = new Set(Object.values(data.series).flatMap((byIdx) => Object.keys(byIdx).map(Number)));
   const rows = [];
-  for (const c of [...data.countries].sort((a, b) => a.name.localeCompare(b.name))) {
+  for (const c of data.countries.filter((_, i) => shown.has(i)).sort((a, b) => a.name.localeCompare(b.name))) {
+    const status = NOT_PLACES.has(c.id) ? "Not a place" : c.territory || (c.lat == null ? "No map point" : "Country");
     const items = news.byCountry?.[c.id] || [];
     const issues = [];
-    if (!searched.has(c.id)) issues.push(c.lat == null ? "Not a place; news not searched." : "Not searched in this run.");
+    if (!searched.has(c.id)) issues.push(status === "Not a place" ? "Not a place; news not searched." : c.lat == null ? "No map point; news not searched." : "Not searched in this run.");
     else if (!items.length) issues.push("No relevant article found in the window.");
     const firstSeen = items.filter((a) => a.dateKind !== "published").length;
     if (firstSeen) issues.push(`${firstSeen} dated by when GDELT first saw it (publisher page gave no date).`);
@@ -52,13 +56,13 @@ async function main() {
     if (noSummary) issues.push(`${noSummary} without a publisher summary.`);
     if (NAME_NOTES[c.id]) issues.push(NAME_NOTES[c.id]);
     rows.push({
-      iso3: c.id, country: c.name, region: c.area || "", status: c.territory || (c.lat == null ? "Not a place" : "Country"),
+      iso3: c.id, country: c.name, region: c.area || "", status,
       articles: items.length, verified: items.filter((a) => a.link === "verified").length,
       latest: items.map((a) => a.date).sort().at(-1) || "", window: w.from ? `${w.from} to ${w.to}` : "", issues: issues.join(" "),
     });
   }
 
-  const places = rows.filter((r) => r.status !== "Not a place");
+  const places = rows.filter((r) => searched.has(r.iso3));
   const covered = places.filter((r) => r.articles > 0);
   const byRegion = {};
   for (const r of places) {
@@ -82,9 +86,9 @@ async function main() {
   if (run.links) md.push(`- **Article pages opened:** verified ${run.links.verified}, could not be checked ${run.links.unverified}, dead links dropped ${run.links.broken}, mismatched pages dropped ${run.links.mismatched}, published before the window dropped ${run.links.older}${run.pendingChecks ? `; ${run.pendingChecks} left for the next run` : ""}.`);
   md.push(`- **Last attempt:** ${news.lastAttempt?.ok === false ? `failed at ${news.lastAttempt.at}: ${news.lastAttempt.error}` : `succeeded at ${news.lastAttempt?.at ?? news.retrievedAt}`}.`, "");
   md.push("## Summary", "");
-  md.push(`- **Places with at least one valid article:** ${covered.length} of ${places.length} (${Math.round((100 * covered.length) / places.length)}%).`);
+  md.push(`- **Searched places with at least one valid article:** ${covered.length} of ${places.length} (${Math.round((100 * covered.length) / places.length)}%).`);
   md.push(`- **Articles shown:** ${places.reduce((s, r) => s + r.articles, 0)} (at most 8 per place), of which ${places.reduce((s, r) => s + r.verified, 0)} have a verified link.`);
-  md.push(`- **Rows that are not places** (Unknown origin, Stateless, Tibetan) are not searched: ${rows.length - places.length}.`, "");
+  md.push(`- **Dashboard rows not searched:** ${rows.length - places.length} (${rows.filter((r) => !searched.has(r.iso3)).map((r) => r.country).join(", ")}): they are not places or have no map point.`, "");
   md.push("| Region | Places | With news |", "|---|---:|---:|");
   for (const [k, v] of Object.entries(byRegion).sort()) md.push(`| ${mdCell(k)} | ${v.places} | ${v.covered} |`);
   md.push("", "## Every country and territory", "");
