@@ -9,8 +9,8 @@ An interactive map that ranks displacement situations by how fast they are chang
 - **Country panel:** start and end figures, change and % change, a 2000–2025 trend, top host countries or origins, returns, IDMC internal displacement, recent news, and links to the exact UNHCR API query behind the numbers.
 - **Ranked table:** sortable and searchable, with the same figures as the map. Missing figures are marked "Unavailable". Territories are labeled with their governing country; "Unknown origin", "Stateless" and "Tibetan" are explained and never ranked.
 - **Briefing tools:** key-findings sentences at the top, plus a "Summary for your brief" for the world and every country with Copy summary, Copy citation and Copy link buttons. Links reproduce the exact view. Download the map as PNG or the table as CSV, or print/save as PDF.
-- **News from rated outlets only:** headlines about forced displacement, from outlets rated reliable (Wikipedia's Perennial Sources list, or Lin et al. 2023 quality scores plus national or international reach in the Tranco ranking) and UN/intergovernmental bodies. Personal profiles, opinion and local news are left out. See [the audit](docs/ux-audit.md#news-sources-how-reputable-is-defined).
-- **Self-updating:** every hour a GitHub Actions job reads the newest GDELT news and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
+- **News from rated outlets only:** headlines about forced displacement, from outlets rated reliable (Wikipedia's Perennial Sources list, or Lin et al. 2023 quality scores plus national or international reach in the Tranco ranking) and UN/intergovernmental bodies. Personal profiles, opinion and local news are left out. Each article shows its publisher, publication date and the publisher's own summary, and its link is checked. The panel covers the previous two calendar months. See [the audit](docs/ux-audit.md#news-sources-how-reputable-is-defined) and the [coverage audit](docs/news-coverage-audit.md).
+- **Self-updating:** a GitHub Actions job, scheduled hourly and in practice run 5 to 7 times a day, reads the GDELT news published since its last run and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
 
 ## Data
 
@@ -22,7 +22,7 @@ An interactive map that ranks displacement situations by how fast they are chang
 | Country names, codes, regions | same API, `/countries/` | `data/raw/unhcr_countries.json` |
 | Map shapes (Natural Earth 1:50m) | [world-atlas](https://github.com/topojson/world-atlas) | `data/raw/geo/countries-50m.json` |
 | ISO codes and country reference points for arrows | [world-countries](https://github.com/mledoze/countries) | `data/raw/geo/world-countries.json` |
-| Displacement headlines by country, rolling 14 days | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, every 15 minutes) | `data/news.js` |
+| Displacement headlines by country, previous two calendar months | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, every 15 minutes) | `data/news.js` |
 | Which news outlets count as reputable | [Wikipedia: Perennial sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) (CC BY-SA 4.0), [Lin et al. 2023](https://doi.org/10.1093/pnasnexus/pgad286) ([data](https://github.com/hauselin/domain-quality-ratings)) and the [Tranco](https://tranco-list.eu) top-10,000 sites | `data/processed/news-sources.json` (raw downloads in `data/raw/sources/` are not committed) |
 
 `data/raw/manifest.json` records when each file was downloaded and from which URL. The dashboard shows both the dates the statistics cover (31 December of each year) and the date they were retrieved.
@@ -49,7 +49,9 @@ Requires Node 18 or newer. There are no packages to install.
 node scripts/fetch-data.mjs     # download UNHCR, IDMC and map data into data/raw/
 node scripts/build-data.mjs     # build data/*.js and run the checks
 node scripts/fetch-sources.mjs  # build the list of reputable news outlets
-node scripts/fetch-news.mjs     # read the last 24 h of GDELT news files (~2 min; NEWS_HOURS=72 to look further back)
+node scripts/fetch-news.mjs     # read GDELT news files since the last run (NEWS_HOURS=1464 for a two-month backfill; NEWS_STEP=8 to sample)
+node scripts/news-coverage-audit.mjs  # per-country coverage report: docs/news-coverage-audit.md
+node --test "tests/*.test.mjs"  # tests for dates, country matching, duplicates, empty results and failures
 node scripts/serve.mjs          # open http://localhost:8080
 ```
 
@@ -57,11 +59,13 @@ You can also open `index.html` straight from disk. Everything it needs, includin
 
 ## Automatic updates and hosting
 
-`.github/workflows/update-and-deploy.yml` runs every hour (at :47), on every push to `main`, and on demand from the Actions tab:
+`.github/workflows/update-and-deploy.yml` is scheduled every hour (at :47); in practice GitHub has started it 5 to 7 times a day. It also runs on every push to `main` and on demand from the Actions tab:
 
 1. `check-unhcr.mjs` compares a fingerprint of UNHCR's published totals with the one saved at the last download. Only if they differ, because of a new year or a revision, does it run `fetch-data.mjs` and `build-data.mjs` and commit the new data.
-2. `fetch-news.mjs` reads the last 2 hours of GDELT news files, keeps headlines from rated outlets, and merges them into the 14-day headline history taken from the live site. Once a day `fetch-sources.mjs` refreshes the list of rated outlets.
-3. The site is republished. News is committed to the repo once a day; the other runs only publish.
+2. `fetch-news.mjs` reads every GDELT news file published since the previous run (so hours between runs are not skipped), keeps headlines that pass the rules, opens each new article to read its date and summary and to check the link, and merges them into the two-month history taken from the live site. Once a day `fetch-sources.mjs` refreshes the list of rated outlets.
+3. The tests run, then the site is republished. News is committed to the repo about once a day; the other runs only publish.
+
+To fill the two-month window from scratch, run the workflow from the Actions tab with `news_hours` = 1464 (about 5,900 files; allow up to two hours).
 
 If the totals check fails after a UNHCR release, the run fails, nothing is published, and GitHub emails the repo owner.
 
@@ -79,7 +83,10 @@ data/news.js                   saved headlines (fetched)
 data/verification.json         result of the totals check
 data/processed/                long-format CSV for spot checks; reputable news outlets with reasons
 data/raw/                      untouched downloads + manifest
-scripts/                       fetch, build, news and local server scripts
+scripts/                       fetch, build, news and local server scripts (news-lib.mjs holds the news rules)
+tests/                         node --test suite for the news rules
+docs/news-coverage-audit.md    which countries have news, and why some don't
+docs/project-log.md            what changed, when, why, and how it was tested
 ```
 
 ## Limitations

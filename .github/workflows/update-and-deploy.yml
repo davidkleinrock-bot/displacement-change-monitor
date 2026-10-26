@@ -1,10 +1,12 @@
 # Keeps the dashboard current without anyone touching it. Every hour (and on every push to main):
-#  1. Starts from the headlines already on the live site, so the 14-day news history carries over.
+#  1. Starts from the headlines already on the live site, so the news history carries over.
 #  2. Asks UNHCR for a fingerprint of its figures. Only if UNHCR or IDMC published something new or revised
 #     does it re-download everything, rebuild, re-check the totals, and commit the new data.
-#  3. Reads the newest GDELT news files for displacement headlines.
+#  3. Reads every GDELT news file published since the previous run (GitHub starts this "hourly" job only
+#     5-7 times a day, so a fixed 2-hour lookback would skip hours) and keeps two calendar months of news.
 #  4. Publishes the site to GitHub Pages.
-# News is committed to the repo once a day (06:xx UTC); the other hourly runs only publish.
+# News is committed to the repo about once a day (when the last news commit is over 20 hours old);
+# other runs only publish. Tests run before anything is published.
 # If the totals check fails after a UNHCR release, the run fails, nothing is published or committed,
 # and GitHub emails the repo owner, so the live site keeps the last good data.
 
@@ -18,12 +20,19 @@ on:
   workflow_dispatch:
     inputs:
       news_hours:
-        description: "Hours of GDELT news files to read (2 for a normal hourly run; more to catch up)"
-        default: "2"
+        description: "Hours of GDELT news files to read. Leave empty for a normal run (everything since the last run). 1464 = two months, for a backfill."
+        default: ""
+      news_step:
+        description: "Read every Nth 15-minute file (1 = all; larger values make a quick, sampled backfill)"
+        default: "1"
       force_data:
         description: "Re-download UNHCR data even if nothing changed"
         type: boolean
         default: false
+      deploy:
+        description: "Publish the result to the live site (turn off to test a branch without changing the site)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -37,7 +46,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 150 # a two-month backfill reads about 5,900 files
     env:
       SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
     steps:
@@ -70,22 +79,32 @@ jobs:
       - name: Read GDELT news files for displacement headlines
         run: node scripts/fetch-news.mjs
         env:
-          NEWS_HOURS: ${{ inputs.news_hours || '2' }}
+          NEWS_HOURS: ${{ inputs.news_hours }}
+          NEWS_STEP: ${{ inputs.news_step || '1' }}
         continue-on-error: true
+
+      - name: Write the news coverage audit
+        run: node scripts/news-coverage-audit.mjs
+
+      - name: Run the tests
+        run: node --test "tests/*.test.mjs"
 
       - name: Save to the repo (new UNHCR data, or the daily news snapshot)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          git add data docs/news-coverage-audit.md
+          # Age of the news file last committed (the checkout has only one commit, so read the file itself).
+          committed=$(git show HEAD:data/news.js 2>/dev/null | grep -o '"retrievedAt":"[^"]*"' | head -1 | cut -d'"' -f4)
+          age=$(( $(date +%s) - $(date -d "${committed:-1970-01-01}" +%s) ))
           if git diff --cached --quiet; then
             echo "Nothing new to save."
           elif [ "${{ steps.unhcr.outputs.changed }}" = "true" ] || [ "${{ inputs.force_data }}" = "true" ]; then
             git commit -m "New UNHCR data $(date -u +%Y-%m-%d)"
-            git pull --rebase -q origin main && git push
-          elif [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"
+          elif [ "$age" -gt 72000 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             git commit -m "Daily news snapshot $(date -u +%Y-%m-%d)"
-            git pull --rebase -q origin main && git push
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"
           else
             echo "Hourly news update: published to the site without a commit."
           fi
@@ -97,6 +116,7 @@ jobs:
 
   deploy:
     needs: update
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.deploy }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

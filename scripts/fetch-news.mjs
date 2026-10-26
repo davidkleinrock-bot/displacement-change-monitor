@@ -1,61 +1,41 @@
 // Saves recent displacement headlines per country from GDELT's raw 15-minute news files.
-// Usage: node scripts/fetch-news.mjs            (run build-data.mjs first)
-//        NEWS_HOURS=72 node scripts/fetch-news.mjs   (look further back, e.g. for a first run)
+// Usage: node scripts/fetch-news.mjs                    (normal run: reads the files since the last run)
+//        NEWS_HOURS=1464 node scripts/fetch-news.mjs    (backfill: read further back, e.g. a whole window)
+//        NEWS_MONTHS=2  how many calendar months of news to keep (default 2; see newsWindow in news-lib.mjs)
+//        NEWS_STEP=8    read every 8th 15-minute file only (quick, sampled runs)
 // Writes data/news.js → window.DISPLACEMENT_NEWS
 //
 // GDELT publishes every article it sees as bulk "Global Knowledge Graph" files every 15 minutes
 // (http://data.gdeltproject.org/gdeltv2/). Downloading those files is how GDELT expects bulk users to
 // work, so this never touches the rate-limited search API. An article is kept only if:
 //   - its outlet is on data/processed/news-sources.json (rated reliable, national or international reach);
-//   - its headline is about forced displacement (see isDisplacement below);
-//   - its headline names the country it is filed under, or that country's people;
-//   - it is not a profile of one person, an opinion piece, a podcast or a live blog.
-// Headlines from earlier runs are re-checked and kept for 14 days, so coverage builds up day by day.
+//   - its headline is about forced displacement;
+//   - its headline ties it to the country it is filed under (see attributeCountries in news-lib.mjs);
+//   - it is not a profile of one person, an opinion piece, a podcast or a live blog;
+//   - its page opens and matches the headline, and its publication date falls in the window.
+// The publisher's own summary and date are read from the article page. Nothing is written for an
+// article that doesn't provide them. Earlier headlines are re-checked against the rules on every run.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { inflateRawSync } from "node:zlib";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  DEFAULT_MONTHS, newsWindow, checkDate, isDisplacement, isPersonalOrOpinion, buildMatchers, attributeCountries,
+  cleanTitle, normTitle, dedupe, fetchArticleMeta, summarize, downloadFile,
+} from "./news-lib.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const FEED = "https://data.gdeltproject.org/gdeltv2";
-const HOURS = Number(process.env.NEWS_HOURS || 24);
-const KEEP_DAYS = 14;
+const MONTHS = Number(process.env.NEWS_MONTHS || DEFAULT_MONTHS);
+const STEP = Math.max(1, Number(process.env.NEWS_STEP || 1));
+const MAX_CATCHUP_HOURS = 72; // a normal run reads everything since the last one, up to three days
 const PER_COUNTRY = 8;
 const PARALLEL = 4;
-// Headline must be about forced displacement. GDELT's own theme tags are too loose to rely on.
-// Core terms count on their own. Words like "fled" or "evacuated" count only with a conflict word or a
-// sense of scale, so wildfire evacuations and suspects "fleeing" are left out. Deadly or mass migrant
-// crossings count; other migration and deportation stories do not.
-const CORE = /\b(refugees?|internally displaced|idps?|asylum|stateless(ness)?|returnees?)\b/i;
-// Looser words ("displacement", "fled") also describe job losses, emigration of the wealthy and so on.
-const LOOSE = /\b(displace(d|ment|s)|forcibly)\b/i;
-const NOT_FORCED = /\b(AI|automation|jobs?|workers?|workforce|labou?r market|billionaires?|millionaires?|wealthy|tax(es)?|tourists?|investors?|expats?|retirees|stocks?|shares)\b/i;
-const FLIGHT = /\b(fle(e|es|eing|d)|evacuat\w*|exodus|uproot\w*)\b/i;
-const CONFLICT = /\b(wars?|fighting|violence|conflict|attacks?|bombing|bombardment|shelling|air ?strikes?|offensive|clashes|siege|gangs?|militias?|rebels?|famine|massacres?|genocide|persecution|troops|army|militants?|insurgents?|occupation)\b/i;
-const SCALE = /\b(\d[\d,.]*|thousands|millions?|hundreds|tens of thousands)\b/i;
-const CROSSING = /\bmigrants?\b.*\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b|\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b.*\bmigrants?\b/i;
-const isDisplacement = (t) =>
-  CORE.test(t) ||
-  (!NOT_FORCED.test(t) && (LOOSE.test(t) || (FLIGHT.test(t) && (CONFLICT.test(t) || SCALE.test(t))) || CROSSING.test(t)));
-// Profiles of one person, opinion and other sections a brief can't cite as reporting.
-const PERSONAL = [
-  /^['"‘“]?(she|he|they|i|we|my|our|his|her|their|meet)\b/i,
-  /\b(she|he)('s| is| was| has| had)\b/i,
-  /^from\b.+\bto\b/i,
-  /\b(a|an|one)\s+(\w+\s)?(woman|man|mother|mom|father|dad|boy|girl|teen|teenager|student|nurse|family|couple|child|grandmother|grandfather|pastor)\b/i,
-  /\b(his|her) (story|journey|life|family|wife|husband|son|daughter|mother|father|dream)\b/i,
-];
-const SECTION_TITLE = /^(opinion|editorial|podcast|letters?|column|commentary|live|watch|video|photos?|review|quiz)\b\s*[:|–-]/i;
-const SECTION_URL = /\/(opinion|opinions|editorials?|letters?|obituar\w*|podcasts?|sports?|lifestyle|life-?style|entertainment|arts?|culture|food|travel|commentisfree|comment|blogs?|videos?|live|liveblog|live-news)\//i;
-const isPersonalOrOpinion = (title, url) => PERSONAL.some((re) => re.test(title)) || SECTION_TITLE.test(title) || SECTION_URL.test(url || "");
-// The same idea in GDELT search syntax, used by the dashboard's optional live search.
+const VERIFY_PARALLEL = 6;
+const VERIFY_LIMIT = Number(process.env.NEWS_VERIFY_LIMIT || 1500);
 const TOPIC_QUERY = "(refugees OR refugee OR displaced OR displacement OR asylum OR evacuated)";
-
-// GKG 2.1 columns we read (tab-separated).
-const COL = { date: 1, source: 3, url: 4, extras: 26 };
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const COL = { date: 1, source: 3, url: 4, extras: 26 }; // GKG 2.1 columns (tab-separated)
 
 // Minimal reader for GDELT's single-file zip archives.
 function unzipFirst(buf) {
@@ -71,20 +51,6 @@ function unzipFirst(buf) {
   return (method === 8 ? inflateRawSync(data) : data).toString("utf8");
 }
 
-async function download(url) {
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(60000) });
-      if (res.status === 404) return null; // GDELT occasionally skips a 15-minute slot
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return Buffer.from(await res.arrayBuffer());
-    } catch (err) {
-      if (attempt === 3) throw err;
-      await sleep(3000 * attempt);
-    }
-  }
-}
-
 const decode = (s) =>
   s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
@@ -92,56 +58,36 @@ const decode = (s) =>
 // Copy a string out of the big file text. Without this, V8 keeps each whole 15-minute file in memory
 // for as long as any headline cut from it is kept, and a multi-day run runs out of memory.
 const own = (s) => (s == null ? s : Buffer.from(s, "utf8").toString("utf8"));
-const norm = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().slice(0, 70);
-const escapeRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-// Reputable outlets: the domain itself or a parent domain (edition.cnn.com → cnn.com) must be allowed,
-// and none may be excluded. Returns why the outlet is allowed, or null.
-async function reputableChecker() {
-  const list = JSON.parse(await readFile(join(ROOT, "data", "processed", "news-sources.json"), "utf8"));
-  return (domain) => {
-    const d = (domain || "").toLowerCase().replace(/^www\./, "");
-    const parts = d.split(".");
-    for (let i = 0; i < parts.length - 1; i++) {
-      const candidate = parts.slice(i).join(".");
-      if (list.excluded[candidate]) return null;
-      if (list.allowed[candidate]) return list.allowed[candidate].basis.join("+");
-    }
-    if (list.intergovernmental.suffixes.some((s) => d.endsWith(s))) return "intergovernmental";
-    if (list.intergovernmental.domains.some((x) => d === x || d.endsWith("." + x))) return "intergovernmental";
-    return null;
-  };
-}
 
 async function readJS(path) {
   const text = await readFile(join(ROOT, path), "utf8");
   return JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
 }
 
-// Words in a headline that point at a country: its names plus demonyms ("Sudanese", "Afghans").
-async function headlineTerms() {
-  const data = await readJS("data/dashboard-data.js");
-  const wc = JSON.parse(await readFile(join(ROOT, "data", "raw", "geo", "world-countries.json"), "utf8"));
-  const terms = new Map();
-  for (const c of data.countries) {
-    if (c.lat == null) continue; // Unknown origin, Stateless, Tibetan: not places
-    const w = wc.find((x) => x.cca3 === c.id);
-    const words = new Set([
-      ...(c.news || []).map((t) => t.replace(/"/g, "")),
-      w?.name?.common,
-      w?.demonyms?.eng?.m,
-    ].filter((t) => t && t.length > 3));
-    // Singular or plural: "South African", "South Africans".
-    if (words.size) terms.set(c.id, new RegExp(`\\b(${[...words].map(escapeRe).join("|")})s?\\b`, "i"));
-  }
-  return terms;
+// Reputable outlets: the domain itself or a parent domain (edition.cnn.com → cnn.com) must be allowed,
+// and none may be excluded. Returns why the outlet is allowed and its name, or null.
+async function outletChecker() {
+  const list = JSON.parse(await readFile(join(ROOT, "data", "processed", "news-sources.json"), "utf8"));
+  return (domain) => {
+    const d = (domain || "").toLowerCase().replace(/^www\./, "");
+    const parts = d.split(".");
+    for (let i = 0; i < parts.length - 1; i++) {
+      const c = parts.slice(i).join(".");
+      if (list.excluded[c]) return null;
+      if (list.allowed[c]) return { basis: list.allowed[c].basis.join("+"), name: list.allowed[c].name?.replace(/\s*\(.*?\)\s*/g, " ").trim() || null };
+    }
+    if (list.intergovernmental.suffixes.some((s) => d.endsWith(s)) || list.intergovernmental.domains.some((x) => d === x || d.endsWith("." + x))) {
+      return { basis: "intergovernmental", name: null };
+    }
+    return null;
+  };
 }
 
-function slots(lastStamp, hours) {
-  // lastStamp like 20261015054500; step back in 15-minute slots.
-  const t = Date.UTC(+lastStamp.slice(0, 4), +lastStamp.slice(4, 6) - 1, +lastStamp.slice(6, 8), +lastStamp.slice(8, 10), +lastStamp.slice(10, 12));
+const stampToDate = (s) => new Date(Date.UTC(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8), +s.slice(8, 10), +s.slice(10, 12)));
+function slots(lastStamp, hours, step) {
+  const t = stampToDate(lastStamp).getTime();
   const out = [];
-  for (let k = 0; k < hours * 4; k++) {
+  for (let k = 0; k < Math.ceil(hours * 4); k += step) {
     const d = new Date(t - k * 15 * 60000);
     const p = (n) => String(n).padStart(2, "0");
     out.push(`${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}${p(d.getUTCHours())}${p(d.getUTCMinutes())}00`);
@@ -149,104 +95,144 @@ function slots(lastStamp, hours) {
   return out;
 }
 
-async function main() {
-  const terms = await headlineTerms();
-  const reputable = await reputableChecker();
+async function pool(items, size, fn) {
+  let i = 0;
+  await Promise.all(Array.from({ length: size }, async () => { while (i < items.length) await fn(items[i++]); }));
+}
+
+async function main(previous) {
+  const now = new Date();
+  const window = newsWindow(now, MONTHS);
+  const data = await readJS("data/dashboard-data.js");
+  const wc = JSON.parse(await readFile(join(ROOT, "data", "raw", "geo", "world-countries.json"), "utf8"));
+  const matchers = buildMatchers(data.countries, wc);
+  const outlet = await outletChecker();
+
   const index = await (await fetch(`${FEED}/lastupdate.txt`)).text();
   const last = index.match(/(\d{14})\.gkg\.csv\.zip/)?.[1];
   if (!last) throw new Error("Could not read GDELT's lastupdate.txt");
-  const stamps = slots(last, HOURS);
-  console.log(`Reading ${stamps.length} GDELT news files (${HOURS} hours up to ${last})…`);
+  // Read everything since the last run, so hours between runs are never skipped.
+  let hours = Number(process.env.NEWS_HOURS || 0);
+  if (!hours) {
+    const prev = previous?.checkedThrough;
+    hours = prev ? (stampToDate(last) - stampToDate(prev)) / 3600000 : 24;
+    hours = Math.min(MAX_CATCHUP_HOURS, Math.max(0.25, hours));
+  }
+  const stamps = slots(last, hours, STEP);
+  console.log(`Window ${window.from} to ${window.to} (${MONTHS} months). Reading ${stamps.length} GDELT files (${hours.toFixed(1)} hours up to ${last}${STEP > 1 ? `, every ${STEP}th file` : ""})…`);
 
-  const found = new Map(); // ISO3 → Map(normTitle → item)
-  const counts = { files: 0, articles: 0, topical: 0, personal: 0, outlet: 0, unnamed: 0, kept: 0 };
-  const leftOut = new Map(); // outlet → displacement headlines left out, for reviewing the outlet rules
-
+  const found = new Map(); // iso → candidate items
+  const counts = { files: 0, missingFiles: 0, articles: 0, topical: 0, personal: 0, outlet: 0, unattributed: 0, kept: 0 };
+  const leftOut = new Map();
   const handle = (text) => {
     for (const line of text.split("\n")) {
       if (!line) continue;
       const r = line.split("\t");
       counts.articles++;
-      const title = decode(r[COL.extras]?.match(/<PAGE_TITLE>(.*?)<\/PAGE_TITLE>/)?.[1] || "");
+      const raw = decode(r[COL.extras]?.match(/<PAGE_TITLE>(.*?)<\/PAGE_TITLE>/)?.[1] || "");
       const url = r[COL.url] || "";
-      if (!title || !isDisplacement(title) || !/^https?:\/\//.test(url)) continue;
+      if (!raw || !isDisplacement(raw) || !/^https?:\/\//.test(url)) continue;
       counts.topical++;
-      if (isPersonalOrOpinion(title, url)) { counts.personal++; continue; }
+      if (isPersonalOrOpinion(raw, url)) { counts.personal++; continue; }
       const domain = r[COL.source] || new URL(url).hostname;
-      const basis = reputable(domain);
-      if (!basis) { counts.outlet++; leftOut.set(leftOut.has(domain) ? domain : own(domain), (leftOut.get(domain) || 0) + 1); continue; }
-      // File it only under countries the headline itself names; GDELT's location tags catch passing mentions.
-      const countries = [...terms].filter(([, re]) => re.test(title)).map(([iso]) => iso);
-      if (!countries.length) { counts.unnamed++; continue; }
+      const o = outlet(domain);
+      if (!o) { counts.outlet++; leftOut.set(leftOut.has(domain) ? domain : own(domain), (leftOut.get(domain) || 0) + 1); continue; }
+      const isos = attributeCountries(raw, matchers);
+      if (!isos.length) { counts.unattributed++; continue; }
       counts.kept++;
-
       const d = r[COL.date] || "";
-      const item = {
-        title: own(title),
-        url: own(url),
-        domain: own(domain),
-        basis: own(basis),
-        date: d ? own(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`) : null,
-      };
-      for (const iso of countries) {
-        if (!found.has(iso)) found.set(iso, new Map());
-        const key = own(norm(title));
-        if (!found.get(iso).has(key)) found.get(iso).set(key, item);
+      const item = { title: own(cleanTitle(raw)), url: own(url), domain: own(domain), seen: own(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`) };
+      for (const iso of isos) {
+        if (!found.has(iso)) found.set(iso, []);
+        found.get(iso).push(item);
       }
     }
   };
-
   for (let i = 0; i < stamps.length; i += PARALLEL) {
     const batch = stamps.slice(i, i + PARALLEL);
-    const bufs = await Promise.all(batch.map((s) => download(`${FEED}/${s}.gkg.csv.zip`).catch((e) => (console.log(`  ${s} skipped: ${e.message}`), null))));
+    const bufs = await Promise.all(batch.map((s) => downloadFile(`${FEED}/${s}.gkg.csv.zip`).catch((e) => (console.log(`  ${s} skipped: ${e.message}`), null))));
     for (const buf of bufs) {
-      if (!buf) continue;
+      if (!buf) { counts.missingFiles++; continue; }
       try { handle(unzipFirst(buf)); counts.files++; } catch (e) { console.log(`  a file could not be read: ${e.message}`); }
     }
-    if ((i / PARALLEL) % 6 === 5) console.log(`  ${counts.files} files, ${counts.kept} headlines kept so far`);
+    if ((i / PARALLEL) % 25 === 24) console.log(`  ${counts.files} files read, ${counts.kept} headlines kept so far`);
   }
-  if (!counts.files) throw new Error("No GDELT files could be read; keeping the previous data/news.js");
+  if (!counts.files) throw new Error("No GDELT files could be read");
 
-  // Merge with earlier runs and keep the last 14 days, newest first. Earlier headlines are re-checked
-  // against today's rules and outlet list, so tightening a rule also cleans what is already saved.
-  let previous = {};
-  try { previous = await readJS("data/news.js"); } catch { /* first run */ }
-  const cutoff = new Date(Date.now() - KEEP_DAYS * 86400000).toISOString().slice(0, 10);
-  const byCountry = {};
-  for (const iso of new Set([...found.keys(), ...Object.keys(previous.byCountry || {})])) {
-    const merged = new Map();
-    for (const a of [...(found.get(iso)?.values() || []), ...(previous.byCountry?.[iso] || [])]) {
-      if (a.date && a.date < cutoff) continue;
-      if (!isDisplacement(a.title) || isPersonalOrOpinion(a.title, a.url) || !terms.get(iso)?.test(a.title)) continue;
-      const basis = reputable(a.domain);
-      if (!basis) continue;
-      const k = norm(a.title);
-      if (!merged.has(k)) merged.set(k, { title: a.title, url: a.url, domain: a.domain, basis, date: a.date });
+  // Combine with earlier headlines, re-checking each one against today's rules and outlet list.
+  const candidates = new Map();
+  for (const iso of matchers.keys()) {
+    const list = [...(found.get(iso) || []), ...(previous?.byCountry?.[iso] || [])].filter(
+      (a) => isDisplacement(a.title) && !isPersonalOrOpinion(a.title, a.url) && outlet(a.domain) && attributeCountries(a.title, matchers).includes(iso),
+    );
+    if (list.length) candidates.set(iso, dedupe(list));
+  }
+
+  // Open each new article once: keep its publisher summary and date, drop dead or mismatched links.
+  const checked = new Map(); // url → result, so an article filed under two countries is fetched once
+  for (const prev of Object.values(previous?.byCountry || {})) for (const a of prev) if (a.link) checked.set(a.url, a);
+  const toCheck = [...new Set([...candidates.values()].flat().filter((a) => !checked.has(a.url)).map((a) => a.url))];
+  const byUrl = new Map([...candidates.values()].flat().map((a) => [a.url, a]));
+  const verifyNow = toCheck.sort((x, y) => (byUrl.get(y).seen || "").localeCompare(byUrl.get(x).seen || "")).slice(0, VERIFY_LIMIT);
+  const linkCounts = { verified: 0, unverified: 0, broken: 0, mismatched: 0, older: 0 };
+  await pool(verifyNow, VERIFY_PARALLEL, async (url) => {
+    const a = byUrl.get(url);
+    const r = await fetchArticleMeta(url, a.title);
+    const o = outlet(a.domain);
+    if (r.link === "broken" || r.link === "mismatched") { linkCounts[r.link]++; checked.set(url, { drop: r.link }); return; }
+    let date = a.seen || a.date, dateKind = "seen"; // headlines saved before this version only have `date`
+    let description = null, publisher = o?.name || a.domain;
+    if (r.link === "verified") {
+      const pub = checkDate(r.meta.published, window);
+      if (pub.reason === "older") { linkCounts.older++; checked.set(url, { drop: "older" }); return; }
+      if (pub.date) { date = pub.date; dateKind = "published"; }
+      description = summarize(r.meta.description, a.title);
+      if (r.meta.siteName) publisher = r.meta.siteName;
     }
-    const list = [...merged.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "")).slice(0, PER_COUNTRY);
-    if (list.length) byCountry[iso] = list;
+    linkCounts[r.link]++;
+    checked.set(url, { title: a.title, url, domain: a.domain, basis: o?.basis, publisher, date, dateKind, description, link: r.link, ...(r.reason ? { linkNote: r.reason } : {}) });
+  });
+
+  const byCountry = {};
+  for (const [iso, list] of candidates) {
+    const items = list
+      .map((a) => checked.get(a.url))
+      .filter((a) => a && !a.drop && checkDate(a.date, window).date)
+      .map((a) => ({ ...a, basis: outlet(a.domain)?.basis || a.basis }));
+    const top = dedupe(items).sort((x, y) => y.date.localeCompare(x.date)).slice(0, PER_COUNTRY);
+    if (top.length) byCountry[iso] = top;
   }
 
   const payload = {
-    retrievedAt: new Date().toISOString(),
+    status: "ok",
+    retrievedAt: now.toISOString(),
+    lastAttempt: { at: now.toISOString(), ok: true },
+    checkedThrough: last,
+    window,
     source: "GDELT 2.0 Global Knowledge Graph, 15-minute files",
     sourceUrl: "https://www.gdeltproject.org/data.html",
-    window: { hours: HOURS, upTo: last, keepDays: KEEP_DAYS },
-    timespan: `${KEEP_DAYS}d`,
     topic: TOPIC_QUERY,
     reputable: "Only outlets rated reliable by Wikipedia's Perennial Sources list, or by Lin et al. (2023) with national or international reach (Tranco top 10,000), or intergovernmental and UN system organizations. See data/processed/news-sources.json.",
-    rules: "Headline must be about forced displacement, name the country it is filed under, and not be a personal profile, opinion piece, podcast or live blog.",
+    rules: "Headline must be about forced displacement, tie it to the country it is listed under, and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window.",
+    searched: [...matchers.keys()].sort(),
+    lastRun: { hoursRead: +hours.toFixed(2), step: STEP, filesRead: counts.files, filesMissing: counts.missingFiles, ...counts, links: linkCounts, pendingChecks: Math.max(0, toCheck.length - verifyNow.length) },
     byCountry,
   };
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
-  console.log(`Read ${counts.files} files, ${counts.articles.toLocaleString()} articles (peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB).`);
-  console.log(`Displacement headlines: ${counts.topical}. Left out: ${counts.personal} profiles/opinion, ${counts.outlet} from outlets not rated reliable or local, ${counts.unnamed} not naming a country. Kept: ${counts.kept}.`);
-  console.log(`Saved data/news.js: ${Object.keys(byCountry).length} countries with headlines.`);
-  const top = [...leftOut].sort((a, b) => b[1] - a[1]).slice(0, 25).map(([d, n]) => `${d} ${n}`);
+  console.log(`Read ${counts.files} files (${counts.missingFiles} missing), ${counts.articles.toLocaleString()} articles; peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB.`);
+  console.log(`Displacement headlines ${counts.topical}: left out ${counts.personal} profiles/opinion, ${counts.outlet} from outlets not rated reliable or local, ${counts.unattributed} not tied to a country; kept ${counts.kept}.`);
+  console.log(`Article pages checked ${verifyNow.length}: ${JSON.stringify(linkCounts)}${payload.lastRun.pendingChecks ? `, ${payload.lastRun.pendingChecks} left for the next run` : ""}.`);
+  console.log(`Saved data/news.js: ${Object.keys(byCountry).length} of ${matchers.size} places have at least one article.`);
+  const top = [...leftOut].sort((a, b) => b[1] - a[1]).slice(0, 20).map(([d, n]) => `${d} ${n}`);
   if (top.length) console.log(`Outlets with the most displacement headlines left out: ${top.join(", ")}`);
 }
 
-main().catch((err) => {
+let previous = null;
+try { previous = await readJS("data/news.js"); } catch { /* first run */ }
+main(previous).catch(async (err) => {
   console.error(err.message);
+  // Keep the last good headlines, and record the failure so the page can say so.
+  const failed = { ...(previous || { status: "error", byCountry: {}, searched: [] }), lastAttempt: { at: new Date().toISOString(), ok: false, error: err.message } };
+  try { await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(failed)};\n`); } catch { /* nothing more to do */ }
   process.exit(1);
 });

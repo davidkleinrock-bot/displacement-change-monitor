@@ -252,6 +252,7 @@ select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .news a { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-decoration: none; }
 .news a:hover { text-decoration: underline; }
 .news .meta { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+.news .desc { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
 .news-group + .news-group { margin-top: 12px; }
 .news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 14px; }
@@ -530,10 +531,11 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>News headlines and which outlets count</h3>
-      <p>Headlines come from GDELT, which tracks news coverage worldwide. Every hour the site reads the latest articles and keeps a headline for 14 days only if all of these hold:</p>
+      <p>Headlines come from GDELT, which tracks news coverage worldwide. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 25 October 2026, that is 25 August to 25 October). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
+      <p>Each article's date is its publication date as stated on the publisher's page. Where the page doesn't state one, the date GDELT first saw the article is shown and labeled "first seen". Articles published before the window, with a future date, or whose link is dead or leads to a different story are left out. The short description under a headline is the publisher's own summary; when a publisher provides none, none is shown. An article is kept only if all of these hold:</p>
       <ul>
         <li><b>It is about forced displacement.</b> It mentions refugees, asylum, internally displaced people, statelessness or returnees. Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "millions"), so wildfire evacuations, crime suspects and job "displacement" are left out.</li>
-        <li><b>It names the country</b> it is listed under, or that country's people.</li>
+        <li><b>It is about that country's displacement.</b> The headline ties the country to displaced people ("Sudanese refugees", "fled Sudan", "displaced in Darfur"). A passing mention, the publisher's location or GDELT's location tags are not enough. Names inside other names ("Sudan" in "South Sudan", "Guinea" in "Papua New Guinea", "Georgia" next to "Atlanta") don't count.</li>
         <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person, opinion pieces, podcasts and live blogs are left out.</li>
         <li><b>The outlet is rated reliable and has national or international reach</b>, by public repositories:
           <ul>
@@ -543,7 +545,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
           </ul>
         </li>
       </ul>
-      <p>Outlets Wikipedia never rates generally reliable are always left out. Headlines are still matched automatically and are not checked by this tool. The full outlet list, with the reason each qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
+      <p>Outlets Wikipedia never rates generally reliable are always left out. Articles are matched automatically and are not read by a person. "No relevant news found in the selected period" means the search ran and found nothing that meets these rules; it is not an error. News gives context and does not explain why a figure changed. The full outlet list, with the reason each qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
     </section>
     <section>
       <h3>Using figures in a brief</h3>
@@ -561,7 +563,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>Updates and accessibility</h3>
-      <p>An automatic job runs every hour. It reads the newest GDELT news files and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
+      <p>An automatic job is scheduled every hour; GitHub, which runs it, has been starting it about 5 to 7 times a day. Each run reads all GDELT news files published since the previous run and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
       <p>The ranking table holds every figure shown on the map, so the dashboard can be used with a keyboard or screen reader. Report problems through the GitHub repository.</p>
     </section>
   </section>
@@ -978,6 +980,11 @@ table.rank tbody tr.is-sel { background: var(--tint); }
 
   // ---------- Brief text: plain sentences ready to paste ----------
   const org = () => (state.metric === "idmc" ? "IDMC" : "UNHCR");
+  // "Other people in need of international protection" is reported from 2018, so periods that cross it
+  // include a change in what is counted, not only in how many people.
+  const OIP_CAVEAT = "This period crosses 2018, when UNHCR began reporting “other people in need of international protection.” Part of the change reflects that new category, not only new displacement.";
+  const crossesOip = () => state.metric === "intl" && state.from < 2018 && state.to >= 2018;
+  const oipCallout = () => (crossesOip() ? `<p class="callout">${OIP_CAVEAT}</p>` : "");
   function phrase(c) {
     const n = metric().noun;
     if (state.metric === "idmc") return `${n} in ${c.name}`;
@@ -996,7 +1003,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     let t = `Between 31 December ${state.from} and 31 December ${state.to}, the number of ${metric().noun} ${ch >= 0 ? "rose" : "fell"} by ${words(ch)} (${pctText(s > 0 ? (ch / s) * 100 : null)}) to ${words(e)}, counting the ${n} ${placesWord()} with figures for both dates.`;
     if (ups.length) t += ` The largest ${state.rank === "abs" ? "increases" : "percentage increases"} were in ${listNames(ups.map((r) => `${r.c.name} (${val(r)})`))}.`;
     if (downs.length) t += ` The largest ${state.rank === "abs" ? "decreases" : "percentage decreases"} were in ${listNames(downs.map((r) => `${r.c.name} (${val(r)})`))}.`;
-    return t + ` Source: ${org()}.`;
+    return t + (crossesOip() ? " " + OIP_CAVEAT : "") + ` Source: ${org()}.`;
   }
   function countrySummary(i) {
     const c = C[i], row = rowByIdx.get(i) || null;
@@ -1027,6 +1034,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     }
     if (c.territory) t += ` ${c.name} is a ${c.territory.charAt(0).toLowerCase() + c.territory.slice(1)}.`;
     if (c.note) t += " " + c.note;
+    if (crossesOip()) t += " " + OIP_CAVEAT;
     return t;
   }
   function citation() {
@@ -1116,6 +1124,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <h2>${esc(m.label)}</h2>
         <p class="sub">31 Dec ${state.from} → 31 Dec ${state.to}</p>
       </div>
+      ${oipCallout()}
       <dl class="figs">
         <div><dt>31 Dec ${state.from}</dt><dd>${fmtInt(s)}</dd></div>
         <div><dt>31 Dec ${state.to}</dt><dd>${fmtInt(e)}</dd></div>
@@ -1137,16 +1146,26 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     if (!picks.length) return "";
     return `<section id="news-section"><h3>In the news: fastest-rising countries</h3>${picks
       .map((r) => `<div class="news-group"><button type="button" class="news-country" data-select="${r.i}">${esc(r.c.name)}</button>${newsList(NEWS.byCountry[r.c.id].slice(0, 2))}</div>`)
-      .join("")}<p class="note">From outlets rated reliable (<a href="#about">how outlets are chosen</a>). Matched automatically, not checked.</p></section>`;
+      .join("")}${newsNote()}</section>`;
+  }
+
+  // The period the news covers, e.g. "25 Aug – 25 Oct 2026". Unrelated to the period of the UNHCR figures.
+  const newsPeriod = () => (NEWS?.window ? `${fmtDate(NEWS.window.from)} – ${fmtDate(NEWS.window.to)}` : "the last two months");
+  function newsNote() {
+    const failed = NEWS?.lastAttempt && NEWS.lastAttempt.ok === false;
+    return `<p class="note">Published ${esc(newsPeriod())}, from outlets rated reliable (<a href="#about">how articles are chosen</a>). News gives context; it does not show why the figures changed.${failed ? ` The latest news update failed on ${fmtDate(NEWS.lastAttempt.at)}; these are from the last successful update on ${fmtDate(NEWS.retrievedAt)}.` : ""}</p>`;
   }
 
   function newsList(items) {
     const safe = items.filter((a) => /^https?:\/\//i.test(a.url));
-    if (!safe.length) return '<p class="note">No headlines from rated outlets in the last 14 days.</p>';
     return `<ul class="news">${safe
       .map((a) => {
         const basis = (a.basis || "").split("+").map((b) => BASIS[b]).filter(Boolean).join("; ");
-        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a><span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${esc(a.domain)}${a.date ? " · " + fmtDate(a.date) : ""}</span></li>`;
+        const when = a.date ? (a.dateKind === "published" ? fmtDate(a.date) : `first seen ${fmtDate(a.date)}`) : "";
+        const link = a.link === "unverified" ? `<span class="na"> · link not checked (the site blocked or timed out our check)</span>` : "";
+        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a>
+          <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${esc(a.publisher || a.domain)}${when ? " · " + when : ""}${link}</span>
+          ${a.description ? `<span class="desc">${esc(a.description)}</span>` : ""}</li>`;
       })
       .join("")}</ul>`;
   }
@@ -1212,6 +1231,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         ${statusChip(row)}
       </div>
       ${c.note ? `<p class="callout">${esc(c.note)}</p>` : ""}
+      ${oipCallout()}
       <dl class="figs">
         <div><dt>31 Dec ${state.from}</dt><dd>${full(start)}</dd></div>
         <div><dt>31 Dec ${state.to}</dt><dd>${full(end)}</dd></div>
@@ -1223,7 +1243,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <figcaption>${esc(cap(m.noun))}, ${Y0}–${YN}. Shaded: the period you're comparing. Hover for each year.</figcaption></figure>
       ${ctx.length ? `<dl class="context">${ctx.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
       ${flowHtml}
-      <section id="news-section"><h3>Recent news from rated outlets</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
+      <section id="news-section"><h3>News from the last two months</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
       <section><h3>Check the source</h3>${sourceLinks(c)}
         <p class="note">Figures are counts on 31 December of each year. UNHCR data retrieved ${fmtDate(D.meta.retrievedAt)}.</p></section>`;
     drawPanelSpark(arr, row);
@@ -1275,13 +1295,16 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       .on("pointerleave", () => { hover.style("display", "none"); topLabel.style("display", null); });
   }
 
+  // Four different situations, said differently: found, none found, not searched, and failed to load.
   function countryNewsHtml(i) {
     const c = C[i];
-    const saved = NEWS?.byCountry?.[c.id];
-    if (saved?.length) {
-      return newsList(saved) + `<p class="note">Updated ${fmtDate(NEWS.retrievedAt)}. Only outlets rated reliable (<a href="#about">how outlets are chosen</a>). Matched automatically, not checked.</p>`;
-    }
-    return `<p class="note">No displacement headlines about ${esc(c.name)} from rated outlets in the last 14 days.</p>`;
+    if (!NEWS) return `<p class="note">The news file did not load, so news can't be shown right now. Reload the page to try again.</p>`;
+    if (NEWS.status === "error" && !Object.keys(NEWS.byCountry || {}).length) return `<p class="note">The news update failed on ${fmtDate(NEWS.lastAttempt?.at)}, and there are no earlier results to show.</p>`;
+    const searched = NEWS.searched ? NEWS.searched.includes(c.id) : c.lat != null; // files from before Oct 2026 have no list
+    if (!searched) return `<p class="note">${esc(c.name)} is not a place, so news is not searched for it.</p>`;
+    const saved = NEWS.byCountry?.[c.id];
+    if (saved?.length) return newsList(saved) + newsNote();
+    return `<p class="note">No relevant news found in the selected period (${esc(newsPeriod())}).</p>` + (NEWS.lastAttempt?.ok === false ? newsNote() : "");
   }
 
   function renderPanel() {
@@ -1558,7 +1581,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
   document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;
 
-  // The site republishes headlines hourly; an open page checks for them every 30 minutes.
+  // The site republishes headlines several times a day; an open page checks for them every 30 minutes.
   if (/^https?:$/.test(location.protocol)) {
     setInterval(() => {
       const s = document.createElement("script");
