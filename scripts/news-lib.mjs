@@ -39,7 +39,8 @@ const LOOSE = /\b(displace(d|ment|s)|forcibly)\b/i;
 const NOT_FORCED = /\b(AI|automation|jobs?|workers?|workforce|labou?r market|billionaires?|millionaires?|wealthy|tax(es)?|tourists?|investors?|expats?|retirees|stocks?|shares|diplomats?|embass(y|ies)|citizens|nationals|staff|personnel)\b/i;
 const FLIGHT = /\b(fle(e|es|eing|d)|evacuat\w*|exodus|uproot\w*)\b/i;
 const CONFLICT = /\b(wars?|fighting|violence|conflict|attacks?|bombing|bombardment|shelling|air ?strikes?|offensive|clashes|siege|gangs?|militias?|rebels?|famine|massacres?|genocide|persecution|troops|army|militants?|insurgents?|occupation)\b/i;
-const SCALE = /\b(\d[\d,.]*|thousands|millions?|hundreds|tens of thousands)\b/i;
+// Scale means real magnitudes ("230,000", "20M", "thousands"), not any number ("2 detained").
+const SCALE = /\b(\d{1,3}(,\d{3})+|\d{3,}|\d+(\.\d+)?\s?(k|m|million|thousand)|thousands|millions?|hundreds|tens of thousands)\b/i;
 const CROSSING = /\bmigrants?\b.*\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b|\b(boat|shipwreck|drown\w*|dead|died|deaths|missing|capsiz\w*|sinks?|sank)\b.*\bmigrants?\b/i;
 
 export const isDisplacement = (t) =>

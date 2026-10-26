@@ -54,3 +54,33 @@ This log records the technical work in this repository. The group's official mee
 
 ### 17–24 Oct 2026: automatic updates *(from GitHub Actions run history and bot commits)*
 - **Result:** All scheduled runs succeeded. GitHub started the "hourly" job only 5 to 7 times a day. Because each run read only the last 2 hours of GDELT files, hours between runs were never read. Daily news snapshots were committed on 17, 18, 19, 21 and 23 Oct only; they depended on a run happening in the 06:00 UTC hour. UNHCR's figures did not change after 15 Oct.
+
+### 23 Oct 2026: team meeting notes on news *(from the team document, "Oct 23 meeting")*
+- **Raised:** some countries, "even US", had no news; "maybe within the last month instead of last two weeks"; who the rated outlets are and what makes them rated; whether the link is secure; other data sources (HDX, IDMC database, Migration Policy Institute, World Bank microdata).
+
+### 25 Oct 2026: news window, coverage and matching (commits `ac4cc9d`, `4f3b42a`; branch `news-two-month-window`)
+- **Issue:** The 23 Oct snapshot had headlines for 18 of 227 places and none for the US.
+- **Diagnosis:**
+  - The 14-day window was short.
+  - The update job ran 5 to 7 times a day but read only the last 2 hours of GDELT files, so most hours were skipped.
+  - Country matching missed "US"/"U.S." and matched "Sudan" inside "South Sudan", "Guinea" inside "Papua New Guinea", and "Niger" in "Niger Delta".
+- **Change:**
+  - News window is now the previous two calendar months (same UTC date two months back through today, inclusive; configurable with `NEWS_MONTHS`). The team notes suggested one month; this is pending team confirmation.
+  - Each run reads all files since the previous run.
+  - Country matching was rebuilt with aliases and guards, and a story counts only when its headline ties the country to displaced people.
+  - Each article page is opened once: dead or mismatched links and articles published before the window are dropped, and the publisher's date and summary are kept.
+  - The page tells apart "No relevant news found in the selected period", a failed update and rows not searched.
+  - Added a caveat when "all needing international protection" spans 2018.
+  - Fixed dates showing a day early in the Americas and the map PNG export hanging.
+  - Workflow: tests and a coverage audit before publishing, a deploy switch for test runs, and a daily snapshot independent of run times.
+- **Checked:**
+  - The link is HTTPS with a valid certificate.
+  - UNHCR's API has no sub-annual country figures: its nowcasting endpoint holds one global estimate for September 2026. So the storyboard's 3- and 6-month comparisons are not possible with this data.
+  - The dashboard's end-2025 total of refugees under UNHCR's mandate (28,461,306) matches UNHCR's *Global Trends 2025* (28.5 million).
+- **Tools/AI:** Claude (Claude Code desktop app) wrote and ran the changes at David's direction. A separate AI chat assistant drafted David's instructions from the team's feedback.
+- **Tests:**
+  - 12 automated tests (`node --test "tests/*.test.mjs"`): window and date boundaries, topic rules, country matching, duplicates, publisher-page parsing, link failures, GDELT download failures and empty states. All pass.
+  - Browser check of all 48 combinations of measure, view, ranking and arrows; Sudan drill-down unchanged; CSV and PNG exports produced.
+  - Local sampled run: every 8th GDELT file over the two months, 33 of 216 dashboard places with at least one article.
+- **Result:** Merged to main and published on 26 Oct (UTC). Full two-month run (GitHub Actions run 40253864418): 57 of 216 places shown on the dashboard now have at least one article (203 articles; 193 with a verified link), up from 18 of 227 on 23 October. The full run read 5,856 GDELT files covering 26 August to 26 October; of 10,943 displacement headlines, 9,813 came from outlets not rated reliable or with only local reach and 439 passed every rule. Coverage is weakest in Latin America and the Caribbean (1 of 45) and Oceania (1 of 18), partly because only English-language news is read. See docs/news-coverage-audit.md. Two further fixes were made after reviewing its output: evacuations of diplomats or foreign citizens and any-number "scale" no longer count as displacement.
+- **Remaining:** the team to choose one or two months; coverage is limited mostly by the outlet rules; UNHCR-IDMC comparison and user testing not started.

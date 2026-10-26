@@ -215,9 +215,11 @@ async function main(previous) {
     reputable: "Only outlets rated reliable by Wikipedia's Perennial Sources list, or by Lin et al. (2023) with national or international reach (Tranco top 10,000), or intergovernmental and UN system organizations. See data/processed/news-sources.json.",
     rules: "Headline must be about forced displacement, tie it to the country it is listed under, and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window.",
     searched: [...matchers.keys()].sort(),
-    lastRun: { hoursRead: +hours.toFixed(2), step: STEP, filesRead: counts.files, filesMissing: counts.missingFiles, ...counts, links: linkCounts, pendingChecks: Math.max(0, toCheck.length - verifyNow.length) },
+    lastRun: { at: now.toISOString(), hoursRead: +hours.toFixed(2), step: STEP, filesRead: counts.files, filesMissing: counts.missingFiles, ...counts, links: linkCounts, pendingChecks: Math.max(0, toCheck.length - verifyNow.length) },
     byCountry,
   };
+  // Keep the record of the last run that read a whole window, since normal runs only add recent hours.
+  payload.lastBackfill = hours >= 24 * 28 ? { ...payload.lastRun, checkedThrough: last } : previous?.lastBackfill || null;
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
   console.log(`Read ${counts.files} files (${counts.missingFiles} missing), ${counts.articles.toLocaleString()} articles; peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB.`);
   console.log(`Displacement headlines ${counts.topical}: left out ${counts.personal} profiles/opinion, ${counts.outlet} from outlets not rated reliable or local, ${counts.unattributed} not tied to a country; kept ${counts.kept}.`);

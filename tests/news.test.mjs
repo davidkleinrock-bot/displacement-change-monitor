@@ -34,7 +34,8 @@ test("dates: both ends included; earlier, future, invalid and missing rejected",
 
 test("topic: forced displacement in, look-alikes out", () => {
   for (const t of ["UN says more than 230,000 displaced by fighting in Yemen since August", "Millions of Ukrainians Could Flee Again This Winter: UN", "At least 12 dead after migrant boat sinks off Gambia", "7,000 Nigerian refugees return home in 2026"]) assert.ok(isDisplacement(t), t);
-  for (const t of ["U.S. troops and diplomats evacuating Middle East posts, sources say", "Suspected insurgents attack Mozambique wildlife camp, US citizens evacuated"]) assert.ok(!isDisplacement(t), t);
+  for (const t of ["U.S. troops and diplomats evacuating Middle East posts, sources say", "Suspected insurgents attack Mozambique wildlife camp, US citizens evacuated", "Houses near US air force base in UK evacuated after 2 detained"]) assert.ok(!isDisplacement(t), t);
+  for (const t of ["Zelenskyy warns 20M Ukrainians could flee to Europe if Russia wins war", "Thousands evacuated as floods hit northern Nigeria", "1,200 families flee Goma"]) assert.ok(isDisplacement(t), t);
   for (const t of ["Brush fires spark in Southern California, prompting evacuation orders", "Pickering murder suspect flees Canada, police say", "AI will not bring about displacement in public service", "It's not just billionaires fleeing Britain—a record 69,300 workers have left the U.K."]) assert.ok(!isDisplacement(t), t);
 });
 
