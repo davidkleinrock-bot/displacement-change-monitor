@@ -91,7 +91,7 @@ VAT,Holy See,Europe,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article fo
 HND,Honduras,Latin America and the Caribbean,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 HUN,Hungary,Europe,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 ISL,Iceland,Europe,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
-IND,India,Asia,Country,8,8,2026-11-02,2026-09-15 to 2026-11-15,2 dated by when GDELT first saw it (publisher page gave no date). 1 without a publisher summary. 'Indian Ocean' and 'Native/American Indian' are not counted.
+IND,India,Asia,Country,8,8,2026-11-15,2026-09-15 to 2026-11-15,2 dated by when GDELT first saw it (publisher page gave no date). 1 without a publisher summary. 'Indian Ocean' and 'Native/American Indian' are not counted.
 IDN,Indonesia,Asia,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 IRN,Iran (Islamic Rep. of),Asia,Country,3,2,2026-10-07,2026-09-15 to 2026-11-15,1 dated by when GDELT first saw it (publisher page gave no date). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary.
 IRQ,Iraq,Asia,Country,1,1,2026-10-14,2026-09-15 to 2026-11-15,1 dated by when GDELT first saw it (publisher page gave no date). 1 without a publisher summary.
@@ -108,7 +108,7 @@ KWT,Kuwait,Asia,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found 
 KGZ,Kyrgyzstan,Asia,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 LAO,Lao People's Dem. Rep.,Asia,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 LVA,Latvia,Europe,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
-LBN,Lebanon,Asia,Country,5,3,2026-11-13,2026-09-15 to 2026-11-15,3 dated by when GDELT first saw it (publisher page gave no date). 2 link(s) could not be checked (site blocked or timed out). 3 without a publisher summary.
+LBN,Lebanon,Asia,Country,6,4,2026-11-15,2026-09-15 to 2026-11-15,4 dated by when GDELT first saw it (publisher page gave no date). 2 link(s) could not be checked (site blocked or timed out). 3 without a publisher summary.
 LSO,Lesotho,Africa,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 LBR,Liberia,Africa,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 LBY,Libya,Africa,Country,1,1,2026-10-28,2026-09-15 to 2026-11-15,
@@ -190,7 +190,7 @@ SDN,Sudan,Africa,Country,8,8,2026-11-09,2026-09-15 to 2026-11-15,1 dated by when
 SUR,Suriname,Latin America and the Caribbean,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 SWE,Sweden,Europe,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 CHE,Switzerland,Europe,Country,4,4,2026-11-06,2026-09-15 to 2026-11-15,
-SYR,Syrian Arab Rep.,Asia,Country,3,3,2026-11-06,2026-09-15 to 2026-11-15,
+SYR,Syrian Arab Rep.,Asia,Country,4,4,2026-11-15,2026-09-15 to 2026-11-15,1 dated by when GDELT first saw it (publisher page gave no date).
 TJK,Tajikistan,Asia,Country,0,0,,2026-09-15 to 2026-11-15,No relevant article found in the window.
 THA,Thailand,Asia,Country,3,2,2026-11-02,2026-09-15 to 2026-11-15,1 dated by when GDELT first saw it (publisher page gave no date). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary.
 TIB,Tibetan,Asia,Not a place,0,0,,2026-09-15 to 2026-11-15,Not a place; news not searched.
