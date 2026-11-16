@@ -8,7 +8,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { API, SERIES_FROM, getJSON, getAll, fingerprint } from "./unhcr-fingerprint.mjs";
+import { API, SERIES_FROM, getJSON, getAll, fingerprint, lastYearEnd } from "./unhcr-fingerprint.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW = join(ROOT, "data", "raw");
@@ -39,10 +39,11 @@ const manifest = { retrievedAt: new Date().toISOString(), files: {} };
 
 async function main() {
   console.log("Checking which years UNHCR has published…");
-  // The /years/ endpoint lists future years too, so probe for actual rows instead.
+  // The /years/ endpoint lists future years too, so probe for actual rows instead, starting from the
+  // latest year that can have year-end figures (later rows are mid-year figures; see lastYearEnd).
   let latest = Number(args.to ?? 0);
   if (!latest) {
-    for (let y = new Date().getFullYear(); y > 2000; y--) {
+    for (let y = lastYearEnd(); y > 2000; y--) {
       const probe = await getJSON(`${API}/population/?limit=1&year=${y}&coo_all=true`);
       if (probe.items.length) { latest = y; break; }
     }
