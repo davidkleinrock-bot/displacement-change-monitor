@@ -730,12 +730,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2010,CHD,TCD,Chad,USA,USA,United States of America,417,11,0,0,0,0,0,-,0
 2010,CHI,CHN,China,ALB,ALB,Albania,6,0,0,0,0,0,0,-,0
 2010,CHI,CHN,China,ARE,EGY,Egypt,0,11,0,0,0,0,0,-,0
-2010,CHI,CHN,China,AUL,AUS,Australia,2201,534,0,0,0,0,0,-,0
+2010,CHI,CHN,China,AUL,AUS,Australia,2208,534,0,0,0,0,0,-,0
 2010,CHI,CHN,China,AUS,AUT,Austria,225,535,0,0,0,0,0,-,0
-2010,CHI,CHN,China,BEL,BEL,Belgium,441,0,0,0,0,0,0,-,0
+2010,CHI,CHN,China,BEL,BEL,Belgium,457,0,0,0,0,0,0,-,0
 2010,CHI,CHN,China,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2010,CHI,CHN,China,BUL,BGR,Bulgaria,0,5,0,0,0,0,0,-,0
-2010,CHI,CHN,China,CAN,CAN,Canada,16451,2971,0,0,0,0,0,-,0
+2010,CHI,CHN,China,CAN,CAN,Canada,16509,2971,0,0,0,0,0,-,0
 2010,CHI,CHN,China,CYP,CYP,Cyprus,5,49,0,0,0,0,0,-,0
 2010,CHI,CHN,China,CZE,CZE,Czechia,10,6,0,0,0,0,0,-,0
 2010,CHI,CHN,China,DEN,DNK,Denmark,65,5,0,0,0,0,0,-,0
@@ -758,6 +758,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2010,CHI,CHN,China,MLS,MYS,Malaysia,54,54,0,0,0,0,0,-,0
 2010,CHI,CHN,China,MNG,MNG,Mongolia,12,0,0,0,0,0,0,-,0
 2010,CHI,CHN,China,MTA,MLT,Malta,5,0,0,0,0,0,0,-,0
+2010,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,143,-,0
 2010,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),938,218,0,0,0,0,0,-,0
 2010,CHI,CHN,China,NOR,NOR,Norway,407,166,0,0,0,0,0,-,0
 2010,CHI,CHN,China,NZL,NZL,New Zealand,130,11,0,0,0,0,0,-,0
@@ -3767,10 +3768,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2010,THA,THA,Thailand,NOR,NOR,Norway,31,0,0,0,0,0,0,-,0
 2010,THA,THA,Thailand,SWE,SWE,Sweden,18,5,0,0,0,0,0,-,0
 2010,THA,THA,Thailand,USA,USA,United States of America,17,0,0,0,0,0,0,-,0
-2010,TIB,TIB,Tibetan,AUL,AUS,Australia,7,0,0,0,0,0,0,-,0
-2010,TIB,TIB,Tibetan,BEL,BEL,Belgium,16,0,0,0,0,0,0,-,0
-2010,TIB,TIB,Tibetan,CAN,CAN,Canada,58,0,0,0,0,0,0,-,0
-2010,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,143,-,0
 2010,TJK,TJK,Tajikistan,ARE,EGY,Egypt,0,14,0,0,0,0,0,-,0
 2010,TJK,TJK,Tajikistan,AUS,AUT,Austria,44,32,0,0,0,0,0,-,0
 2010,TJK,TJK,Tajikistan,BLR,BLR,Belarus,15,0,0,0,0,0,0,-,0
@@ -4936,12 +4933,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,CHD,TCD,Chad,USA,USA,United States of America,429,9,0,0,0,0,0,-,0
 2011,CHI,CHN,China,ALB,ALB,Albania,9,0,0,0,0,0,0,-,0
 2011,CHI,CHN,China,ARE,EGY,Egypt,5,8,0,0,0,0,0,-,0
-2011,CHI,CHN,China,AUL,AUS,Australia,2494,797,0,0,0,0,0,-,0
+2011,CHI,CHN,China,AUL,AUS,Australia,2501,797,0,0,0,0,0,-,0
 2011,CHI,CHN,China,AUS,AUT,Austria,281,407,0,0,0,0,0,-,0
 2011,CHI,CHN,China,BEL,BEL,Belgium,603,290,0,0,0,0,0,-,0
 2011,CHI,CHN,China,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2011,CHI,CHN,China,BUL,BGR,Bulgaria,0,5,0,0,0,0,0,-,0
-2011,CHI,CHN,China,CAN,CAN,Canada,17024,3165,0,0,0,0,0,-,0
+2011,CHI,CHN,China,CAN,CAN,Canada,17082,3165,0,0,0,0,0,-,0
 2011,CHI,CHN,China,CYP,CYP,Cyprus,5,23,0,0,0,0,0,-,0
 2011,CHI,CHN,China,CZE,CZE,Czechia,10,0,0,0,0,0,0,-,0
 2011,CHI,CHN,China,DEN,DNK,Denmark,57,5,0,0,0,0,0,-,0
@@ -4964,6 +4961,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,CHI,CHN,China,MLS,MYS,Malaysia,66,19,0,0,0,0,0,-,0
 2011,CHI,CHN,China,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2011,CHI,CHN,China,MTA,MLT,Malta,5,0,0,0,0,0,0,-,0
+2011,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,128,-,0
 2011,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1072,188,0,0,0,0,0,-,0
 2011,CHI,CHN,China,NOR,NOR,Norway,584,62,0,0,0,0,0,-,0
 2011,CHI,CHN,China,NZL,NZL,New Zealand,131,14,0,0,0,0,0,-,0
@@ -4979,7 +4977,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,CHI,CHN,China,SWE,SWE,Sweden,183,81,0,0,0,0,0,-,0
 2011,CHI,CHN,China,SWI,CHE,Switzerland,1707,560,0,0,0,0,0,-,0
 2011,CHI,CHN,China,THA,THA,Thailand,83,101,0,0,0,0,0,-,0
-2011,CHI,CHN,China,TUR,TUR,Türkiye,5,59,0,0,0,0,0,-,0
+2011,CHI,CHN,China,TUR,TUR,Türkiye,5,60,0,0,0,0,0,-,0
 2011,CHI,CHN,China,UKR,UKR,Ukraine,5,0,0,0,0,0,0,-,0
 2011,CHI,CHN,China,URU,URY,Uruguay,0,7,0,0,0,0,0,-,0
 2011,CHI,CHN,China,USA,USA,United States of America,58352,3426,0,0,0,0,0,-,0
@@ -7059,7 +7057,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,NIU,NIU,Niue,USA,USA,United States of America,7,0,0,0,0,0,0,-,0
 2011,NOR,NOR,Norway,CAN,CAN,Canada,0,5,0,0,0,0,0,-,0
 2011,NOR,NOR,Norway,SWE,SWE,Sweden,5,0,0,0,0,0,0,-,0
-2011,NRU,NRU,Nauru,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,0,5,0,0,0,0,0,-,0
+2011,NRU,NRU,Naoero,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,0,5,0,0,0,0,0,-,0
 2011,NZL,NZL,New Zealand,AUL,AUS,Australia,0,6,0,0,0,0,0,-,0
 2011,NZL,NZL,New Zealand,GFR,DEU,Germany,13,0,0,0,0,0,0,-,0
 2011,OMN,OMN,Oman,CAN,CAN,Canada,11,0,0,0,0,0,0,-,0
@@ -7983,9 +7981,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,THA,THA,Thailand,RSA,ZAF,South Africa,0,12,0,0,0,0,0,-,0
 2011,THA,THA,Thailand,SWE,SWE,Sweden,17,0,0,0,0,0,0,-,0
 2011,THA,THA,Thailand,USA,USA,United States of America,22,5,0,0,0,0,0,-,0
-2011,TIB,TIB,Tibetan,AUL,AUS,Australia,7,0,0,0,0,0,0,-,0
-2011,TIB,TIB,Tibetan,CAN,CAN,Canada,58,0,0,0,0,0,0,-,0
-2011,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,128,-,0
 2011,TJK,TJK,Tajikistan,ARE,EGY,Egypt,9,0,0,0,0,0,0,-,0
 2011,TJK,TJK,Tajikistan,AUS,AUT,Austria,50,55,0,0,0,0,0,-,0
 2011,TJK,TJK,Tajikistan,BEL,BEL,Belgium,0,9,0,0,0,0,0,-,0
@@ -8480,7 +8475,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,AFG,AFG,Afghanistan,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2012,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6126,1473,0,0,0,0,0,-,0
 2012,AFG,AFG,Afghanistan,NOR,NOR,Norway,5984,958,0,0,0,0,0,-,0
-2012,AFG,AFG,Afghanistan,NRU,NRU,Nauru,0,66,0,0,0,0,0,-,0
+2012,AFG,AFG,Afghanistan,NRU,NRU,Naoero,0,66,0,0,0,0,0,-,0
 2012,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,29,16,0,0,0,0,0,-,0
 2012,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1637740,3220,83423,0,0,0,0,-,0
 2012,AFG,AFG,Afghanistan,PHI,PHL,Philippines,5,0,0,0,0,0,0,-,0
@@ -9195,6 +9190,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,CHI,CHN,China,MLS,MYS,Malaysia,82,5,0,0,0,0,0,-,0
 2012,CHI,CHN,China,MNG,MNG,Mongolia,5,6,0,0,0,0,0,-,0
 2012,CHI,CHN,China,MTA,MLT,Malta,5,0,0,0,0,0,0,-,0
+2012,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,0,-,0
 2012,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1117,188,0,0,0,0,0,-,0
 2012,CHI,CHN,China,NOR,NOR,Norway,656,35,0,0,0,0,0,-,0
 2012,CHI,CHN,China,NZL,NZL,New Zealand,126,21,0,0,0,0,0,-,0
@@ -9209,7 +9205,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,CHI,CHN,China,SWE,SWE,Sweden,255,38,0,0,0,0,0,-,0
 2012,CHI,CHN,China,SWI,CHE,Switzerland,1662,1236,0,0,0,0,0,-,0
 2012,CHI,CHN,China,THA,THA,Thailand,117,55,0,0,0,0,0,-,0
-2012,CHI,CHN,China,TUR,TUR,Türkiye,5,45,0,0,0,0,0,-,0
+2012,CHI,CHN,China,TUR,TUR,Türkiye,5,46,0,0,0,0,0,-,0
 2012,CHI,CHN,China,USA,USA,United States of America,60615,5403,0,0,0,0,0,-,0
 2012,CHI,CHN,China,VEN,VEN,Venezuela (Bolivarian Republic of),5,5,0,0,0,0,0,-,0
 2012,CHL,CHL,Chile,ARG,ARG,Argentina,336,7,0,0,0,0,0,-,0
@@ -10357,7 +10353,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),3354,786,0,0,0,0,0,-,0
 2012,IRN,IRN,Iran (Islamic Rep. of),NIC,NIC,Nicaragua,0,6,0,0,0,0,0,-,0
 2012,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1334,935,0,0,0,0,0,-,0
-2012,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,0,31,0,0,0,0,0,-,0
+2012,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,0,31,0,0,0,0,0,-,0
 2012,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,339,28,0,0,0,0,0,-,0
 2012,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,48,20,0,0,0,0,0,-,0
 2012,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -10447,7 +10443,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),18012,1384,720,0,0,0,0,-,0
 2012,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2012,IRQ,IRQ,Iraq,NOR,NOR,Norway,5727,550,345,0,0,0,0,-,0
-2012,IRQ,IRQ,Iraq,NRU,NRU,Nauru,0,23,0,0,0,0,0,-,0
+2012,IRQ,IRQ,Iraq,NRU,NRU,Naoero,0,23,0,0,0,0,0,-,0
 2012,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,188,0,0,0,0,0,0,-,0
 2012,IRQ,IRQ,Iraq,OMN,OMN,Oman,131,11,255,0,0,0,0,-,0
 2012,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,72,0,0,0,0,0,0,-,0
@@ -10887,7 +10883,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),644,140,0,0,0,0,0,-,0
 2012,LKA,LKA,Sri Lanka,NIG,NGA,Nigeria,15,0,0,0,0,0,0,-,0
 2012,LKA,LKA,Sri Lanka,NOR,NOR,Norway,336,88,0,0,0,0,0,-,0
-2012,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,0,216,0,0,0,0,0,-,0
+2012,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,0,216,0,0,0,0,0,-,0
 2012,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,98,21,0,0,0,0,0,-,0
 2012,LKA,LKA,Sri Lanka,PER,PER,Peru,0,14,0,0,0,0,0,-,0
 2012,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,8,0,0,0,0,0,0,-,0
@@ -11406,7 +11402,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,PAK,PAK,Pakistan,NEP,NPL,Nepal,169,17,0,0,0,0,0,-,0
 2012,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),249,82,0,0,0,0,0,-,0
 2012,PAK,PAK,Pakistan,NOR,NOR,Norway,91,152,0,0,0,0,0,-,0
-2012,PAK,PAK,Pakistan,NRU,NRU,Nauru,0,43,0,0,0,0,0,-,0
+2012,PAK,PAK,Pakistan,NRU,NRU,Naoero,0,43,0,0,0,0,0,-,0
 2012,PAK,PAK,Pakistan,NZL,NZL,New Zealand,39,30,0,0,0,0,0,-,0
 2012,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,757996,56181,0,0,-,0
 2012,PAK,PAK,Pakistan,PHI,PHL,Philippines,7,0,0,0,0,0,0,-,0
@@ -12331,7 +12327,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,THA,THA,Thailand,RSA,ZAF,South Africa,0,12,0,0,0,0,0,-,0
 2012,THA,THA,Thailand,SWE,SWE,Sweden,14,5,0,0,0,0,0,-,0
 2012,THA,THA,Thailand,USA,USA,United States of America,29,0,0,0,0,0,0,-,0
-2012,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,0,-,0
 2012,TJK,TJK,Tajikistan,ARE,EGY,Egypt,9,5,0,0,0,0,0,-,0
 2012,TJK,TJK,Tajikistan,AUS,AUT,Austria,59,93,0,0,0,0,0,-,0
 2012,TJK,TJK,Tajikistan,BEL,BEL,Belgium,0,8,0,0,0,0,0,-,0
@@ -12847,7 +12842,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6269,0,0,0,0,0,0,-,0
 2013,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2013,AFG,AFG,Afghanistan,NOR,NOR,Norway,5523,659,0,0,0,0,0,-,0
-2013,AFG,AFG,Afghanistan,NRU,NRU,Nauru,0,72,0,0,0,0,0,-,0
+2013,AFG,AFG,Afghanistan,NRU,NRU,Naoero,0,72,0,0,0,0,0,-,0
 2013,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,32,0,0,0,0,0,0,-,0
 2013,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1615876,5323,31224,0,0,0,0,-,0
 2013,AFG,AFG,Afghanistan,PAN,PAN,Panama,0,9,0,0,0,0,0,-,0
@@ -13560,12 +13555,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,CHD,TCD,Chad,USA,USA,United States of America,414,30,0,0,0,0,0,-,0
 2013,CHI,CHN,China,ALB,ALB,Albania,12,0,0,0,0,0,0,-,0
 2013,CHI,CHN,China,ARE,EGY,Egypt,5,9,0,0,0,0,0,-,0
-2013,CHI,CHN,China,AUL,AUS,Australia,2820,1401,0,0,0,0,0,-,0
+2013,CHI,CHN,China,AUL,AUS,Australia,2827,1406,0,0,0,0,0,-,0
 2013,CHI,CHN,China,AUS,AUT,Austria,388,365,0,0,0,0,0,-,0
 2013,CHI,CHN,China,BEL,BEL,Belgium,958,508,0,0,0,0,0,-,0
 2013,CHI,CHN,China,BOL,BOL,Bolivia (Plurinational State of),8,0,0,0,0,0,0,-,0
-2013,CHI,CHN,China,BRA,BRA,Brazil,0,9,0,0,0,0,0,-,0
-2013,CHI,CHN,China,CAN,CAN,Canada,15344,2470,0,0,0,0,0,-,0
+2013,CHI,CHN,China,BRA,BRA,Brazil,0,10,0,0,0,0,0,-,0
+2013,CHI,CHN,China,CAN,CAN,Canada,15402,2470,0,0,0,0,0,-,0
 2013,CHI,CHN,China,CYP,CYP,Cyprus,5,0,0,0,0,0,0,-,0
 2013,CHI,CHN,China,CZE,CZE,Czechia,8,5,0,0,0,0,0,-,0
 2013,CHI,CHN,China,DEN,DNK,Denmark,32,5,0,0,0,0,0,-,0
@@ -13588,6 +13583,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,CHI,CHN,China,MLS,MYS,Malaysia,59,7,0,0,0,0,0,-,0
 2013,CHI,CHN,China,MNG,MNG,Mongolia,8,0,0,0,0,0,0,-,0
 2013,CHI,CHN,China,MTA,MLT,Malta,5,0,0,0,0,0,0,-,0
+2013,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,14,-,0
 2013,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1217,0,0,0,0,0,0,-,0
 2013,CHI,CHN,China,NOR,NOR,Norway,676,22,0,0,0,0,0,-,0
 2013,CHI,CHN,China,NZL,NZL,New Zealand,131,11,0,0,0,0,0,-,0
@@ -14304,7 +14300,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,GAZ,PSE,Palestinian,MOR,MAR,Morocco,37,10,0,0,0,0,0,-,0
 2013,GAZ,PSE,Palestinian,MTA,MLT,Malta,19,10,0,0,0,0,0,-,0
 2013,GAZ,PSE,Palestinian,NET,NLD,Netherlands (Kingdom of the),113,0,0,0,0,0,0,-,0
-2013,GAZ,PSE,Palestinian,NRU,NRU,Nauru,0,25,0,0,0,0,0,-,0
+2013,GAZ,PSE,Palestinian,NRU,NRU,Naoero,0,25,0,0,0,0,0,-,0
 2013,GAZ,PSE,Palestinian,NZL,NZL,New Zealand,13,6,0,0,0,0,0,-,0
 2013,GAZ,PSE,Palestinian,PAK,PAK,Pakistan,5,0,0,0,0,0,0,-,0
 2013,GAZ,PSE,Palestinian,PER,PER,Peru,20,9,0,0,0,0,0,-,0
@@ -14808,7 +14804,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2013,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4148,0,0,0,0,0,0,-,0
 2013,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1478,381,0,0,0,0,0,-,0
-2013,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,0,55,0,0,0,0,0,-,0
+2013,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,0,55,0,0,0,0,0,-,0
 2013,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,278,0,0,0,0,0,0,-,0
 2013,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,46,9,0,0,0,0,0,-,0
 2013,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -14898,7 +14894,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),15533,0,475,0,0,0,0,-,0
 2013,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2013,IRQ,IRQ,Iraq,NOR,NOR,Norway,5679,194,160,0,0,0,0,-,0
-2013,IRQ,IRQ,Iraq,NRU,NRU,Nauru,0,38,0,0,0,0,0,-,0
+2013,IRQ,IRQ,Iraq,NRU,NRU,Naoero,0,38,0,0,0,0,0,-,0
 2013,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,181,5,0,0,0,0,0,-,0
 2013,IRQ,IRQ,Iraq,OMN,OMN,Oman,131,70,250,0,0,0,0,-,0
 2013,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,54,0,0,0,0,0,0,-,0
@@ -15269,7 +15265,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,LEB,LBN,Lebanon,MLS,MYS,Malaysia,0,6,0,0,0,0,0,-,0
 2013,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),41,0,0,0,0,0,0,-,0
 2013,LEB,LBN,Lebanon,NOR,NOR,Norway,44,15,0,0,0,0,0,-,0
-2013,LEB,LBN,Lebanon,NRU,NRU,Nauru,0,15,0,0,0,0,0,-,0
+2013,LEB,LBN,Lebanon,NRU,NRU,Naoero,0,15,0,0,0,0,0,-,0
 2013,LEB,LBN,Lebanon,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2013,LEB,LBN,Lebanon,POL,POL,Poland,5,5,0,0,0,0,0,-,0
 2013,LEB,LBN,Lebanon,ROM,ROU,Romania,5,0,0,0,0,0,0,-,0
@@ -15332,7 +15328,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,13,5,0,0,0,0,0,-,0
 2013,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),727,0,0,0,0,0,0,-,0
 2013,LKA,LKA,Sri Lanka,NOR,NOR,Norway,340,40,0,0,0,0,0,-,0
-2013,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,0,219,0,0,0,0,0,-,0
+2013,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,0,219,0,0,0,0,0,-,0
 2013,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,92,19,0,0,0,0,0,-,0
 2013,LKA,LKA,Sri Lanka,PER,PER,Peru,0,15,0,0,0,0,0,-,0
 2013,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,8,0,0,0,0,0,0,-,0
@@ -15907,7 +15903,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,PAK,PAK,Pakistan,NEP,NPL,Nepal,180,209,0,0,0,0,0,-,0
 2013,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),313,0,0,0,0,0,0,-,0
 2013,PAK,PAK,Pakistan,NOR,NOR,Norway,106,148,0,0,0,0,0,-,0
-2013,PAK,PAK,Pakistan,NRU,NRU,Nauru,0,59,0,0,0,0,0,-,0
+2013,PAK,PAK,Pakistan,NRU,NRU,Naoero,0,59,0,0,0,0,0,-,0
 2013,PAK,PAK,Pakistan,NZL,NZL,New Zealand,38,6,0,0,0,0,0,-,0
 2013,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,747498,90637,0,0,-,0
 2013,PAK,PAK,Pakistan,PER,PER,Peru,0,8,0,0,0,0,0,-,0
@@ -16503,7 +16499,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,SRV,VNM,Viet Nam,MLS,MYS,Malaysia,10,0,0,0,0,0,0,-,0
 2013,SRV,VNM,Viet Nam,NET,NLD,Netherlands (Kingdom of the),28,0,0,0,0,0,0,-,0
 2013,SRV,VNM,Viet Nam,NOR,NOR,Norway,16,15,0,0,0,0,0,-,0
-2013,SRV,VNM,Viet Nam,NRU,NRU,Nauru,0,19,0,0,0,0,0,-,0
+2013,SRV,VNM,Viet Nam,NRU,NRU,Naoero,0,19,0,0,0,0,0,-,0
 2013,SRV,VNM,Viet Nam,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2013,SRV,VNM,Viet Nam,PAR,PRY,Paraguay,6,0,0,0,0,0,0,-,0
 2013,SRV,VNM,Viet Nam,PHI,PHL,Philippines,5,0,0,0,0,0,68,-,0
@@ -16674,7 +16670,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,SUD,SDN,Sudan,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2013,SUD,SDN,Sudan,NIG,NGA,Nigeria,47,5,0,0,0,0,0,-,0
 2013,SUD,SDN,Sudan,NOR,NOR,Norway,1133,219,0,0,0,0,0,-,0
-2013,SUD,SDN,Sudan,NRU,NRU,Nauru,0,31,0,0,0,0,0,-,0
+2013,SUD,SDN,Sudan,NRU,NRU,Naoero,0,31,0,0,0,0,0,-,0
 2013,SUD,SDN,Sudan,NZL,NZL,New Zealand,13,0,0,0,0,0,0,-,0
 2013,SUD,SDN,Sudan,OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2013,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -16875,9 +16871,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,THA,THA,Thailand,RSA,ZAF,South Africa,0,13,0,0,0,0,0,-,0
 2013,THA,THA,Thailand,SWE,SWE,Sweden,13,0,0,0,0,0,0,-,0
 2013,THA,THA,Thailand,USA,USA,United States of America,28,26,0,0,0,0,0,-,0
-2013,TIB,TIB,Tibetan,AUL,AUS,Australia,7,5,0,0,0,0,0,-,0
-2013,TIB,TIB,Tibetan,CAN,CAN,Canada,58,0,0,0,0,0,0,-,0
-2013,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,14,-,0
 2013,TJK,TJK,Tajikistan,ARE,EGY,Egypt,11,12,0,0,0,0,0,-,0
 2013,TJK,TJK,Tajikistan,AUS,AUT,Austria,70,114,0,0,0,0,0,-,0
 2013,TJK,TJK,Tajikistan,BEL,BEL,Belgium,5,6,0,0,0,0,0,-,0
@@ -17418,7 +17411,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6244,299,0,0,0,0,0,-,0
 2014,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2014,AFG,AFG,Afghanistan,NOR,NOR,Norway,5454,552,0,0,0,0,0,-,0
-2014,AFG,AFG,Afghanistan,NRU,NRU,Nauru,29,52,0,0,0,0,0,-,0
+2014,AFG,AFG,Afghanistan,NRU,NRU,Naoero,29,52,0,0,0,0,0,-,0
 2014,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,36,0,0,0,0,0,0,-,0
 2014,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1504912,5460,12991,0,0,0,0,-,0
 2014,AFG,AFG,Afghanistan,PAN,PAN,Panama,0,8,0,0,0,0,0,-,0
@@ -17838,7 +17831,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,BGD,BGD,Bangladesh,MTA,MLT,Malta,6,0,0,0,0,0,0,-,0
 2014,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),43,9,0,0,0,0,0,-,0
 2014,BGD,BGD,Bangladesh,NOR,NOR,Norway,13,54,0,0,0,0,0,-,0
-2014,BGD,BGD,Bangladesh,NRU,NRU,Nauru,0,35,0,0,0,0,0,-,0
+2014,BGD,BGD,Bangladesh,NRU,NRU,Naoero,0,35,0,0,0,0,0,-,0
 2014,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,6,0,0,0,0,0,0,-,0
 2014,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2014,BGD,BGD,Bangladesh,PER,PER,Peru,12,5,0,0,0,0,0,-,0
@@ -18141,12 +18134,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,CHI,CHN,China,ALB,ALB,Albania,12,0,0,0,0,0,0,-,0
 2014,CHI,CHN,China,ARE,EGY,Egypt,5,9,0,0,0,0,0,-,0
 2014,CHI,CHN,China,ARG,ARG,Argentina,0,5,0,0,0,0,0,-,0
-2014,CHI,CHN,China,AUL,AUS,Australia,2883,2485,0,0,0,0,0,-,0
+2014,CHI,CHN,China,AUL,AUS,Australia,2891,2489,0,0,0,0,0,-,0
 2014,CHI,CHN,China,AUS,AUT,Austria,457,0,0,0,0,0,0,-,0
 2014,CHI,CHN,China,BEL,BEL,Belgium,1051,227,0,0,0,0,0,-,0
 2014,CHI,CHN,China,BHS,BHS,Bahamas,0,5,0,0,0,0,0,-,0
-2014,CHI,CHN,China,BRA,BRA,Brazil,0,27,0,0,0,0,0,-,0
-2014,CHI,CHN,China,CAN,CAN,Canada,13231,680,0,0,0,0,0,-,0
+2014,CHI,CHN,China,BRA,BRA,Brazil,0,30,0,0,0,0,0,-,0
+2014,CHI,CHN,China,CAN,CAN,Canada,13289,680,0,0,0,0,0,-,0
 2014,CHI,CHN,China,CYP,CYP,Cyprus,5,5,0,0,0,0,0,-,0
 2014,CHI,CHN,China,CZE,CZE,Czechia,14,0,0,0,0,0,0,-,0
 2014,CHI,CHN,China,DEN,DNK,Denmark,25,10,0,0,0,0,0,-,0
@@ -18170,6 +18163,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,CHI,CHN,China,MLS,MYS,Malaysia,51,17,0,0,0,0,0,-,0
 2014,CHI,CHN,China,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2014,CHI,CHN,China,MTA,MLT,Malta,12,0,0,0,0,0,0,-,0
+2014,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,5,-,0
 2014,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1259,52,0,0,0,0,0,-,0
 2014,CHI,CHN,China,NOR,NOR,Norway,666,8,0,0,0,0,0,-,0
 2014,CHI,CHN,China,NZL,NZL,New Zealand,134,9,0,0,0,0,0,-,0
@@ -19340,7 +19334,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,381,-,0
 2014,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,6,0,0,0,0,0,-,0
 2014,IND,IND,India,NOR,NOR,Norway,9,5,0,0,0,0,0,-,0
-2014,IND,IND,India,NRU,NRU,Nauru,0,21,0,0,0,0,0,-,0
+2014,IND,IND,India,NRU,NRU,Naoero,0,21,0,0,0,0,0,-,0
 2014,IND,IND,India,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2014,IND,IND,India,PNG,PNG,Papua New Guinea,0,6,0,0,0,0,0,-,0
 2014,IND,IND,India,POL,POL,Poland,5,7,0,0,0,0,0,-,0
@@ -19367,7 +19361,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,5,0,0,0,0,0,-,0
 2014,INS,IDN,Indonesia,MLS,MYS,Malaysia,758,29,0,0,0,0,0,-,0
 2014,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),23,0,0,0,0,0,0,-,0
-2014,INS,IDN,Indonesia,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2014,INS,IDN,Indonesia,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2014,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2014,INS,IDN,Indonesia,SWE,SWE,Sweden,6,5,0,0,0,0,0,-,0
 2014,INS,IDN,Indonesia,USA,USA,United States of America,3604,982,0,0,0,0,0,-,0
@@ -19430,7 +19424,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,6,0,0,0,0,0,0,-,0
 2014,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4207,246,0,0,0,0,0,-,0
 2014,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1479,238,0,0,0,0,0,-,0
-2014,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,168,196,0,0,0,0,0,-,0
+2014,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,168,196,0,0,0,0,0,-,0
 2014,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,202,0,0,0,0,0,0,-,0
 2014,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,56,11,0,0,0,0,0,-,0
 2014,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -19523,7 +19517,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),14396,705,0,0,0,0,0,-,0
 2014,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2014,IRQ,IRQ,Iraq,NOR,NOR,Norway,5190,392,254,0,0,0,0,-,0
-2014,IRQ,IRQ,Iraq,NRU,NRU,Nauru,9,33,0,0,0,0,0,-,0
+2014,IRQ,IRQ,Iraq,NRU,NRU,Naoero,9,33,0,0,0,0,0,-,0
 2014,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,178,0,368,0,0,0,0,-,0
 2014,IRQ,IRQ,Iraq,OMN,OMN,Oman,143,221,32,0,0,0,0,-,0
 2014,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,43,10,0,0,0,0,0,-,0
@@ -19917,7 +19911,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),37,18,0,0,0,0,0,-,0
 2014,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,5,0,0,0,0,0,-,0
 2014,LEB,LBN,Lebanon,NOR,NOR,Norway,38,17,0,0,0,0,0,-,0
-2014,LEB,LBN,Lebanon,NRU,NRU,Nauru,10,5,0,0,0,0,0,-,0
+2014,LEB,LBN,Lebanon,NRU,NRU,Naoero,10,5,0,0,0,0,0,-,0
 2014,LEB,LBN,Lebanon,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2014,LEB,LBN,Lebanon,PNG,PNG,Papua New Guinea,0,5,0,0,0,0,0,-,0
 2014,LEB,LBN,Lebanon,ROM,ROU,Romania,5,0,0,0,0,0,0,-,0
@@ -19982,7 +19976,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,16,10,0,0,0,0,0,-,0
 2014,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),735,37,0,0,0,0,0,-,0
 2014,LKA,LKA,Sri Lanka,NOR,NOR,Norway,314,33,0,0,0,0,0,-,0
-2014,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,0,121,0,0,0,0,0,-,0
+2014,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,0,121,0,0,0,0,0,-,0
 2014,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,92,8,0,0,0,0,0,-,0
 2014,LKA,LKA,Sri Lanka,PER,PER,Peru,0,7,0,0,0,0,0,-,0
 2014,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,17,0,0,0,0,0,0,-,0
@@ -20329,7 +20323,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,MYA,MMR,Myanmar,NEP,NPL,Nepal,101,17,0,0,0,0,0,-,0
 2014,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),861,6,0,0,0,0,0,-,0
 2014,MYA,MMR,Myanmar,NOR,NOR,Norway,155,0,0,0,0,0,0,-,0
-2014,MYA,MMR,Myanmar,NRU,NRU,Nauru,5,19,0,0,0,0,0,-,0
+2014,MYA,MMR,Myanmar,NRU,NRU,Naoero,5,19,0,0,0,0,0,-,0
 2014,MYA,MMR,Myanmar,NZL,NZL,New Zealand,29,0,0,0,0,0,0,-,0
 2014,MYA,MMR,Myanmar,PAK,PAK,Pakistan,23,0,0,0,0,0,0,-,0
 2014,MYA,MMR,Myanmar,PHI,PHL,Philippines,6,0,0,0,0,0,0,-,0
@@ -20379,7 +20373,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,NEP,NPL,Nepal,MEX,MEX,Mexico,0,10,0,0,0,0,0,-,0
 2014,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),441,22,0,0,0,0,0,-,0
 2014,NEP,NPL,Nepal,NOR,NOR,Norway,11,6,0,0,0,0,0,-,0
-2014,NEP,NPL,Nepal,NRU,NRU,Nauru,0,11,0,0,0,0,0,-,0
+2014,NEP,NPL,Nepal,NRU,NRU,Naoero,0,11,0,0,0,0,0,-,0
 2014,NEP,NPL,Nepal,NZL,NZL,New Zealand,14,0,0,0,0,0,0,-,0
 2014,NEP,NPL,Nepal,PAN,PAN,Panama,0,16,0,0,0,0,0,-,0
 2014,NEP,NPL,Nepal,PNG,PNG,Papua New Guinea,0,10,0,0,0,0,0,-,0
@@ -20575,7 +20569,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,PAK,PAK,Pakistan,NEP,NPL,Nepal,262,56,0,0,0,0,0,-,0
 2014,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),355,128,0,0,0,0,0,-,0
 2014,PAK,PAK,Pakistan,NOR,NOR,Norway,101,117,0,0,0,0,0,-,0
-2014,PAK,PAK,Pakistan,NRU,NRU,Nauru,62,64,0,0,0,0,0,-,0
+2014,PAK,PAK,Pakistan,NRU,NRU,Naoero,62,64,0,0,0,0,0,-,0
 2014,PAK,PAK,Pakistan,NZL,NZL,New Zealand,41,7,0,0,0,0,0,-,0
 2014,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,1375904,75825,0,0,-,0
 2014,PAK,PAK,Pakistan,PER,PER,Peru,0,10,0,0,0,0,0,-,0
@@ -21064,7 +21058,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,SOM,SOM,Somalia,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2014,SOM,SOM,Somalia,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2014,SOM,SOM,Somalia,NOR,NOR,Norway,8901,609,0,0,0,0,0,-,0
-2014,SOM,SOM,Somalia,NRU,NRU,Nauru,43,26,0,0,0,0,0,-,0
+2014,SOM,SOM,Somalia,NRU,NRU,Naoero,43,26,0,0,0,0,0,-,0
 2014,SOM,SOM,Somalia,NZL,NZL,New Zealand,30,0,0,0,0,0,0,-,0
 2014,SOM,SOM,Somalia,PAK,PAK,Pakistan,412,36,0,0,0,0,0,-,0
 2014,SOM,SOM,Somalia,PAN,PAN,Panama,0,104,0,0,0,0,0,-,0
@@ -21274,7 +21268,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,810000,0,-,0
 2014,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),2079,1031,0,0,0,1951,0,-,0
 2014,STA,XXA,Stateless,NOR,NOR,Norway,2655,577,0,0,0,1997,0,-,0
-2014,STA,XXA,Stateless,NRU,NRU,Nauru,49,137,0,0,0,0,0,-,0
+2014,STA,XXA,Stateless,NRU,NRU,Naoero,49,137,0,0,0,0,0,-,0
 2014,STA,XXA,Stateless,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2014,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,6370,0,-,0
 2014,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,15,29,0,0,0,0,0,-,0
@@ -21366,7 +21360,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,SUD,SDN,Sudan,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2014,SUD,SDN,Sudan,NIG,NGA,Nigeria,49,0,0,0,0,0,0,-,0
 2014,SUD,SDN,Sudan,NOR,NOR,Norway,1254,621,0,0,0,0,0,-,0
-2014,SUD,SDN,Sudan,NRU,NRU,Nauru,11,0,0,0,0,0,0,-,0
+2014,SUD,SDN,Sudan,NRU,NRU,Naoero,11,0,0,0,0,0,0,-,0
 2014,SUD,SDN,Sudan,NZL,NZL,New Zealand,11,0,0,0,0,0,0,-,0
 2014,SUD,SDN,Sudan,OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2014,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -21501,7 +21495,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2014,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,11,17,0,0,0,0,0,-,0
 2014,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,2568,828,0,0,0,0,0,-,0
-2014,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2014,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2014,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,48,6,0,0,0,0,0,-,0
 2014,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,7,6,0,0,0,0,0,-,0
 2014,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,16,0,0,0,0,0,0,-,0
@@ -21579,10 +21573,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,THA,THA,Thailand,RSA,ZAF,South Africa,0,13,0,0,0,0,0,-,0
 2014,THA,THA,Thailand,SWE,SWE,Sweden,14,13,0,0,0,0,0,-,0
 2014,THA,THA,Thailand,USA,USA,United States of America,27,170,0,0,0,0,0,-,0
-2014,TIB,TIB,Tibetan,AUL,AUS,Australia,8,5,0,0,0,0,0,-,0
-2014,TIB,TIB,Tibetan,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
-2014,TIB,TIB,Tibetan,CAN,CAN,Canada,58,0,0,0,0,0,0,-,0
-2014,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,5,-,0
 2014,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,5,0,0,0,0,0,-,0
 2014,TJK,TJK,Tajikistan,ARE,EGY,Egypt,11,9,0,0,0,0,0,-,0
 2014,TJK,TJK,Tajikistan,AUS,AUT,Austria,82,0,0,0,0,0,0,-,0
@@ -22165,7 +22155,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),5803,2360,0,0,0,0,0,-,0
 2015,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2015,AFG,AFG,Afghanistan,NOR,NOR,Norway,5684,6076,0,0,0,0,0,-,0
-2015,AFG,AFG,Afghanistan,NRU,NRU,Nauru,41,7,0,0,0,0,0,-,0
+2015,AFG,AFG,Afghanistan,NRU,NRU,Naoero,41,7,0,0,0,0,0,-,0
 2015,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,38,7,0,0,0,0,0,-,0
 2015,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1560592,6358,58211,0,0,0,0,-,0
 2015,AFG,AFG,Afghanistan,PAN,PAN,Panama,0,8,0,0,0,0,0,-,0
@@ -22587,7 +22577,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,BGD,BGD,Bangladesh,MTA,MLT,Malta,8,5,0,0,0,0,0,-,0
 2015,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),42,21,0,0,0,0,0,-,0
 2015,BGD,BGD,Bangladesh,NOR,NOR,Norway,11,84,0,0,0,0,0,-,0
-2015,BGD,BGD,Bangladesh,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2015,BGD,BGD,Bangladesh,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2015,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,6,7,0,0,0,0,0,-,0
 2015,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2015,BGD,BGD,Bangladesh,PER,PER,Peru,16,0,0,0,0,0,0,-,0
@@ -22897,12 +22887,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,CHD,TCD,Chad,USA,USA,United States of America,390,154,0,0,0,0,0,-,0
 2015,CHI,CHN,China,ALB,ALB,Albania,11,0,0,0,0,0,0,-,0
 2015,CHI,CHN,China,ARE,EGY,Egypt,5,9,0,0,0,0,0,-,0
-2015,CHI,CHN,China,AUL,AUS,Australia,2955,2178,0,0,0,0,0,-,0
+2015,CHI,CHN,China,AUL,AUS,Australia,2966,2181,0,0,0,0,0,-,0
 2015,CHI,CHN,China,AUS,AUT,Austria,499,500,0,0,0,0,0,-,0
 2015,CHI,CHN,China,BEL,BEL,Belgium,1305,158,0,0,0,0,0,-,0
 2015,CHI,CHN,China,BHS,BHS,Bahamas,0,5,0,0,0,0,0,-,0
-2015,CHI,CHN,China,BRA,BRA,Brazil,0,345,0,0,0,0,0,-,0
-2015,CHI,CHN,China,CAN,CAN,Canada,11415,1068,0,0,0,0,0,-,0
+2015,CHI,CHN,China,BRA,BRA,Brazil,0,348,0,0,0,0,0,-,0
+2015,CHI,CHN,China,CAN,CAN,Canada,11473,1068,0,0,0,0,0,-,0
 2015,CHI,CHN,China,CYP,CYP,Cyprus,5,10,0,0,0,0,0,-,0
 2015,CHI,CHN,China,CZE,CZE,Czechia,13,36,0,0,0,0,0,-,0
 2015,CHI,CHN,China,DEN,DNK,Denmark,21,23,0,0,0,0,0,-,0
@@ -22927,6 +22917,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,CHI,CHN,China,MLS,MYS,Malaysia,40,5,0,0,0,0,0,-,0
 2015,CHI,CHN,China,MNG,MNG,Mongolia,6,0,0,0,0,0,0,-,0
 2015,CHI,CHN,China,MTA,MLT,Malta,12,0,0,0,0,0,0,-,0
+2015,CHI,CHN,China,NEP,NPL,Nepal,15000,0,0,0,0,0,6,-,0
 2015,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1236,67,0,0,0,0,0,-,0
 2015,CHI,CHN,China,NOR,NOR,Norway,651,28,0,0,0,0,0,-,0
 2015,CHI,CHN,China,NZL,NZL,New Zealand,137,10,0,0,0,0,0,-,0
@@ -22944,7 +22935,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,CHI,CHN,China,SWI,CHE,Switzerland,3022,590,0,0,0,0,0,-,0
 2015,CHI,CHN,China,SYR,SYR,Syrian Arab Rep.,0,6,0,0,0,0,0,-,0
 2015,CHI,CHN,China,THA,THA,Thailand,112,122,0,0,0,0,0,-,0
-2015,CHI,CHN,China,TUR,TUR,Türkiye,14,62,0,0,0,0,0,-,0
+2015,CHI,CHN,China,TUR,TUR,Türkiye,14,64,0,0,0,0,0,-,0
 2015,CHI,CHN,China,UKR,UKR,Ukraine,5,5,0,0,0,0,0,-,0
 2015,CHI,CHN,China,USA,USA,United States of America,74020,45500,0,0,0,0,0,-,0
 2015,CHL,CHL,Chile,ARG,ARG,Argentina,36,5,0,0,0,0,0,-,0
@@ -24121,7 +24112,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,378,-,0
 2015,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,8,0,0,0,0,0,-,0
 2015,IND,IND,India,NOR,NOR,Norway,5,38,0,0,0,0,0,-,0
-2015,IND,IND,India,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2015,IND,IND,India,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2015,IND,IND,India,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2015,IND,IND,India,PNG,PNG,Papua New Guinea,0,5,0,0,0,0,0,-,0
 2015,IND,IND,India,POL,POL,Poland,5,6,0,0,0,0,0,-,0
@@ -24149,7 +24140,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,7,0,0,0,0,0,-,0
 2015,INS,IDN,Indonesia,MLS,MYS,Malaysia,782,35,0,0,0,0,0,-,0
 2015,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),22,0,0,0,0,0,0,-,0
-2015,INS,IDN,Indonesia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2015,INS,IDN,Indonesia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2015,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2015,INS,IDN,Indonesia,SWE,SWE,Sweden,5,16,0,0,0,0,0,-,0
 2015,INS,IDN,Indonesia,USA,USA,United States of America,3183,979,0,0,0,0,0,-,0
@@ -24213,7 +24204,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,6,0,0,0,0,0,0,-,0
 2015,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4125,1692,0,0,0,0,0,-,0
 2015,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1487,1352,0,0,0,0,0,-,0
-2015,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,191,181,0,0,0,0,0,-,0
+2015,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,191,181,0,0,0,0,0,-,0
 2015,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,169,8,0,0,0,0,0,-,0
 2015,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,42,24,0,0,0,0,0,-,0
 2015,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -24307,7 +24298,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),12397,3227,5,0,0,0,0,-,0
 2015,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2015,IRQ,IRQ,Iraq,NOR,NOR,Norway,4916,2835,146,0,0,0,0,-,0
-2015,IRQ,IRQ,Iraq,NRU,NRU,Nauru,19,13,0,0,0,0,0,-,0
+2015,IRQ,IRQ,Iraq,NRU,NRU,Naoero,19,13,0,0,0,0,0,-,0
 2015,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,166,5,119,0,0,0,0,-,0
 2015,IRQ,IRQ,Iraq,OMN,OMN,Oman,237,180,22,0,0,0,0,-,0
 2015,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,27,9,0,0,0,0,0,-,0
@@ -24722,7 +24713,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),37,59,0,0,0,0,0,-,0
 2015,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,7,0,0,0,0,0,-,0
 2015,LEB,LBN,Lebanon,NOR,NOR,Norway,30,111,0,0,0,0,0,-,0
-2015,LEB,LBN,Lebanon,NRU,NRU,Nauru,10,5,0,0,0,0,0,-,0
+2015,LEB,LBN,Lebanon,NRU,NRU,Naoero,10,5,0,0,0,0,0,-,0
 2015,LEB,LBN,Lebanon,PNG,PNG,Papua New Guinea,0,17,0,0,0,0,0,-,0
 2015,LEB,LBN,Lebanon,ROM,ROU,Romania,5,5,0,0,0,0,0,-,0
 2015,LEB,LBN,Lebanon,RSA,ZAF,South Africa,5,0,0,0,0,0,0,-,0
@@ -24787,7 +24778,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,22,0,0,0,0,0,0,-,0
 2015,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),733,31,0,0,0,0,0,-,0
 2015,LKA,LKA,Sri Lanka,NOR,NOR,Norway,275,32,0,0,0,0,0,-,0
-2015,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,5,34,0,0,0,0,0,-,0
+2015,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,5,34,0,0,0,0,0,-,0
 2015,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,85,18,0,0,0,0,0,-,0
 2015,LKA,LKA,Sri Lanka,PER,PER,Peru,0,7,0,0,0,0,0,-,0
 2015,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,17,0,0,0,0,0,0,-,0
@@ -25014,7 +25005,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,MLS,MYS,Malaysia,GFR,DEU,Germany,6,0,0,0,0,0,0,-,0
 2015,MLS,MYS,Malaysia,IRE,IRL,Ireland,5,5,0,0,0,0,0,-,0
 2015,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
-2015,MLS,MYS,Malaysia,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2015,MLS,MYS,Malaysia,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2015,MLS,MYS,Malaysia,SWE,SWE,Sweden,0,5,0,0,0,0,0,-,0
 2015,MLS,MYS,Malaysia,SWI,CHE,Switzerland,5,0,0,0,0,0,0,-,0
 2015,MLS,MYS,Malaysia,USA,USA,United States of America,103,206,0,0,0,0,0,-,0
@@ -25153,7 +25144,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,MYA,MMR,Myanmar,NEP,NPL,Nepal,156,8,0,0,0,0,0,-,0
 2015,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),878,11,0,0,0,0,0,-,0
 2015,MYA,MMR,Myanmar,NOR,NOR,Norway,148,12,0,0,0,0,0,-,0
-2015,MYA,MMR,Myanmar,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2015,MYA,MMR,Myanmar,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2015,MYA,MMR,Myanmar,NZL,NZL,New Zealand,22,0,0,0,0,0,0,-,0
 2015,MYA,MMR,Myanmar,PAK,PAK,Pakistan,24,0,0,0,0,0,0,-,0
 2015,MYA,MMR,Myanmar,PHI,PHL,Philippines,6,0,0,0,0,0,0,-,0
@@ -25204,7 +25195,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,NEP,NPL,Nepal,MTA,MLT,Malta,0,5,0,0,0,0,0,-,0
 2015,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),416,18,0,0,0,0,0,-,0
 2015,NEP,NPL,Nepal,NOR,NOR,Norway,13,30,0,0,0,0,0,-,0
-2015,NEP,NPL,Nepal,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2015,NEP,NPL,Nepal,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2015,NEP,NPL,Nepal,NZL,NZL,New Zealand,12,0,0,0,0,0,0,-,0
 2015,NEP,NPL,Nepal,PAN,PAN,Panama,0,16,0,0,0,0,0,-,0
 2015,NEP,NPL,Nepal,POL,POL,Poland,7,0,0,0,0,0,0,-,0
@@ -25408,7 +25399,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,PAK,PAK,Pakistan,NEP,NPL,Nepal,261,10,0,0,0,0,0,-,0
 2015,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),390,94,0,0,0,0,0,-,0
 2015,PAK,PAK,Pakistan,NOR,NOR,Norway,90,288,0,0,0,0,0,-,0
-2015,PAK,PAK,Pakistan,NRU,NRU,Nauru,71,6,0,0,0,0,0,-,0
+2015,PAK,PAK,Pakistan,NRU,NRU,Naoero,71,6,0,0,0,0,0,-,0
 2015,PAK,PAK,Pakistan,NZL,NZL,New Zealand,49,12,0,0,0,0,0,-,0
 2015,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,1146108,676638,0,0,-,0
 2015,PAK,PAK,Pakistan,PAN,PAN,Panama,0,5,0,0,0,0,0,-,0
@@ -25924,7 +25915,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),17444,261,0,0,0,0,0,-,0
 2015,SOM,SOM,Somalia,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2015,SOM,SOM,Somalia,NOR,NOR,Norway,8600,452,0,0,0,0,0,-,0
-2015,SOM,SOM,Somalia,NRU,NRU,Nauru,60,5,0,0,0,0,0,-,0
+2015,SOM,SOM,Somalia,NRU,NRU,Naoero,60,5,0,0,0,0,0,-,0
 2015,SOM,SOM,Somalia,NZL,NZL,New Zealand,21,0,0,0,0,0,0,-,0
 2015,SOM,SOM,Somalia,PAK,PAK,Pakistan,375,28,0,0,0,0,0,-,0
 2015,SOM,SOM,Somalia,PAN,PAN,Panama,0,104,0,0,0,0,0,-,0
@@ -26142,7 +26133,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,938000,0,-,0
 2015,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),3714,1652,0,0,0,1951,0,-,0
 2015,STA,XXA,Stateless,NOR,NOR,Norway,3005,996,0,0,0,2561,0,-,0
-2015,STA,XXA,Stateless,NRU,NRU,Nauru,78,28,0,0,0,0,0,-,0
+2015,STA,XXA,Stateless,NRU,NRU,Naoero,78,28,0,0,0,0,0,-,0
 2015,STA,XXA,Stateless,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2015,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,7138,0,-,0
 2015,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,15,6,0,0,0,0,0,-,0
@@ -26236,7 +26227,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,SUD,SDN,Sudan,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2015,SUD,SDN,Sudan,NIG,NGA,Nigeria,48,6,0,0,0,0,0,-,0
 2015,SUD,SDN,Sudan,NOR,NOR,Norway,1619,458,0,0,0,0,0,-,0
-2015,SUD,SDN,Sudan,NRU,NRU,Nauru,13,0,0,0,0,0,0,-,0
+2015,SUD,SDN,Sudan,NRU,NRU,Naoero,13,0,0,0,0,0,0,-,0
 2015,SUD,SDN,Sudan,NZL,NZL,New Zealand,11,0,0,0,0,0,0,-,0
 2015,SUD,SDN,Sudan,OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2015,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -26378,7 +26369,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2015,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,32,41,0,0,0,0,0,-,0
 2015,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,4121,9128,0,0,0,0,0,-,0
-2015,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2015,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2015,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,52,5,0,0,0,0,0,-,0
 2015,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,7,5,0,0,0,0,0,-,0
 2015,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,16,9,0,0,0,0,0,-,0
@@ -26465,10 +26456,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,THA,THA,Thailand,RSA,ZAF,South Africa,0,31,0,0,0,0,0,-,0
 2015,THA,THA,Thailand,SWE,SWE,Sweden,12,19,0,0,0,0,0,-,0
 2015,THA,THA,Thailand,USA,USA,United States of America,26,386,0,0,0,0,0,-,0
-2015,TIB,TIB,Tibetan,AUL,AUS,Australia,11,5,0,0,0,0,0,-,0
-2015,TIB,TIB,Tibetan,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
-2015,TIB,TIB,Tibetan,CAN,CAN,Canada,58,0,0,0,0,0,0,-,0
-2015,TIB,TIB,Tibetan,NEP,NPL,Nepal,15000,0,0,0,0,0,6,-,0
 2015,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,7,0,0,0,0,0,-,0
 2015,TJK,TJK,Tajikistan,ARE,EGY,Egypt,11,19,0,0,0,0,0,-,0
 2015,TJK,TJK,Tajikistan,AUL,AUS,Australia,0,5,0,0,0,0,0,-,0
@@ -27107,7 +27094,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),5791,1672,0,0,0,0,0,-,0
 2016,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2016,AFG,AFG,Afghanistan,NOR,NOR,Norway,6568,2452,0,0,0,0,0,-,0
-2016,AFG,AFG,Afghanistan,NRU,NRU,Nauru,41,7,0,0,0,0,0,-,0
+2016,AFG,AFG,Afghanistan,NRU,NRU,Naoero,41,7,0,0,0,0,0,-,0
 2016,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,41,5,0,0,0,0,0,-,0
 2016,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1352160,4447,381275,0,0,0,0,-,0
 2016,AFG,AFG,Afghanistan,PAN,PAN,Panama,0,8,0,0,0,0,0,-,0
@@ -27538,7 +27525,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,BGD,BGD,Bangladesh,NEP,NPL,Nepal,12,0,0,0,0,0,0,-,0
 2016,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),43,25,0,0,0,0,0,-,0
 2016,BGD,BGD,Bangladesh,NOR,NOR,Norway,10,19,0,0,0,0,0,-,0
-2016,BGD,BGD,Bangladesh,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2016,BGD,BGD,Bangladesh,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2016,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,6,7,0,0,0,0,0,-,0
 2016,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2016,BGD,BGD,Bangladesh,PER,PER,Peru,17,0,0,0,0,0,0,-,0
@@ -27844,10 +27831,10 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,CHI,CHN,China,ALB,ALB,Albania,11,0,0,0,0,0,0,-,0
 2016,CHI,CHN,China,ARE,EGY,Egypt,0,5,0,0,0,0,0,-,0
 2016,CHI,CHN,China,ARG,ARG,Argentina,0,35,0,0,0,0,0,-,0
-2016,CHI,CHN,China,AUL,AUS,Australia,2815,2981,0,0,0,0,0,-,0
+2016,CHI,CHN,China,AUL,AUS,Australia,2832,2986,0,0,0,0,0,-,0
 2016,CHI,CHN,China,AUS,AUT,Austria,535,536,0,0,0,0,0,-,0
 2016,CHI,CHN,China,BEL,BEL,Belgium,1197,149,0,0,0,0,0,-,0
-2016,CHI,CHN,China,BRA,BRA,Brazil,5,662,0,0,0,0,0,-,0
+2016,CHI,CHN,China,BRA,BRA,Brazil,5,665,0,0,0,0,0,-,0
 2016,CHI,CHN,China,BUL,BGR,Bulgaria,0,13,0,0,0,0,0,-,0
 2016,CHI,CHN,China,CAN,CAN,Canada,7356,2110,0,0,0,0,0,-,0
 2016,CHI,CHN,China,CYP,CYP,Cyprus,5,10,0,0,0,0,0,-,0
@@ -27867,6 +27854,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,CHI,CHN,China,ITA,ITA,Italy,155,878,0,0,0,0,0,-,0
 2016,CHI,CHN,China,JPN,JPN,Japan,68,28,0,0,0,0,0,-,0
 2016,CHI,CHN,China,KAZ,KAZ,Kazakhstan,6,6,0,0,0,0,0,-,0
+2016,CHI,CHN,China,KEN,KEN,Kenya,5,0,0,0,0,0,0,-,0
 2016,CHI,CHN,China,KOR,KOR,Rep. of Korea,36,765,0,0,0,0,0,-,0
 2016,CHI,CHN,China,LIE,LIE,Liechtenstein,11,9,0,0,0,0,0,-,0
 2016,CHI,CHN,China,LUX,LUX,Luxembourg,5,0,0,0,0,0,0,-,0
@@ -27874,6 +27862,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,CHI,CHN,China,MLS,MYS,Malaysia,28,19,0,0,0,0,0,-,0
 2016,CHI,CHN,China,MNG,MNG,Mongolia,5,0,0,0,0,0,0,-,0
 2016,CHI,CHN,China,MTA,MLT,Malta,15,0,0,0,0,0,0,-,0
+2016,CHI,CHN,China,NEP,NPL,Nepal,13509,0,0,0,0,0,0,-,0
 2016,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1140,98,0,0,0,0,0,-,0
 2016,CHI,CHN,China,NOR,NOR,Norway,652,13,0,0,0,0,0,-,0
 2016,CHI,CHN,China,NZL,NZL,New Zealand,144,47,0,0,0,0,0,-,0
@@ -27883,13 +27872,13 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,CHI,CHN,China,POR,PRT,Portugal,0,45,0,0,0,0,0,-,0
 2016,CHI,CHN,China,RSA,ZAF,South Africa,5,1372,0,0,0,0,0,-,0
 2016,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,5,0,0,0,0,0,-,0
-2016,CHI,CHN,China,SPA,ESP,Spain,20,390,0,0,0,0,0,-,0
+2016,CHI,CHN,China,SPA,ESP,Spain,25,390,0,0,0,0,0,-,0
 2016,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2016,CHI,CHN,China,SVN,SVN,Slovenia,0,6,0,0,0,0,0,-,0
 2016,CHI,CHN,China,SWE,SWE,Sweden,298,63,0,0,0,0,0,-,0
 2016,CHI,CHN,China,SWI,CHE,Switzerland,3042,511,0,0,0,0,0,-,0
 2016,CHI,CHN,China,THA,THA,Thailand,161,53,0,0,0,0,0,-,0
-2016,CHI,CHN,China,TUR,TUR,Türkiye,13,92,0,0,0,0,0,-,0
+2016,CHI,CHN,China,TUR,TUR,Türkiye,13,93,0,0,0,0,0,-,0
 2016,CHI,CHN,China,UKR,UKR,Ukraine,0,11,0,0,0,0,0,-,0
 2016,CHI,CHN,China,USA,USA,United States of America,72507,57450,0,0,0,0,0,-,0
 2016,CHL,CHL,Chile,ARG,ARG,Argentina,35,5,0,0,0,0,0,-,0
@@ -29041,7 +29030,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,264,-,0
 2016,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),7,7,0,0,0,0,0,-,0
 2016,IND,IND,India,NOR,NOR,Norway,9,5,0,0,0,0,0,-,0
-2016,IND,IND,India,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2016,IND,IND,India,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2016,IND,IND,India,NZL,NZL,New Zealand,5,6,0,0,0,0,0,-,0
 2016,IND,IND,India,PER,PER,Peru,6,0,0,0,0,0,0,-,0
 2016,IND,IND,India,POL,POL,Poland,5,13,0,0,0,0,0,-,0
@@ -29067,7 +29056,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,INS,IDN,Indonesia,JPN,JPN,Japan,0,1726,0,0,0,0,0,-,0
 2016,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,5,0,0,0,0,0,-,0
 2016,INS,IDN,Indonesia,MLS,MYS,Malaysia,779,181,0,0,0,0,0,-,0
-2016,INS,IDN,Indonesia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2016,INS,IDN,Indonesia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2016,INS,IDN,Indonesia,NZL,NZL,New Zealand,0,5,0,0,0,0,0,-,0
 2016,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2016,INS,IDN,Indonesia,SWE,SWE,Sweden,15,5,0,0,0,0,0,-,0
@@ -29133,7 +29122,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2016,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4244,1349,0,0,0,0,0,-,0
 2016,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1983,582,0,0,0,0,0,-,0
-2016,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,191,181,0,0,0,0,0,-,0
+2016,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,191,181,0,0,0,0,0,-,0
 2016,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,164,5,0,0,0,0,0,-,0
 2016,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,49,17,0,0,0,0,0,-,0
 2016,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -29224,7 +29213,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),12740,1399,0,0,0,0,0,-,0
 2016,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2016,IRQ,IRQ,Iraq,NOR,NOR,Norway,2855,1127,0,0,0,0,0,-,0
-2016,IRQ,IRQ,Iraq,NRU,NRU,Nauru,19,13,0,0,0,0,0,-,0
+2016,IRQ,IRQ,Iraq,NRU,NRU,Naoero,19,13,0,0,0,0,0,-,0
 2016,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,146,5,0,0,0,0,0,-,0
 2016,IRQ,IRQ,Iraq,OMN,OMN,Oman,309,354,0,0,0,0,0,-,0
 2016,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,21,7,0,0,0,0,0,-,0
@@ -29645,7 +29634,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),32,46,0,0,0,0,0,-,0
 2016,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,7,0,0,0,0,0,-,0
 2016,LEB,LBN,Lebanon,NOR,NOR,Norway,40,22,0,0,0,0,0,-,0
-2016,LEB,LBN,Lebanon,NRU,NRU,Nauru,10,5,0,0,0,0,0,-,0
+2016,LEB,LBN,Lebanon,NRU,NRU,Naoero,10,5,0,0,0,0,0,-,0
 2016,LEB,LBN,Lebanon,ROM,ROU,Romania,5,0,0,0,0,0,0,-,0
 2016,LEB,LBN,Lebanon,RSA,ZAF,South Africa,0,5,0,0,0,0,0,-,0
 2016,LEB,LBN,Lebanon,RUS,RUS,Russian Federation,7,0,0,0,0,0,0,-,0
@@ -29710,7 +29699,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,22,0,0,0,0,0,0,-,0
 2016,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),706,39,0,0,0,0,0,-,0
 2016,LKA,LKA,Sri Lanka,NOR,NOR,Norway,277,10,0,0,0,0,0,-,0
-2016,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,5,34,0,0,0,0,0,-,0
+2016,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,5,34,0,0,0,0,0,-,0
 2016,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,91,8,0,0,0,0,0,-,0
 2016,LKA,LKA,Sri Lanka,PER,PER,Peru,0,7,0,0,0,0,0,-,0
 2016,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,20,0,0,0,0,0,0,-,0
@@ -29929,7 +29918,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,MLS,MYS,Malaysia,IRE,IRL,Ireland,5,16,0,0,0,0,0,-,0
 2016,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,6,0,0,0,0,0,-,0
 2016,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
-2016,MLS,MYS,Malaysia,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2016,MLS,MYS,Malaysia,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2016,MLS,MYS,Malaysia,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2016,MLS,MYS,Malaysia,SWE,SWE,Sweden,5,0,0,0,0,0,0,-,0
 2016,MLS,MYS,Malaysia,THA,THA,Thailand,0,5,0,0,0,0,0,-,0
@@ -30070,7 +30059,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,MYA,MMR,Myanmar,NEP,NPL,Nepal,150,57,0,0,0,0,0,-,0
 2016,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),803,36,0,0,0,0,0,-,0
 2016,MYA,MMR,Myanmar,NOR,NOR,Norway,149,5,0,0,0,0,0,-,0
-2016,MYA,MMR,Myanmar,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2016,MYA,MMR,Myanmar,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2016,MYA,MMR,Myanmar,NZL,NZL,New Zealand,16,0,0,0,0,0,0,-,0
 2016,MYA,MMR,Myanmar,PAK,PAK,Pakistan,23,0,0,0,0,0,0,-,0
 2016,MYA,MMR,Myanmar,PHI,PHL,Philippines,10,0,0,0,0,0,0,-,0
@@ -30121,7 +30110,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,585,-,0
 2016,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),367,12,0,0,0,0,0,-,0
 2016,NEP,NPL,Nepal,NOR,NOR,Norway,11,0,0,0,0,0,0,-,0
-2016,NEP,NPL,Nepal,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2016,NEP,NPL,Nepal,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2016,NEP,NPL,Nepal,NZL,NZL,New Zealand,7,0,0,0,0,0,0,-,0
 2016,NEP,NPL,Nepal,PAN,PAN,Panama,0,16,0,0,0,0,0,-,0
 2016,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -30324,7 +30313,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,PAK,PAK,Pakistan,NEP,NPL,Nepal,257,5,0,0,0,0,0,-,0
 2016,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),392,93,0,0,0,0,0,-,0
 2016,PAK,PAK,Pakistan,NOR,NOR,Norway,114,48,0,0,0,0,0,-,0
-2016,PAK,PAK,Pakistan,NRU,NRU,Nauru,71,6,0,0,0,0,0,-,0
+2016,PAK,PAK,Pakistan,NRU,NRU,Naoero,71,6,0,0,0,0,0,-,0
 2016,PAK,PAK,Pakistan,NZL,NZL,New Zealand,63,5,0,0,0,0,0,-,0
 2016,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,448956,704370,0,0,-,0
 2016,PAK,PAK,Pakistan,PER,PER,Peru,0,12,0,0,0,0,0,-,0
@@ -30825,7 +30814,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),16512,197,0,0,0,0,0,-,0
 2016,SOM,SOM,Somalia,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2016,SOM,SOM,Somalia,NOR,NOR,Norway,8379,368,0,0,0,0,0,-,0
-2016,SOM,SOM,Somalia,NRU,NRU,Nauru,60,5,0,0,0,0,0,-,0
+2016,SOM,SOM,Somalia,NRU,NRU,Naoero,60,5,0,0,0,0,0,-,0
 2016,SOM,SOM,Somalia,NZL,NZL,New Zealand,18,0,0,0,0,0,0,-,0
 2016,SOM,SOM,Somalia,PAK,PAK,Pakistan,214,10,0,0,0,0,0,-,0
 2016,SOM,SOM,Somalia,PAN,PAN,Panama,0,103,0,0,0,0,0,-,0
@@ -31036,7 +31025,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,925939,0,-,0
 2016,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),5264,205,0,0,0,1951,0,-,0
 2016,STA,XXA,Stateless,NOR,NOR,Norway,3476,293,0,0,0,3251,0,-,0
-2016,STA,XXA,Stateless,NRU,NRU,Nauru,78,28,0,0,0,0,0,-,0
+2016,STA,XXA,Stateless,NRU,NRU,Naoero,78,28,0,0,0,0,0,-,0
 2016,STA,XXA,Stateless,PHI,PHL,Philippines,0,0,0,0,0,4636,0,-,0
 2016,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,16,0,0,0,0,0,0,-,0
 2016,STA,XXA,Stateless,POL,POL,Poland,82,13,0,0,0,10825,0,-,0
@@ -31126,7 +31115,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,SUD,SDN,Sudan,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2016,SUD,SDN,Sudan,NIG,NGA,Nigeria,47,0,0,0,0,0,0,-,0
 2016,SUD,SDN,Sudan,NOR,NOR,Norway,1965,37,0,0,0,0,0,-,0
-2016,SUD,SDN,Sudan,NRU,NRU,Nauru,13,0,0,0,0,0,0,-,0
+2016,SUD,SDN,Sudan,NRU,NRU,Naoero,13,0,0,0,0,0,0,-,0
 2016,SUD,SDN,Sudan,NZL,NZL,New Zealand,9,0,0,0,0,0,0,-,0
 2016,SUD,SDN,Sudan,OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2016,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -31267,7 +31256,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,7,0,0,0,0,0,0,-,0
 2016,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,88,47,0,0,0,0,0,-,0
 2016,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,11537,1083,0,0,0,0,0,-,0
-2016,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2016,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2016,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,61,5,0,0,0,0,0,-,0
 2016,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,7,6,0,0,0,0,0,-,0
 2016,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,13,7,0,0,0,0,0,-,0
@@ -31353,11 +31342,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,THA,THA,Thailand,RSA,ZAF,South Africa,0,21,0,0,0,0,0,-,0
 2016,THA,THA,Thailand,SWE,SWE,Sweden,12,16,0,0,0,0,0,-,0
 2016,THA,THA,Thailand,USA,USA,United States of America,27,402,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,AUL,AUS,Australia,17,5,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,KEN,KEN,Kenya,5,0,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,NEP,NPL,Nepal,13509,0,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,SPA,ESP,Spain,5,0,0,0,0,0,0,-,0
 2016,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,8,0,0,0,0,0,-,0
 2016,TJK,TJK,Tajikistan,ARE,EGY,Egypt,11,37,0,0,0,0,0,-,0
 2016,TJK,TJK,Tajikistan,AUS,AUT,Austria,150,182,0,0,0,0,0,-,0
@@ -32037,7 +32021,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6205,413,0,0,0,0,0,-,0
 2017,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2017,AFG,AFG,Afghanistan,NOR,NOR,Norway,6490,616,0,0,0,0,0,-,0
-2017,AFG,AFG,Afghanistan,NRU,NRU,Nauru,81,0,0,0,0,0,0,-,0
+2017,AFG,AFG,Afghanistan,NRU,NRU,Naoero,81,0,0,0,0,0,0,-,0
 2017,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,42,20,0,0,0,0,0,-,0
 2017,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1392610,3241,59020,0,0,0,0,-,0
 2017,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -32490,7 +32474,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,BGD,BGD,Bangladesh,NEP,NPL,Nepal,12,0,0,0,0,0,0,-,0
 2017,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),40,5,0,0,0,0,0,-,0
 2017,BGD,BGD,Bangladesh,NOR,NOR,Norway,10,12,0,0,0,0,0,-,0
-2017,BGD,BGD,Bangladesh,NRU,NRU,Nauru,9,33,0,0,0,0,0,-,0
+2017,BGD,BGD,Bangladesh,NRU,NRU,Naoero,9,33,0,0,0,0,0,-,0
 2017,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,7,19,0,0,0,0,0,-,0
 2017,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2017,BGD,BGD,Bangladesh,PER,PER,Peru,20,8,0,0,0,0,0,-,0
@@ -32808,7 +32792,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,CHI,CHN,China,ALB,ALB,Albania,12,0,0,0,0,0,0,-,0
 2017,CHI,CHN,China,ARE,EGY,Egypt,0,42,0,0,0,0,0,-,0
 2017,CHI,CHN,China,ARG,ARG,Argentina,0,60,0,0,0,0,0,-,0
-2017,CHI,CHN,China,AUL,AUS,Australia,2543,8525,0,0,0,0,0,-,0
+2017,CHI,CHN,China,AUL,AUS,Australia,2560,8530,0,0,0,0,0,-,0
 2017,CHI,CHN,China,AUS,AUT,Austria,559,331,0,0,0,0,0,-,0
 2017,CHI,CHN,China,BEL,BEL,Belgium,1197,105,0,0,0,0,0,-,0
 2017,CHI,CHN,China,BRA,BRA,Brazil,5,2252,0,0,0,0,0,-,0
@@ -32839,6 +32823,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,CHI,CHN,China,MLS,MYS,Malaysia,15,15,0,0,0,0,0,-,0
 2017,CHI,CHN,China,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2017,CHI,CHN,China,MTA,MLT,Malta,15,0,0,0,0,0,0,-,0
+2017,CHI,CHN,China,NEP,NPL,Nepal,13509,0,0,0,0,0,8,-,0
 2017,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1153,54,0,0,0,0,0,-,0
 2017,CHI,CHN,China,NOR,NOR,Norway,607,10,0,0,0,0,0,-,0
 2017,CHI,CHN,China,NZL,NZL,New Zealand,153,68,0,0,0,0,0,-,0
@@ -32848,12 +32833,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,CHI,CHN,China,ROM,ROU,Romania,0,5,0,0,0,0,0,-,0
 2017,CHI,CHN,China,RSA,ZAF,South Africa,0,171,0,0,0,0,0,-,0
 2017,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,5,0,0,0,0,0,-,0
-2017,CHI,CHN,China,SPA,ESP,Spain,21,402,0,0,0,0,0,-,0
+2017,CHI,CHN,China,SPA,ESP,Spain,26,409,0,0,0,0,0,-,0
 2017,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2017,CHI,CHN,China,SWE,SWE,Sweden,282,66,0,0,0,0,0,-,0
 2017,CHI,CHN,China,SWI,CHE,Switzerland,2973,413,0,0,0,0,0,-,0
 2017,CHI,CHN,China,THA,THA,Thailand,179,27,0,0,0,0,0,-,0
-2017,CHI,CHN,China,TUR,TUR,Türkiye,13,383,0,0,0,0,0,-,0
+2017,CHI,CHN,China,TUR,TUR,Türkiye,13,384,0,0,0,0,0,-,0
 2017,CHI,CHN,China,UKR,UKR,Ukraine,0,11,0,0,0,0,0,-,0
 2017,CHI,CHN,China,USA,USA,United States of America,74476,68414,0,0,0,0,0,-,0
 2017,CHL,CHL,Chile,ARG,ARG,Argentina,33,5,0,0,0,0,0,-,0
@@ -34054,7 +34039,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,235,-,0
 2017,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,5,0,0,0,0,0,-,0
 2017,IND,IND,India,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2017,IND,IND,India,NRU,NRU,Nauru,11,8,0,0,0,0,0,-,0
+2017,IND,IND,India,NRU,NRU,Naoero,11,8,0,0,0,0,0,-,0
 2017,IND,IND,India,NZL,NZL,New Zealand,6,25,0,0,0,0,0,-,0
 2017,IND,IND,India,PER,PER,Peru,6,0,0,0,0,0,0,-,0
 2017,IND,IND,India,POL,POL,Poland,5,6,0,0,0,0,0,-,0
@@ -34084,7 +34069,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,INS,IDN,Indonesia,JPN,JPN,Japan,0,2613,0,0,0,0,0,-,0
 2017,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,9,0,0,0,0,0,-,0
 2017,INS,IDN,Indonesia,MLS,MYS,Malaysia,883,15,0,0,0,0,0,-,0
-2017,INS,IDN,Indonesia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2017,INS,IDN,Indonesia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2017,INS,IDN,Indonesia,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2017,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2017,INS,IDN,Indonesia,SWE,SWE,Sweden,15,0,0,0,0,0,0,-,0
@@ -34149,7 +34134,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2017,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4757,518,0,0,0,0,0,-,0
 2017,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,2036,310,0,0,0,0,0,-,0
-2017,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,316,26,0,0,0,0,0,-,0
+2017,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,316,26,0,0,0,0,0,-,0
 2017,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,159,11,0,0,0,0,0,-,0
 2017,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,48,7,0,0,0,0,0,-,0
 2017,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -34244,7 +34229,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),11369,398,33,0,0,0,0,-,0
 2017,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2017,IRQ,IRQ,Iraq,NOR,NOR,Norway,2564,265,24,0,0,0,0,-,0
-2017,IRQ,IRQ,Iraq,NRU,NRU,Nauru,43,0,0,0,0,0,0,-,0
+2017,IRQ,IRQ,Iraq,NRU,NRU,Naoero,43,0,0,0,0,0,0,-,0
 2017,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,132,5,5,0,0,0,0,-,0
 2017,IRQ,IRQ,Iraq,OMN,OMN,Oman,301,387,0,0,0,0,0,-,0
 2017,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,21,7,0,0,0,0,0,-,0
@@ -34501,7 +34486,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,KUW,KWT,Kuwait,ITA,ITA,Italy,5,5,0,0,0,0,0,-,0
 2017,KUW,KWT,Kuwait,NET,NLD,Netherlands (Kingdom of the),5,0,0,0,0,0,0,-,0
 2017,KUW,KWT,Kuwait,NOR,NOR,Norway,8,0,0,0,0,0,0,-,0
-2017,KUW,KWT,Kuwait,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2017,KUW,KWT,Kuwait,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2017,KUW,KWT,Kuwait,NZL,NZL,New Zealand,7,0,0,0,0,0,0,-,0
 2017,KUW,KWT,Kuwait,SUD,SDN,Sudan,0,0,0,0,0,0,5,-,0
 2017,KUW,KWT,Kuwait,SWE,SWE,Sweden,23,59,0,0,0,0,0,-,0
@@ -34661,7 +34646,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),33,28,0,0,0,0,0,-,0
 2017,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,5,0,0,0,0,0,-,0
 2017,LEB,LBN,Lebanon,NOR,NOR,Norway,34,10,0,0,0,0,0,-,0
-2017,LEB,LBN,Lebanon,NRU,NRU,Nauru,14,0,0,0,0,0,0,-,0
+2017,LEB,LBN,Lebanon,NRU,NRU,Naoero,14,0,0,0,0,0,0,-,0
 2017,LEB,LBN,Lebanon,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
 2017,LEB,LBN,Lebanon,PHI,PHL,Philippines,0,5,0,0,0,0,0,-,0
 2017,LEB,LBN,Lebanon,ROM,ROU,Romania,6,0,0,0,0,0,0,-,0
@@ -34729,7 +34714,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,20,5,0,0,0,0,0,-,0
 2017,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),689,23,0,0,0,0,0,-,0
 2017,LKA,LKA,Sri Lanka,NOR,NOR,Norway,218,14,0,0,0,0,0,-,0
-2017,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,101,28,0,0,0,0,0,-,0
+2017,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,101,28,0,0,0,0,0,-,0
 2017,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,81,16,0,0,0,0,0,-,0
 2017,LKA,LKA,Sri Lanka,PER,PER,Peru,0,7,0,0,0,0,0,-,0
 2017,LKA,LKA,Sri Lanka,PHI,PHL,Philippines,20,0,0,0,0,0,0,-,0
@@ -34953,7 +34938,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,MLS,MYS,Malaysia,ITA,ITA,Italy,0,5,0,0,0,0,0,-,0
 2017,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,451,0,0,0,0,0,-,0
 2017,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
-2017,MLS,MYS,Malaysia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2017,MLS,MYS,Malaysia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2017,MLS,MYS,Malaysia,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2017,MLS,MYS,Malaysia,SWE,SWE,Sweden,8,5,0,0,0,0,0,-,0
 2017,MLS,MYS,Malaysia,TUR,TUR,Türkiye,0,5,0,0,0,0,0,-,0
@@ -35103,7 +35088,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,MYA,MMR,Myanmar,NEP,NPL,Nepal,190,124,0,0,0,0,0,-,0
 2017,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),732,7,0,0,0,0,0,-,0
 2017,MYA,MMR,Myanmar,NOR,NOR,Norway,130,5,0,0,0,0,0,-,0
-2017,MYA,MMR,Myanmar,NRU,NRU,Nauru,115,0,0,0,0,0,0,-,0
+2017,MYA,MMR,Myanmar,NRU,NRU,Naoero,115,0,0,0,0,0,0,-,0
 2017,MYA,MMR,Myanmar,NZL,NZL,New Zealand,12,5,0,0,0,0,0,-,0
 2017,MYA,MMR,Myanmar,PAK,PAK,Pakistan,21,0,0,0,0,0,0,-,0
 2017,MYA,MMR,Myanmar,PHI,PHL,Philippines,10,0,0,0,0,0,0,-,0
@@ -35151,7 +35136,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,382,-,0
 2017,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),294,0,0,0,0,0,0,-,0
 2017,NEP,NPL,Nepal,NOR,NOR,Norway,10,0,0,0,0,0,0,-,0
-2017,NEP,NPL,Nepal,NRU,NRU,Nauru,5,9,0,0,0,0,0,-,0
+2017,NEP,NPL,Nepal,NRU,NRU,Naoero,5,9,0,0,0,0,0,-,0
 2017,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2017,NEP,NPL,Nepal,PAN,PAN,Panama,0,16,0,0,0,0,0,-,0
 2017,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -35360,7 +35345,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,PAK,PAK,Pakistan,NEP,NPL,Nepal,228,14,0,0,0,0,0,-,0
 2017,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),428,96,0,0,0,0,0,-,0
 2017,PAK,PAK,Pakistan,NOR,NOR,Norway,99,18,0,0,0,0,0,-,0
-2017,PAK,PAK,Pakistan,NRU,NRU,Nauru,120,22,0,0,0,0,0,-,0
+2017,PAK,PAK,Pakistan,NRU,NRU,Naoero,120,22,0,0,0,0,0,-,0
 2017,PAK,PAK,Pakistan,NZL,NZL,New Zealand,57,12,0,0,0,0,0,-,0
 2017,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,174354,281640,0,0,-,0
 2017,PAK,PAK,Pakistan,PER,PER,Peru,0,13,0,0,0,0,0,-,0
@@ -35877,7 +35862,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),15478,76,0,0,0,0,0,-,0
 2017,SOM,SOM,Somalia,NGR,NER,Niger,9,66,0,0,0,0,0,-,0
 2017,SOM,SOM,Somalia,NOR,NOR,Norway,7527,118,0,0,0,0,0,-,0
-2017,SOM,SOM,Somalia,NRU,NRU,Nauru,56,0,0,0,0,0,0,-,0
+2017,SOM,SOM,Somalia,NRU,NRU,Naoero,56,0,0,0,0,0,0,-,0
 2017,SOM,SOM,Somalia,NZL,NZL,New Zealand,17,0,0,0,0,0,0,-,0
 2017,SOM,SOM,Somalia,PAK,PAK,Pakistan,232,0,0,0,0,0,0,-,0
 2017,SOM,SOM,Somalia,PAN,PAN,Panama,0,103,0,0,0,0,0,-,0
@@ -36100,7 +36085,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,621514,0,-,0
 2017,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),5423,34,0,0,0,1951,0,-,0
 2017,STA,XXA,Stateless,NOR,NOR,Norway,3367,142,0,0,0,3282,0,-,0
-2017,STA,XXA,Stateless,NRU,NRU,Nauru,65,0,0,0,0,0,0,-,0
+2017,STA,XXA,Stateless,NRU,NRU,Naoero,65,0,0,0,0,0,0,-,0
 2017,STA,XXA,Stateless,PER,PER,Peru,0,5,0,0,0,0,0,-,0
 2017,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,2678,0,-,0
 2017,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,79,0,0,0,0,0,0,-,0
@@ -36192,7 +36177,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,SUD,SDN,Sudan,NGR,NER,Niger,9,0,0,0,0,0,0,-,0
 2017,SUD,SDN,Sudan,NIG,NGA,Nigeria,48,5,0,0,0,0,0,-,0
 2017,SUD,SDN,Sudan,NOR,NOR,Norway,1961,16,0,0,0,0,0,-,0
-2017,SUD,SDN,Sudan,NRU,NRU,Nauru,13,0,0,0,0,0,0,-,0
+2017,SUD,SDN,Sudan,NRU,NRU,Naoero,13,0,0,0,0,0,0,-,0
 2017,SUD,SDN,Sudan,NZL,NZL,New Zealand,7,0,0,0,0,0,0,-,0
 2017,SUD,SDN,Sudan,OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2017,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -36415,9 +36400,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,THA,THA,Thailand,MLS,MYS,Malaysia,24,5,0,0,0,0,0,-,0
 2017,THA,THA,Thailand,SWE,SWE,Sweden,8,17,0,0,0,0,0,-,0
 2017,THA,THA,Thailand,USA,USA,United States of America,29,465,0,0,0,0,0,-,0
-2017,TIB,TIB,Tibetan,AUL,AUS,Australia,17,5,0,0,0,0,0,-,0
-2017,TIB,TIB,Tibetan,NEP,NPL,Nepal,13509,0,0,0,0,0,8,-,0
-2017,TIB,TIB,Tibetan,SPA,ESP,Spain,5,7,0,0,0,0,0,-,0
 2017,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,7,0,0,0,0,0,-,0
 2017,TJK,TJK,Tajikistan,ARE,EGY,Egypt,12,29,0,0,0,0,0,-,0
 2017,TJK,TJK,Tajikistan,AUS,AUT,Austria,166,129,0,0,0,0,0,-,0
@@ -37161,7 +37143,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6267,538,0,0,0,0,0,-,0
 2018,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2018,AFG,AFG,Afghanistan,NOR,NOR,Norway,6065,193,0,0,0,0,0,-,0
-2018,AFG,AFG,Afghanistan,NRU,NRU,Nauru,81,5,0,0,0,0,0,-,0
+2018,AFG,AFG,Afghanistan,NRU,NRU,Naoero,81,5,0,0,0,0,0,-,0
 2018,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,47,5,0,0,0,0,0,-,0
 2018,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1403521,5012,14017,0,0,0,0,-,0
 2018,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -37631,7 +37613,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,BGD,BGD,Bangladesh,NEP,NPL,Nepal,10,0,0,0,0,0,0,-,0
 2018,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),40,20,0,0,0,0,0,-,0
 2018,BGD,BGD,Bangladesh,NOR,NOR,Norway,8,15,0,0,0,0,0,-,0
-2018,BGD,BGD,Bangladesh,NRU,NRU,Nauru,9,33,0,0,0,0,0,-,0
+2018,BGD,BGD,Bangladesh,NRU,NRU,Naoero,9,33,0,0,0,0,0,-,0
 2018,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,7,10,0,0,0,0,0,-,0
 2018,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2018,BGD,BGD,Bangladesh,PER,PER,Peru,20,0,0,0,0,0,0,-,0
@@ -37953,7 +37935,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,CHI,CHN,China,ALB,ALB,Albania,12,0,0,0,0,0,0,-,0
 2018,CHI,CHN,China,ARE,EGY,Egypt,0,69,0,0,0,0,0,-,0
 2018,CHI,CHN,China,ARG,ARG,Argentina,0,103,0,0,0,0,0,-,0
-2018,CHI,CHN,China,AUL,AUS,Australia,2304,13647,0,0,0,0,0,-,0
+2018,CHI,CHN,China,AUL,AUS,Australia,2317,13647,0,0,0,0,0,-,0
 2018,CHI,CHN,China,AUS,AUT,Austria,610,218,0,0,0,0,0,-,0
 2018,CHI,CHN,China,BEL,BEL,Belgium,1197,60,0,0,0,0,0,-,0
 2018,CHI,CHN,China,BRA,BRA,Brazil,7,3379,0,0,0,0,0,-,0
@@ -37986,6 +37968,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,CHI,CHN,China,MEX,MEX,Mexico,5,5,0,0,0,0,0,-,0
 2018,CHI,CHN,China,MLS,MYS,Malaysia,27,14,0,0,0,0,0,-,0
 2018,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2018,CHI,CHN,China,NEP,NPL,Nepal,13509,0,0,0,0,0,0,-,0
 2018,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1106,122,0,0,0,0,0,-,0
 2018,CHI,CHN,China,NOR,NOR,Norway,594,10,0,0,0,0,0,-,0
 2018,CHI,CHN,China,NZL,NZL,New Zealand,192,77,0,0,0,0,0,-,0
@@ -37995,7 +37978,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,CHI,CHN,China,RSA,ZAF,South Africa,0,134,0,0,0,0,0,-,0
 2018,CHI,CHN,China,RUS,RUS,Russian Federation,5,0,0,0,0,0,0,-,0
 2018,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,14,0,0,0,0,0,-,0
-2018,CHI,CHN,China,SPA,ESP,Spain,20,600,0,0,0,0,0,-,0
+2018,CHI,CHN,China,SPA,ESP,Spain,25,600,0,0,0,0,0,-,0
 2018,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2018,CHI,CHN,China,SWE,SWE,Sweden,282,69,0,0,0,0,0,-,0
 2018,CHI,CHN,China,SWI,CHE,Switzerland,2957,274,0,0,0,0,0,-,0
@@ -39236,7 +39219,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,IND,IND,India,MLS,MYS,Malaysia,0,5,0,0,0,0,0,-,0
 2018,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,214,-,0
 2018,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,6,0,0,0,0,0,-,0
-2018,IND,IND,India,NRU,NRU,Nauru,11,11,0,0,0,0,0,-,0
+2018,IND,IND,India,NRU,NRU,Naoero,11,11,0,0,0,0,0,-,0
 2018,IND,IND,India,NZL,NZL,New Zealand,8,34,0,0,0,0,0,-,0
 2018,IND,IND,India,PAN,PAN,Panama,0,5,0,0,0,0,0,-,0
 2018,IND,IND,India,PER,PER,Peru,6,0,0,0,0,0,0,-,0
@@ -39266,7 +39249,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,22,0,0,0,0,0,-,0
 2018,INS,IDN,Indonesia,MLS,MYS,Malaysia,926,17,0,0,0,0,0,-,0
 2018,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),0,5,0,0,0,0,0,-,0
-2018,INS,IDN,Indonesia,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2018,INS,IDN,Indonesia,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2018,INS,IDN,Indonesia,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2018,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2018,INS,IDN,Indonesia,SOL,SLB,Solomon Islands,0,5,0,0,0,0,0,-,0
@@ -39332,7 +39315,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2018,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4918,1921,0,0,0,0,0,-,0
 2018,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1966,180,0,0,0,0,0,-,0
-2018,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,316,203,0,0,0,0,0,-,0
+2018,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,316,203,0,0,0,0,0,-,0
 2018,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,144,15,0,0,0,0,0,-,0
 2018,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,38,19,0,0,0,0,0,-,0
 2018,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -39428,7 +39411,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),9259,819,0,0,0,0,0,-,0
 2018,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2018,IRQ,IRQ,Iraq,NOR,NOR,Norway,1989,138,0,0,0,0,0,-,0
-2018,IRQ,IRQ,Iraq,NRU,NRU,Nauru,43,13,0,0,0,0,0,-,0
+2018,IRQ,IRQ,Iraq,NRU,NRU,Naoero,43,13,0,0,0,0,0,-,0
 2018,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,94,0,0,0,0,0,0,-,0
 2018,IRQ,IRQ,Iraq,OMN,OMN,Oman,298,254,0,0,0,0,0,-,0
 2018,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,22,7,0,0,0,0,0,-,0
@@ -39693,7 +39676,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,KUW,KWT,Kuwait,LEB,LBN,Lebanon,0,9,0,0,0,0,0,-,0
 2018,KUW,KWT,Kuwait,LUX,LUX,Luxembourg,0,5,0,0,0,0,0,-,0
 2018,KUW,KWT,Kuwait,NET,NLD,Netherlands (Kingdom of the),5,0,0,0,0,0,0,-,0
-2018,KUW,KWT,Kuwait,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2018,KUW,KWT,Kuwait,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2018,KUW,KWT,Kuwait,NZL,NZL,New Zealand,7,0,0,0,0,0,0,-,0
 2018,KUW,KWT,Kuwait,SWE,SWE,Sweden,25,55,0,0,0,0,0,-,0
 2018,KUW,KWT,Kuwait,SWI,CHE,Switzerland,0,5,0,0,0,0,0,-,0
@@ -39861,7 +39844,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),36,43,0,0,0,0,0,-,0
 2018,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,9,0,0,0,0,0,-,0
 2018,LEB,LBN,Lebanon,NOR,NOR,Norway,26,5,0,0,0,0,0,-,0
-2018,LEB,LBN,Lebanon,NRU,NRU,Nauru,14,0,0,0,0,0,0,-,0
+2018,LEB,LBN,Lebanon,NRU,NRU,Naoero,14,0,0,0,0,0,0,-,0
 2018,LEB,LBN,Lebanon,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
 2018,LEB,LBN,Lebanon,PHI,PHL,Philippines,5,0,0,0,0,0,0,-,0
 2018,LEB,LBN,Lebanon,ROM,ROU,Romania,5,0,0,0,0,0,0,-,0
@@ -39927,7 +39910,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,20,0,0,0,0,0,0,-,0
 2018,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),635,54,0,0,0,0,0,-,0
 2018,LKA,LKA,Sri Lanka,NOR,NOR,Norway,171,10,0,0,0,0,0,-,0
-2018,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,101,55,0,0,0,0,0,-,0
+2018,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,101,55,0,0,0,0,0,-,0
 2018,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,62,31,0,0,0,0,0,-,0
 2018,LKA,LKA,Sri Lanka,PAN,PAN,Panama,0,8,0,0,0,0,0,-,0
 2018,LKA,LKA,Sri Lanka,PER,PER,Peru,0,6,0,0,0,0,0,-,0
@@ -40154,7 +40137,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,1452,0,0,0,0,0,-,0
 2018,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
 2018,MLS,MYS,Malaysia,NOR,NOR,Norway,0,5,0,0,0,0,0,-,0
-2018,MLS,MYS,Malaysia,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2018,MLS,MYS,Malaysia,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2018,MLS,MYS,Malaysia,NZL,NZL,New Zealand,5,9,0,0,0,0,0,-,0
 2018,MLS,MYS,Malaysia,SWE,SWE,Sweden,10,0,0,0,0,0,0,-,0
 2018,MLS,MYS,Malaysia,SWI,CHE,Switzerland,0,5,0,0,0,0,0,-,0
@@ -40307,7 +40290,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,MYA,MMR,Myanmar,NEP,NPL,Nepal,332,34,0,0,0,0,0,-,0
 2018,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),567,22,0,0,0,0,0,-,0
 2018,MYA,MMR,Myanmar,NOR,NOR,Norway,128,10,0,0,0,0,0,-,0
-2018,MYA,MMR,Myanmar,NRU,NRU,Nauru,115,13,0,0,0,0,0,-,0
+2018,MYA,MMR,Myanmar,NRU,NRU,Naoero,115,13,0,0,0,0,0,-,0
 2018,MYA,MMR,Myanmar,NZL,NZL,New Zealand,7,5,0,0,0,0,0,-,0
 2018,MYA,MMR,Myanmar,PAK,PAK,Pakistan,22,31,0,0,0,0,0,-,0
 2018,MYA,MMR,Myanmar,PHI,PHL,Philippines,10,0,0,0,0,0,0,-,0
@@ -40356,7 +40339,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,328,-,0
 2018,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),239,0,0,0,0,0,0,-,0
 2018,NEP,NPL,Nepal,NOR,NOR,Norway,7,0,0,0,0,0,0,-,0
-2018,NEP,NPL,Nepal,NRU,NRU,Nauru,5,14,0,0,0,0,0,-,0
+2018,NEP,NPL,Nepal,NRU,NRU,Naoero,5,14,0,0,0,0,0,-,0
 2018,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2018,NEP,NPL,Nepal,PAN,PAN,Panama,0,14,0,0,0,0,0,-,0
 2018,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -40591,7 +40574,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),479,250,0,0,0,0,0,-,0
 2018,PAK,PAK,Pakistan,NGR,NER,Niger,0,9,0,0,0,0,0,-,0
 2018,PAK,PAK,Pakistan,NOR,NOR,Norway,96,11,0,0,0,0,0,-,0
-2018,PAK,PAK,Pakistan,NRU,NRU,Nauru,120,26,0,0,0,0,0,-,0
+2018,PAK,PAK,Pakistan,NRU,NRU,Naoero,120,26,0,0,0,0,0,-,0
 2018,PAK,PAK,Pakistan,NZL,NZL,New Zealand,61,16,0,0,0,0,0,-,0
 2018,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2018,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,96384,83454,0,0,-,0
@@ -41113,7 +41096,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),14011,133,0,0,0,0,0,-,0
 2018,SOM,SOM,Somalia,NGR,NER,Niger,52,200,0,0,0,0,0,-,0
 2018,SOM,SOM,Somalia,NOR,NOR,Norway,7183,69,0,0,0,0,0,-,0
-2018,SOM,SOM,Somalia,NRU,NRU,Nauru,56,9,0,0,0,0,0,-,0
+2018,SOM,SOM,Somalia,NRU,NRU,Naoero,56,9,0,0,0,0,0,-,0
 2018,SOM,SOM,Somalia,NZL,NZL,New Zealand,16,0,0,0,0,0,0,-,0
 2018,SOM,SOM,Somalia,PAK,PAK,Pakistan,181,13,0,0,0,0,0,-,0
 2018,SOM,SOM,Somalia,PAN,PAN,Panama,0,103,0,0,0,0,0,-,0
@@ -41344,7 +41327,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,620939,0,-,0
 2018,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),5406,61,0,0,0,1951,0,-,0
 2018,STA,XXA,Stateless,NOR,NOR,Norway,3001,97,0,0,0,2809,0,-,0
-2018,STA,XXA,Stateless,NRU,NRU,Nauru,65,19,0,0,0,0,0,-,0
+2018,STA,XXA,Stateless,NRU,NRU,Naoero,65,19,0,0,0,0,0,-,0
 2018,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,1068,0,-,0
 2018,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,79,0,0,0,0,0,0,-,0
 2018,STA,XXA,Stateless,POL,POL,Poland,98,8,0,0,0,10825,0,-,0
@@ -41439,7 +41422,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,SUD,SDN,Sudan,NGR,NER,Niger,19,1687,0,0,0,0,0,-,0
 2018,SUD,SDN,Sudan,NIG,NGA,Nigeria,49,5,0,0,0,0,0,-,0
 2018,SUD,SDN,Sudan,NOR,NOR,Norway,1938,32,0,0,0,0,0,-,0
-2018,SUD,SDN,Sudan,NRU,NRU,Nauru,13,0,0,0,0,0,0,-,0
+2018,SUD,SDN,Sudan,NRU,NRU,Naoero,13,0,0,0,0,0,0,-,0
 2018,SUD,SDN,Sudan,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2018,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
 2018,SUD,SDN,Sudan,PHI,PHL,Philippines,6,10,0,0,0,0,0,-,0
@@ -41580,7 +41563,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,11,5,0,0,0,0,0,-,0
 2018,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,224,75,0,0,0,0,0,-,0
 2018,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,13914,235,0,0,0,0,0,-,0
-2018,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2018,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2018,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,68,0,0,0,0,0,0,-,0
 2018,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,7,0,0,0,0,0,0,-,0
 2018,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,29,6,0,0,0,0,0,-,0
@@ -41663,9 +41646,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,THA,THA,Thailand,MLS,MYS,Malaysia,28,5,0,0,0,0,0,-,0
 2018,THA,THA,Thailand,SWE,SWE,Sweden,6,18,0,0,0,0,0,-,0
 2018,THA,THA,Thailand,USA,USA,United States of America,36,475,0,0,0,0,0,-,0
-2018,TIB,TIB,Tibetan,AUL,AUS,Australia,13,0,0,0,0,0,0,-,0
-2018,TIB,TIB,Tibetan,NEP,NPL,Nepal,13509,0,0,0,0,0,0,-,0
-2018,TIB,TIB,Tibetan,SPA,ESP,Spain,5,0,0,0,0,0,0,-,0
 2018,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,7,0,0,0,0,0,-,0
 2018,TJK,TJK,Tajikistan,ARE,EGY,Egypt,12,37,0,0,0,0,0,-,0
 2018,TJK,TJK,Tajikistan,AUS,AUT,Austria,220,82,0,0,0,0,0,-,0
@@ -42426,7 +42406,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),5815,543,0,0,0,0,0,-,0
 2019,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2019,AFG,AFG,Afghanistan,NOR,NOR,Norway,5108,81,0,0,0,0,0,-,0
-2019,AFG,AFG,Afghanistan,NRU,NRU,Nauru,25,5,0,0,0,0,0,-,0
+2019,AFG,AFG,Afghanistan,NRU,NRU,Naoero,25,5,0,0,0,0,0,-,0
 2019,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,46,31,0,0,0,0,0,-,0
 2019,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1419084,8406,6232,0,0,0,0,-,0
 2019,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -42920,7 +42900,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,BGD,BGD,Bangladesh,NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2019,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),34,15,0,0,0,0,0,-,0
 2019,BGD,BGD,Bangladesh,NOR,NOR,Norway,8,0,0,0,0,0,0,-,0
-2019,BGD,BGD,Bangladesh,NRU,NRU,Nauru,14,27,0,0,0,0,0,-,0
+2019,BGD,BGD,Bangladesh,NRU,NRU,Naoero,14,27,0,0,0,0,0,-,0
 2019,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,7,21,0,0,0,0,0,-,0
 2019,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,18,0,0,0,0,0,-,0
 2019,BGD,BGD,Bangladesh,PER,PER,Peru,26,0,0,0,0,0,0,-,0
@@ -43260,7 +43240,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,CHI,CHN,China,ALB,ALB,Albania,12,0,0,0,0,0,0,-,0
 2019,CHI,CHN,China,ARE,EGY,Egypt,0,71,0,0,0,0,0,-,0
 2019,CHI,CHN,China,ARG,ARG,Argentina,0,121,0,0,0,0,0,-,0
-2019,CHI,CHN,China,AUL,AUS,Australia,2016,17668,0,0,0,0,0,-,0
+2019,CHI,CHN,China,AUL,AUS,Australia,2026,17668,0,0,0,0,0,-,0
 2019,CHI,CHN,China,AUS,AUT,Austria,651,157,0,0,0,0,0,-,0
 2019,CHI,CHN,China,BEL,BEL,Belgium,1283,17,0,0,0,0,0,-,0
 2019,CHI,CHN,China,BRA,BRA,Brazil,9,4616,0,0,0,0,0,-,0
@@ -43293,6 +43273,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,CHI,CHN,China,MLS,MYS,Malaysia,44,7,0,0,0,0,0,-,0
 2019,CHI,CHN,China,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2019,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2019,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2019,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1004,153,0,0,0,0,0,-,0
 2019,CHI,CHN,China,NOR,NOR,Norway,565,5,0,0,0,0,0,-,0
 2019,CHI,CHN,China,NZL,NZL,New Zealand,228,74,0,0,0,0,0,-,0
@@ -43303,7 +43284,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,CHI,CHN,China,POR,PRT,Portugal,0,7,0,0,0,0,0,-,0
 2019,CHI,CHN,China,RSA,ZAF,South Africa,0,87,0,0,0,0,0,-,0
 2019,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,14,0,0,0,0,0,-,0
-2019,CHI,CHN,China,SPA,ESP,Spain,20,1010,0,0,0,0,0,-,0
+2019,CHI,CHN,China,SPA,ESP,Spain,25,1010,0,0,0,0,0,-,0
 2019,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2019,CHI,CHN,China,SWE,SWE,Sweden,285,78,0,0,0,0,0,-,0
 2019,CHI,CHN,China,SWI,CHE,Switzerland,2825,207,0,0,0,0,0,-,0
@@ -44592,7 +44573,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,IND,IND,India,MOR,MAR,Morocco,0,5,0,0,0,0,0,-,0
 2019,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,210,-,0
 2019,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,19,0,0,0,0,0,-,0
-2019,IND,IND,India,NRU,NRU,Nauru,0,11,0,0,0,0,0,-,0
+2019,IND,IND,India,NRU,NRU,Naoero,0,11,0,0,0,0,0,-,0
 2019,IND,IND,India,NZL,NZL,New Zealand,11,59,0,0,0,0,0,-,0
 2019,IND,IND,India,PAK,PAK,Pakistan,0,5,0,0,0,0,0,-,0
 2019,IND,IND,India,PAN,PAN,Panama,0,5,0,0,0,0,0,-,0
@@ -44624,7 +44605,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,55,0,0,0,0,0,-,0
 2019,INS,IDN,Indonesia,MLS,MYS,Malaysia,996,8,0,0,0,0,0,-,0
 2019,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),0,11,0,0,0,0,0,-,0
-2019,INS,IDN,Indonesia,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2019,INS,IDN,Indonesia,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2019,INS,IDN,Indonesia,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2019,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,9368,0,0,0,0,0,0,-,0
 2019,INS,IDN,Indonesia,SWE,SWE,Sweden,16,0,0,0,0,0,0,-,0
@@ -44689,7 +44670,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,5,5,0,0,0,0,0,-,0
 2019,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4783,2490,0,0,0,0,0,-,0
 2019,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1810,171,0,0,0,0,0,-,0
-2019,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,345,209,0,0,0,0,0,-,0
+2019,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,345,209,0,0,0,0,0,-,0
 2019,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,129,34,0,0,0,0,0,-,0
 2019,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,40,21,0,0,0,0,0,-,0
 2019,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -44785,7 +44766,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),8423,675,0,0,0,0,0,-,0
 2019,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2019,IRQ,IRQ,Iraq,NOR,NOR,Norway,1634,82,0,0,0,0,0,-,0
-2019,IRQ,IRQ,Iraq,NRU,NRU,Nauru,39,13,0,0,0,0,0,-,0
+2019,IRQ,IRQ,Iraq,NRU,NRU,Naoero,39,13,0,0,0,0,0,-,0
 2019,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,77,5,0,0,0,0,0,-,0
 2019,IRQ,IRQ,Iraq,OMN,OMN,Oman,295,254,0,0,0,0,0,-,0
 2019,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,22,7,0,0,0,0,0,-,0
@@ -45060,7 +45041,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,KUW,KWT,Kuwait,LEB,LBN,Lebanon,9,0,0,0,0,0,0,-,0
 2019,KUW,KWT,Kuwait,LUX,LUX,Luxembourg,0,5,0,0,0,0,0,-,0
 2019,KUW,KWT,Kuwait,NET,NLD,Netherlands (Kingdom of the),5,0,0,0,0,0,0,-,0
-2019,KUW,KWT,Kuwait,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2019,KUW,KWT,Kuwait,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2019,KUW,KWT,Kuwait,NZL,NZL,New Zealand,7,0,0,0,0,0,0,-,0
 2019,KUW,KWT,Kuwait,SPA,ESP,Spain,0,5,0,0,0,0,0,-,0
 2019,KUW,KWT,Kuwait,SUD,SDN,Sudan,0,0,0,0,0,0,5,-,0
@@ -45228,7 +45209,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),50,107,0,0,0,0,0,-,0
 2019,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,7,0,0,0,0,0,-,0
 2019,LEB,LBN,Lebanon,NOR,NOR,Norway,25,0,0,0,0,0,0,-,0
-2019,LEB,LBN,Lebanon,NRU,NRU,Nauru,14,0,0,0,0,0,0,-,0
+2019,LEB,LBN,Lebanon,NRU,NRU,Naoero,14,0,0,0,0,0,0,-,0
 2019,LEB,LBN,Lebanon,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
 2019,LEB,LBN,Lebanon,PHI,PHL,Philippines,5,0,0,0,0,0,0,-,0
 2019,LEB,LBN,Lebanon,POL,POL,Poland,0,22,0,0,0,0,0,-,0
@@ -45300,7 +45281,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),543,47,0,0,0,0,0,-,0
 2019,LKA,LKA,Sri Lanka,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2019,LKA,LKA,Sri Lanka,NOR,NOR,Norway,109,5,0,0,0,0,0,-,0
-2019,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,73,51,0,0,0,0,0,-,0
+2019,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,73,51,0,0,0,0,0,-,0
 2019,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,50,53,0,0,0,0,0,-,0
 2019,LKA,LKA,Sri Lanka,PAN,PAN,Panama,0,7,0,0,0,0,0,-,0
 2019,LKA,LKA,Sri Lanka,PAR,PRY,Paraguay,5,0,0,0,0,0,0,-,0
@@ -45527,7 +45508,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,2287,0,0,0,0,0,-,0
 2019,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
 2019,MLS,MYS,Malaysia,NOR,NOR,Norway,5,5,0,0,0,0,0,-,0
-2019,MLS,MYS,Malaysia,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2019,MLS,MYS,Malaysia,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2019,MLS,MYS,Malaysia,NZL,NZL,New Zealand,9,24,0,0,0,0,0,-,0
 2019,MLS,MYS,Malaysia,SWE,SWE,Sweden,13,6,0,0,0,0,0,-,0
 2019,MLS,MYS,Malaysia,USA,USA,United States of America,97,348,0,0,0,0,0,-,0
@@ -45682,7 +45663,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,MYA,MMR,Myanmar,NEP,NPL,Nepal,351,11,0,0,0,0,0,-,0
 2019,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),495,40,0,0,0,0,0,-,0
 2019,MYA,MMR,Myanmar,NOR,NOR,Norway,109,0,0,0,0,0,0,-,0
-2019,MYA,MMR,Myanmar,NRU,NRU,Nauru,66,13,0,0,0,0,0,-,0
+2019,MYA,MMR,Myanmar,NRU,NRU,Naoero,66,13,0,0,0,0,0,-,0
 2019,MYA,MMR,Myanmar,NZL,NZL,New Zealand,12,0,0,0,0,0,0,-,0
 2019,MYA,MMR,Myanmar,PAK,PAK,Pakistan,23,31,0,0,0,0,0,-,0
 2019,MYA,MMR,Myanmar,PHI,PHL,Philippines,7,0,0,0,0,0,0,-,0
@@ -45730,7 +45711,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,324,-,0
 2019,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),192,7,0,0,0,0,0,-,0
 2019,NEP,NPL,Nepal,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2019,NEP,NPL,Nepal,NRU,NRU,Nauru,0,15,0,0,0,0,0,-,0
+2019,NEP,NPL,Nepal,NRU,NRU,Naoero,0,15,0,0,0,0,0,-,0
 2019,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2019,NEP,NPL,Nepal,PAN,PAN,Panama,0,12,0,0,0,0,0,-,0
 2019,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -45898,7 +45879,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,NOR,NOR,Norway,AUL,AUS,Australia,0,5,0,0,0,0,0,-,0
 2019,NOR,NOR,Norway,BRA,BRA,Brazil,0,6,0,0,0,0,0,-,0
 2019,NOR,NOR,Norway,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,5,0,0,0,0,0,0,-,0
-2019,NRU,NRU,Nauru,AUL,AUS,Australia,0,15,0,0,0,0,0,-,0
+2019,NRU,NRU,Naoero,AUL,AUS,Australia,0,15,0,0,0,0,0,-,0
 2019,NZL,NZL,New Zealand,AUL,AUS,Australia,26,22,0,0,0,0,0,-,0
 2019,NZL,NZL,New Zealand,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2019,NZL,NZL,New Zealand,GFR,DEU,Germany,8,0,0,0,0,0,0,-,0
@@ -45968,7 +45949,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),456,375,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,NGR,NER,Niger,0,8,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,NOR,NOR,Norway,96,21,0,0,0,0,0,-,0
-2019,PAK,PAK,Pakistan,NRU,NRU,Nauru,42,26,0,0,0,0,0,-,0
+2019,PAK,PAK,Pakistan,NRU,NRU,Naoero,42,26,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,NZL,NZL,New Zealand,63,11,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,100680,18,0,0,-,0
@@ -46509,7 +46490,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),13007,196,0,0,0,0,0,-,0
 2019,SOM,SOM,Somalia,NGR,NER,Niger,163,64,0,0,0,0,0,-,0
 2019,SOM,SOM,Somalia,NOR,NOR,Norway,6518,40,0,0,0,0,0,-,0
-2019,SOM,SOM,Somalia,NRU,NRU,Nauru,78,10,0,0,0,0,0,-,0
+2019,SOM,SOM,Somalia,NRU,NRU,Naoero,78,10,0,0,0,0,0,-,0
 2019,SOM,SOM,Somalia,NZL,NZL,New Zealand,13,0,0,0,0,0,0,-,0
 2019,SOM,SOM,Somalia,PAK,PAK,Pakistan,181,21,0,0,0,0,0,-,0
 2019,SOM,SOM,Somalia,PAN,PAN,Panama,0,103,0,0,0,0,0,-,0
@@ -46740,7 +46721,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,STA,XXA,Stateless,MYA,MMR,Myanmar,0,0,0,0,0,600000,0,-,0
 2019,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),842,49,0,0,0,1951,0,-,0
 2019,STA,XXA,Stateless,NOR,NOR,Norway,2623,124,0,0,0,5019,0,-,0
-2019,STA,XXA,Stateless,NRU,NRU,Nauru,43,20,0,0,0,63,0,-,0
+2019,STA,XXA,Stateless,NRU,NRU,Naoero,43,20,0,0,0,63,0,-,0
 2019,STA,XXA,Stateless,NZL,NZL,New Zealand,0,0,0,0,0,5,0,-,0
 2019,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,388,0,-,0
 2019,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,9,0,0,0,0,9,0,-,0
@@ -46839,7 +46820,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,SUD,SDN,Sudan,NGR,NER,Niger,409,1362,0,0,0,0,0,-,0
 2019,SUD,SDN,Sudan,NIG,NGA,Nigeria,47,5,0,0,0,0,0,-,0
 2019,SUD,SDN,Sudan,NOR,NOR,Norway,1906,15,0,0,0,0,0,-,0
-2019,SUD,SDN,Sudan,NRU,NRU,Nauru,11,0,0,0,0,0,0,-,0
+2019,SUD,SDN,Sudan,NRU,NRU,Naoero,11,0,0,0,0,0,0,-,0
 2019,SUD,SDN,Sudan,NZL,NZL,New Zealand,8,0,0,0,0,0,0,-,0
 2019,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
 2019,SUD,SDN,Sudan,PHI,PHL,Philippines,6,25,0,0,0,0,0,-,0
@@ -46982,7 +46963,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,7,0,0,0,0,0,0,-,0
 2019,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,263,132,0,0,0,0,0,-,0
 2019,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,14359,252,0,0,0,0,0,-,0
-2019,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2019,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2019,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,69,5,0,0,0,0,0,-,0
 2019,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,8,0,0,0,0,0,0,-,0
 2019,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,43,0,0,0,0,0,0,-,0
@@ -47066,9 +47047,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,THA,THA,Thailand,RSA,ZAF,South Africa,0,46,0,0,0,0,0,-,0
 2019,THA,THA,Thailand,SWE,SWE,Sweden,5,7,0,0,0,0,0,-,0
 2019,THA,THA,Thailand,USA,USA,United States of America,39,459,0,0,0,0,0,-,0
-2019,TIB,TIB,Tibetan,AUL,AUS,Australia,10,0,0,0,0,0,0,-,0
-2019,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
-2019,TIB,TIB,Tibetan,SPA,ESP,Spain,5,0,0,0,0,0,0,-,0
 2019,TJK,TJK,Tajikistan,ARE,EGY,Egypt,12,27,0,0,0,0,0,-,0
 2019,TJK,TJK,Tajikistan,AUS,AUT,Austria,244,35,0,0,0,0,0,-,0
 2019,TJK,TJK,Tajikistan,BEL,BEL,Belgium,13,0,0,0,0,0,0,-,0
@@ -47866,7 +47844,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),5319,497,0,0,0,0,0,-,0
 2020,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2020,AFG,AFG,Afghanistan,NOR,NOR,Norway,4007,65,0,0,0,0,0,-,0
-2020,AFG,AFG,Afghanistan,NRU,NRU,Nauru,29,0,0,0,0,0,0,-,0
+2020,AFG,AFG,Afghanistan,NRU,NRU,Naoero,29,0,0,0,0,0,0,-,0
 2020,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,57,23,0,0,0,0,0,-,0
 2020,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1438432,9668,1125,0,0,0,8,-,0
 2020,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -48356,7 +48334,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,BGD,BGD,Bangladesh,NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2020,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),31,30,0,0,0,0,0,-,0
 2020,BGD,BGD,Bangladesh,NOR,NOR,Norway,6,0,0,0,0,0,0,-,0
-2020,BGD,BGD,Bangladesh,NRU,NRU,Nauru,19,20,0,0,0,0,0,-,0
+2020,BGD,BGD,Bangladesh,NRU,NRU,Naoero,19,20,0,0,0,0,0,-,0
 2020,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,9,14,0,0,0,0,0,-,0
 2020,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,15,0,0,0,0,0,-,0
 2020,BGD,BGD,Bangladesh,PER,PER,Peru,26,0,0,0,0,0,0,-,0
@@ -48687,9 +48665,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,CHI,CHN,China,ALB,ALB,Albania,14,0,0,0,0,0,0,-,0
 2020,CHI,CHN,China,ARE,EGY,Egypt,0,71,0,0,0,0,0,-,0
 2020,CHI,CHN,China,ARG,ARG,Argentina,0,120,0,0,0,0,0,-,0
-2020,CHI,CHN,China,AUL,AUS,Australia,1780,16811,0,0,0,0,0,-,0
+2020,CHI,CHN,China,AUL,AUS,Australia,1790,16811,0,0,0,0,0,-,0
 2020,CHI,CHN,China,AUS,AUT,Austria,660,97,0,0,0,0,0,-,0
-2020,CHI,CHN,China,BEL,BEL,Belgium,1151,60,0,0,0,0,0,-,0
+2020,CHI,CHN,China,BEL,BEL,Belgium,1157,60,0,0,0,0,0,-,0
 2020,CHI,CHN,China,BRA,BRA,Brazil,11,5143,0,0,0,0,0,-,0
 2020,CHI,CHN,China,BSN,BIH,Bosnia and Herzegovina,0,0,0,0,0,0,6,-,0
 2020,CHI,CHN,China,BUL,BGR,Bulgaria,0,14,0,0,0,0,0,-,0
@@ -48698,7 +48676,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,CHI,CHN,China,CYP,CYP,Cyprus,5,9,0,0,0,0,0,-,0
 2020,CHI,CHN,China,CZE,CZE,Czechia,22,54,0,0,0,0,0,-,0
 2020,CHI,CHN,China,DEN,DNK,Denmark,17,5,0,0,0,0,0,-,0
-2020,CHI,CHN,China,ECU,ECU,Ecuador,12,5,0,0,0,0,0,-,0
+2020,CHI,CHN,China,ECU,ECU,Ecuador,12,6,0,0,0,0,0,-,0
 2020,CHI,CHN,China,FIN,FIN,Finland,186,16,0,0,0,0,0,-,0
 2020,CHI,CHN,China,FRA,FRA,France,8343,263,0,0,0,0,0,-,0
 2020,CHI,CHN,China,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,1286,2040,0,0,0,0,0,-,0
@@ -48723,6 +48701,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,CHI,CHN,China,MLS,MYS,Malaysia,44,5,0,0,0,0,0,-,0
 2020,CHI,CHN,China,MNG,MNG,Mongolia,0,5,0,0,0,0,0,-,0
 2020,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2020,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,7,-,0
 2020,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),879,108,0,0,0,0,0,-,0
 2020,CHI,CHN,China,NOR,NOR,Norway,465,5,0,0,0,0,0,-,0
 2020,CHI,CHN,China,NZL,NZL,New Zealand,238,82,0,0,0,0,0,-,0
@@ -48734,7 +48713,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,CHI,CHN,China,RSA,ZAF,South Africa,0,70,0,0,0,0,0,-,0
 2020,CHI,CHN,China,RUS,RUS,Russian Federation,19,295,0,0,0,0,0,-,0
 2020,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,23,0,0,0,0,0,-,0
-2020,CHI,CHN,China,SPA,ESP,Spain,27,980,0,0,0,0,0,-,0
+2020,CHI,CHN,China,SPA,ESP,Spain,32,980,0,0,0,0,0,-,0
 2020,CHI,CHN,China,SRB,SRB,Serbia and Kosovo: S/RES/1244 (1999),0,5,0,0,0,0,0,-,0
 2020,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2020,CHI,CHN,China,SWE,SWE,Sweden,276,46,0,0,0,0,0,-,0
@@ -50043,7 +50022,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,IND,IND,India,MTA,MLT,Malta,0,5,0,0,0,0,0,-,0
 2020,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,210,-,0
 2020,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,13,0,0,0,0,0,-,0
-2020,IND,IND,India,NRU,NRU,Nauru,9,5,0,0,0,0,0,-,0
+2020,IND,IND,India,NRU,NRU,Naoero,9,5,0,0,0,0,0,-,0
 2020,IND,IND,India,NZL,NZL,New Zealand,12,77,0,0,0,0,0,-,0
 2020,IND,IND,India,PAK,PAK,Pakistan,0,5,0,0,0,0,0,-,0
 2020,IND,IND,India,PAN,PAN,Panama,0,5,0,0,0,0,0,-,0
@@ -50074,7 +50053,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,46,0,0,0,0,0,-,0
 2020,INS,IDN,Indonesia,MLS,MYS,Malaysia,985,5,0,0,0,0,0,-,0
 2020,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),0,19,0,0,0,0,0,-,0
-2020,INS,IDN,Indonesia,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2020,INS,IDN,Indonesia,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2020,INS,IDN,Indonesia,NZL,NZL,New Zealand,5,101,0,0,0,0,0,-,0
 2020,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,10501,0,0,0,0,0,0,-,0
 2020,INS,IDN,Indonesia,SWE,SWE,Sweden,16,0,0,0,0,0,0,-,0
@@ -50139,7 +50118,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,9,0,0,0,0,0,0,-,0
 2020,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),4735,2041,0,0,0,0,0,-,0
 2020,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1647,130,0,0,0,0,0,-,0
-2020,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,561,6,0,0,0,0,0,-,0
+2020,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,561,6,0,0,0,0,0,-,0
 2020,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,126,19,0,0,0,0,0,-,0
 2020,IRN,IRN,Iran (Islamic Rep. of),OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2020,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,39,20,0,0,0,0,0,-,0
@@ -50233,7 +50212,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),7197,497,0,0,0,0,0,-,0
 2020,IRQ,IRQ,Iraq,NGR,NER,Niger,6,0,0,0,0,0,0,-,0
 2020,IRQ,IRQ,Iraq,NOR,NOR,Norway,1207,57,0,0,0,0,0,-,0
-2020,IRQ,IRQ,Iraq,NRU,NRU,Nauru,48,0,0,0,0,0,0,-,0
+2020,IRQ,IRQ,Iraq,NRU,NRU,Naoero,48,0,0,0,0,0,0,-,0
 2020,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,65,5,0,0,0,0,0,-,0
 2020,IRQ,IRQ,Iraq,OMN,OMN,Oman,295,303,0,0,0,0,0,-,0
 2020,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,22,7,0,0,0,0,0,-,0
@@ -50508,7 +50487,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,KUW,KWT,Kuwait,LEB,LBN,Lebanon,9,0,0,0,0,0,0,-,0
 2020,KUW,KWT,Kuwait,LUX,LUX,Luxembourg,0,5,0,0,0,0,0,-,0
 2020,KUW,KWT,Kuwait,NET,NLD,Netherlands (Kingdom of the),5,7,0,0,0,0,0,-,0
-2020,KUW,KWT,Kuwait,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2020,KUW,KWT,Kuwait,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2020,KUW,KWT,Kuwait,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2020,KUW,KWT,Kuwait,ROM,ROU,Romania,0,5,0,0,0,0,0,-,0
 2020,KUW,KWT,Kuwait,SPA,ESP,Spain,0,5,0,0,0,0,0,-,0
@@ -50680,7 +50659,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),65,124,0,0,0,0,0,-,0
 2020,LEB,LBN,Lebanon,NIG,NGA,Nigeria,0,11,0,0,0,0,0,-,0
 2020,LEB,LBN,Lebanon,NOR,NOR,Norway,25,0,0,0,0,0,0,-,0
-2020,LEB,LBN,Lebanon,NRU,NRU,Nauru,14,0,0,0,0,0,0,-,0
+2020,LEB,LBN,Lebanon,NRU,NRU,Naoero,14,0,0,0,0,0,0,-,0
 2020,LEB,LBN,Lebanon,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
 2020,LEB,LBN,Lebanon,PHI,PHL,Philippines,5,8,0,0,0,0,0,-,0
 2020,LEB,LBN,Lebanon,POL,POL,Poland,0,7,0,0,0,0,0,-,0
@@ -50753,7 +50732,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),409,53,0,0,0,0,0,-,0
 2020,LKA,LKA,Sri Lanka,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2020,LKA,LKA,Sri Lanka,NOR,NOR,Norway,69,5,0,0,0,0,0,-,0
-2020,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,102,18,0,0,0,0,0,-,0
+2020,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,102,18,0,0,0,0,0,-,0
 2020,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,45,40,0,0,0,0,0,-,0
 2020,LKA,LKA,Sri Lanka,PAN,PAN,Panama,0,7,0,0,0,0,0,-,0
 2020,LKA,LKA,Sri Lanka,PAR,PRY,Paraguay,5,0,0,0,0,0,0,-,0
@@ -50975,7 +50954,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,MLS,MYS,Malaysia,ITA,ITA,Italy,0,5,0,0,0,0,0,-,0
 2020,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,1848,0,0,0,0,0,-,0
 2020,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),7,0,0,0,0,0,0,-,0
-2020,MLS,MYS,Malaysia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2020,MLS,MYS,Malaysia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2020,MLS,MYS,Malaysia,NZL,NZL,New Zealand,11,43,0,0,0,0,0,-,0
 2020,MLS,MYS,Malaysia,SWE,SWE,Sweden,14,10,0,0,0,0,0,-,0
 2020,MLS,MYS,Malaysia,USA,USA,United States of America,93,374,0,0,0,0,0,-,0
@@ -51130,7 +51109,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,MYA,MMR,Myanmar,NEP,NPL,Nepal,359,25,0,0,0,0,0,-,0
 2020,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),333,26,0,0,0,0,0,-,0
 2020,MYA,MMR,Myanmar,NOR,NOR,Norway,49,5,0,0,0,0,0,-,0
-2020,MYA,MMR,Myanmar,NRU,NRU,Nauru,74,0,0,0,0,0,0,-,0
+2020,MYA,MMR,Myanmar,NRU,NRU,Naoero,74,0,0,0,0,0,0,-,0
 2020,MYA,MMR,Myanmar,NZL,NZL,New Zealand,12,0,0,0,0,0,0,-,0
 2020,MYA,MMR,Myanmar,PAK,PAK,Pakistan,23,31,0,0,0,0,0,-,0
 2020,MYA,MMR,Myanmar,PHI,PHL,Philippines,5,0,0,0,0,0,0,-,0
@@ -51178,7 +51157,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,343,-,0
 2020,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),149,5,0,0,0,0,0,-,0
 2020,NEP,NPL,Nepal,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2020,NEP,NPL,Nepal,NRU,NRU,Nauru,11,6,0,0,0,0,0,-,0
+2020,NEP,NPL,Nepal,NRU,NRU,Naoero,11,6,0,0,0,0,0,-,0
 2020,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,5,0,0,0,0,0,-,0
 2020,NEP,NPL,Nepal,PAN,PAN,Panama,0,14,0,0,0,0,0,-,0
 2020,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -51353,11 +51332,12 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,NOR,NOR,Norway,BRA,BRA,Brazil,0,6,0,0,0,0,0,-,0
 2020,NOR,NOR,Norway,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,5,0,0,0,0,0,0,-,0
 2020,NOR,NOR,Norway,GFR,DEU,Germany,0,9,0,0,0,0,0,-,0
-2020,NRU,NRU,Nauru,AUL,AUS,Australia,5,16,0,0,0,0,0,-,0
+2020,NRU,NRU,Naoero,AUL,AUS,Australia,5,16,0,0,0,0,0,-,0
 2020,NZL,NZL,New Zealand,AUL,AUS,Australia,27,27,0,0,0,0,0,-,0
 2020,NZL,NZL,New Zealand,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2020,NZL,NZL,New Zealand,GFR,DEU,Germany,8,0,0,0,0,0,0,-,0
 2020,OMN,OMN,Oman,AUL,AUS,Australia,5,0,0,0,0,0,0,-,0
+2020,OMN,OMN,Oman,BDI,BDI,Burundi,0,0,0,0,0,0,974,-,0
 2020,OMN,OMN,Oman,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,20,22,0,0,0,0,0,-,0
 2020,OMN,OMN,Oman,GFR,DEU,Germany,8,10,0,0,0,0,0,-,0
 2020,OMN,OMN,Oman,SAU,SAU,Saudi Arabia,0,5,0,0,0,0,0,-,0
@@ -51425,7 +51405,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),608,284,0,0,0,0,0,-,0
 2020,PAK,PAK,Pakistan,NGR,NER,Niger,0,8,0,0,0,0,0,-,0
 2020,PAK,PAK,Pakistan,NOR,NOR,Norway,87,11,0,0,0,0,0,-,0
-2020,PAK,PAK,Pakistan,NRU,NRU,Nauru,36,20,0,0,0,0,0,-,0
+2020,PAK,PAK,Pakistan,NRU,NRU,Naoero,36,20,0,0,0,0,0,-,0
 2020,PAK,PAK,Pakistan,NZL,NZL,New Zealand,55,7,0,0,0,0,0,-,0
 2020,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2020,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,98898,1782,0,54,-,0
@@ -51971,7 +51951,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),9467,220,0,0,0,0,0,-,0
 2020,SOM,SOM,Somalia,NGR,NER,Niger,140,24,0,0,0,0,0,-,0
 2020,SOM,SOM,Somalia,NOR,NOR,Norway,5263,25,0,0,0,0,0,-,0
-2020,SOM,SOM,Somalia,NRU,NRU,Nauru,82,5,0,0,0,0,0,-,0
+2020,SOM,SOM,Somalia,NRU,NRU,Naoero,82,5,0,0,0,0,0,-,0
 2020,SOM,SOM,Somalia,NZL,NZL,New Zealand,11,0,0,0,0,0,0,-,0
 2020,SOM,SOM,Somalia,PAK,PAK,Pakistan,177,22,5,0,0,0,0,-,0
 2020,SOM,SOM,Somalia,PAN,PAN,Panama,0,101,0,0,0,0,0,-,0
@@ -52209,7 +52189,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,STA,XXA,Stateless,NEP,NPL,Nepal,0,0,0,0,0,371,0,-,0
 2020,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),2401,55,0,0,0,4407,0,-,0
 2020,STA,XXA,Stateless,NOR,NOR,Norway,2418,74,0,0,0,4206,0,-,0
-2020,STA,XXA,Stateless,NRU,NRU,Nauru,66,0,0,0,0,140,0,-,0
+2020,STA,XXA,Stateless,NRU,NRU,Naoero,66,0,0,0,0,140,0,-,0
 2020,STA,XXA,Stateless,PAK,PAK,Pakistan,0,0,0,0,0,47,0,-,0
 2020,STA,XXA,Stateless,PHI,PHL,Philippines,0,0,0,0,0,387,0,-,0
 2020,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,5,0,0,0,0,10,0,-,0
@@ -52232,6 +52212,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,STA,XXA,Stateless,THA,THA,Thailand,0,0,0,0,0,480695,0,-,0
 2020,STA,XXA,Stateless,TJK,TJK,Tajikistan,0,0,0,0,0,6385,0,-,0
 2020,STA,XXA,Stateless,TKM,TKM,Turkmenistan,0,0,0,0,0,3924,0,-,0
+2020,STA,XXA,Stateless,UAE,ARE,United Arab Emirates,0,5,0,0,0,0,0,-,0
 2020,STA,XXA,Stateless,UKR,UKR,Ukraine,47,15,0,0,0,35875,0,-,0
 2020,STA,XXA,Stateless,USA,USA,United States of America,47,0,0,0,0,47,0,-,0
 2020,STA,XXA,Stateless,UZB,UZB,Uzbekistan,0,0,0,0,0,69791,0,-,0
@@ -52308,7 +52289,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,SUD,SDN,Sudan,NGR,NER,Niger,1042,836,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,NIG,NGA,Nigeria,47,7,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,NOR,NOR,Norway,1848,9,0,0,0,0,0,-,0
-2020,SUD,SDN,Sudan,NRU,NRU,Nauru,8,0,0,0,0,0,0,-,0
+2020,SUD,SDN,Sudan,NRU,NRU,Naoero,8,0,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,NZL,NZL,New Zealand,6,5,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,PHI,PHL,Philippines,6,32,0,0,0,0,0,-,0
@@ -52448,7 +52429,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,5,0,0,0,0,0,0,-,0
 2020,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,308,216,0,0,0,0,0,-,0
 2020,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,15311,340,0,0,0,0,0,-,0
-2020,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2020,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2020,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,72,0,0,0,0,0,0,-,0
 2020,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,8,22,0,0,0,0,0,-,0
 2020,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,43,0,0,0,0,0,0,-,0
@@ -52537,10 +52518,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,THA,THA,Thailand,RSA,ZAF,South Africa,0,52,0,0,0,0,0,-,0
 2020,THA,THA,Thailand,SWE,SWE,Sweden,0,8,0,0,0,0,0,-,0
 2020,THA,THA,Thailand,USA,USA,United States of America,35,480,0,0,0,0,0,-,0
-2020,TIB,TIB,Tibetan,AUL,AUS,Australia,10,0,0,0,0,0,0,-,0
-2020,TIB,TIB,Tibetan,BEL,BEL,Belgium,6,0,0,0,0,0,0,-,0
-2020,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,7,-,0
-2020,TIB,TIB,Tibetan,SPA,ESP,Spain,5,0,0,0,0,0,0,-,0
 2020,TJK,TJK,Tajikistan,ARE,EGY,Egypt,12,13,0,0,0,0,0,-,0
 2020,TJK,TJK,Tajikistan,AUS,AUT,Austria,243,36,0,0,0,0,0,-,0
 2020,TJK,TJK,Tajikistan,BEL,BEL,Belgium,11,10,0,0,0,0,0,-,0
@@ -53359,7 +53336,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),6660,829,0,0,0,0,0,-,0
 2021,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2021,AFG,AFG,Afghanistan,NOR,NOR,Norway,3448,151,0,0,0,0,0,-,0
-2021,AFG,AFG,Afghanistan,NRU,NRU,Nauru,28,0,0,0,0,0,0,-,0
+2021,AFG,AFG,Afghanistan,NRU,NRU,Naoero,28,0,0,0,0,0,0,-,0
 2021,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,65,9,0,0,0,0,0,-,0
 2021,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1490562,13260,451,0,0,0,12,-,0
 2021,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -53854,7 +53831,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,BGD,BGD,Bangladesh,NEP,NPL,Nepal,5,0,0,0,0,0,0,-,0
 2021,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),43,6,0,0,0,0,0,-,0
 2021,BGD,BGD,Bangladesh,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2021,BGD,BGD,Bangladesh,NRU,NRU,Nauru,17,19,0,0,0,0,0,-,0
+2021,BGD,BGD,Bangladesh,NRU,NRU,Naoero,17,19,0,0,0,0,0,-,0
 2021,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,10,15,0,0,0,0,0,-,0
 2021,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,15,0,0,0,0,0,-,0
 2021,BGD,BGD,Bangladesh,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
@@ -54205,9 +54182,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,CHI,CHN,China,ALB,ALB,Albania,14,0,0,0,0,0,0,-,0
 2021,CHI,CHN,China,ARE,EGY,Egypt,0,80,0,0,0,0,0,-,0
 2021,CHI,CHN,China,ARG,ARG,Argentina,0,115,0,0,0,0,0,-,0
-2021,CHI,CHN,China,AUL,AUS,Australia,1579,15774,0,0,0,0,0,-,0
+2021,CHI,CHN,China,AUL,AUS,Australia,1589,15774,0,0,0,0,0,-,0
 2021,CHI,CHN,China,AUS,AUT,Austria,642,87,0,0,0,0,0,-,0
-2021,CHI,CHN,China,BEL,BEL,Belgium,1206,80,0,0,0,0,0,-,0
+2021,CHI,CHN,China,BEL,BEL,Belgium,1212,80,0,0,0,0,0,-,0
 2021,CHI,CHN,China,BRA,BRA,Brazil,23,5324,0,0,0,0,0,-,0
 2021,CHI,CHN,China,BSN,BIH,Bosnia and Herzegovina,0,0,0,0,0,0,5,-,0
 2021,CHI,CHN,China,CAN,CAN,Canada,5925,1318,0,0,0,0,0,-,0
@@ -54217,7 +54194,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,CHI,CHN,China,DEN,DNK,Denmark,19,7,0,0,0,0,0,-,0
 2021,CHI,CHN,China,ECU,ECU,Ecuador,12,0,0,0,0,0,0,-,0
 2021,CHI,CHN,China,FIN,FIN,Finland,190,11,0,0,0,0,0,-,0
-2021,CHI,CHN,China,FRA,FRA,France,10015,248,0,0,0,0,0,-,0
+2021,CHI,CHN,China,FRA,FRA,France,10047,248,0,0,0,0,0,-,0
 2021,CHI,CHN,China,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,1026,2428,0,0,0,0,0,-,0
 2021,CHI,CHN,China,GFR,DEU,Germany,2019,379,0,0,0,0,0,-,0
 2021,CHI,CHN,China,GRE,GRC,Greece,114,222,0,0,0,0,0,-,0
@@ -54239,6 +54216,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,CHI,CHN,China,MEX,MEX,Mexico,5,16,0,0,0,0,0,-,0
 2021,CHI,CHN,China,MLS,MYS,Malaysia,46,0,0,0,0,0,0,-,0
 2021,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2021,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2021,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),770,105,0,0,0,0,0,-,0
 2021,CHI,CHN,China,NOR,NOR,Norway,281,104,0,0,0,0,0,-,0
 2021,CHI,CHN,China,NZL,NZL,New Zealand,255,87,0,0,0,0,0,-,0
@@ -54251,7 +54229,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,CHI,CHN,China,RSA,ZAF,South Africa,0,69,0,0,0,0,0,-,0
 2021,CHI,CHN,China,RUS,RUS,Russian Federation,23,16,0,0,0,0,0,-,0
 2021,CHI,CHN,China,SAU,SAU,Saudi Arabia,14,25,0,0,0,0,0,-,0
-2021,CHI,CHN,China,SPA,ESP,Spain,32,900,0,0,0,0,0,-,0
+2021,CHI,CHN,China,SPA,ESP,Spain,37,900,0,0,0,0,0,-,0
 2021,CHI,CHN,China,SVK,SVK,Slovakia,5,0,0,0,0,0,0,-,0
 2021,CHI,CHN,China,SWE,SWE,Sweden,248,30,0,0,0,0,0,-,0
 2021,CHI,CHN,China,SWI,CHE,Switzerland,2443,76,0,0,0,0,0,-,0
@@ -55593,7 +55571,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,IND,IND,India,MTA,MLT,Malta,0,5,0,0,0,0,0,-,0
 2021,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,210,-,0
 2021,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),6,42,0,0,0,0,0,-,0
-2021,IND,IND,India,NRU,NRU,Nauru,7,5,0,0,0,0,0,-,0
+2021,IND,IND,India,NRU,NRU,Naoero,7,5,0,0,0,0,0,-,0
 2021,IND,IND,India,NZL,NZL,New Zealand,14,168,0,0,0,0,0,-,0
 2021,IND,IND,India,PAK,PAK,Pakistan,0,5,0,0,0,0,0,-,0
 2021,IND,IND,India,PAN,PAN,Panama,0,7,0,0,0,0,0,-,0
@@ -55629,7 +55607,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,INS,IDN,Indonesia,KOR,KOR,Rep. of Korea,0,29,0,0,0,0,0,-,0
 2021,INS,IDN,Indonesia,MLS,MYS,Malaysia,946,35,0,0,0,0,0,-,0
 2021,INS,IDN,Indonesia,NET,NLD,Netherlands (Kingdom of the),11,0,0,0,0,0,0,-,0
-2021,INS,IDN,Indonesia,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2021,INS,IDN,Indonesia,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2021,INS,IDN,Indonesia,NZL,NZL,New Zealand,6,60,0,0,0,0,0,-,0
 2021,INS,IDN,Indonesia,PNG,PNG,Papua New Guinea,11601,28,0,0,0,0,106,-,0
 2021,INS,IDN,Indonesia,SWE,SWE,Sweden,15,0,0,0,0,0,0,-,0
@@ -55696,7 +55674,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),5438,499,0,0,0,0,0,-,0
 2021,IRN,IRN,Iran (Islamic Rep. of),NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2021,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1496,146,0,0,0,0,0,-,0
-2021,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,508,7,0,0,0,0,0,-,0
+2021,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,508,7,0,0,0,0,0,-,0
 2021,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,107,13,0,0,0,0,0,-,0
 2021,IRN,IRN,Iran (Islamic Rep. of),OMN,OMN,Oman,0,5,0,0,0,0,0,-,0
 2021,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,39,14,0,0,0,0,0,-,0
@@ -55792,7 +55770,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,IRQ,IRQ,Iraq,MTA,MLT,Malta,81,0,0,0,0,0,0,-,0
 2021,IRQ,IRQ,Iraq,NET,NLD,Netherlands (Kingdom of the),5998,799,0,0,0,0,0,-,0
 2021,IRQ,IRQ,Iraq,NOR,NOR,Norway,1021,84,0,0,0,0,0,-,0
-2021,IRQ,IRQ,Iraq,NRU,NRU,Nauru,42,0,0,0,0,0,0,-,0
+2021,IRQ,IRQ,Iraq,NRU,NRU,Naoero,42,0,0,0,0,0,0,-,0
 2021,IRQ,IRQ,Iraq,NZL,NZL,New Zealand,58,0,0,0,0,0,0,-,0
 2021,IRQ,IRQ,Iraq,OMN,OMN,Oman,282,459,0,0,0,0,0,-,0
 2021,IRQ,IRQ,Iraq,PAK,PAK,Pakistan,21,7,0,0,0,0,0,-,0
@@ -56066,7 +56044,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,KUW,KWT,Kuwait,LEB,LBN,Lebanon,9,0,0,0,0,0,0,-,0
 2021,KUW,KWT,Kuwait,LUX,LUX,Luxembourg,5,0,0,0,0,0,0,-,0
 2021,KUW,KWT,Kuwait,NET,NLD,Netherlands (Kingdom of the),5,0,0,0,0,0,0,-,0
-2021,KUW,KWT,Kuwait,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2021,KUW,KWT,Kuwait,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2021,KUW,KWT,Kuwait,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2021,KUW,KWT,Kuwait,ROM,ROU,Romania,5,0,0,0,0,0,0,-,0
 2021,KUW,KWT,Kuwait,SPA,ESP,Spain,0,5,0,0,0,0,0,-,0
@@ -56245,7 +56223,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,LEB,LBN,Lebanon,NET,NLD,Netherlands (Kingdom of the),118,73,0,0,0,0,0,-,0
 2021,LEB,LBN,Lebanon,NIG,NGA,Nigeria,5,41,0,0,0,0,0,-,0
 2021,LEB,LBN,Lebanon,NOR,NOR,Norway,24,5,0,0,0,0,0,-,0
-2021,LEB,LBN,Lebanon,NRU,NRU,Nauru,12,0,0,0,0,0,0,-,0
+2021,LEB,LBN,Lebanon,NRU,NRU,Naoero,12,0,0,0,0,0,0,-,0
 2021,LEB,LBN,Lebanon,NZL,NZL,New Zealand,0,5,0,0,0,0,0,-,0
 2021,LEB,LBN,Lebanon,PAR,PRY,Paraguay,0,6,0,0,0,0,0,-,0
 2021,LEB,LBN,Lebanon,PHI,PHL,Philippines,5,12,0,0,0,0,0,-,0
@@ -56320,7 +56298,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,19,0,0,0,0,0,0,-,0
 2021,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),290,44,0,0,0,0,0,-,0
 2021,LKA,LKA,Sri Lanka,NOR,NOR,Norway,45,5,0,0,0,0,0,-,0
-2021,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,77,12,0,0,0,0,6,-,0
+2021,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,77,12,0,0,0,0,6,-,0
 2021,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,46,52,0,0,0,0,0,-,0
 2021,LKA,LKA,Sri Lanka,PAK,PAK,Pakistan,0,11,0,0,0,0,0,-,0
 2021,LKA,LKA,Sri Lanka,PAN,PAN,Panama,0,7,0,0,0,0,0,-,0
@@ -56543,7 +56521,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,MLS,MYS,Malaysia,ITA,ITA,Italy,0,5,0,0,0,0,0,-,0
 2021,MLS,MYS,Malaysia,KOR,KOR,Rep. of Korea,0,875,0,0,0,0,0,-,0
 2021,MLS,MYS,Malaysia,NET,NLD,Netherlands (Kingdom of the),8,0,0,0,0,0,0,-,0
-2021,MLS,MYS,Malaysia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2021,MLS,MYS,Malaysia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2021,MLS,MYS,Malaysia,NZL,NZL,New Zealand,17,21,0,0,0,0,0,-,0
 2021,MLS,MYS,Malaysia,PHI,PHL,Philippines,0,5,0,0,0,0,0,-,0
 2021,MLS,MYS,Malaysia,SWE,SWE,Sweden,14,0,0,0,0,0,0,-,0
@@ -56695,7 +56673,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,MYA,MMR,Myanmar,NEP,NPL,Nepal,377,101,0,0,0,0,0,-,0
 2021,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),203,20,0,0,0,0,0,-,0
 2021,MYA,MMR,Myanmar,NOR,NOR,Norway,22,5,0,0,0,0,0,-,0
-2021,MYA,MMR,Myanmar,NRU,NRU,Nauru,71,0,0,0,0,0,0,-,0
+2021,MYA,MMR,Myanmar,NRU,NRU,Naoero,71,0,0,0,0,0,0,-,0
 2021,MYA,MMR,Myanmar,NZL,NZL,New Zealand,12,17,0,0,0,0,0,-,0
 2021,MYA,MMR,Myanmar,PAK,PAK,Pakistan,23,31,0,0,0,0,0,-,0
 2021,MYA,MMR,Myanmar,PHI,PHL,Philippines,10,0,0,0,0,0,0,-,0
@@ -56742,7 +56720,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,343,-,0
 2021,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),101,5,0,0,0,0,0,-,0
 2021,NEP,NPL,Nepal,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2021,NEP,NPL,Nepal,NRU,NRU,Nauru,10,6,0,0,0,0,0,-,0
+2021,NEP,NPL,Nepal,NRU,NRU,Naoero,10,6,0,0,0,0,0,-,0
 2021,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2021,NEP,NPL,Nepal,PAN,PAN,Panama,0,14,0,0,0,0,0,-,0
 2021,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -56923,7 +56901,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,NOR,NOR,Norway,CAN,CAN,Canada,0,7,0,0,0,0,0,-,0
 2021,NOR,NOR,Norway,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,5,0,0,0,0,0,0,-,0
 2021,NOR,NOR,Norway,GFR,DEU,Germany,0,10,0,0,0,0,0,-,0
-2021,NRU,NRU,Nauru,AUL,AUS,Australia,5,16,0,0,0,0,0,-,0
+2021,NRU,NRU,Naoero,AUL,AUS,Australia,5,16,0,0,0,0,0,-,0
 2021,NZL,NZL,New Zealand,AUL,AUS,Australia,26,27,0,0,0,0,0,-,0
 2021,NZL,NZL,New Zealand,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2021,NZL,NZL,New Zealand,GFR,DEU,Germany,7,0,0,0,0,0,0,-,0
@@ -56995,7 +56973,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),768,310,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,NGR,NER,Niger,0,6,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,NOR,NOR,Norway,77,12,0,0,0,0,0,-,0
-2021,PAK,PAK,Pakistan,NRU,NRU,Nauru,29,17,0,0,0,0,0,-,0
+2021,PAK,PAK,Pakistan,NRU,NRU,Naoero,29,17,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,NZL,NZL,New Zealand,54,5,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,98898,0,0,5346,-,1224393
@@ -57553,7 +57531,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),7284,826,0,0,0,0,0,-,0
 2021,SOM,SOM,Somalia,NGR,NER,Niger,43,34,0,0,0,0,0,-,0
 2021,SOM,SOM,Somalia,NOR,NOR,Norway,3984,29,0,0,0,0,0,-,0
-2021,SOM,SOM,Somalia,NRU,NRU,Nauru,73,0,0,0,0,0,0,-,0
+2021,SOM,SOM,Somalia,NRU,NRU,Naoero,73,0,0,0,0,0,0,-,0
 2021,SOM,SOM,Somalia,NZL,NZL,New Zealand,10,0,0,0,0,0,0,-,0
 2021,SOM,SOM,Somalia,PAK,PAK,Pakistan,176,27,0,0,0,0,0,-,0
 2021,SOM,SOM,Somalia,PAN,PAN,Panama,0,101,0,0,0,0,0,-,0
@@ -57787,7 +57765,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,STA,XXA,Stateless,NEP,NPL,Nepal,0,0,0,0,0,465,0,-,0
 2021,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),2531,45,0,0,0,4527,0,-,0
 2021,STA,XXA,Stateless,NOR,NOR,Norway,2297,54,0,0,0,3944,0,-,0
-2021,STA,XXA,Stateless,NRU,NRU,Nauru,59,0,0,0,0,130,0,-,0
+2021,STA,XXA,Stateless,NRU,NRU,Naoero,59,0,0,0,0,130,0,-,0
 2021,STA,XXA,Stateless,PAK,PAK,Pakistan,0,0,0,0,0,47,0,-,0
 2021,STA,XXA,Stateless,PHI,PHL,Philippines,5,0,0,0,0,260,0,-,0
 2021,STA,XXA,Stateless,PNG,PNG,Papua New Guinea,5,0,0,0,0,10,0,-,0
@@ -57889,7 +57867,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,SUD,SDN,Sudan,NGR,NER,Niger,850,1292,5,0,0,0,0,-,0
 2021,SUD,SDN,Sudan,NIG,NGA,Nigeria,47,9,0,0,0,0,0,-,0
 2021,SUD,SDN,Sudan,NOR,NOR,Norway,1703,11,0,0,0,0,0,-,0
-2021,SUD,SDN,Sudan,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2021,SUD,SDN,Sudan,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2021,SUD,SDN,Sudan,NZL,NZL,New Zealand,6,5,0,0,0,0,0,-,0
 2021,SUD,SDN,Sudan,OMN,OMN,Oman,0,6,0,0,0,0,0,-,0
 2021,SUD,SDN,Sudan,PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -58029,7 +58007,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,SYR,SYR,Syrian Arab Rep.,NGR,NER,Niger,5,0,0,0,0,0,0,-,0
 2021,SYR,SYR,Syrian Arab Rep.,NIG,NGA,Nigeria,422,482,0,0,0,0,0,-,0
 2021,SYR,SYR,Syrian Arab Rep.,NOR,NOR,Norway,15865,315,0,0,0,0,0,-,0
-2021,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2021,SYR,SYR,Syrian Arab Rep.,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2021,SYR,SYR,Syrian Arab Rep.,NZL,NZL,New Zealand,72,0,0,0,0,0,0,-,0
 2021,SYR,SYR,Syrian Arab Rep.,OMN,OMN,Oman,8,27,0,0,0,0,0,-,0
 2021,SYR,SYR,Syrian Arab Rep.,PAK,PAK,Pakistan,50,23,0,0,0,0,0,-,0
@@ -58121,11 +58099,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,THA,THA,Thailand,RSA,ZAF,South Africa,0,49,0,0,0,0,0,-,0
 2021,THA,THA,Thailand,SWE,SWE,Sweden,0,10,0,0,0,0,0,-,0
 2021,THA,THA,Thailand,USA,USA,United States of America,35,512,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,AUL,AUS,Australia,10,0,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,BEL,BEL,Belgium,6,0,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,FRA,FRA,France,32,0,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,SPA,ESP,Spain,5,0,0,0,0,0,0,-,0
 2021,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,6,0,0,0,0,0,-,0
 2021,TJK,TJK,Tajikistan,ARE,EGY,Egypt,12,10,0,0,0,0,0,-,0
 2021,TJK,TJK,Tajikistan,AUS,AUT,Austria,260,24,0,0,0,0,0,-,0
@@ -58947,7 +58920,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,AFG,AFG,Afghanistan,NET,NLD,Netherlands (Kingdom of the),8415,983,0,0,0,0,0,-,0
 2022,AFG,AFG,Afghanistan,NIG,NGA,Nigeria,5,0,0,0,0,0,0,-,0
 2022,AFG,AFG,Afghanistan,NOR,NOR,Norway,3041,457,0,0,0,0,0,-,0
-2022,AFG,AFG,Afghanistan,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2022,AFG,AFG,Afghanistan,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2022,AFG,AFG,Afghanistan,NZL,NZL,New Zealand,62,12,0,0,0,0,0,-,0
 2022,AFG,AFG,Afghanistan,PAK,PAK,Pakistan,1743278,38108,6039,0,0,0,33,-,0
 2022,AFG,AFG,Afghanistan,PAN,PAN,Panama,5,6,0,0,0,0,0,-,0
@@ -59472,7 +59445,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,BGD,BGD,Bangladesh,NEP,NPL,Nepal,0,0,5,0,0,0,0,-,0
 2022,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),139,21,0,0,0,0,0,-,0
 2022,BGD,BGD,Bangladesh,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2022,BGD,BGD,Bangladesh,NRU,NRU,Nauru,5,9,0,0,0,0,0,-,0
+2022,BGD,BGD,Bangladesh,NRU,NRU,Naoero,5,9,0,0,0,0,0,-,0
 2022,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,14,10,0,0,0,0,0,-,0
 2022,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,15,0,0,0,0,0,-,0
 2022,BGD,BGD,Bangladesh,PAR,PRY,Paraguay,0,5,0,0,0,0,0,-,0
@@ -59845,9 +59818,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,CHI,CHN,China,ALB,ALB,Albania,14,0,0,0,0,0,0,-,0
 2022,CHI,CHN,China,ARE,EGY,Egypt,0,77,0,0,0,0,0,-,0
 2022,CHI,CHN,China,ARG,ARG,Argentina,0,121,0,0,0,0,0,-,0
-2022,CHI,CHN,China,AUL,AUS,Australia,1656,14788,0,0,0,0,0,-,0
+2022,CHI,CHN,China,AUL,AUS,Australia,1666,14789,0,0,0,0,0,-,0
 2022,CHI,CHN,China,AUS,AUT,Austria,677,108,0,0,0,0,0,-,0
-2022,CHI,CHN,China,BEL,BEL,Belgium,1068,85,0,0,0,0,0,-,0
+2022,CHI,CHN,China,BEL,BEL,Belgium,1073,85,0,0,0,0,0,-,0
 2022,CHI,CHN,China,BRA,BRA,Brazil,24,4621,0,0,0,0,0,-,0
 2022,CHI,CHN,China,CAN,CAN,Canada,2154,1303,0,0,0,0,0,-,0
 2022,CHI,CHN,China,COL,COL,Colombia,0,0,0,0,0,0,150,-,0
@@ -59881,6 +59854,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,CHI,CHN,China,MLS,MYS,Malaysia,38,16,0,0,0,0,0,-,0
 2022,CHI,CHN,China,MNG,MNG,Mongolia,5,0,0,0,0,0,0,-,0
 2022,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2022,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,5,-,0
 2022,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),915,137,0,0,0,0,0,-,0
 2022,CHI,CHN,China,NOR,NOR,Norway,288,18,0,0,0,0,0,-,0
 2022,CHI,CHN,China,NZL,NZL,New Zealand,271,80,0,0,0,0,0,-,0
@@ -61398,7 +61372,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,IRN,IRN,Iran (Islamic Rep. of),NEP,NPL,Nepal,9,0,0,0,0,0,0,-,0
 2022,IRN,IRN,Iran (Islamic Rep. of),NET,NLD,Netherlands (Kingdom of the),5401,957,0,0,0,0,0,-,0
 2022,IRN,IRN,Iran (Islamic Rep. of),NOR,NOR,Norway,1369,156,0,0,0,0,0,-,0
-2022,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Nauru,8,0,0,0,0,0,0,-,0
+2022,IRN,IRN,Iran (Islamic Rep. of),NRU,NRU,Naoero,8,0,0,0,0,0,0,-,0
 2022,IRN,IRN,Iran (Islamic Rep. of),NZL,NZL,New Zealand,82,6,0,0,0,0,0,-,0
 2022,IRN,IRN,Iran (Islamic Rep. of),PAK,PAK,Pakistan,39,14,0,0,0,0,0,-,0
 2022,IRN,IRN,Iran (Islamic Rep. of),PAN,PAN,Panama,5,0,0,0,0,0,0,-,0
@@ -62061,7 +62035,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,LKA,LKA,Sri Lanka,NEP,NPL,Nepal,15,6,5,0,0,0,0,-,0
 2022,LKA,LKA,Sri Lanka,NET,NLD,Netherlands (Kingdom of the),241,53,0,0,0,0,0,-,0
 2022,LKA,LKA,Sri Lanka,NOR,NOR,Norway,42,5,0,0,0,0,0,-,0
-2022,LKA,LKA,Sri Lanka,NRU,NRU,Nauru,11,0,0,0,0,0,0,-,0
+2022,LKA,LKA,Sri Lanka,NRU,NRU,Naoero,11,0,0,0,0,0,0,-,0
 2022,LKA,LKA,Sri Lanka,NZL,NZL,New Zealand,42,50,0,0,0,0,0,-,0
 2022,LKA,LKA,Sri Lanka,PAK,PAK,Pakistan,0,11,0,0,0,0,0,-,0
 2022,LKA,LKA,Sri Lanka,PAN,PAN,Panama,0,7,0,0,0,0,0,-,0
@@ -62478,7 +62452,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,MYA,MMR,Myanmar,NEP,NPL,Nepal,374,91,0,0,0,0,0,-,0
 2022,MYA,MMR,Myanmar,NET,NLD,Netherlands (Kingdom of the),430,55,0,0,0,0,0,-,0
 2022,MYA,MMR,Myanmar,NOR,NOR,Norway,23,8,0,0,0,0,0,-,0
-2022,MYA,MMR,Myanmar,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2022,MYA,MMR,Myanmar,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2022,MYA,MMR,Myanmar,NZL,NZL,New Zealand,19,17,0,0,0,0,0,-,0
 2022,MYA,MMR,Myanmar,PAK,PAK,Pakistan,24,31,0,0,0,0,0,-,0
 2022,MYA,MMR,Myanmar,PHI,PHL,Philippines,10,5,0,0,0,0,0,-,0
@@ -62532,7 +62506,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,NEP,NPL,Nepal,NEP,NPL,Nepal,0,0,0,0,0,0,343,-,0
 2022,NEP,NPL,Nepal,NET,NLD,Netherlands (Kingdom of the),78,0,0,0,0,0,0,-,0
 2022,NEP,NPL,Nepal,NOR,NOR,Norway,5,0,0,0,0,0,0,-,0
-2022,NEP,NPL,Nepal,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2022,NEP,NPL,Nepal,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2022,NEP,NPL,Nepal,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2022,NEP,NPL,Nepal,PAN,PAN,Panama,0,14,0,0,0,0,0,-,0
 2022,NEP,NPL,Nepal,PER,PER,Peru,0,5,0,0,0,0,0,-,0
@@ -62717,7 +62691,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,NOR,NOR,Norway,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2022,NOR,NOR,Norway,CAN,CAN,Canada,0,10,0,0,0,0,0,-,0
 2022,NOR,NOR,Norway,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,5,0,0,0,0,0,0,-,0
-2022,NRU,NRU,Nauru,AUL,AUS,Australia,5,19,0,0,0,0,0,-,0
+2022,NRU,NRU,Naoero,AUL,AUS,Australia,5,19,0,0,0,0,0,-,0
 2022,NZL,NZL,New Zealand,AUL,AUS,Australia,34,27,0,0,0,0,0,-,0
 2022,NZL,NZL,New Zealand,BRA,BRA,Brazil,0,5,0,0,0,0,0,-,0
 2022,NZL,NZL,New Zealand,BUL,BGR,Bulgaria,5,0,0,0,0,0,0,-,0
@@ -62793,7 +62767,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,PAK,PAK,Pakistan,NGR,NER,Niger,0,6,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,NIG,NGA,Nigeria,0,5,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,NOR,NOR,Norway,82,22,0,0,0,0,0,-,0
-2022,PAK,PAK,Pakistan,NRU,NRU,Nauru,6,8,0,0,0,0,0,-,0
+2022,PAK,PAK,Pakistan,NRU,NRU,Naoero,6,8,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,NZL,NZL,New Zealand,48,14,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,0,98898,0,37762,-,1224393
@@ -63392,7 +63366,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,SOM,SOM,Somalia,NET,NLD,Netherlands (Kingdom of the),2732,1498,0,0,0,0,0,-,0
 2022,SOM,SOM,Somalia,NGR,NER,Niger,30,36,0,0,0,0,0,-,0
 2022,SOM,SOM,Somalia,NOR,NOR,Norway,2139,34,0,0,0,0,0,-,0
-2022,SOM,SOM,Somalia,NRU,NRU,Nauru,5,0,0,0,0,0,0,-,0
+2022,SOM,SOM,Somalia,NRU,NRU,Naoero,5,0,0,0,0,0,0,-,0
 2022,SOM,SOM,Somalia,NZL,NZL,New Zealand,9,0,0,0,0,0,0,-,0
 2022,SOM,SOM,Somalia,PAK,PAK,Pakistan,175,26,0,0,0,0,0,-,0
 2022,SOM,SOM,Somalia,PAN,PAN,Panama,0,101,0,0,0,0,0,-,0
@@ -63634,7 +63608,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,STA,XXA,Stateless,NEP,NPL,Nepal,0,0,0,0,0,452,0,-,0
 2022,STA,XXA,Stateless,NET,NLD,Netherlands (Kingdom of the),3152,58,0,0,0,4652,0,-,0
 2022,STA,XXA,Stateless,NOR,NOR,Norway,2192,91,0,0,0,3980,0,-,0
-2022,STA,XXA,Stateless,NRU,NRU,Nauru,0,0,0,0,0,5,0,-,0
+2022,STA,XXA,Stateless,NRU,NRU,Naoero,0,0,0,0,0,5,0,-,0
 2022,STA,XXA,Stateless,NZL,NZL,New Zealand,5,0,0,0,0,0,0,-,0
 2022,STA,XXA,Stateless,PAK,PAK,Pakistan,0,0,0,0,0,55,0,-,0
 2022,STA,XXA,Stateless,PHI,PHL,Philippines,10,0,0,0,0,267,0,-,0
@@ -63989,9 +63963,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,THA,THA,Thailand,RSA,ZAF,South Africa,0,10,0,0,0,0,0,-,0
 2022,THA,THA,Thailand,SWE,SWE,Sweden,5,10,0,0,0,0,0,-,0
 2022,THA,THA,Thailand,USA,USA,United States of America,25,505,0,0,0,0,0,-,0
-2022,TIB,TIB,Tibetan,AUL,AUS,Australia,10,0,0,0,0,0,0,-,0
-2022,TIB,TIB,Tibetan,BEL,BEL,Belgium,5,0,0,0,0,0,0,-,0
-2022,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,5,-,0
 2022,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,6,0,0,0,0,0,-,0
 2022,TJK,TJK,Tajikistan,ARE,EGY,Egypt,16,5,0,0,0,0,0,-,0
 2022,TJK,TJK,Tajikistan,AUS,AUT,Austria,267,51,0,0,0,0,0,-,0
@@ -65434,7 +65405,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,BGD,BGD,Bangladesh,NEP,NPL,Nepal,0,5,0,0,0,0,0,-,0
 2023,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),46,31,0,0,0,0,0,-,0
 2023,BGD,BGD,Bangladesh,NOR,NOR,Norway,5,5,0,0,0,0,0,-,0
-2023,BGD,BGD,Bangladesh,NRU,NRU,Nauru,0,8,0,0,0,0,0,-,0
+2023,BGD,BGD,Bangladesh,NRU,NRU,Naoero,0,8,0,0,0,0,0,-,0
 2023,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,15,5,0,0,0,0,0,-,0
 2023,BGD,BGD,Bangladesh,PAN,PAN,Panama,0,15,0,0,0,0,0,-,0
 2023,BGD,BGD,Bangladesh,PER,PER,Peru,26,75,0,0,0,0,0,-,0
@@ -65820,9 +65791,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,CHI,CHN,China,ALB,ALB,Albania,14,0,0,0,0,0,0,-,0
 2023,CHI,CHN,China,ARE,EGY,Egypt,0,74,0,0,0,0,0,-,0
 2023,CHI,CHN,China,ARG,ARG,Argentina,0,100,0,0,0,0,0,-,0
-2023,CHI,CHN,China,AUL,AUS,Australia,738,13207,0,0,0,0,0,-,0
+2023,CHI,CHN,China,AUL,AUS,Australia,738,13208,0,0,0,0,0,-,0
 2023,CHI,CHN,China,AUS,AUT,Austria,572,203,0,0,0,0,0,-,0
-2023,CHI,CHN,China,BEL,BEL,Belgium,1006,88,0,0,0,0,0,-,0
+2023,CHI,CHN,China,BEL,BEL,Belgium,1011,88,0,0,0,0,0,-,0
 2023,CHI,CHN,China,BRA,BRA,Brazil,38,1360,0,0,0,0,0,-,0
 2023,CHI,CHN,China,BSN,BIH,Bosnia and Herzegovina,0,0,0,0,0,0,5,-,0
 2023,CHI,CHN,China,CAN,CAN,Canada,2349,1581,0,0,0,0,0,-,0
@@ -65833,7 +65804,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,CHI,CHN,China,DEN,DNK,Denmark,16,9,0,0,0,0,0,-,0
 2023,CHI,CHN,China,ECU,ECU,Ecuador,12,6,0,0,0,0,0,-,0
 2023,CHI,CHN,China,FIN,FIN,Finland,199,53,0,0,0,0,0,-,0
-2023,CHI,CHN,China,FRA,FRA,France,12217,400,0,0,0,0,0,-,0
+2023,CHI,CHN,China,FRA,FRA,France,12247,400,0,0,0,0,0,-,0
 2023,CHI,CHN,China,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,1050,2384,0,0,0,0,0,-,0
 2023,CHI,CHN,China,GFR,DEU,Germany,2333,709,0,0,0,0,0,-,0
 2023,CHI,CHN,China,GRE,GRC,Greece,112,98,0,0,0,0,0,-,0
@@ -65856,6 +65827,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,CHI,CHN,China,MNG,MNG,Mongolia,5,0,0,0,0,0,0,-,0
 2023,CHI,CHN,China,MOR,MAR,Morocco,5,0,0,0,0,0,0,-,0
 2023,CHI,CHN,China,MTA,MLT,Malta,17,0,0,0,0,0,0,-,0
+2023,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,14,-,0
 2023,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),993,427,0,0,0,0,0,-,0
 2023,CHI,CHN,China,NOR,NOR,Norway,233,33,0,0,0,0,0,-,0
 2023,CHI,CHN,China,NZL,NZL,New Zealand,296,399,0,0,0,0,0,-,0
@@ -68724,7 +68696,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,NOR,NOR,Norway,CAN,CAN,Canada,7,5,0,0,0,0,0,-,0
 2023,NOR,NOR,Norway,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,5,0,0,0,0,0,0,-,0
 2023,NOR,NOR,Norway,GFR,DEU,Germany,5,0,0,0,0,0,0,-,0
-2023,NRU,NRU,Nauru,AUL,AUS,Australia,7,16,0,0,0,0,0,-,0
+2023,NRU,NRU,Naoero,AUL,AUS,Australia,7,16,0,0,0,0,0,-,0
 2023,NZL,NZL,New Zealand,AUL,AUS,Australia,25,23,0,0,0,0,0,-,0
 2023,NZL,NZL,New Zealand,GFR,DEU,Germany,9,0,0,0,0,0,0,-,0
 2023,NZL,NZL,New Zealand,RUS,RUS,Russian Federation,5,0,0,0,0,0,0,-,0
@@ -68799,7 +68771,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,PAK,PAK,Pakistan,NGR,NER,Niger,0,6,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,NIG,NGA,Nigeria,0,7,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,NOR,NOR,Norway,63,26,0,0,0,0,0,-,0
-2023,PAK,PAK,Pakistan,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2023,PAK,PAK,Pakistan,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,NZL,NZL,New Zealand,51,50,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,0,0,0,93,-,1400000
@@ -70042,9 +70014,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,THA,THA,Thailand,SWE,SWE,Sweden,0,6,0,0,0,0,0,-,0
 2023,THA,THA,Thailand,SWI,CHE,Switzerland,5,0,0,0,0,0,0,-,0
 2023,THA,THA,Thailand,USA,USA,United States of America,29,510,0,0,0,0,0,-,0
-2023,TIB,TIB,Tibetan,BEL,BEL,Belgium,5,0,0,0,0,0,0,-,0
-2023,TIB,TIB,Tibetan,FRA,FRA,France,30,0,0,0,0,0,0,-,0
-2023,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,14,-,0
 2023,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,6,0,0,0,0,0,-,0
 2023,TJK,TJK,Tajikistan,ARE,EGY,Egypt,13,5,0,0,0,0,0,-,0
 2023,TJK,TJK,Tajikistan,AUS,AUT,Austria,260,32,0,0,0,0,0,-,0
@@ -71487,7 +71456,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,BGD,BGD,Bangladesh,NEP,NPL,Nepal,0,16,0,0,0,0,0,-,0
 2024,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),69,48,0,0,0,0,0,-,0
 2024,BGD,BGD,Bangladesh,NOR,NOR,Norway,32,10,0,0,0,0,0,-,0
-2024,BGD,BGD,Bangladesh,NRU,NRU,Nauru,0,72,0,0,0,0,0,-,0
+2024,BGD,BGD,Bangladesh,NRU,NRU,Naoero,0,72,0,0,0,0,0,-,0
 2024,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,16,51,0,0,0,0,0,-,0
 2024,BGD,BGD,Bangladesh,PER,PER,Peru,26,79,0,0,0,0,0,-,0
 2024,BGD,BGD,Bangladesh,PNG,PNG,Papua New Guinea,5,6,0,0,0,0,0,-,0
@@ -71894,9 +71863,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,CHI,CHN,China,ARE,EGY,Egypt,11,37,0,0,0,0,0,-,0
 2024,CHI,CHN,China,ARG,ARG,Argentina,0,28,0,0,0,0,0,-,0
 2024,CHI,CHN,China,ARM,ARM,Armenia,0,5,0,0,0,0,0,-,0
-2024,CHI,CHN,China,AUL,AUS,Australia,847,14003,0,0,0,0,0,-,0
+2024,CHI,CHN,China,AUL,AUS,Australia,847,14004,0,0,0,0,0,-,0
 2024,CHI,CHN,China,AUS,AUT,Austria,664,275,0,0,0,0,0,-,0
-2024,CHI,CHN,China,BEL,BEL,Belgium,831,10,0,0,0,0,0,-,0
+2024,CHI,CHN,China,BEL,BEL,Belgium,836,10,0,0,0,0,0,-,0
 2024,CHI,CHN,China,BRA,BRA,Brazil,43,1220,0,0,0,0,0,-,0
 2024,CHI,CHN,China,BSN,BIH,Bosnia and Herzegovina,0,5,0,0,0,0,8,-,0
 2024,CHI,CHN,China,CAN,CAN,Canada,4958,4959,0,0,0,0,0,-,0
@@ -71905,7 +71874,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,CHI,CHN,China,CZE,CZE,Czechia,85,5,0,0,0,0,0,-,0
 2024,CHI,CHN,China,DEN,DNK,Denmark,80,10,0,0,0,0,0,-,0
 2024,CHI,CHN,China,FIN,FIN,Finland,199,52,0,0,0,0,0,-,0
-2024,CHI,CHN,China,FRA,FRA,France,14101,568,0,0,0,0,0,-,0
+2024,CHI,CHN,China,FRA,FRA,France,14132,568,0,0,0,0,0,-,0
 2024,CHI,CHN,China,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,1081,2471,0,0,0,0,0,-,0
 2024,CHI,CHN,China,GFR,DEU,Germany,2325,1238,0,0,0,0,0,-,0
 2024,CHI,CHN,China,GRE,GRC,Greece,63,172,0,0,0,0,0,-,0
@@ -71930,9 +71899,10 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,CHI,CHN,China,MNG,MNG,Mongolia,5,5,0,0,0,0,0,-,0
 2024,CHI,CHN,China,MOR,MAR,Morocco,5,0,0,0,0,0,0,-,0
 2024,CHI,CHN,China,MTA,MLT,Malta,6,5,0,0,0,0,0,-,0
+2024,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2024,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),910,509,0,0,0,0,0,-,0
 2024,CHI,CHN,China,NOR,NOR,Norway,202,60,0,0,0,0,0,-,0
-2024,CHI,CHN,China,NRU,NRU,Nauru,0,7,0,0,0,0,0,-,0
+2024,CHI,CHN,China,NRU,NRU,Naoero,0,7,0,0,0,0,0,-,0
 2024,CHI,CHN,China,NZL,NZL,New Zealand,388,574,0,0,0,0,0,-,0
 2024,CHI,CHN,China,PAK,PAK,Pakistan,0,17,0,0,0,0,0,-,0
 2024,CHI,CHN,China,PER,PER,Peru,0,29,0,0,0,0,0,-,0
@@ -73411,7 +73381,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,210,-,0
 2024,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),32,52,0,0,0,0,0,-,0
 2024,IND,IND,India,NOR,NOR,Norway,14,0,0,0,0,0,0,-,0
-2024,IND,IND,India,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2024,IND,IND,India,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2024,IND,IND,India,NZL,NZL,New Zealand,72,1452,0,0,0,0,0,-,0
 2024,IND,IND,India,PAK,PAK,Pakistan,0,5,0,0,0,0,0,-,0
 2024,IND,IND,India,PER,PER,Peru,6,64,0,0,0,0,0,-,0
@@ -74887,7 +74857,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,NOR,NOR,Norway,SWE,SWE,Sweden,5,0,0,0,0,0,0,-,0
 2024,NOR,NOR,Norway,SWI,CHE,Switzerland,0,0,5,0,0,0,0,-,0
 2024,NOR,NOR,Norway,USA,USA,United States of America,0,5,0,0,0,0,0,-,0
-2024,NRU,NRU,Nauru,AUL,AUS,Australia,5,18,0,0,0,0,0,-,0
+2024,NRU,NRU,Naoero,AUL,AUS,Australia,5,18,0,0,0,0,0,-,0
 2024,NZL,NZL,New Zealand,AUL,AUS,Australia,23,21,0,0,0,0,0,-,0
 2024,NZL,NZL,New Zealand,DEN,DNK,Denmark,5,0,0,0,0,0,0,-,0
 2024,NZL,NZL,New Zealand,GFR,DEU,Germany,9,0,0,0,0,0,0,-,0
@@ -74960,7 +74930,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),2040,903,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,NIG,NGA,Nigeria,0,9,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,NOR,NOR,Norway,108,21,0,0,0,0,0,-,0
-2024,PAK,PAK,Pakistan,NRU,NRU,Nauru,5,6,0,0,0,0,0,-,0
+2024,PAK,PAK,Pakistan,NRU,NRU,Naoero,5,6,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,NZL,NZL,New Zealand,73,115,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,3439,0,0,283,-,1456000
@@ -76227,9 +76197,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,THA,THA,Thailand,SWE,SWE,Sweden,21,10,0,0,0,0,0,-,0
 2024,THA,THA,Thailand,SWI,CHE,Switzerland,5,0,0,0,0,0,0,-,0
 2024,THA,THA,Thailand,USA,USA,United States of America,29,548,0,0,0,0,0,-,0
-2024,TIB,TIB,Tibetan,BEL,BEL,Belgium,5,0,0,0,0,0,0,-,0
-2024,TIB,TIB,Tibetan,FRA,FRA,France,31,0,0,0,0,0,0,-,0
-2024,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2024,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,6,0,0,0,0,0,-,0
 2024,TJK,TJK,Tajikistan,ARE,EGY,Egypt,0,5,0,0,0,0,0,-,0
 2024,TJK,TJK,Tajikistan,ARM,ARM,Armenia,0,5,0,0,0,0,0,-,0
@@ -76657,7 +76624,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,UKR,UKR,Ukraine,AUL,AUS,Australia,34,1019,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,AUS,AUT,Austria,84987,56,8000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,AZE,AZE,Azerbaijan,4906,206,0,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,BEL,BEL,Belgium,85635,887,0,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,BEL,BEL,Belgium,85635,887,1000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,BLR,BLR,Belarus,43114,1199,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,BOL,BOL,Bolivia (Plurinational State of),7,9,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,BRA,BRA,Brazil,1330,34,0,0,0,0,0,-,0
@@ -76675,18 +76642,18 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,UKR,UKR,Ukraine,ECU,ECU,Ecuador,102,8,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,EST,EST,Estonia,41729,98,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,FIN,FIN,Finland,68589,197,2000,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,FRA,FRA,France,68929,6296,0,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,FRA,FRA,France,68929,6296,2000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,255141,945,6000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,GEO,GEO,Georgia,29914,85,2000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,GFR,DEU,Germany,1205729,1830,17000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,GHA,GHA,Ghana,0,5,0,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,GRE,GRC,Greece,32830,61,0,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,GRE,GRC,Greece,32830,61,1000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,GUA,GTM,Guatemala,5,0,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,HRV,HRV,Croatia,27256,11,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,HUN,HUN,Hungary,62987,0,6000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,ICE,ISL,Iceland,4029,27,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,IND,IND,India,0,89,0,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,IRE,IRL,Ireland,109081,451,0,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,IRE,IRL,Ireland,109081,451,1000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,IRQ,IRQ,Iraq,0,5,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,ISR,ISR,Israel,39,262,0,0,0,0,25000,-,0
 2024,UKR,UKR,Ukraine,ITA,ITA,Italy,167780,1875,2000,0,0,0,0,-,0
@@ -76728,8 +76695,8 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,UKR,UKR,Ukraine,SWI,CHE,Switzerland,66894,639,6059,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,TAN,TZA,United Rep. of Tanzania,0,13,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,TUN,TUN,Tunisia,0,6,0,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,TUR,TUR,Türkiye,2616,0,0,0,0,0,0,-,0
-2024,UKR,UKR,Ukraine,UKN,UNK,Unknown ,0,0,20000,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,TUR,TUR,Türkiye,2616,0,1000,0,0,0,0,-,0
+2024,UKR,UKR,Ukraine,UKN,UNK,Unknown ,0,0,14000,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,UKR,UKR,Ukraine,0,0,0,3665000,782000,0,851644,-,0
 2024,UKR,UKR,Ukraine,URU,URY,Uruguay,18,5,0,0,0,0,0,-,0
 2024,UKR,UKR,Ukraine,USA,USA,United States of America,3397,18658,0,0,0,0,0,-,0
@@ -77698,7 +77665,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,BGD,BGD,Bangladesh,NEP,NPL,Nepal,0,41,0,0,0,0,0,-,0
 2025,BGD,BGD,Bangladesh,NET,NLD,Netherlands (Kingdom of the),63,56,0,0,0,0,0,-,0
 2025,BGD,BGD,Bangladesh,NOR,NOR,Norway,21,5,0,0,0,0,0,-,0
-2025,BGD,BGD,Bangladesh,NRU,NRU,Nauru,0,69,0,0,0,0,0,-,0
+2025,BGD,BGD,Bangladesh,NRU,NRU,Naoero,0,69,0,0,0,0,0,-,0
 2025,BGD,BGD,Bangladesh,NZL,NZL,New Zealand,16,151,0,0,0,0,0,-,0
 2025,BGD,BGD,Bangladesh,PER,PER,Peru,26,84,0,0,0,0,0,-,0
 2025,BGD,BGD,Bangladesh,PNG,PNG,Papua New Guinea,5,6,0,0,0,0,0,-,0
@@ -78108,9 +78075,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,CHI,CHN,China,ARE,EGY,Egypt,5,35,0,0,0,0,0,-,0
 2025,CHI,CHN,China,ARG,ARG,Argentina,0,37,0,0,0,0,0,-,0
 2025,CHI,CHN,China,ARM,ARM,Armenia,0,5,0,0,0,0,0,-,0
-2025,CHI,CHN,China,AUL,AUS,Australia,1131,8507,8,0,0,0,0,-,0
+2025,CHI,CHN,China,AUL,AUS,Australia,1136,8508,8,0,0,0,0,-,0
 2025,CHI,CHN,China,AUS,AUT,Austria,779,183,0,0,0,0,0,-,0
-2025,CHI,CHN,China,BEL,BEL,Belgium,700,110,0,0,0,0,0,-,0
+2025,CHI,CHN,China,BEL,BEL,Belgium,705,110,0,0,0,0,0,-,0
 2025,CHI,CHN,China,BRA,BRA,Brazil,43,732,0,0,0,0,0,-,0
 2025,CHI,CHN,China,BSN,BIH,Bosnia and Herzegovina,0,5,0,0,0,0,39,-,0
 2025,CHI,CHN,China,CAN,CAN,Canada,6381,7304,0,0,0,0,0,-,0
@@ -78120,7 +78087,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,CHI,CHN,China,CZE,CZE,Czechia,74,8,0,0,0,0,0,-,0
 2025,CHI,CHN,China,DEN,DNK,Denmark,46,5,0,0,0,0,0,-,0
 2025,CHI,CHN,China,FIN,FIN,Finland,245,41,0,0,0,0,0,-,0
-2025,CHI,CHN,China,FRA,FRA,France,16353,744,0,0,0,0,0,-,0
+2025,CHI,CHN,China,FRA,FRA,France,16384,744,0,0,0,0,0,-,0
 2025,CHI,CHN,China,GBR,GBR,United Kingdom of Great Britain and Northern Ireland,1161,867,0,0,0,0,0,-,0
 2025,CHI,CHN,China,GFR,DEU,Germany,2417,1457,0,0,0,0,0,-,0
 2025,CHI,CHN,China,GRE,GRC,Greece,71,409,0,0,0,0,0,-,0
@@ -78145,9 +78112,10 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,CHI,CHN,China,MNG,MNG,Mongolia,5,5,0,0,0,0,0,-,0
 2025,CHI,CHN,China,MOR,MAR,Morocco,5,0,0,0,0,0,0,-,0
 2025,CHI,CHN,China,MTA,MLT,Malta,12,5,0,0,0,0,0,-,0
+2025,CHI,CHN,China,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2025,CHI,CHN,China,NET,NLD,Netherlands (Kingdom of the),1012,462,0,0,0,0,0,-,0
 2025,CHI,CHN,China,NOR,NOR,Norway,196,77,0,0,0,0,0,-,0
-2025,CHI,CHN,China,NRU,NRU,Nauru,0,13,0,0,0,0,0,-,0
+2025,CHI,CHN,China,NRU,NRU,Naoero,0,13,0,0,0,0,0,-,0
 2025,CHI,CHN,China,NZL,NZL,New Zealand,470,625,0,0,0,0,0,-,0
 2025,CHI,CHN,China,PAK,PAK,Pakistan,0,17,0,0,0,0,0,-,0
 2025,CHI,CHN,China,PER,PER,Peru,0,32,0,0,0,0,0,-,0
@@ -79638,7 +79606,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,IND,IND,India,NEP,NPL,Nepal,0,0,0,0,0,0,210,-,0
 2025,IND,IND,India,NET,NLD,Netherlands (Kingdom of the),34,55,0,0,0,0,0,-,0
 2025,IND,IND,India,NOR,NOR,Norway,12,5,0,0,0,0,0,-,0
-2025,IND,IND,India,NRU,NRU,Nauru,0,5,0,0,0,0,0,-,0
+2025,IND,IND,India,NRU,NRU,Naoero,0,5,0,0,0,0,0,-,0
 2025,IND,IND,India,NZL,NZL,New Zealand,66,1628,0,0,0,0,0,-,0
 2025,IND,IND,India,PAK,PAK,Pakistan,0,5,0,0,0,0,0,-,0
 2025,IND,IND,India,PER,PER,Peru,6,64,0,0,0,0,0,-,0
@@ -81140,7 +81108,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,NOR,NOR,Norway,GFR,DEU,Germany,5,5,0,0,0,0,0,-,0
 2025,NOR,NOR,Norway,SWE,SWE,Sweden,5,0,0,0,0,0,0,-,0
 2025,NOR,NOR,Norway,USA,USA,United States of America,0,6,0,0,0,0,0,-,0
-2025,NRU,NRU,Nauru,AUL,AUS,Australia,5,22,0,0,0,0,0,-,0
+2025,NRU,NRU,Naoero,AUL,AUS,Australia,5,22,0,0,0,0,0,-,0
 2025,NZL,NZL,New Zealand,AUL,AUS,Australia,25,16,0,0,0,0,0,-,0
 2025,NZL,NZL,New Zealand,BUL,BGR,Bulgaria,5,0,0,0,0,0,0,-,0
 2025,NZL,NZL,New Zealand,CAN,CAN,Canada,0,8,0,0,0,0,0,-,0
@@ -81217,7 +81185,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,PAK,PAK,Pakistan,NET,NLD,Netherlands (Kingdom of the),2495,999,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,NIG,NGA,Nigeria,0,5,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,NOR,NOR,Norway,93,36,0,0,0,0,0,-,0
-2025,PAK,PAK,Pakistan,NRU,NRU,Nauru,5,5,0,0,0,0,0,-,0
+2025,PAK,PAK,Pakistan,NRU,NRU,Naoero,5,5,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,NZL,NZL,New Zealand,82,183,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,OMN,OMN,Oman,5,0,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,PAK,PAK,Pakistan,0,0,0,0,3439,0,147,-,1514240
@@ -82496,10 +82464,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,THA,THA,Thailand,SWE,SWE,Sweden,9,0,0,0,0,0,0,-,0
 2025,THA,THA,Thailand,SWI,CHE,Switzerland,5,0,0,0,0,0,0,-,0
 2025,THA,THA,Thailand,USA,USA,United States of America,29,64,0,0,0,0,0,-,0
-2025,TIB,TIB,Tibetan,AUL,AUS,Australia,5,0,0,0,0,0,0,-,0
-2025,TIB,TIB,Tibetan,BEL,BEL,Belgium,5,0,0,0,0,0,0,-,0
-2025,TIB,TIB,Tibetan,FRA,FRA,France,31,0,0,0,0,0,0,-,0
-2025,TIB,TIB,Tibetan,NEP,NPL,Nepal,12540,0,0,0,0,0,0,-,0
 2025,TJK,TJK,Tajikistan,AFG,AFG,Afghanistan,0,6,0,0,0,0,0,-,0
 2025,TJK,TJK,Tajikistan,ARE,EGY,Egypt,0,5,0,0,0,0,0,-,0
 2025,TJK,TJK,Tajikistan,ARM,ARM,Armenia,0,10,0,0,0,0,0,-,0

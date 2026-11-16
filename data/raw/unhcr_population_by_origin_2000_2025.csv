@@ -30,7 +30,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2000,CAN,CAN,Canada,-,-,-,25,7,0,0,0,0,0,-,0
 2000,CAR,CAF,Central African Rep.,-,-,-,135,54,59,0,0,0,0,-,0
 2000,CHD,TCD,Chad,-,-,-,54955,2422,2617,0,0,0,0,-,0
-2000,CHI,CHN,China,-,-,-,110967,17178,0,0,0,0,0,-,0
+2000,CHI,CHN,China,-,-,-,131936,17178,0,0,0,0,0,-,0
 2000,CHL,CHL,Chile,-,-,-,858,159,11,0,0,0,0,-,0
 2000,CMR,CMR,Cameroon,-,-,-,2067,1494,5,0,0,0,0,-,0
 2000,COB,COG,Congo,-,-,-,27570,4142,5682,0,0,0,54,-,0
@@ -119,7 +119,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2000,NGR,NER,Niger,-,-,-,483,250,0,0,0,0,0,-,0
 2000,NIC,NIC,Nicaragua,-,-,-,5070,13136,24,0,0,0,128,-,0
 2000,NIG,NGA,Nigeria,-,-,-,5735,3457,0,0,0,0,0,-,0
-2000,NRU,NRU,Nauru,-,-,-,5,0,0,0,0,0,0,-,0
+2000,NRU,NRU,Naoero,-,-,-,5,0,0,0,0,0,0,-,0
 2000,OMN,OMN,Oman,-,-,-,5,6,0,0,0,0,0,-,0
 2000,PAK,PAK,Pakistan,-,-,-,10134,7201,0,0,0,0,0,-,0
 2000,PAN,PAN,Panama,-,-,-,70,50,258,0,0,0,0,-,0
@@ -159,7 +159,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2000,SYR,SYR,Syrian Arab Rep.,-,-,-,5868,3730,0,0,0,0,0,-,0
 2000,TAN,TZA,United Rep. of Tanzania,-,-,-,310,801,7,0,0,0,742,-,0
 2000,THA,THA,Thailand,-,-,-,213,139,0,0,0,0,0,-,0
-2000,TIB,TIB,Tibetan,-,-,-,20969,0,0,0,0,0,0,-,0
 2000,TJK,TJK,Tajikistan,-,-,-,59937,635,1498,0,0,0,0,-,0
 2000,TKM,TKM,Turkmenistan,-,-,-,299,15,27,0,0,0,0,-,0
 2000,TMP,TLS,Timor-Leste,-,-,-,122202,19,48540,0,5000,0,0,-,0
@@ -214,7 +213,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2001,CAN,CAN,Canada,-,-,-,5,9,0,0,0,0,0,-,0
 2001,CAR,CAF,Central African Rep.,-,-,-,28698,353,0,0,0,0,0,-,0
 2001,CHD,TCD,Chad,-,-,-,46282,2992,3707,0,0,0,0,-,0
-2001,CHI,CHN,China,-,-,-,117403,19783,0,0,0,0,0,-,0
+2001,CHI,CHN,China,-,-,-,138124,19783,0,0,0,0,0,-,0
 2001,CHL,CHL,Chile,-,-,-,834,199,5,0,0,0,0,-,0
 2001,CMR,CMR,Cameroon,-,-,-,2729,2160,0,0,0,0,0,-,0
 2001,COB,COG,Congo,-,-,-,24237,4258,654,0,0,0,0,-,0
@@ -341,7 +340,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2001,SYR,SYR,Syrian Arab Rep.,-,-,-,4861,3853,0,0,0,0,0,-,0
 2001,TAN,TZA,United Rep. of Tanzania,-,-,-,369,807,2000,0,0,0,0,-,0
 2001,THA,THA,Thailand,-,-,-,90,156,0,0,0,0,0,-,0
-2001,TIB,TIB,Tibetan,-,-,-,20721,0,0,0,0,0,0,-,0
 2001,TJK,TJK,Tajikistan,-,-,-,56107,394,2343,0,0,0,0,-,0
 2001,TKM,TKM,Turkmenistan,-,-,-,305,36,0,0,0,0,0,-,0
 2001,TMP,TLS,Timor-Leste,-,-,-,73042,20,18183,0,0,0,0,-,0
@@ -397,7 +395,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2002,CAN,CAN,Canada,-,-,-,52,20,0,0,0,0,0,-,0
 2002,CAR,CAF,Central African Rep.,-,-,-,25368,657,5,0,0,0,0,-,0
 2002,CHD,TCD,Chad,-,-,-,47340,2436,51,0,0,0,0,-,0
-2002,CHI,CHN,China,-,-,-,132099,25224,0,0,0,0,0,-,0
+2002,CHI,CHN,China,-,-,-,152730,25224,0,0,0,0,0,-,0
 2002,CHL,CHL,Chile,-,-,-,1705,513,0,0,0,0,0,-,0
 2002,CMR,CMR,Cameroon,-,-,-,5228,2841,0,0,0,0,0,-,0
 2002,COB,COG,Congo,-,-,-,27994,7017,616,0,0,0,0,-,0
@@ -531,7 +529,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2002,TAN,TZA,United Rep. of Tanzania,-,-,-,578,2485,9,0,0,0,0,-,0
 2002,TCI,TCA,Turks and Caicos Islands,-,-,-,0,5,0,0,0,0,0,-,0
 2002,THA,THA,Thailand,-,-,-,342,250,0,0,0,0,0,-,0
-2002,TIB,TIB,Tibetan,-,-,-,20631,0,0,0,0,0,0,-,0
 2002,TJK,TJK,Tajikistan,-,-,-,63264,217,1428,0,0,0,0,-,0
 2002,TKM,TKM,Turkmenistan,-,-,-,797,124,0,0,0,0,0,-,0
 2002,TMP,TLS,Timor-Leste,-,-,-,28097,513,31882,0,0,0,0,-,0
@@ -587,7 +584,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2003,CAN,CAN,Canada,-,-,-,61,22,0,0,0,0,0,-,0
 2003,CAR,CAF,Central African Rep.,-,-,-,35394,832,4857,0,0,0,0,-,0
 2003,CHD,TCD,Chad,-,-,-,52268,2319,596,0,0,0,0,-,0
-2003,CHI,CHN,China,-,-,-,132390,21257,0,0,0,0,0,-,0
+2003,CHI,CHN,China,-,-,-,152428,21257,0,0,0,0,704,-,0
 2003,CHL,CHL,Chile,-,-,-,1549,309,7,0,0,0,0,-,0
 2003,CMR,CMR,Cameroon,-,-,-,6215,3342,0,0,0,0,0,-,0
 2003,COB,COG,Congo,-,-,-,28950,6952,1779,0,0,0,0,-,0
@@ -680,7 +677,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2003,NIC,NIC,Nicaragua,-,-,-,3984,6855,5,0,0,0,0,-,0
 2003,NIG,NGA,Nigeria,-,-,-,24414,14647,7,0,0,0,0,-,0
 2003,NOR,NOR,Norway,-,-,-,5,0,0,0,0,0,0,-,0
-2003,NRU,NRU,Nauru,-,-,-,5,0,0,0,0,0,0,-,0
+2003,NRU,NRU,Naoero,-,-,-,5,0,0,0,0,0,0,-,0
 2003,NZL,NZL,New Zealand,-,-,-,0,5,0,0,0,0,0,-,0
 2003,OMN,OMN,Oman,-,-,-,5,0,5,0,0,0,0,-,0
 2003,PAK,PAK,Pakistan,-,-,-,24390,16839,0,0,0,0,0,-,0
@@ -721,7 +718,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2003,TAN,TZA,United Rep. of Tanzania,-,-,-,703,3562,5,0,0,0,0,-,0
 2003,TCI,TCA,Turks and Caicos Islands,-,-,-,0,5,0,0,0,0,0,-,0
 2003,THA,THA,Thailand,-,-,-,295,155,0,0,0,0,0,-,0
-2003,TIB,TIB,Tibetan,-,-,-,20038,0,0,0,0,0,704,-,0
 2003,TJK,TJK,Tajikistan,-,-,-,58935,200,265,0,0,0,0,-,0
 2003,TKM,TKM,Turkmenistan,-,-,-,836,159,0,0,0,0,0,-,0
 2003,TMP,TLS,Timor-Leste,-,-,-,127,5,0,0,0,0,837,-,0
@@ -776,7 +772,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2004,CAN,CAN,Canada,-,-,-,57,18,0,0,0,0,0,-,0
 2004,CAR,CAF,Central African Rep.,-,-,-,31056,1286,367,0,0,0,0,-,0
 2004,CHD,TCD,Chad,-,-,-,52645,2540,185,0,0,0,0,-,0
-2004,CHI,CHN,China,-,-,-,134708,19725,0,0,0,0,0,-,0
+2004,CHI,CHN,China,-,-,-,154746,19725,0,0,0,0,737,-,0
 2004,CHL,CHL,Chile,-,-,-,1183,197,0,0,0,0,0,-,0
 2004,CMR,CMR,Cameroon,-,-,-,7631,3722,0,0,0,0,0,-,0
 2004,COB,COG,Congo,-,-,-,28140,7141,1028,0,0,0,0,-,0
@@ -907,7 +903,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2004,SYR,SYR,Syrian Arab Rep.,-,-,-,21430,3781,158,0,0,0,0,-,0
 2004,TAN,TZA,United Rep. of Tanzania,-,-,-,982,4339,0,0,0,0,0,-,0
 2004,THA,THA,Thailand,-,-,-,320,90,0,0,0,0,0,-,0
-2004,TIB,TIB,Tibetan,-,-,-,20038,0,0,0,0,0,737,-,0
 2004,TJK,TJK,Tajikistan,-,-,-,56776,157,80,0,0,0,0,-,0
 2004,TKM,TKM,Turkmenistan,-,-,-,815,180,0,0,0,0,0,-,0
 2004,TMP,TLS,Timor-Leste,-,-,-,221,0,445,0,0,0,0,-,0
@@ -964,7 +959,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2005,CAN,CAN,Canada,-,-,-,120,35,0,0,0,0,0,-,0
 2005,CAR,CAF,Central African Rep.,-,-,-,42875,1839,73,0,0,0,0,-,0
 2005,CHD,TCD,Chad,-,-,-,48389,3109,1444,0,0,0,3000,-,0
-2005,CHI,CHN,China,-,-,-,124086,19378,0,0,0,0,0,-,0
+2005,CHI,CHN,China,-,-,-,144284,19386,0,0,0,0,928,-,0
 2005,CHL,CHL,Chile,-,-,-,929,81,0,0,0,0,0,-,0
 2005,CMR,CMR,Cameroon,-,-,-,9096,4856,0,0,0,0,0,-,0
 2005,COB,COG,Congo,-,-,-,24428,8168,345,0,0,0,0,-,0
@@ -1098,7 +1093,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2005,SYR,SYR,Syrian Arab Rep.,-,-,-,16395,6992,18,0,0,0,0,-,0
 2005,TAN,TZA,United Rep. of Tanzania,-,-,-,1542,5236,0,0,0,0,0,-,0
 2005,THA,THA,Thailand,-,-,-,424,214,0,0,0,0,7,-,0
-2005,TIB,TIB,Tibetan,-,-,-,20198,8,0,0,0,0,928,-,0
 2005,TJK,TJK,Tajikistan,-,-,-,54753,152,38,0,0,0,0,-,0
 2005,TKM,TKM,Turkmenistan,-,-,-,818,170,0,0,0,0,0,-,0
 2005,TMP,TLS,Timor-Leste,-,-,-,251,0,0,0,0,0,0,-,0
@@ -1152,7 +1146,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2006,CAN,CAN,Canada,-,-,-,94,44,0,0,0,0,0,-,0
 2006,CAR,CAF,Central African Rep.,-,-,-,71669,2108,50,147000,0,0,0,-,0
 2006,CHD,TCD,Chad,-,-,-,36286,3430,18,112686,0,0,0,-,0
-2006,CHI,CHN,China,-,-,-,140584,17278,0,0,0,0,0,-,0
+2006,CHI,CHN,China,-,-,-,160768,17278,0,0,0,0,387,-,0
 2006,CHL,CHL,Chile,-,-,-,798,83,0,0,0,0,0,-,0
 2006,CMR,CMR,Cameroon,-,-,-,10373,3382,0,0,0,0,0,-,0
 2006,COB,COG,Congo,-,-,-,20599,4864,4507,3492,1008,0,0,-,0
@@ -1285,7 +1279,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2006,SYR,SYR,Syrian Arab Rep.,-,-,-,12327,7493,5,0,0,0,0,-,0
 2006,TAN,TZA,United Rep. of Tanzania,-,-,-,1665,205,5,0,0,0,0,-,0
 2006,THA,THA,Thailand,-,-,-,3323,201,0,0,0,0,0,-,0
-2006,TIB,TIB,Tibetan,-,-,-,20184,0,0,0,0,0,387,-,0
 2006,TJK,TJK,Tajikistan,-,-,-,646,119,142,0,0,0,1129,-,0
 2006,TKM,TKM,Turkmenistan,-,-,-,689,146,0,0,0,0,0,-,0
 2006,TMP,TLS,Timor-Leste,-,-,-,251,8,0,155231,11727,0,0,-,0
@@ -1340,7 +1333,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2007,CAN,CAN,Canada,-,-,-,530,59,0,0,0,0,0,-,0
 2007,CAR,CAF,Central African Rep.,-,-,-,98092,1333,16,197000,5000,0,0,-,0
 2007,CHD,TCD,Chad,-,-,-,55697,2668,39,178918,0,0,0,-,0
-2007,CHI,CHN,China,-,-,-,149087,15526,0,0,0,0,0,-,0
+2007,CHI,CHN,China,-,-,-,169257,15527,0,0,0,0,141,-,0
 2007,CHL,CHL,Chile,-,-,-,964,127,0,0,0,0,0,-,0
 2007,CMR,CMR,Cameroon,-,-,-,11499,2973,0,0,0,0,0,-,0
 2007,COB,COG,Congo,-,-,-,19726,6072,147,0,0,0,0,-,0
@@ -1473,7 +1466,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2007,SYR,SYR,Syrian Arab Rep.,-,-,-,13684,6849,26,0,0,0,0,-,0
 2007,TAN,TZA,United Rep. of Tanzania,-,-,-,1250,2906,0,0,0,0,0,-,0
 2007,THA,THA,Thailand,-,-,-,2322,363,0,0,0,0,0,-,0
-2007,TIB,TIB,Tibetan,-,-,-,20170,0,0,0,0,0,141,-,0
 2007,TJK,TJK,Tajikistan,-,-,-,887,93,0,0,0,0,0,-,0
 2007,TKM,TKM,Turkmenistan,-,-,-,667,134,0,0,0,0,0,-,0
 2007,TMP,TLS,Timor-Leste,-,-,-,6,0,0,62625,9965,0,0,-,0
@@ -1528,7 +1520,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2008,CAN,CAN,Canada,-,-,-,100,55,0,0,0,0,0,-,0
 2008,CAR,CAF,Central African Rep.,-,-,-,125090,1213,19,197000,0,0,0,-,0
 2008,CHD,TCD,Chad,-,-,-,55083,3340,4414,166718,37615,0,0,-,0
-2008,CHI,CHN,China,-,-,-,175169,19615,0,0,0,0,0,-,0
+2008,CHI,CHN,China,-,-,-,195249,19616,0,0,0,0,59,-,0
 2008,CHL,CHL,Chile,-,-,-,988,128,0,0,0,0,0,-,0
 2008,CMR,CMR,Cameroon,-,-,-,13852,2911,0,0,0,0,0,-,0
 2008,COB,COG,Congo,-,-,-,19922,5044,101,0,0,0,5,-,0
@@ -1659,7 +1651,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2008,SYR,SYR,Syrian Arab Rep.,-,-,-,15206,5978,8,0,0,0,0,-,0
 2008,TAN,TZA,United Rep. of Tanzania,-,-,-,1262,2898,0,0,0,0,0,-,0
 2008,THA,THA,Thailand,-,-,-,1811,406,0,0,0,0,5,-,0
-2008,TIB,TIB,Tibetan,-,-,-,20080,0,0,0,0,0,59,-,0
 2008,TJK,TJK,Tajikistan,-,-,-,541,140,0,0,0,0,0,-,0
 2008,TKM,TKM,Turkmenistan,-,-,-,735,110,0,0,0,0,0,-,0
 2008,TMP,TLS,Timor-Leste,-,-,-,7,0,0,15860,0,0,0,-,0
@@ -1715,7 +1706,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2009,CAN,CAN,Canada,-,-,-,97,9,0,0,0,0,0,-,0
 2009,CAR,CAF,Central African Rep.,-,-,-,159542,852,51,197000,0,0,0,-,0
 2009,CHD,TCD,Chad,-,-,-,54997,2311,1799,170531,20771,0,0,-,0
-2009,CHI,CHN,China,-,-,-,180546,18325,0,0,0,0,0,-,0
+2009,CHI,CHN,China,-,-,-,200626,18328,0,0,0,0,109,-,0
 2009,CHL,CHL,Chile,-,-,-,1305,178,0,0,0,0,0,-,0
 2009,CMR,CMR,Cameroon,-,-,-,14752,2239,0,0,0,0,0,-,0
 2009,COB,COG,Congo,-,-,-,20546,3199,76,0,0,0,8,-,0
@@ -1848,7 +1839,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2009,SYR,SYR,Syrian Arab Rep.,-,-,-,17915,5559,0,0,0,0,0,-,0
 2009,TAN,TZA,United Rep. of Tanzania,-,-,-,1191,204,0,0,0,0,155051,-,0
 2009,THA,THA,Thailand,-,-,-,498,392,0,0,0,0,0,-,0
-2009,TIB,TIB,Tibetan,-,-,-,20080,0,0,0,0,0,109,-,0
 2009,TJK,TJK,Tajikistan,-,-,-,556,260,0,0,0,0,0,-,0
 2009,TKM,TKM,Turkmenistan,-,-,-,734,77,0,0,0,0,0,-,0
 2009,TMP,TLS,Timor-Leste,-,-,-,7,0,0,0,0,0,0,-,0
@@ -1902,7 +1892,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2010,CAN,CAN,Canada,-,-,-,86,5,0,0,0,0,0,-,0
 2010,CAR,CAF,Central African Rep.,-,-,-,164902,1504,51,192529,0,0,0,-,0
 2010,CHD,TCD,Chad,-,-,-,53713,2664,39,131000,50000,0,0,-,0
-2010,CHI,CHN,China,-,-,-,184601,7732,0,0,0,0,0,-,0
+2010,CHI,CHN,China,-,-,-,199682,7732,0,0,0,0,143,-,0
 2010,CHL,CHL,Chile,-,-,-,1163,170,0,0,0,0,0,-,0
 2010,CMR,CMR,Cameroon,-,-,-,14952,2077,0,0,0,0,0,-,0
 2010,COB,COG,Congo,-,-,-,20682,2999,98,0,0,0,0,-,0
@@ -2034,7 +2024,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2010,SYR,SYR,Syrian Arab Rep.,-,-,-,18451,9739,0,0,0,0,0,-,0
 2010,TAN,TZA,United Rep. of Tanzania,-,-,-,1135,194,0,0,0,0,162256,-,0
 2010,THA,THA,Thailand,-,-,-,351,217,0,0,0,0,0,-,0
-2010,TIB,TIB,Tibetan,-,-,-,15081,0,0,0,0,0,143,-,0
 2010,TJK,TJK,Tajikistan,-,-,-,573,324,0,0,0,0,0,-,0
 2010,TKM,TKM,Turkmenistan,-,-,-,723,47,0,0,0,0,0,-,0
 2010,TMP,TLS,Timor-Leste,-,-,-,8,0,0,0,0,0,0,-,0
@@ -2089,7 +2078,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,CAN,CAN,Canada,-,-,-,108,0,0,0,0,0,0,-,0
 2011,CAR,CAF,Central African Rep.,-,-,-,162861,1793,8974,105206,66545,0,0,-,0
 2011,CHD,TCD,Chad,-,-,-,42619,3122,73,124000,7000,0,0,-,0
-2011,CHI,CHN,China,-,-,-,190369,11375,0,0,0,0,0,-,0
+2011,CHI,CHN,China,-,-,-,205434,11376,0,0,0,0,128,-,0
 2011,CHL,CHL,Chile,-,-,-,1182,117,0,0,0,0,0,-,0
 2011,CMR,CMR,Cameroon,-,-,-,15149,2480,0,0,0,0,0,-,0
 2011,COB,COG,Congo,-,-,-,12836,1944,741,0,0,0,8651,-,0
@@ -2184,7 +2173,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,NIG,NGA,Nigeria,-,-,-,17140,10519,0,0,0,0,0,-,0
 2011,NIU,NIU,Niue,-,-,-,7,0,0,0,0,0,0,-,0
 2011,NOR,NOR,Norway,-,-,-,5,5,0,0,0,0,0,-,0
-2011,NRU,NRU,Nauru,-,-,-,0,5,0,0,0,0,0,-,0
+2011,NRU,NRU,Naoero,-,-,-,0,5,0,0,0,0,0,-,0
 2011,NZL,NZL,New Zealand,-,-,-,13,6,0,0,0,0,0,-,0
 2011,OMN,OMN,Oman,-,-,-,58,0,0,0,0,0,0,-,0
 2011,PAK,PAK,Pakistan,-,-,-,35948,13679,3448,452932,620362,0,0,-,0
@@ -2226,7 +2215,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2011,TAN,TZA,United Rep. of Tanzania,-,-,-,1154,553,0,0,0,0,0,-,0
 2011,TCI,TCA,Turks and Caicos Islands,-,-,-,14,6,0,0,0,0,0,-,0
 2011,THA,THA,Thailand,-,-,-,365,175,0,0,0,0,0,-,0
-2011,TIB,TIB,Tibetan,-,-,-,15065,0,0,0,0,0,128,-,0
 2011,TJK,TJK,Tajikistan,-,-,-,604,371,0,0,0,0,0,-,0
 2011,TKM,TKM,Turkmenistan,-,-,-,711,70,0,0,0,0,0,-,0
 2011,TMP,TLS,Timor-Leste,-,-,-,8,0,0,0,0,0,0,-,0
@@ -2281,7 +2269,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,CAN,CAN,Canada,-,-,-,121,5,0,0,0,0,0,-,0
 2012,CAR,CAF,Central African Rep.,-,-,-,164567,1899,2313,51679,35433,0,0,-,0
 2012,CHD,TCD,Chad,-,-,-,39674,3758,1723,90000,35000,0,0,-,0
-2012,CHI,CHN,China,-,-,-,193449,15362,0,0,0,0,0,-,0
+2012,CHI,CHN,China,-,-,-,208449,15363,0,0,0,0,0,-,0
 2012,CHL,CHL,Chile,-,-,-,1145,63,0,0,0,0,0,-,0
 2012,CMR,CMR,Cameroon,-,-,-,13360,3380,0,0,0,0,0,-,0
 2012,COB,COG,Congo,-,-,-,12113,2489,50,0,0,0,320,-,0
@@ -2416,7 +2404,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2012,TAN,TZA,United Rep. of Tanzania,-,-,-,1109,807,44,0,0,0,0,-,0
 2012,TCI,TCA,Turks and Caicos Islands,-,-,-,14,9,0,0,0,0,0,-,0
 2012,THA,THA,Thailand,-,-,-,378,172,0,0,0,0,0,-,0
-2012,TIB,TIB,Tibetan,-,-,-,15000,0,0,0,0,0,0,-,0
 2012,TJK,TJK,Tajikistan,-,-,-,669,445,0,0,0,0,0,-,0
 2012,TKM,TKM,Turkmenistan,-,-,-,708,125,0,0,0,0,0,-,0
 2012,TMP,TLS,Timor-Leste,-,-,-,8,6,0,0,0,0,0,-,0
@@ -2473,7 +2460,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,CAR,CAF,Central African Rep.,-,-,-,252854,7459,0,894421,0,0,0,-,0
 2013,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2013,CHD,TCD,Chad,-,-,-,48618,3844,389,19791,0,0,0,-,0
-2013,CHI,CHN,China,-,-,-,195121,24799,0,0,0,0,0,-,0
+2013,CHI,CHN,China,-,-,-,210186,24805,0,0,0,0,14,-,0
 2013,CHL,CHL,Chile,-,-,-,588,66,0,0,0,0,0,-,0
 2013,CMR,CMR,Cameroon,-,-,-,11410,4215,0,0,0,0,0,-,0
 2013,COB,COG,Congo,-,-,-,11744,3273,29,0,0,0,0,-,0
@@ -2613,7 +2600,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2013,TAN,TZA,United Rep. of Tanzania,-,-,-,1033,1017,0,0,0,0,0,-,0
 2013,TCI,TCA,Turks and Caicos Islands,-,-,-,15,5,0,0,0,0,0,-,0
 2013,THA,THA,Thailand,-,-,-,220,173,0,0,0,0,0,-,0
-2013,TIB,TIB,Tibetan,-,-,-,15065,5,0,0,0,0,14,-,0
 2013,TJK,TJK,Tajikistan,-,-,-,657,604,0,0,0,0,0,-,0
 2013,TKM,TKM,Turkmenistan,-,-,-,502,317,0,0,0,0,0,-,0
 2013,TMP,TLS,Timor-Leste,-,-,-,8,10,0,0,0,0,0,-,0
@@ -2669,7 +2655,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,CAR,CAF,Central African Rep.,-,-,-,412028,14361,0,438538,610903,0,15043,-,0
 2014,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2014,CHD,TCD,Chad,-,-,-,48236,3296,369,0,0,0,35000,-,0
-2014,CHI,CHN,China,-,-,-,210793,47335,0,0,0,0,0,-,0
+2014,CHI,CHN,China,-,-,-,225859,47342,0,0,0,0,5,-,0
 2014,CHL,CHL,Chile,-,-,-,571,98,0,0,0,0,0,-,0
 2014,CMR,CMR,Cameroon,-,-,-,10739,5013,385,0,0,0,0,-,0
 2014,COB,COG,Congo,-,-,-,14498,3410,10,0,0,0,101,-,0
@@ -2808,7 +2794,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2014,TAN,TZA,United Rep. of Tanzania,-,-,-,843,1056,0,0,0,0,0,-,0
 2014,TCI,TCA,Turks and Caicos Islands,-,-,-,15,0,0,0,0,0,0,-,0
 2014,THA,THA,Thailand,-,-,-,223,410,0,0,0,0,0,-,0
-2014,TIB,TIB,Tibetan,-,-,-,15066,10,0,0,0,0,5,-,0
 2014,TJK,TJK,Tajikistan,-,-,-,722,838,0,0,0,0,0,-,0
 2014,TKM,TKM,Turkmenistan,-,-,-,470,743,0,0,0,0,0,-,0
 2014,TMP,TLS,Timor-Leste,-,-,-,13,7,0,0,0,0,0,-,0
@@ -2865,7 +2850,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,CAR,CAF,Central African Rep.,-,-,-,471093,10634,21632,216392,258276,0,20792,-,0
 2015,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2015,CHD,TCD,Chad,-,-,-,14921,3267,38,51999,0,0,30000,-,0
-2015,CHI,CHN,China,-,-,-,212911,57693,0,0,0,0,0,-,0
+2015,CHI,CHN,China,-,-,-,227980,57701,0,0,0,0,6,-,0
 2015,CHL,CHL,Chile,-,-,-,554,149,0,0,0,0,0,-,0
 2015,CMR,CMR,Cameroon,-,-,-,10565,7357,0,92657,18636,0,5,-,0
 2015,COB,COG,Congo,-,-,-,14772,4071,0,0,0,0,88,-,0
@@ -3006,7 +2991,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2015,TAN,TZA,United Rep. of Tanzania,-,-,-,810,1577,0,0,0,0,15,-,0
 2015,TCI,TCA,Turks and Caicos Islands,-,-,-,14,0,0,0,0,0,0,-,0
 2015,THA,THA,Thailand,-,-,-,209,833,0,0,0,0,0,-,0
-2015,TIB,TIB,Tibetan,-,-,-,15069,10,0,0,0,0,6,-,0
 2015,TJK,TJK,Tajikistan,-,-,-,790,1451,0,0,0,0,0,-,0
 2015,TKM,TKM,Turkmenistan,-,-,-,446,1205,0,0,0,0,0,-,0
 2015,TMP,TLS,Timor-Leste,-,-,-,19,5,0,0,0,0,0,-,0
@@ -3063,7 +3047,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,CAR,CAF,Central African Rep.,-,-,-,490879,10603,34401,411785,0,0,21010,-,0
 2016,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2016,CHD,TCD,Chad,-,-,-,14176,3178,26,124342,0,0,16718,-,0
-2016,CHI,CHN,China,-,-,-,207768,72165,0,0,0,0,0,-,0
+2016,CHI,CHN,China,-,-,-,221304,72174,0,0,0,0,0,-,0
 2016,CHL,CHL,Chile,-,-,-,495,200,0,0,0,0,0,-,0
 2016,CMR,CMR,Cameroon,-,-,-,10344,10943,131,198889,18213,0,27,-,0
 2016,COB,COG,Congo,-,-,-,13291,4346,10,15303,0,0,99,-,0
@@ -3200,7 +3184,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2016,TAN,TZA,United Rep. of Tanzania,-,-,-,579,1215,6,0,0,0,10,-,0
 2016,TCI,TCA,Turks and Caicos Islands,-,-,-,14,5,0,0,0,0,0,-,0
 2016,THA,THA,Thailand,-,-,-,147,950,0,0,0,0,0,-,0
-2016,TIB,TIB,Tibetan,-,-,-,13536,10,0,0,0,0,0,-,0
 2016,TJK,TJK,Tajikistan,-,-,-,932,3198,0,0,0,0,0,-,0
 2016,TKM,TKM,Turkmenistan,-,-,-,371,1069,0,0,0,0,0,-,0
 2016,TMP,TLS,Timor-Leste,-,-,-,19,0,0,0,0,0,0,-,0
@@ -3257,7 +3240,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,CAR,CAF,Central African Rep.,-,-,-,545513,12997,78620,688700,89019,0,21432,-,0
 2017,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2017,CHD,TCD,Chad,-,-,-,16325,3105,970,99983,0,0,37317,-,0
-2017,CHI,CHN,China,-,-,-,207716,89508,0,0,0,0,0,-,0
+2017,CHI,CHN,China,-,-,-,221247,89521,0,0,0,0,8,-,0
 2017,CHL,CHL,Chile,-,-,-,493,350,0,0,0,0,0,-,0
 2017,CMR,CMR,Cameroon,-,-,-,11032,24607,0,221695,33662,0,24,-,0
 2017,COB,COG,Congo,-,-,-,13295,13068,5,107828,0,0,90,-,0
@@ -3398,7 +3381,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2017,TAN,TZA,United Rep. of Tanzania,-,-,-,655,1455,0,0,0,0,15,-,0
 2017,TCI,TCA,Turks and Caicos Islands,-,-,-,14,5,0,0,0,0,0,-,0
 2017,THA,THA,Thailand,-,-,-,164,1333,0,0,0,0,0,-,0
-2017,TIB,TIB,Tibetan,-,-,-,13531,12,0,0,0,0,8,-,0
 2017,TJK,TJK,Tajikistan,-,-,-,1369,3617,0,0,0,0,0,-,0
 2017,TKM,TKM,Turkmenistan,-,-,-,365,1115,0,0,0,0,0,-,0
 2017,TMP,TLS,Timor-Leste,-,-,-,13,5,0,0,0,0,0,-,0
@@ -3454,7 +3436,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,CAR,CAF,Central African Rep.,-,-,-,590858,17278,35182,640970,306246,0,21697,-,0
 2018,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2018,CHD,TCD,Chad,-,-,-,10895,4401,6352,165314,0,0,16724,-,0
-2018,CHI,CHN,China,-,-,-,212039,94351,0,0,0,0,0,-,0
+2018,CHI,CHN,China,-,-,-,225566,94351,0,0,0,0,0,-,0
 2018,CHL,CHL,Chile,-,-,-,479,514,0,0,0,0,0,-,0
 2018,CMR,CMR,Cameroon,-,-,-,45118,18638,0,668494,67653,0,11,-,0
 2018,COB,COG,Congo,-,-,-,13354,11762,0,138000,0,0,92,-,0
@@ -3595,7 +3577,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2018,TAN,TZA,United Rep. of Tanzania,-,-,-,723,1659,0,0,0,0,10,-,0
 2018,TCI,TCA,Turks and Caicos Islands,-,-,-,14,0,0,0,0,0,0,-,0
 2018,THA,THA,Thailand,-,-,-,183,2792,0,0,0,0,0,-,0
-2018,TIB,TIB,Tibetan,-,-,-,13527,0,0,0,0,0,0,-,0
 2018,TJK,TJK,Tajikistan,-,-,-,1695,3192,0,0,0,0,0,-,0
 2018,TKM,TKM,Turkmenistan,-,-,-,457,1264,0,0,0,0,0,-,0
 2018,TMP,TLS,Timor-Leste,-,-,-,12,10,0,0,0,0,0,-,0
@@ -3652,7 +3633,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,CAR,CAF,Central African Rep.,-,-,-,610152,15935,46523,669906,90672,0,1570,-,0
 2019,CAY,CYM,Cayman Islands,-,-,-,6,0,0,0,0,0,0,-,0
 2019,CHD,TCD,Chad,-,-,-,11163,5335,306,170278,0,0,122367,-,0
-2019,CHI,CHN,China,-,-,-,212863,104248,0,0,0,0,0,-,0
+2019,CHI,CHN,China,-,-,-,225418,104248,0,0,0,0,0,-,0
 2019,CHL,CHL,Chile,-,-,-,486,1251,0,0,0,0,0,-,0
 2019,CMR,CMR,Cameroon,-,-,-,66241,21865,0,950263,347923,0,10,-,0
 2019,COB,COG,Congo,-,-,-,12743,11227,5,134430,5312,0,37,-,0
@@ -3752,7 +3733,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,NIG,NGA,Nigeria,-,-,-,295578,112382,134,2195779,18356,0,7,-,0
 2019,NIU,NIU,Niue,-,-,-,19,6,0,0,0,0,0,-,0
 2019,NOR,NOR,Norway,-,-,-,5,11,0,0,0,0,0,-,0
-2019,NRU,NRU,Nauru,-,-,-,0,15,0,0,0,0,0,-,0
+2019,NRU,NRU,Naoero,-,-,-,0,15,0,0,0,0,0,-,0
 2019,NZL,NZL,New Zealand,-,-,-,34,27,0,0,0,0,0,-,0
 2019,OMN,OMN,Oman,-,-,-,42,59,0,0,0,0,0,-,0
 2019,PAK,PAK,Pakistan,-,-,-,136902,66245,6,100680,18,0,2871,-,0
@@ -3794,7 +3775,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2019,TAN,TZA,United Rep. of Tanzania,-,-,-,695,1963,0,0,0,0,45,-,0
 2019,TCI,TCA,Turks and Caicos Islands,-,-,-,14,0,0,0,0,0,0,-,0
 2019,THA,THA,Thailand,-,-,-,173,3531,0,0,0,0,0,-,0
-2019,TIB,TIB,Tibetan,-,-,-,12555,0,0,0,0,0,0,-,0
 2019,TJK,TJK,Tajikistan,-,-,-,1987,2661,0,0,0,0,0,-,0
 2019,TKM,TKM,Turkmenistan,-,-,-,478,576,0,0,0,0,0,-,0
 2019,TMP,TLS,Timor-Leste,-,-,-,17,41,0,0,0,0,0,-,0
@@ -3854,7 +3834,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,CAR,CAF,Central African Rep.,-,-,-,642161,13458,4978,681930,158247,0,1669,-,0
 2020,CAY,CYM,Cayman Islands,-,-,-,5,0,0,0,0,0,0,-,0
 2020,CHD,TCD,Chad,-,-,-,10388,6224,0,336124,0,0,99842,-,0
-2020,CHI,CHN,China,-,-,-,175361,108071,0,0,0,0,6,-,0
+2020,CHI,CHN,China,-,-,-,187922,108072,0,0,0,0,13,-,0
 2020,CHL,CHL,Chile,-,-,-,659,2111,0,0,0,0,0,-,0
 2020,CMR,CMR,Cameroon,-,-,-,78481,23013,18279,1032942,465757,0,5,-,0
 2020,COB,COG,Congo,-,-,-,12590,12836,5,134430,0,0,38,-,0
@@ -3954,9 +3934,9 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,NIG,NGA,Nigeria,-,-,-,352960,73233,12335,2610278,0,0,8,-,0
 2020,NIU,NIU,Niue,-,-,-,18,7,0,0,0,0,0,-,0
 2020,NOR,NOR,Norway,-,-,-,5,15,0,0,0,0,0,-,0
-2020,NRU,NRU,Nauru,-,-,-,5,16,0,0,0,0,0,-,0
+2020,NRU,NRU,Naoero,-,-,-,5,16,0,0,0,0,0,-,0
 2020,NZL,NZL,New Zealand,-,-,-,35,32,0,0,0,0,0,-,0
-2020,OMN,OMN,Oman,-,-,-,47,70,0,0,0,0,0,-,0
+2020,OMN,OMN,Oman,-,-,-,47,70,0,0,0,0,974,-,0
 2020,PAK,PAK,Pakistan,-,-,-,133280,61429,14,98898,1782,0,2735,-,0
 2020,PAN,PAN,Panama,-,-,-,70,315,0,0,0,0,0,-,0
 2020,PAR,PRY,Paraguay,-,-,-,119,868,0,0,0,0,0,-,0
@@ -3982,7 +3962,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,SRB,SRB,Serbia and Kosovo: S/RES/1244 (1999),-,-,-,29976,7105,19,213018,375,0,139,-,0
 2020,SRV,VNM,Viet Nam,-,-,-,316728,9440,0,0,0,0,68,-,0
 2020,SSD,SSD,South Sudan,-,-,-,2188785,4858,122000,1600254,174463,0,56,-,250000
-2020,STA,XXA,Stateless,-,-,-,53725,5565,0,0,0,4179331,13806,-,0
+2020,STA,XXA,Stateless,-,-,-,53725,5570,0,0,0,4179331,13806,-,0
 2020,STK,KNA,Saint Kitts and Nevis,-,-,-,54,18,0,0,0,0,0,-,0
 2020,STP,STP,Sao Tome and Principe,-,-,-,28,23,0,0,0,0,0,-,0
 2020,SUD,SDN,Sudan,-,-,-,787823,70049,30,2552174,0,0,158,-,0
@@ -3996,7 +3976,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2020,TAN,TZA,United Rep. of Tanzania,-,-,-,689,1900,0,0,0,0,35,-,0
 2020,TCI,TCA,Turks and Caicos Islands,-,-,-,14,5,0,0,0,0,0,-,0
 2020,THA,THA,Thailand,-,-,-,174,3760,0,0,0,0,0,-,0
-2020,TIB,TIB,Tibetan,-,-,-,12561,0,0,0,0,0,7,-,0
 2020,TJK,TJK,Tajikistan,-,-,-,2219,2459,0,0,0,0,0,-,0
 2020,TKM,TKM,Turkmenistan,-,-,-,498,585,0,0,0,0,0,-,0
 2020,TMP,TLS,Timor-Leste,-,-,-,11,324,0,0,0,0,0,-,0
@@ -4058,7 +4037,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,CAR,CAF,Central African Rep.,-,-,-,737658,14283,5579,691791,371285,0,2284,-,0
 2021,CAY,CYM,Cayman Islands,-,-,-,5,0,0,0,0,0,0,-,0
 2021,CHD,TCD,Chad,-,-,-,11771,7572,8,406573,0,0,107029,-,0
-2021,CHI,CHN,China,-,-,-,170222,118476,0,0,0,0,10,-,0
+2021,CHI,CHN,China,-,-,-,182815,118476,0,0,0,0,10,-,0
 2021,CHL,CHL,Chile,-,-,-,987,9058,0,0,0,0,0,-,0
 2021,CMR,CMR,Cameroon,-,-,-,125477,22151,0,933138,53095,0,22,-,0
 2021,COB,COG,Congo,-,-,-,14253,12795,5,134430,0,0,84,-,0
@@ -4158,7 +4137,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,NIG,NGA,Nigeria,-,-,-,383660,83105,16951,3084916,205201,0,18,-,0
 2021,NIU,NIU,Niue,-,-,-,11,0,0,0,0,0,0,-,0
 2021,NOR,NOR,Norway,-,-,-,5,23,0,0,0,0,0,-,0
-2021,NRU,NRU,Nauru,-,-,-,5,16,0,0,0,0,0,-,0
+2021,NRU,NRU,Naoero,-,-,-,5,16,0,0,0,0,0,-,0
 2021,NZL,NZL,New Zealand,-,-,-,33,69,0,0,0,0,0,-,0
 2021,OMN,OMN,Oman,-,-,-,53,71,0,0,0,0,0,-,0
 2021,PAK,PAK,Pakistan,-,-,-,132818,56687,5,98898,0,0,6344,-,1224393
@@ -4200,7 +4179,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2021,TAN,TZA,United Rep. of Tanzania,-,-,-,752,1841,0,0,0,0,33,-,0
 2021,TCI,TCA,Turks and Caicos Islands,-,-,-,14,5,0,0,0,0,0,-,0
 2021,THA,THA,Thailand,-,-,-,181,3230,0,0,0,0,0,-,0
-2021,TIB,TIB,Tibetan,-,-,-,12593,0,0,0,0,0,0,-,0
 2021,TJK,TJK,Tajikistan,-,-,-,2412,2023,0,0,0,0,0,-,0
 2021,TKM,TKM,Turkmenistan,-,-,-,563,722,0,0,0,0,0,-,0
 2021,TMP,TLS,Timor-Leste,-,-,-,11,368,0,0,0,0,0,-,0
@@ -4262,7 +4240,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,CAR,CAF,Central African Rep.,-,-,-,748344,14291,5703,515665,404628,0,2246,-,0
 2022,CAY,CYM,Cayman Islands,-,-,-,5,0,0,0,0,0,0,-,0
 2022,CHD,TCD,Chad,-,-,-,12811,7091,8,381289,0,0,101667,-,0
-2022,CHI,CHN,China,-,-,-,161366,116338,0,0,0,0,150,-,0
+2022,CHI,CHN,China,-,-,-,173921,116339,0,0,0,0,155,-,0
 2022,CHL,CHL,Chile,-,-,-,1500,11879,0,0,0,0,2126,-,0
 2022,CMR,CMR,Cameroon,-,-,-,147352,21927,30758,989079,38159,0,8,-,0
 2022,COB,COG,Congo,-,-,-,13331,9580,5,26875,0,0,98,-,0
@@ -4363,7 +4341,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,NIG,NGA,Nigeria,-,-,-,391120,83402,19693,3286881,139622,0,13,-,0
 2022,NIU,NIU,Niue,-,-,-,11,7,0,0,0,0,0,-,0
 2022,NOR,NOR,Norway,-,-,-,5,15,0,0,0,0,0,-,0
-2022,NRU,NRU,Nauru,-,-,-,5,19,0,0,0,0,0,-,0
+2022,NRU,NRU,Naoero,-,-,-,5,19,0,0,0,0,0,-,0
 2022,NZL,NZL,New Zealand,-,-,-,48,32,0,0,0,0,0,-,0
 2022,OMN,OMN,Oman,-,-,-,59,99,0,0,0,0,0,-,0
 2022,PAK,PAK,Pakistan,-,-,-,112357,59126,5,0,98898,0,37979,-,1224393
@@ -4406,7 +4384,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2022,TAN,TZA,United Rep. of Tanzania,-,-,-,790,1916,0,0,0,0,31,-,0
 2022,TCI,TCA,Turks and Caicos Islands,-,-,-,19,11,0,0,0,0,0,-,0
 2022,THA,THA,Thailand,-,-,-,210,3203,0,0,0,0,0,-,0
-2022,TIB,TIB,Tibetan,-,-,-,12555,0,0,0,0,0,5,-,0
 2022,TJK,TJK,Tajikistan,-,-,-,2951,3646,0,0,0,0,0,-,0
 2022,TKM,TKM,Turkmenistan,-,-,-,2240,863,0,0,0,0,0,-,0
 2022,TMP,TLS,Timor-Leste,-,-,-,6,690,0,0,0,0,0,-,0
@@ -4467,7 +4444,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,CAN,CAN,Canada,-,-,-,223,311,0,0,0,0,0,-,0
 2023,CAR,CAF,Central African Rep.,-,-,-,759187,14775,14449,511803,325938,0,3402,-,0
 2023,CHD,TCD,Chad,-,-,-,10196,40745,0,215928,0,0,100648,-,0
-2023,CHI,CHN,China,-,-,-,160565,137143,0,0,0,0,53,-,0
+2023,CHI,CHN,China,-,-,-,173140,137144,0,0,0,0,67,-,0
 2023,CHL,CHL,Chile,-,-,-,1901,19228,0,0,0,0,2807,-,0
 2023,CMR,CMR,Cameroon,-,-,-,110715,50840,2058,1075252,15050,0,13261,-,0
 2023,COB,COG,Congo,-,-,-,13820,10363,0,0,0,0,101,-,0
@@ -4568,7 +4545,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,NIG,NGA,Nigeria,-,-,-,410308,68852,31747,3313601,35131,0,9,-,0
 2023,NIU,NIU,Niue,-,-,-,6,5,0,0,0,0,0,-,0
 2023,NOR,NOR,Norway,-,-,-,17,19,0,0,0,0,0,-,0
-2023,NRU,NRU,Nauru,-,-,-,7,16,0,0,0,0,0,-,0
+2023,NRU,NRU,Naoero,-,-,-,7,16,0,0,0,0,0,-,0
 2023,NZL,NZL,New Zealand,-,-,-,39,28,0,0,0,0,0,-,0
 2023,OMN,OMN,Oman,-,-,-,95,82,0,0,0,0,0,-,0
 2023,PAK,PAK,Pakistan,-,-,-,94481,72068,36,0,0,0,199,-,1400000
@@ -4612,7 +4589,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2023,TAN,TZA,United Rep. of Tanzania,-,-,-,935,2954,0,0,0,0,10,-,0
 2023,TCI,TCA,Turks and Caicos Islands,-,-,-,19,6,0,0,0,0,0,-,0
 2023,THA,THA,Thailand,-,-,-,222,3371,0,0,0,0,0,-,0
-2023,TIB,TIB,Tibetan,-,-,-,12575,0,0,0,0,0,14,-,0
 2023,TJK,TJK,Tajikistan,-,-,-,3720,6001,0,0,0,0,0,-,0
 2023,TKM,TKM,Turkmenistan,-,-,-,1848,1833,0,0,0,0,0,-,0
 2023,TMP,TLS,Timor-Leste,-,-,-,0,1085,0,0,0,0,0,-,0
@@ -4673,7 +4649,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,CAN,CAN,Canada,-,-,-,309,351,0,0,0,0,0,-,0
 2024,CAR,CAF,Central African Rep.,-,-,-,693488,18082,19875,469342,151765,0,3641,-,0
 2024,CHD,TCD,Chad,-,-,-,14617,28234,12,220610,0,0,317401,-,0
-2024,CHI,CHN,China,-,-,-,153564,180960,16,0,0,0,8,-,0
+2024,CHI,CHN,China,-,-,-,166140,180961,16,0,0,0,8,-,0
 2024,CHL,CHL,Chile,-,-,-,4809,24434,5,0,0,0,547,-,0
 2024,CMR,CMR,Cameroon,-,-,-,109879,59627,17653,1036775,12811,0,325,-,0
 2024,COB,COG,Congo,-,-,-,14110,12278,0,0,0,0,120,-,0
@@ -4776,7 +4752,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,NIG,NGA,Nigeria,-,-,-,467605,87289,37696,3432959,35721,0,26,-,0
 2024,NIU,NIU,Niue,-,-,-,5,5,0,0,0,0,0,-,0
 2024,NOR,NOR,Norway,-,-,-,22,37,5,0,0,0,0,-,0
-2024,NRU,NRU,Nauru,-,-,-,5,18,0,0,0,0,0,-,0
+2024,NRU,NRU,Naoero,-,-,-,5,18,0,0,0,0,0,-,0
 2024,NZL,NZL,New Zealand,-,-,-,52,27,0,0,0,0,0,-,0
 2024,OMN,OMN,Oman,-,-,-,118,91,0,0,0,0,0,-,0
 2024,PAK,PAK,Pakistan,-,-,-,86285,82958,7,3439,0,0,324,-,1456000
@@ -4819,7 +4795,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2024,TAN,TZA,United Rep. of Tanzania,-,-,-,1259,3900,5,0,0,0,10,-,0
 2024,TCI,TCA,Turks and Caicos Islands,-,-,-,14,6,0,0,0,0,0,-,0
 2024,THA,THA,Thailand,-,-,-,300,4022,0,0,0,0,0,-,0
-2024,TIB,TIB,Tibetan,-,-,-,12576,0,0,0,0,0,0,-,0
 2024,TJK,TJK,Tajikistan,-,-,-,4045,7945,0,0,0,0,0,-,0
 2024,TKM,TKM,Turkmenistan,-,-,-,2580,2327,0,0,0,0,0,-,0
 2024,TMP,TLS,Timor-Leste,-,-,-,5,1453,0,0,0,0,0,-,0
@@ -4882,7 +4857,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,CAR,CAF,Central African Rep.,-,-,-,674222,82600,21664,427479,183922,0,3615,-,0
 2025,CAY,CYM,Cayman Islands,-,-,-,0,5,0,0,0,0,0,-,0
 2025,CHD,TCD,Chad,-,-,-,15281,17111,29,219595,24165,0,449741,-,0
-2025,CHI,CHN,China,-,-,-,153962,99716,8,0,0,0,1340,-,0
+2025,CHI,CHN,China,-,-,-,166543,99717,8,0,0,0,1340,-,0
 2025,CHL,CHL,Chile,-,-,-,5358,23057,0,0,0,0,0,-,0
 2025,CMR,CMR,Cameroon,-,-,-,140366,37991,1146,1004257,0,0,413,-,0
 2025,COB,COG,Congo,-,-,-,13134,9431,5,0,0,0,108,-,0
@@ -4986,7 +4961,7 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,NIG,NGA,Nigeria,-,-,-,478150,56176,26780,3544519,0,0,147,-,0
 2025,NIU,NIU,Niue,-,-,-,5,6,0,0,0,0,0,-,0
 2025,NOR,NOR,Norway,-,-,-,20,32,0,0,0,0,0,-,0
-2025,NRU,NRU,Nauru,-,-,-,5,22,0,0,0,0,0,-,0
+2025,NRU,NRU,Naoero,-,-,-,5,22,0,0,0,0,0,-,0
 2025,NZL,NZL,New Zealand,-,-,-,58,43,0,0,0,0,0,-,0
 2025,OMN,OMN,Oman,-,-,-,133,43,0,0,0,0,0,-,0
 2025,PAK,PAK,Pakistan,-,-,-,90497,65066,164,0,3439,0,3270,-,1514240
@@ -5028,7 +5003,6 @@ year,coo,coo_iso,coo_name,coa,coa_iso,coa_name,refugees,asylum_seekers,returned_
 2025,TAN,TZA,United Rep. of Tanzania,-,-,-,1592,2777,0,0,0,0,0,-,0
 2025,TCI,TCA,Turks and Caicos Islands,-,-,-,14,6,0,0,0,0,0,-,0
 2025,THA,THA,Thailand,-,-,-,327,2656,0,0,0,0,0,-,0
-2025,TIB,TIB,Tibetan,-,-,-,12581,0,0,0,0,0,0,-,0
 2025,TJK,TJK,Tajikistan,-,-,-,4163,6420,0,0,0,0,5,-,0
 2025,TKM,TKM,Turkmenistan,-,-,-,1864,1663,0,0,0,0,0,-,0
 2025,TMP,TLS,Timor-Leste,-,-,-,15,1520,0,0,0,0,0,-,0

@@ -1,16 +1,16 @@
 {
-  "checkedAt": "2026-11-16T21:25:34.804Z",
+  "checkedAt": "2026-11-16T21:29:09.003Z",
   "description": "Each origin→host flow row was summed by origin and by host and compared with UNHCR's own published totals for the same year.",
   "years": [
     2010,
-    2026
+    2025
   ],
   "byOrigin": {
-    "compared": 10119,
+    "compared": 9501,
     "mismatched": 0
   },
   "byHost": {
-    "compared": 8943,
+    "compared": 8409,
     "mismatched": 0
   },
   "mismatches": []

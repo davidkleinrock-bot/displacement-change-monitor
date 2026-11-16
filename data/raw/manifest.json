@@ -1,25 +1,25 @@
 {
-  "retrievedAt": "2026-11-16T21:25:26.453Z",
+  "retrievedAt": "2026-11-16T21:29:01.525Z",
   "files": {
     "unhcr_countries.json": {
       "url": "https://api.unhcr.org/population/v1/countries/",
       "rows": 232
     },
-    "unhcr_population_matrix_2010_2026.csv": {
+    "unhcr_population_matrix_2010_2025.csv": {
       "url": "https://api.unhcr.org/population/v1/population/?year=YYYY&coo_all=true&coa_all=true",
-      "rows": 89610
+      "rows": 83328
     },
-    "unhcr_population_by_origin_2000_2026.csv": {
-      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2026&coo_all=true",
-      "rows": 5234
+    "unhcr_population_by_origin_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2025&coo_all=true",
+      "rows": 5028
     },
-    "unhcr_population_by_host_2000_2026.csv": {
-      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2026&coa_all=true",
-      "rows": 4511
+    "unhcr_population_by_host_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/population/?yearFrom=2000&yearTo=2025&coa_all=true",
+      "rows": 4333
     },
-    "idmc_idps_by_country_2000_2026.csv": {
-      "url": "https://api.unhcr.org/population/v1/idmc/?yearFrom=2000&yearTo=2026&coo_all=true",
-      "rows": 977
+    "idmc_idps_by_country_2000_2025.csv": {
+      "url": "https://api.unhcr.org/population/v1/idmc/?yearFrom=2000&yearTo=2025&coo_all=true",
+      "rows": 924
     },
     "geo/countries-50m.json": {
       "url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json"
@@ -28,6 +28,6 @@
       "url": "https://cdn.jsdelivr.net/npm/world-countries@5.1.0/countries.json"
     }
   },
-  "latestYear": 2026,
-  "fingerprint": "6c22ba08b5542334"
+  "latestYear": 2025,
+  "fingerprint": "2e482150d32681e1"
 }
