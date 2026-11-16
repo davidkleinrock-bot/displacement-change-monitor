@@ -1,28 +1,12 @@
 {
- "builtAt": "2026-10-26T01:22:27.031Z",
- "definition": "An outlet counts as reputable if Wikipedia's Perennial Sources list rates it generally reliable; or, where Wikipedia has not rated it or rates it reliable only for some sections, topics or periods, if its Lin et al. (2023) aggregate quality score is above 0.66 and it is among the 10,000 most-visited websites in the Tranco ranking (national or international reach); or if it is an intergovernmental or UN system organization. Outlets Wikipedia never rates generally reliable (no consensus, mixed, generally unreliable, deprecated, blacklisted) are excluded.",
+ "builtAt": "2026-11-16T20:23:23.771Z",
+ "definition": "Outlets Wikipedia's Perennial Sources list rates generally reliable, and intergovernmental or UN system organizations. The dashboard also counts the hand-picked outlets in data/outlets.json. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown; those with no consensus or mixed ratings are shown only if hand-picked.",
  "sources": {
   "wikipedia": {
    "title": "Wikipedia: Reliable sources/Perennial sources",
    "url": "https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources",
    "license": "CC BY-SA 4.0",
    "rows": 489
-  },
-  "lin2023": {
-   "title": "Lin et al. (2023), High level of correspondence across different news domain quality rating sets, PNAS Nexus 2(9)",
-   "url": "https://doi.org/10.1093/pnasnexus/pgad286",
-   "data": "https://github.com/hauselin/domain-quality-ratings",
-   "threshold": 0.66,
-   "domains": 11469
-  },
-  "tranco": {
-   "title": "Tranco research ranking of the most-visited websites",
-   "url": "https://tranco-list.eu",
-   "list": "W3ZV9",
-   "listUrl": "https://tranco-list.eu/list/W3ZV9/10000",
-   "created": "2026-10-25T22:00:02.303235",
-   "top": 10000,
-   "leftOutAsLocal": 3111
   },
   "intergovernmental": {
    "rule": "any .int domain, plus UN system organizations",
@@ -67,4529 +51,1087 @@
    "basis": [
     "wikipedia"
    ],
-   "score": 0.668,
    "name": "ABC News (USA)"
   },
   "abcnews.go.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.863,
    "name": "ABC News (USA)"
   },
   "theage.com.au": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.774,
    "name": "The Age"
   },
   "afp.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.955,
    "name": "Agence France-Presse (AFP)"
   },
   "aljazeera.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.779,
    "name": "Al Jazeera"
   },
   "aljazeera.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Al Jazeera"
   },
   "amnesty.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.854,
    "name": "Amnesty International (Amnesty, AI)"
   },
   "aon.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Aon"
   },
   "arstechnica.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.946,
    "name": "Ars Technica"
   },
   "arstechnica.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Ars Technica"
-  },
-  "pewresearch.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": "Pew Research Center",
-   "wikipediaSplit": true
   },
   "ap.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.693,
    "name": "Associated Press (AP)"
   },
   "apnews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.998,
    "name": "Associated Press (AP)"
   },
   "theatlantic.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.804,
    "name": "The Atlantic (The Atlantic Monthly)"
-  },
-  "atlasobscura.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": "Atlas Obscura (\"articles\" articles)",
-   "wikipediaSplit": true
   },
   "theaustralian.com.au": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.788,
    "name": "The Australian"
   },
   "avclub.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.816,
    "name": "The A.V. Club"
   },
   "avn.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "AVN (Adult Video News, AVN Magazine)"
   },
   "axios.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.897,
    "name": "Axios"
   },
   "ballotpedia.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.885,
    "name": "Ballotpedia"
   },
   "bbc.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.718,
    "name": "BBC (British Broadcasting Corporation)"
   },
   "bbc.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.882,
    "name": "BBC (British Broadcasting Corporation)"
   },
   "behindthevoiceactors.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Behind the Voice Actors (BTVA)"
   },
   "bellingcat.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.806,
    "name": "Bellingcat"
-  },
-  "bloomberg.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.84,
-   "name": "Bloomberg (Bloomberg News, Bloomberg Businessweek)",
-   "wikipediaSplit": true
   },
   "businessweek.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Bloomberg (Bloomberg News, Bloomberg Businessweek)"
   },
   "burkespeerage.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Burke's Peerage"
-  },
-  "insider.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.847,
-   "name": "Business Insider (culture)",
-   "wikipediaSplit": true
-  },
-  "buzzfeed.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.699,
-   "name": "BuzzFeed News",
-   "wikipediaSplit": true
   },
   "buzzfeednews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.8,
    "name": "BuzzFeed News"
   },
   "californiaglobe.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.718,
    "name": "BuzzFeed News"
   },
   "thecanary.co": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.685,
    "name": "BuzzFeed News"
   },
   "checkyourfact.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.862,
    "name": "Check Your Fact"
   },
   "csmonitor.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.935,
    "name": "The Christian Science Monitor (CSM, CS Monitor)"
   },
   "climatefeedback.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.963,
    "name": "Climate Feedback"
   },
   "channelnewsasia.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.871,
    "name": "CNA (Channel NewsAsia)"
-  },
-  "cnet.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.952,
-   "name": "CNET (pre–October 2020)",
-   "wikipediaSplit": true
   },
   "cnn.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.658,
    "name": "CNN (Cable News Network)"
   },
   "codastory.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Coda Media (Coda Story)"
   },
   "commonsensemedia.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Common Sense Media (CSM)"
   },
   "theconversation.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.918,
    "name": "The Conversation"
   },
   "deadline.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.836,
    "name": "Deadline Hollywood"
   },
   "deadlinehollywooddaily.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Deadline Hollywood"
   },
   "debretts.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Debrett's"
   },
   "denofgeek.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Den of Geek"
   },
   "deseretnews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.805,
    "name": "Deseret News"
   },
   "deseret.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.762,
    "name": "Deseret News"
   },
   "dw.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.864,
    "name": "Deutsche Welle (DW, DW-TV)"
   },
   "digitalspy.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Digital Spy"
   },
   "digitalspy.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Digital Spy"
   },
   "digitaltrends.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.683,
    "name": "Digital Trends"
   },
   "thediplomat.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.871,
    "name": "The Diplomat"
   },
   "economist.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.926,
    "name": "The Economist"
   },
   "iranicaonline.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Encyclopædia Iranica"
   },
   "engadget.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.869,
    "name": "Engadget"
   },
   "ew.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "Entertainment Weekly (EW)"
   },
   "eurogamer.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "usgamer.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.cz": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.de": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.es": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.nl": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.pl": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "eurogamer.pt": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Eurogamer (USgamer)"
   },
   "ft.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.93,
    "name": "Financial Times (FT)"
-  },
-  "forbes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.83,
-   "name": "Forbes.com (pre–5 August 2010) and Forbes (print issue)",
-   "wikipediaSplit": true
   },
   "gamedeveloper.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Game Developer (Gamasutra)"
   },
   "gamasutra.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Game Developer (Gamasutra)"
   },
   "gameinformer.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Game Informer"
   },
   "gamespot.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "GameSpot"
   },
   "gamespot.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "GameSpot"
   },
   "wyborcza.pl": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Gazeta Wyborcza"
   },
   "gizmodo.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.696,
    "name": "Gizmodo"
   },
   "glaad.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.661,
    "name": "GLAAD"
   },
   "theglobeandmail.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.816,
    "name": "The Globe and Mail"
   },
   "gq.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.625,
    "name": "GQ (GQ Magazine)"
   },
   "gq-magazine.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "GQ (GQ Magazine)"
-  },
-  "theguardian.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.75,
-   "name": "The Guardian (TheGuardian.com, The Manchester Guardian, The Guardian Weekly, The Observer)",
-   "wikipediaSplit": true
   },
   "haaretz.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.672,
    "name": "Haaretz (Ḥadashot Ha'aretz)"
   },
   "haaretz.co.il": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Haaretz (Ḥadashot Ha'aretz)"
   },
   "hardcoregaming101.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Hardcore Gaming 101"
   },
   "thehill.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.899,
    "name": "The Hill"
   },
   "thehindu.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.705,
    "name": "The Hindu"
   },
   "hollywoodreporter.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "The Hollywood Reporter (THR)"
   },
   "hopenothate.org.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Hope not Hate (Searchlight)"
   },
   "searchlightmagazine.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Hope not Hate (Searchlight)"
-  },
-  "huffingtonpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.715,
-   "name": "HuffPost (excluding politics) (The Huffington Post)",
-   "wikipediaSplit": true
   },
   "idolator.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Idolator"
   },
   "ign.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "IGN (Imagine Games Network)"
   },
   "independent.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.734,
    "name": "The Independent"
   },
   "indianexpress.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.76,
    "name": "The Indian Express"
   },
   "ipsnews.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Inter Press Service (IPS)"
   },
   "ipsnoticias.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Inter Press Service (IPS)"
   },
   "ipscuba.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Inter Press Service (IPS)"
   },
   "theintercept.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.608,
    "name": "The Intercept"
   },
   "ifcncodeofprinciples.poynter.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "International Fact-Checking Network (IFCN)"
   },
   "jamanetwork.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.7,
    "name": "JAMA (The Journal of the American Medical Association)"
   },
   "jpost.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.805,
    "name": "The Jerusalem Post"
   },
   "kirkusreviews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Kirkus Reviews"
   },
   "kommersant.ru": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Kommersant"
   },
   "kommersant.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Kommersant"
   },
   "kommersant.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Kommersant"
   },
   "latimes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.854,
    "name": "Los Angeles Times (L.A. Times)"
   },
   "lwn.net": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "LWN.net (Linux Weekly News)"
   },
   "mg.co.za": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Mail & Guardian"
   },
   "themarysue.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.645,
    "name": "The Mary Sue"
   },
   "meduza.io": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.548,
    "name": "Meduza"
   },
   "metacritic.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Metacritic (GameRankings)"
   },
   "gamerankings.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Metacritic (GameRankings)"
-  },
-  "metro.co.uk": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.774,
-   "name": "Metro (UK) (soap operas)",
-   "wikipediaSplit": true
   },
   "monde-diplomatique.fr": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Le Monde diplomatique"
   },
   "mondediplo.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Le Monde diplomatique"
   },
   "motherjones.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.661,
    "name": "Mother Jones (MoJo)"
   },
   "msnbc.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.588,
    "name": "MS NOW (MSNBC)"
   },
   "thenation.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.664,
    "name": "The Nation"
   },
   "nationalgeographic.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.888,
    "name": "National Geographic (The National Geographic Magazine, Nat Geo)"
   },
   "nationalpost.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.83,
    "name": "National Post (Postmedia Network)"
   },
   "nbcnews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.844,
    "name": "NBC News"
   },
   "newrepublic.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.557,
    "name": "The New Republic"
   },
   "nymag.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.689,
    "name": "New York (Vulture, The Cut, Grub Street, Daily Intelligencer)"
   },
   "vulture.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.843,
    "name": "New York (Vulture, The Cut, Grub Street, Daily Intelligencer)"
   },
   "thecut.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.659,
    "name": "New York (Vulture, The Cut, Grub Street, Daily Intelligencer)"
   },
   "grubstreet.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "New York (Vulture, The Cut, Grub Street, Daily Intelligencer)"
   },
   "nydailynews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.808,
    "name": "New York Daily News (Illustrated Daily News)"
   },
   "nytimes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.859,
    "name": "The New York Times (NYT)"
   },
   "newyorker.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.663,
    "name": "The New Yorker"
   },
   "nzherald.co.nz": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.906,
    "name": "The New Zealand Herald (NZ Herald)"
   },
   "newslaundry.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Newslaundry"
-  },
-  "newsweek.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.818,
-   "name": "Newsweek (pre–2013)",
-   "wikipediaSplit": true
   },
   "nme.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "NME (New Musical Express)"
   },
   "npr.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.931,
    "name": "NPR (National Public Radio)"
   },
   "oko.press": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "OKO.press"
   },
   "pbs.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.874,
    "name": "PBS (Public Broadcasting Service)"
   },
   "people.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.554,
    "name": "People"
   },
   "people-press.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "journalism.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pewsocialtrends.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pewforum.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pewinternet.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pewhispanic.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pewglobal.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Pew Research Center"
   },
   "pinknews.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.658,
    "name": "PinkNews"
   },
   "playboy.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Playboy"
   },
   "politico.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.863,
    "name": "Politico"
   },
   "politifact.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.868,
    "name": "PolitiFact (PunditFact)"
-  },
-  "polygon.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": "Polygon (pre–May 2025)",
-   "wikipediaSplit": true
   },
   "propublica.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.853,
    "name": "ProPublica"
   },
   "rfa.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "Radio Free Asia (RFA)"
   },
   "rappler.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.72,
    "name": "Rappler"
   },
   "reason.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.805,
    "name": "Reason"
   },
   "theregister.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.871,
    "name": "The Register (\"El Reg\")"
   },
   "theregister.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Register (\"El Reg\")"
   },
   "reuters.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 1,
    "name": "Reuters"
   },
   "rottentomatoes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "Rotten Tomatoes"
   },
   "scientificamerican.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.862,
    "name": "Scientific American (SA, SciAm)"
   },
   "scotusblog.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.871,
    "name": "SCOTUSblog"
   },
   "skepticalinquirer.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.956,
    "name": "Skeptical Inquirer"
   },
   "news.sky.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.867,
    "name": "Sky News (UK)"
   },
   "snopes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.904,
    "name": "Snopes"
   },
   "scmp.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.768,
    "name": "South China Morning Post (SCMP, Sunday Morning Post)"
   },
   "splcenter.org": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.696,
    "name": "Southern Poverty Law Center (SPLC)"
   },
   "space.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.837,
    "name": "Space.com"
   },
   "spiegel.de": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "Der Spiegel (Spiegel Online, SPON)"
   },
   "straitstimes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.754,
    "name": "The Straits Times (ST)"
   },
   "smh.com.au": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.766,
    "name": "The Sydney Morning Herald (SMH)"
   },
   "time.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.826,
    "name": "Time"
   },
   "thetimes.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Times (The Times of London, The London Times, The Sunday Times)"
   },
   "thetimes.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.805,
    "name": "The Times (The Times of London, The London Times, The Sunday Times)"
   },
   "thesundaytimes.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Times (The Times of London, The London Times, The Sunday Times)"
   },
   "timesonline.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Times (The Times of London, The London Times, The Sunday Times)"
   },
   "timesofisrael.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "The Times of Israel (ToI)"
   },
   "torrentfreak.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "TorrentFreak (TF)"
   },
   "tvguide.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.705,
    "name": "TV Guide"
   },
   "tvguidemagazine.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "TV Guide"
   },
   "usnews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.897,
    "name": "U.S. News & World Report"
   },
   "usatoday.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.901,
    "name": "USA Today"
   },
   "vanityfair.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.58,
    "name": "Vanity Fair"
   },
   "variety.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.831,
    "name": "Variety"
   },
   "theverge.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.882,
    "name": "The Verge"
   },
   "villagevoice.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.7,
    "name": "The Village Voice"
   },
   "vogue.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.663,
    "name": "Vogue"
   },
   "voanews.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.944,
    "name": "Voice of America (VOA, VoA)"
   },
   "vox.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.654,
    "name": "Vox (Recode)"
   },
   "wsj.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.804,
    "name": "The Wall Street Journal (WSJ)"
   },
   "washingtonpost.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.819,
    "name": "The Washington Post (The Post, WaPo, TWP)"
   },
   "weeklystandard.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.64,
    "name": "The Weekly Standard"
   },
   "thewire.in": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.754,
    "name": "The Wire (India)"
   },
   "thewirehindi.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Wire (India)"
   },
   "thewireurdu.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": null,
    "name": "The Wire (India)"
   },
   "wired.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.852,
    "name": "Wired (Wired UK)"
   },
   "wired.co.uk": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.814,
    "name": "Wired (Wired UK)"
   },
   "thewrap.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.696,
    "name": "TheWrap"
   },
   "news.yahoo.com": {
    "basis": [
     "wikipedia"
    ],
-   "score": 0.817,
    "name": "Yahoo News"
-  },
-  "zdnet.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": "ZDNET (pre–October 2020)",
-   "wikipediaSplit": true
-  },
-  "smithsonianmag.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.971,
-   "name": null
-  },
-  "drugs.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.965,
-   "name": null
-  },
-  "nature.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.965,
-   "name": null
-  },
-  "cdc.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.964,
-   "name": null
-  },
-  "sandiegouniontribune.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.961,
-   "name": null
-  },
-  "nasa.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.956,
-   "name": null
-  },
-  "hopkinsmedicine.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.956,
-   "name": null
-  },
-  "upi.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.951,
-   "name": null
-  },
-  "nejm.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.944,
-   "name": null
-  },
-  "biomedcentral.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.944,
-   "name": null
-  },
-  "apa.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.944,
-   "name": null
-  },
-  "afr.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.941,
-   "name": null
-  },
-  "newscientist.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.936,
-   "name": null
-  },
-  "medscape.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.934,
-   "name": null
-  },
-  "patch.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.933,
-   "name": null
-  },
-  "zdf.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.932,
-   "name": null
-  },
-  "ctvnews.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.926,
-   "name": null
-  },
-  "iea.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.926,
-   "name": null
-  },
-  "scotsman.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.926,
-   "name": null
-  },
-  "news.harvard.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.921,
-   "name": null
-  },
-  "foreignpolicy.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.919,
-   "name": null
-  },
-  "telegram.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "rand.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "gallup.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "lesoir.be": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "bmj.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "sciencemag.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.918,
-   "name": null
-  },
-  "paho.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.917,
-   "name": null
-  },
-  "observatory.journalism.wisc.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.912,
-   "name": null
-  },
-  "bleepingcomputer.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.912,
-   "name": null
-  },
-  "oilprice.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.912,
-   "name": null
-  },
-  "nber.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.912,
-   "name": null
-  },
-  "congress.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "csis.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "howtogeek.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "noaa.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "ieee.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "eurekalert.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "aps.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "iop.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "aap.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.91,
-   "name": null
-  },
-  "ncdc.noaa.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.909,
-   "name": null
-  },
-  "technologyreview.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.909,
-   "name": null
-  },
-  "foreignaffairs.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.909,
-   "name": null
-  },
-  "corriere.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.906,
-   "name": null
-  },
-  "consumerreports.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.905,
-   "name": null
-  },
-  "house.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.903,
-   "name": null
-  },
-  "aip.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.902,
-   "name": null
-  },
-  "howstuffworks.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.902,
-   "name": null
-  },
-  "ad.nl": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.901,
-   "name": null
-  },
-  "thelancet.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.901,
-   "name": null
-  },
-  "pnas.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.901,
-   "name": null
-  },
-  "sciencenews.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.901,
-   "name": null
-  },
-  "ama-assn.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.9,
-   "name": null
-  },
-  "post-gazette.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.9,
-   "name": null
-  },
-  "mentalfloss.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.899,
-   "name": null
-  },
-  "adweek.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.897,
-   "name": null
-  },
-  "abc.net.au": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.893,
-   "name": null
-  },
-  "sciencealert.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.89,
-   "name": null
-  },
-  "futurism.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.889,
-   "name": null
-  },
-  "allianceforscience.cornell.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.889,
-   "name": null
-  },
-  "poynter.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.888,
-   "name": null
-  },
-  "cleveland.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.888,
-   "name": null
-  },
-  "al.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.887,
-   "name": null
-  },
-  "nih.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.887,
-   "name": null
-  },
-  "sfgate.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.887,
-   "name": null
-  },
-  "nj.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.885,
-   "name": null
-  },
-  "azcentral.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.884,
-   "name": null
-  },
-  "bigthink.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.883,
-   "name": null
-  },
-  "ansa.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.881,
-   "name": null
-  },
-  "france24.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "inc.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "cfr.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "military.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "gao.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "c-span.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "jstor.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.879,
-   "name": null
-  },
-  "brookings.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.878,
-   "name": null
-  },
-  "hbr.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.877,
-   "name": null
-  },
-  "mercurynews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.877,
-   "name": null
-  },
-  "freep.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.876,
-   "name": null
-  },
-  "fortune.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.876,
-   "name": null
-  },
-  "weforum.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.874,
-   "name": null
-  },
-  "newsday.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.874,
-   "name": null
-  },
-  "plos.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.872,
-   "name": null
-  },
-  "startribune.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.872,
-   "name": null
-  },
-  "ajc.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.872,
-   "name": null
-  },
-  "public.wmo.int": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "news24.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "japantimes.co.jp": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "makeuseof.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "kff.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "oregonlive.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "denverpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.871,
-   "name": null
-  },
-  "currently.att.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.87,
-   "name": null
-  },
-  "mlive.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.869,
-   "name": null
-  },
-  "chicagotribune.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.869,
-   "name": null
-  },
-  "dallasnews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.869,
-   "name": null
-  },
-  "nhk.or.jp": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.867,
-   "name": null
-  },
-  "ncbi.nlm.nih.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.865,
-   "name": null
-  },
-  "psychcentral.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.864,
-   "name": null
-  },
-  "chron.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.864,
-   "name": null
-  },
-  "ici.radio-canada.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.864,
-   "name": null
-  },
-  "philadelphia.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.863,
-   "name": null
-  },
-  "discovermagazine.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "mainichi.jp": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "sbs.com.au": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "insidehighered.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "medicalxpress.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "everydayhealth.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.862,
-   "name": null
-  },
-  "globalnews.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.86,
-   "name": null
-  },
-  "srf.ch": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.857,
-   "name": null
-  },
-  "qz.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.857,
-   "name": null
-  },
-  "newatlas.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.856,
-   "name": null
-  },
-  "journals.sagepub.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.855,
-   "name": null
-  },
-  "rte.ie": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.855,
-   "name": null
-  },
-  "science.energy.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.854,
-   "name": null
-  },
-  "fas.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.854,
-   "name": null
-  },
-  "marketwatch.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.853,
-   "name": null
-  },
-  "espn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.853,
-   "name": null
-  },
-  "go.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.852,
-   "name": null
-  },
-  "popsci.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.85,
-   "name": null
-  },
-  "cnbc.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.85,
-   "name": null
-  },
-  "scripps.ucsd.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.85,
-   "name": null
-  },
-  "cornell.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.849,
-   "name": null
-  },
-  "francetvinfo.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.848,
-   "name": null
-  },
-  "sfchronicle.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.848,
-   "name": null
-  },
-  "phys.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.847,
-   "name": null
-  },
-  "pittsburgh.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.846,
-   "name": null
-  },
-  "sciencedaily.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.846,
-   "name": null
-  },
-  "thestar.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.843,
-   "name": null
-  },
-  "fool.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.843,
-   "name": null
-  },
-  "digg.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.843,
-   "name": null
-  },
-  "lastampa.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.842,
-   "name": null
-  },
-  "abc.es": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.842,
-   "name": null
-  },
-  "inquirer.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.842,
-   "name": null
-  },
-  "hrw.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.841,
-   "name": null
-  },
-  "au.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.841,
-   "name": null
-  },
-  "ca.movies.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.838,
-   "name": null
-  },
-  "travel.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.838,
-   "name": null
-  },
-  "medicalnewstoday.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "kompas.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "24ur.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "worldpopulationreview.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "wn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "mayoclinic.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.837,
-   "name": null
-  },
-  "bostonglobe.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.835,
-   "name": null
-  },
-  "webmd.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.835,
-   "name": null
-  },
-  "journal.frontiersin.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "journals.cambridge.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "understandrealitythroughscience.blogspot.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "newsite.thehindu.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "dawn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "arte.tv": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.834,
-   "name": null
-  },
-  "novinky.cz": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.831,
-   "name": null
-  },
-  "hln.be": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.828,
-   "name": null
-  },
-  "bt.dk": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.828,
-   "name": null
-  },
-  "stuff.co.nz": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.827,
-   "name": null
-  },
-  "losangeles.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.825,
-   "name": null
-  },
-  "wri.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.824,
-   "name": null
-  },
-  "money.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.824,
-   "name": null
-  },
-  "euronews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.823,
-   "name": null
-  },
-  "who.int": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.822,
-   "name": null
-  },
-  "detik.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.822,
-   "name": null
-  },
-  "psychologytoday.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.819,
-   "name": null
-  },
-  "cbc.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "faz.net": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "lapresse.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "barrons.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "statnews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "thestreet.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.817,
-   "name": null
-  },
-  "sports.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.816,
-   "name": null
-  },
-  "chicago.suntimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.816,
-   "name": null
-  },
-  "journaldemontreal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.815,
-   "name": null
-  },
-  "zeit.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.814,
-   "name": null
-  },
-  "msn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.814,
-   "name": null
-  },
-  "itv.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.813,
-   "name": null
-  },
-  "swissinfo.ch": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.809,
-   "name": null
-  },
-  "lifehacker.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.809,
-   "name": null
-  },
-  "inquirer.net": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.806,
-   "name": null
-  },
-  "repubblica.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.805,
-   "name": null
-  },
-  "miamiherald.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.805,
-   "name": null
-  },
-  "fastcompany.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.805,
-   "name": null
-  },
-  "chronicle.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.805,
-   "name": null
-  },
-  "editorial.huffingtonpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.804,
-   "name": null
-  },
-  "hk.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.804,
-   "name": null
-  },
-  "manchestereveningnews.co.uk": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.804,
-   "name": null
-  },
-  "schwaebische.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.803,
-   "name": null
-  },
-  "news.com.au": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.801,
-   "name": null
-  },
-  "bing.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.8,
-   "name": null
-  },
-  "eff.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.8,
-   "name": null
-  },
-  "seattletimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.799,
-   "name": null
-  },
-  "boston.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.799,
-   "name": null
-  },
-  "es.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.798,
-   "name": null
-  },
-  "kotaku.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.797,
-   "name": null
-  },
-  "glamour.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.794,
-   "name": null
-  },
-  "elpais.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.791,
-   "name": null
-  },
-  "yomiuri.co.jp": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.791,
-   "name": null
-  },
-  "smartnews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.791,
-   "name": null
-  },
-  "news.google.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.791,
-   "name": null
-  },
-  "welt.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.788,
-   "name": null
-  },
-  "weather.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.788,
-   "name": null
-  },
-  "themoscowtimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.788,
-   "name": null
-  },
-  "sky.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.783,
-   "name": null
-  },
-  "gmx.net": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.78,
-   "name": null
-  },
-  "elmundo.es": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.78,
-   "name": null
-  },
-  "expressen.se": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.78,
-   "name": null
-  },
-  "chicago.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.778,
-   "name": null
-  },
-  "censor.net": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.777,
-   "name": null
-  },
-  "boston.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.777,
-   "name": null
-  },
-  "indiatoday.in": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.777,
-   "name": null
-  },
-  "news.mongabay.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.776,
-   "name": null
-  },
-  "asahi.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "infobae.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "nos.nl": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "irishtimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "volkskrant.nl": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "euractiv.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.775,
-   "name": null
-  },
-  "ourworldindata.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.774,
-   "name": null
-  },
-  "aol.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.774,
-   "name": null
-  },
-  "aarp.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.773,
-   "name": null
-  },
-  "sacramento.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.773,
-   "name": null
-  },
-  "denver.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.772,
-   "name": null
-  },
-  "iefimerida.gr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.771,
-   "name": null
-  },
-  "earth.columbia.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.77,
-   "name": null
-  },
-  "columbia.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.767,
-   "name": null
-  },
-  "foxsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.764,
-   "name": null
-  },
-  "krone.at": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.764,
-   "name": null
-  },
-  "parade.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.763,
-   "name": null
-  },
-  "nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.762,
-   "name": null
-  },
-  "cambridge.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.754,
-   "name": null
-  },
-  "ipcc.ch": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.754,
-   "name": null
-  },
-  "medlineplus.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.754,
-   "name": null
-  },
-  "india.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.754,
-   "name": null
-  },
-  "complex.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.754,
-   "name": null
-  },
-  "cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.751,
-   "name": null
-  },
-  "health.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.751,
-   "name": null
-  },
-  "baltimoresun.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.751,
-   "name": null
-  },
-  "suntimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.75,
-   "name": null
-  },
-  "daily.jstor.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.75,
-   "name": null
-  },
-  "uk.sports.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.748,
-   "name": null
-  },
-  "sg.sports.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.747,
-   "name": null
-  },
-  "br.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.746,
-   "name": null
-  },
-  "yale.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.746,
-   "name": null
-  },
-  "uk.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.745,
-   "name": null
-  },
-  "sg.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.745,
-   "name": null
-  },
-  "highline.huffingtonpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.741,
-   "name": null
-  },
-  "e.businessinsider.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.741,
-   "name": null
-  },
-  "adage.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.74,
-   "name": null
-  },
-  "independent.ie": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.739,
-   "name": null
-  },
-  "techrepublic.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.735,
-   "name": null
-  },
-  "today.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.734,
-   "name": null
-  },
-  "bleacherreport.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.734,
-   "name": null
-  },
-  "fanpage.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.734,
-   "name": null
-  },
-  "pravda.com.ua": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.731,
-   "name": null
-  },
-  "ucsd.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.731,
-   "name": null
-  },
-  "wmo.int": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.731,
-   "name": null
-  },
-  "ilsole24ore.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.73,
-   "name": null
-  },
-  "web.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.729,
-   "name": null
-  },
-  "dhnet.be": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "origin-coronavirus.jhu.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "dn.se": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "heute.at": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "nba.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "hindustantimes.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.725,
-   "name": null
-  },
-  "nascar.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.724,
-   "name": null
-  },
-  "bizjournals.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.724,
-   "name": null
-  },
-  "moms.today.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.724,
-   "name": null
-  },
-  "de.search.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.724,
-   "name": null
-  },
-  "collegefootball.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.724,
-   "name": null
-  },
-  "ca.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.723,
-   "name": null
-  },
-  "nordkurier.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.722,
-   "name": null
-  },
-  "sagepub.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.721,
-   "name": null
-  },
-  "deccanherald.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.721,
-   "name": null
-  },
-  "harvard.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.72,
-   "name": null
-  },
-  "newyork.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.72,
-   "name": null
-  },
-  "mlb.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.72,
-   "name": null
-  },
-  "irish.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.72,
-   "name": null
-  },
-  "ladepeche.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.72,
-   "name": null
-  },
-  "cbssports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.719,
-   "name": null
-  },
-  "asia.nikkei.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.718,
-   "name": null
-  },
-  "minnesota.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.717,
-   "name": null
-  },
-  "collegebasketball.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.717,
-   "name": null
-  },
-  "in.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.716,
-   "name": null
-  },
-  "sg.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.716,
-   "name": null
-  },
-  "ndtv.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.716,
-   "name": null
-  },
-  "stream.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.715,
-   "name": null
-  },
-  "heart.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.715,
-   "name": null
-  },
-  "sportsworld.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.715,
-   "name": null
-  },
-  "presseportal.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.714,
-   "name": null
-  },
-  "diabetes.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.714,
-   "name": null
-  },
-  "linternaute.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.713,
-   "name": null
-  },
-  "tiscali.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.713,
-   "name": null
-  },
-  "aclu.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "projects.huffingtonpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "frontiersin.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "events.today.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "harpersbazaar.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "es-us.noticias.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.712,
-   "name": null
-  },
-  "observer.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.711,
-   "name": null
-  },
-  "ilgiornale.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.709,
-   "name": null
-  },
-  "antoniusaquinas.wp.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.709,
-   "name": null
-  },
-  "ca.sports.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.709,
-   "name": null
-  },
-  "rtl.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.707,
-   "name": null
-  },
-  "france3-regions.francetvinfo.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.707,
-   "name": null
-  },
-  "politico.eu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "lanouvellerepublique.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "amp.businessinsider.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "global.espn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "tagesschau.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "ema.europa.eu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "whitehouse.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.706,
-   "name": null
-  },
-  "starpolitical.wordpress.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.704,
-   "name": null
-  },
-  "nouvelobs.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.704,
-   "name": null
-  },
-  "cnnespanol.cnn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.704,
-   "name": null
-  },
-  "adnkronos.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.7,
-   "name": null
-  },
-  "tribunnews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.699,
-   "name": null
-  },
-  "mariefrance.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.698,
-   "name": null
-  },
-  "channel4.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.697,
-   "name": null
-  },
-  "derstandard.at": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.697,
-   "name": null
-  },
-  "mdr.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.697,
-   "name": null
-  },
-  "olympics.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.697,
-   "name": null
-  },
-  "t-online.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "soccer.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "au.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "nz.finance.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "uk.style.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "au.lifestyle.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "au.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "mobile.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "uk.businessinsider.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.696,
-   "name": null
-  },
-  "video.search.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.695,
-   "name": null
-  },
-  "treehugger.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.694,
-   "name": null
-  },
-  "financialexpress.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.694,
-   "name": null
-  },
-  "seekingalpha.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.694,
-   "name": null
-  },
-  "nzz.ch": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.694,
-   "name": null
-  },
-  "oneindia.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.693,
-   "name": null
-  },
-  "nhl.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.693,
-   "name": null
-  },
-  "vplayer.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.693,
-   "name": null
-  },
-  "nz.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.693,
-   "name": null
-  },
-  "20min.ch": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.692,
-   "name": null
-  },
-  "yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.692,
-   "name": null
-  },
-  "lesechos.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.689,
-   "name": null
-  },
-  "mongabay.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.688,
-   "name": null
-  },
-  "cctv.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.687,
-   "name": null
-  },
-  "nami.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.686,
-   "name": null
-  },
-  "ca.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.685,
-   "name": null
-  },
-  "uk.movies.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.685,
-   "name": null
-  },
-  "energy.gov": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.685,
-   "name": null
-  },
-  "20minutes.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.684,
-   "name": null
-  },
-  "es.vida-estilo.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.684,
-   "name": null
-  },
-  "scores.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.684,
-   "name": null
-  },
-  "cnews.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.684,
-   "name": null
-  },
-  "radio-canada.ca": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.683,
-   "name": null
-  },
-  "fr.news.yahoo.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.683,
-   "name": null
-  },
-  "theweathernetwork.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.683,
-   "name": null
-  },
-  "edition.cnn.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.682,
-   "name": null
-  },
-  "ouest-france.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.682,
-   "name": null
-  },
-  "origin-prod.csnne.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.682,
-   "name": null
-  },
-  "graphics.reuters.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.682,
-   "name": null
-  },
-  "tag24.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.679,
-   "name": null
-  },
-  "sain-et-naturel.ouest-france.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.677,
-   "name": null
-  },
-  "accuweather.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.677,
-   "name": null
-  },
-  "countryliving.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.677,
-   "name": null
-  },
-  "yaleglobal.yale.edu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.676,
-   "name": null
-  },
-  "focus.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.676,
-   "name": null
-  },
-  "billboard.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.676,
-   "name": null
-  },
-  "womenshealthmag.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.675,
-   "name": null
-  },
-  "elle.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.674,
-   "name": null
-  },
-  "health.clevelandclinic.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.674,
-   "name": null
-  },
-  "video.foxnews.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.674,
-   "name": null
-  },
-  "medicinenet.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.673,
-   "name": null
-  },
-  "leparisien.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.673,
-   "name": null
-  },
-  "publications.aap.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.672,
-   "name": null
-  },
-  "tf1info.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.671,
-   "name": null
-  },
-  "elections.huffingtonpost.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.671,
-   "name": null
-  },
-  "rfi.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.67,
-   "name": null
-  },
-  "collider.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.669,
-   "name": null
-  },
-  "ameli.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.668,
-   "name": null
-  },
-  "ecdc.europa.eu": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.668,
-   "name": null
-  },
-  "nikkei.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.668,
-   "name": null
-  },
-  "aad.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.667,
-   "name": null
-  },
-  "nfl.nbcsports.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.667,
-   "name": null
-  },
-  "handelsblatt.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.666,
-   "name": null
-  },
-  "lemonde.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.666,
-   "name": null
-  },
-  "radiofrance.fr": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.666,
-   "name": null
-  },
-  "ilmessaggero.it": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.665,
-   "name": null
-  },
-  "baltimore.cbslocal.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.665,
-   "name": null
-  },
-  "visualcapitalist.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.662,
-   "name": null
-  },
-  "alz.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.662,
-   "name": null
-  },
-  "my.clevelandclinic.org": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.662,
-   "name": null
-  },
-  "tagesspiegel.de": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.662,
-   "name": null
-  },
-  "punchng.com": {
-   "basis": [
-    "lin2023",
-    "tranco"
-   ],
-   "score": 0.661,
-   "name": null
   }
  },
  "excluded": {
@@ -4631,6 +1173,7 @@
   "ancestry.com": "Wikipedia: generally unreliable",
   "anna-news.info": "Wikipedia: deprecated",
   "answers.com": "Wikipedia: generally unreliable",
+  "adl.org": "Wikipedia: rated reliable only for some sections, topics or periods",
   "antiwar.com": "Wikipedia: generally unreliable",
   "antiwar.org": "Wikipedia: generally unreliable",
   "hk.appledaily.com": "Wikipedia: no consensus",
@@ -4642,6 +1185,8 @@
   "thearda.com": "Wikipedia: no consensus",
   "gordonconwell.edu": "Wikipedia: no consensus",
   "globalreligiousfutures.org": "Wikipedia: no consensus",
+  "pewresearch.org": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "atlasobscura.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "aspi.org.au": "Wikipedia: no consensus",
   "baike.baidu.com": "Wikipedia: deprecated",
   "b.baidu.com": "Wikipedia: deprecated",
@@ -4653,13 +1198,16 @@
   "theblaze.com": "Wikipedia: generally unreliable",
   "conservativereview.com": "Wikipedia: generally unreliable",
   "blogspot.com": "Wikipedia: generally unreliable",
+  "bloomberg.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "boingboing.net": "Wikipedia: no consensus",
   "breitbart.com": "Wikipedia: blacklisted",
   "biggovernment.com": "Wikipedia: blacklisted",
   "broadwayworld.com": "Wikipedia: generally unreliable",
+  "insider.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "businessinsider.com": "Wikipedia: no consensus",
-  "thisisinsider.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "thisisinsider.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "bustle.com": "Wikipedia: no consensus",
+  "buzzfeed.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "catholic-hierarchy.org": "Wikipedia: generally unreliable",
   "cato.org": "Wikipedia: no consensus",
   "cbsnews.com": "Wikipedia: no consensus",
@@ -4677,6 +1225,7 @@
   "chinadailyhk.com": "Wikipedia: no consensus",
   "cgtn.com": "Wikipedia: deprecated",
   "cbn.com": "Wikipedia: no consensus",
+  "cnet.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "coindesk.com": "Wikipedia: generally unreliable",
   "consortiumnews.com": "Wikipedia: generally unreliable",
   "correodelorinoco.gob.ve": "Wikipedia: generally unreliable",
@@ -4706,7 +1255,7 @@
   "dailysabah.com": "Wikipedia: generally unreliable",
   "dailystar.co.uk": "Wikipedia: deprecated",
   "thestar.ie": "Wikipedia: deprecated",
-  "telegraph.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "telegraph.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods",
   "dailywire.com": "Wikipedia: generally unreliable",
   "thedebrief.org": "Wikipedia: deprecated",
   "democracynow.org": "Wikipedia: no consensus",
@@ -4784,6 +1333,7 @@
   "fotw.info": "Wikipedia: generally unreliable",
   "crwflags.com": "Wikipedia: generally unreliable",
   "flickr.com": "Wikipedia: generally unreliable",
+  "forbes.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "foxnews.com": "Wikipedia: generally unreliable",
   "foxbusiness.com": "Wikipedia: no consensus",
   "thefp.com": "Wikipedia: no consensus",
@@ -4799,7 +1349,7 @@
   "geni.com": "Wikipedia: deprecated",
   "genius.com": "Wikipedia: no consensus",
   "rapgenius.com": "Wikipedia: no consensus",
-  "geonames.usgs.gov": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "geonames.usgs.gov": "Wikipedia: rated reliable only for some sections, topics or periods",
   "geonames.nga.mil": "Wikipedia: generally unreliable",
   "globaltimes.cn": "Wikipedia: deprecated",
   "huanqiu.com": "Wikipedia: deprecated",
@@ -4811,8 +1361,9 @@
   "google.com": "Wikipedia: no consensus",
   "thegrayzone.com": "Wikipedia: deprecated",
   "thegreenpapers.com": "Wikipedia: no consensus",
-  "guardian.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "theguardian.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "theguardian.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "guardian.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "theguardian.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods",
   "order-order.com": "Wikipedia: generally unreliable",
   "guinnessworldrecords.com": "Wikipedia: no consensus",
   "parliament.uk": "Wikipedia: no consensus",
@@ -4826,20 +1377,22 @@
   "hispantv.com": "Wikipedia: deprecated",
   "hispantv.ir": "Wikipedia: deprecated",
   "history.com": "Wikipedia: generally unreliable",
-  "huffpost.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.ca": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.com.au": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffpostbrasil.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.de": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.es": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.gr": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.in": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.it": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.jp": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.kr": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffpostmaghreb.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
-  "huffingtonpost.com.mx": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "huffpost.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.ca": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.com.au": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffpostbrasil.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.de": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.es": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.fr": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.gr": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.in": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.it": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.jp": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.kr": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffpostmaghreb.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "huffingtonpost.com.mx": "Wikipedia: rated reliable only for some sections, topics or periods",
   "humanevents.com": "Wikipedia: no consensus",
   "imdb.com": "Wikipedia: generally unreliable",
   "inaturalist.org": "Wikipedia: generally unreliable",
@@ -4920,7 +1473,8 @@
   "medium.com": "Wikipedia: generally unreliable",
   "metal-experience.com": "Wikipedia: generally unreliable",
   "metalsucks.net": "Wikipedia: no consensus",
-  "metro.news": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "metro.co.uk": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "metro.news": "Wikipedia: rated reliable only for some sections, topics or periods",
   "memri.org": "Wikipedia: no consensus",
   "memritv.org": "Wikipedia: no consensus",
   "middleeastmonitor.com": "Wikipedia: no consensus",
@@ -4951,6 +1505,8 @@
   "news-front.info": "Wikipedia: blacklisted",
   "newsmax.com": "Wikipedia: deprecated",
   "newsmaxtv.com": "Wikipedia: deprecated",
+  "newsnationnow.com": "Wikipedia: rated reliable only for some sections, topics or periods",
+  "newsweek.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "thenextweb.com": "Wikipedia: no consensus",
   "ngo-monitor.org": "Wikipedia: generally unreliable",
   "nndb.com": "Wikipedia: deprecated",
@@ -4969,6 +1525,7 @@
   "pinkvilla.com": "Wikipedia: generally unreliable",
   "planespotters.net": "Wikipedia: generally unreliable",
   "thepointsguy.com": "Wikipedia: deprecated",
+  "polygon.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "popularmechanics.com": "Wikipedia: no consensus",
   "thepostmillennial.com": "Wikipedia: generally unreliable",
   "prnewswire.com": "Wikipedia: generally unreliable",
@@ -5003,7 +1560,7 @@
   "allgame.com": "Wikipedia: no consensus",
   "rian.ru": "Wikipedia: no consensus",
   "rian.com.ua": "Wikipedia: no consensus",
-  "rollingstone.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "rollingstone.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "council.rollingstone.com": "Wikipedia: generally unreliable",
   "royalcentral.co.uk": "Wikipedia: deprecated",
   "rt.com": "Wikipedia: deprecated",
@@ -5023,7 +1580,7 @@
   "scribd.com": "Wikipedia: generally unreliable",
   "sherdog.com": "Wikipedia: no consensus",
   "simpleflying.com": "Wikipedia: deprecated",
-  "sixthtone.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "sixthtone.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "skepdic.com": "Wikipedia: no consensus",
   "skwawkbox.org": "Wikipedia: generally unreliable",
   "skynews.com.au": "Wikipedia: no consensus",
@@ -5036,7 +1593,7 @@
   "spectator.co.uk": "Wikipedia: no consensus",
   "spectator.us": "Wikipedia: no consensus",
   "spirit-of-metal.com": "Wikipedia: generally unreliable",
-  "si.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "si.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "sportskeeda.com": "Wikipedia: generally unreliable",
   "sputniknews.com": "Wikipedia: deprecated",
   "voiceofrussia.com": "Wikipedia: deprecated",
@@ -5124,7 +1681,7 @@
   "victimsofcommunism.org": "Wikipedia: generally unreliable",
   "voltairenet.org": "Wikipedia: deprecated",
   "washingtonexaminer.com": "Wikipedia: no consensus",
-  "freebeacon.com": "Wikipedia: rated reliable only for some sections, topics or periods; Lin et al. score not above 0.66",
+  "freebeacon.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "washingtontimes.com": "Wikipedia: no consensus",
   "watchmojo.com": "Wikipedia: generally unreliable",
   "weather2travel.com": "Wikipedia: generally unreliable",
@@ -5152,6 +1709,7 @@
   "xinhuanet.com": "Wikipedia: no consensus",
   "news.cn": "Wikipedia: no consensus",
   "youtube.com": "Wikipedia: generally unreliable",
+  "zdnet.com": "Wikipedia: rated reliable only for some sections, topics or periods",
   "zerohedge.com": "Wikipedia: deprecated",
   "zoominfo.com": "Wikipedia: blacklisted"
  }
