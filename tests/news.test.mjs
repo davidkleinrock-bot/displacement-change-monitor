@@ -1,9 +1,10 @@
-// Run with: node --test tests/
+// Run with: node --test "tests/*.test.mjs"
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  newsWindow, checkDate, isDisplacement, isPersonalOrOpinion, buildMatchers, attributeCountries,
+  newsWindow, checkDate, isDisplacement, isCoreDisplacement, isPersonalOrOpinion, buildMatchers, attributeCountries,
+  displacementThemes, sourceLanguage, makeOutletChecker, clusterEvents, pickForCountry,
   cleanTitle, normTitle, dedupe, parseArticleMeta, summarize, fetchArticleMeta, downloadFile, newsState,
 } from "../scripts/news-lib.mjs";
 
@@ -138,4 +139,168 @@ test("empty results are distinguished from failures and unsearched rows", () => 
   assert.equal(newsState(news, "TUV").state, "none");
   assert.equal(newsState(news, "TUV").message, "No relevant news found in the selected period.");
   assert.equal(newsState(news, "SDN").state, "found");
+});
+
+// ---------- Rules added 16 Nov 2026 after auditing the live panel ----------
+
+test("topic: Spanish, French and Portuguese headlines; false friends left out", () => {
+  for (const t of ["Miles de desplazados por la violencia en el Catatumbo", "Des milliers de déplacés fuient les combats au Nord-Kivu",
+    "Refugiados venezuelanos chegam a Roraima", "Solicitantes de asilo esperan en Tapachula", "Réfugiés soudanais : l'afflux continue au Tchad"]) assert.ok(isDisplacement(t), t);
+  for (const t of ["Le match déplacé à samedi soir", "Inauguran asilo de ancianos en Lima"]) assert.ok(!isCoreDisplacement(t), t);
+  assert.ok(isCoreDisplacement("Miles de refugiados cruzan la frontera"));
+  assert.ok(!isCoreDisplacement("Thousands flee fighting in Sudan")); // feeds need a core term; GDELT articles have topic tags
+});
+
+test("topic: look-alikes from the 16 Nov audit are left out", () => {
+  for (const t of ["At least 300 schools evacuated in Italy after email bomb alerts", "Seniors displaced by fatal fire in Fort Frances, Ont.",
+    "Australia's IDP Education rejects Blackstone's sweetened takeover bid", "Oman carries out medical evacuation of 10 crew members after tanker attack",
+    "Nigerian man who fled US in 2019 arrested at US airport"]) assert.ok(!isDisplacement(t), t);
+  assert.ok(isDisplacement("Thousands evacuated as floods hit northern Nigeria")); // still counts
+  assert.ok(isPersonalOrOpinion("Russian man swims from Kaliningrad to Lithuania in failed asylum attempt"));
+  assert.ok(isPersonalOrOpinion("Lula calls Flavio Bolsonaro fleeing Brazil 'shameful' as aide confirms political asylum"));
+  assert.ok(!isPersonalOrOpinion("Student visas for refugees cut by half"));
+});
+
+test("GDELT tags and languages", () => {
+  assert.deepEqual(displacementThemes("TAX_FNCACT;REFUGEES;EVACUATION;WB_740_FORCED_DISPLACEMENT;REFUGEES"), ["REFUGEES", "WB_740_FORCED_DISPLACEMENT"]);
+  assert.deepEqual(displacementThemes("EVACUATION;IMMIGRATION;EPU_CATS_MIGRATION_FEAR_FEAR"), []);
+  assert.deepEqual(displacementThemes(undefined), []);
+  assert.equal(sourceLanguage("srclc:spa;eng:GT-SPA 1.0"), "es");
+  assert.equal(sourceLanguage("srclc:fra;eng:GT-FRA 1.0"), "fr");
+  assert.equal(sourceLanguage(""), "en");
+  assert.equal(sourceLanguage("srclc:ara;eng:GT-ARA 1.0"), null);
+});
+
+test("countries: names in Spanish, French and Portuguese, with the same guards", () => {
+  assert.deepEqual(about("Refugiados venezolanos en Colombia"), ["COL", "VEN"]);
+  assert.deepEqual(about("Des milliers de déplacés au Soudan du Sud"), ["SSD"]);
+  assert.deepEqual(about("Réfugiés soudanais au Tchad"), ["SDN", "TCD"]);
+  assert.deepEqual(about("Miles de haitianos huyen de la violencia"), ["HTI"]);
+  assert.deepEqual(about("Papúa Nueva Guinea: miles de desplazados por un deslizamiento"), ["PNG"]);
+  assert.deepEqual(about("Haïti : des milliers de déplacés à Port-au-Prince"), ["HTI"]);
+});
+
+test("countries: misfires from the 16 Nov audit", () => {
+  assert.ok(!about("Asylum seekers displaced in Fort Frances, Ontario").includes("FRA"));
+  assert.ok(!about("Asylum seekers moved to Jamaica Plain shelter").includes("JAM"));
+  assert.deepEqual(about("Dutch Safety Board warns 7,000 asylum children at risk"), ["NLD"]);
+  assert.ok(about("Israeli raids displace hundreds of Palestinians in Hebron").includes("PSE"));
+  assert.deepEqual(attributeCountries("Niger IDPs say returning home is priority", matchers, { domain: "punchng.com" }), []);
+  assert.deepEqual(attributeCountries("Niger IDPs say returning home is priority", matchers, { domain: "rfi.fr" }), ["NER"]);
+});
+
+test("one event takes one slot; one outlet can't fill a country's list", () => {
+  const boat = (domain, date, title = "At least 139 migrants dead after boat from Djibouti to Yemen capsizes") => ({ title, url: `${domain}/${date}`, domain, date, link: "verified" });
+  const kept = clusterEvents([
+    boat("a.com", "2026-11-10"),
+    boat("b.com", "2026-11-11", "At least 139 migrants dead as boat from Djibouti capsizes off Yemen"),
+    boat("c.com", "2026-11-10"),
+    boat("d.com", "2026-11-12", "UNHCR warns of new arrivals in Djibouti"),
+  ]);
+  assert.equal(kept.length, 2);
+  const titles = ["Rains flood camps in eastern Chad", "WFP cuts rations for Sudanese refugees", "New arrivals at Adre crossing", "Measles outbreak in Ourang camp", "Chad opens new settlement near Abeche"];
+  const sameOutlet = titles.map((title, i) => ({ title, url: `u${i}`, domain: "same.com", date: `2026-11-0${i + 1}` }));
+  const picked = pickForCountry(sameOutlet, { perOutlet: 3 });
+  assert.equal(picked.length, 3);
+  assert.equal(picked[0].date, "2026-11-05"); // newest first
+});
+
+test("outlets: hand-picked list, Wikipedia ratings, UN bodies, blocks", () => {
+  const sources = {
+    allowed: { "nytimes.com": { basis: ["wikipedia"], name: "The New York Times" }, "variety.com": { basis: ["wikipedia"], name: "Variety" }, "wn.com": { basis: ["lin2023", "tranco"], name: null } },
+    excluded: { "dailymail.co.uk": "Wikipedia: deprecated", "rferl.org": "Wikipedia: no consensus", "foxnews.com": "Wikipedia: generally unreliable" },
+    intergovernmental: { suffixes: [".int"], domains: ["un.org"] },
+  };
+  const curated = {
+    allow: { "thenewhumanitarian.org": { name: "The New Humanitarian", tier: "humanitarian", lang: "en" }, "rferl.org": { name: "RFE/RL", tier: "broadcaster" }, "foxnews.com": { name: "Fox", tier: "newspaper" } },
+    block: { "variety.com": "Entertainment trade press", "yahoo.com": "Aggregator" },
+  };
+  const outlet = makeOutletChecker(sources, curated);
+  assert.equal(outlet("www.nytimes.com").basis, "wikipedia");
+  assert.equal(outlet("thenewhumanitarian.org").tier, "humanitarian");
+  assert.equal(outlet("rferl.org").basis, "curated"); // "no consensus" can be hand-picked
+  assert.equal(outlet("foxnews.com"), null); // "generally unreliable" never counts
+  assert.equal(outlet("video.foxnews.com"), null);
+  assert.equal(outlet("wn.com"), null); // the old quality-score route no longer counts
+  assert.equal(outlet("variety.com"), null);
+  assert.equal(outlet("news.yahoo.com"), null);
+  assert.equal(outlet("iom.int").basis, "intergovernmental");
+  assert.equal(outlet("news.un.org").basis, "intergovernmental");
+  assert.equal(outlet("example.com"), null);
+});
+
+test("the real outlet and feed lists are consistent", () => {
+  const sources = JSON.parse(readFileSync("data/processed/news-sources.json", "utf8"));
+  const curated = JSON.parse(readFileSync("data/outlets.json", "utf8"));
+  const feeds = JSON.parse(readFileSync("data/feeds.json", "utf8")).feeds;
+  const outlet = makeOutletChecker(sources, curated);
+  for (const d of Object.keys(curated.allow)) {
+    assert.ok(!curated.block[d], `${d} is both allowed and blocked`);
+    assert.ok(curated.tiers[curated.allow[d].tier], `${d} has an unknown tier`);
+    assert.ok(curated.allow[d].why, `${d} has no reason`);
+    assert.ok(!/unreliable|deprecated|blacklisted/i.test(sources.excluded[d] || ""), `${d} is rated unreliable on Wikipedia`);
+  }
+  for (const d of ["wn.com", "aol.com", "msn.com", "yahoo.com", "metro.co.uk", "seekingalpha.com"]) assert.equal(outlet(d), null, d);
+  for (const f of feeds) {
+    assert.match(f.url, /^https:\/\//, f.url);
+    assert.ok(outlet(f.domain), `feed outlet ${f.domain} does not count`);
+    assert.ok(["en", "es", "fr", "pt"].includes(f.lang), f.url);
+  }
+});
+
+// ---------- Cases from the independent review of 16 Nov 2026 ----------
+
+test("topic: words that also mean 'travelled', old-age homes and one person's asylum are left out", () => {
+  for (const t of ["Cientos de aficionados argentinos desplazados a Qatar", "Militares desplazados a la frontera con Venezuela",
+    "Les supporters marseillais déplacés à Lisbonne", "Les trois lynx retrouvés morts avaient été déplacés",
+    "Incendio en asilo de adultos mayores en Guatemala deja cinco muertos", "Wildfire prompts evacuations for homes within 5 miles in Malibu",
+    "Huyen 200 reos de una cárcel en Ecuador", "Les super riches fuient le Royaume-Uni face à la fiscalité", "Simulacro de evacuación en 300 escuelas"]) assert.ok(!isDisplacement(t), t);
+  assert.ok(isPersonalOrOpinion("Evo Morales pide asilo en México"));
+  assert.ok(isPersonalOrOpinion("El exvicepresidente de Bolivia destapa el porqué de su asilo en México"));
+});
+
+test("topic: real displacement in the four languages, including arrests mentioned in passing", () => {
+  for (const t of ["Haiti: 10,000 flee Cabaret as gangs attack; two suspects arrested", "Displaced families in Goma say M23 arrested dozens of young men",
+    "Mais de 100 mil pessoas fugiram da violência no Haiti", "Plus de 100 000 personnes ont fui les violences au Soudan",
+    "Más de 100.000 personas han huido de la violencia en Haití", "La guerra al sur de Venezuela que desplaza a los indígenas",
+    "Miles de desplazados por la violencia en el Catatumbo", "Desplazados internos en Birmania"]) assert.ok(isDisplacement(t), t);
+});
+
+test("countries: translated names that are everyday words or other places", () => {
+  assert.deepEqual(about("L'administration américaine suspend l'accueil des réfugiés"), ["USA"]);
+  assert.deepEqual(about("ACNUR convoca una reunión de emergencia sobre refugiados sudaneses"), ["SDN"]);
+  assert.deepEqual(about("Equipo de refugiados gana medalla de bronce"), []);
+  assert.deepEqual(about("Police fire stun grenades at refugees protesting in camp"), []);
+  assert.deepEqual(about("Asylum seekers wait years for family reunion visas"), []);
+  assert.deepEqual(about("Mauricio Macri pide ayuda para los refugiados"), []);
+  assert.ok(!about("Desplazados en Cartagena de Indias").includes("IND"));
+  assert.deepEqual(about("Rohingya genocide case opens at ICJ in The Hague"), ["MMR"]);
+  assert.deepEqual(about("Refugiados en Irlanda del Norte"), ["GBR"]);
+  assert.ok(about("Refugiados sírios no Líbano").includes("SYR"));
+  assert.ok(about("Refugiados palestinos en Líbano").includes("PSE"));
+});
+
+test("countries: a list of host countries keeps the country people fled", () => {
+  assert.deepEqual(about("Refugiados venezolanos en Colombia, en Perú y en Chile"), ["VEN"]);
+  assert.deepEqual(about("Ukrainian refugees in Poland, in Germany and in Czechia"), ["UKR"]);
+  assert.deepEqual(about("Sudanese refugees pour into eastern Chad"), ["SDN", "TCD"]); // two countries: both kept
+});
+
+test("events: different stories about one country stay apart; a full outlet gives way to another copy", () => {
+  const sudan = matchers.get("SDN").terms;
+  const two = [
+    { title: "Sudanese refugees in Chad face cholera outbreak", url: "a", domain: "a.com", date: "2026-11-10" },
+    { title: "Sudanese refugees arrive in Chad after El Fasher attack", url: "b", domain: "b.com", date: "2026-11-11" },
+  ];
+  assert.equal(pickForCountry(two, { ignore: sudan }).length, 2);
+  const reuters = (title, date) => ({ title, url: title, domain: "reuters.com", outlet: "Reuters", date, link: "verified", tier: "wire" });
+  const items = [
+    reuters("Rains flood camps in eastern Chad", "2026-11-12"), reuters("WFP cuts rations for Sudanese refugees", "2026-11-11"),
+    reuters("New arrivals at Adre crossing overwhelm clinics", "2026-11-10"), reuters("Thousands displaced as floods hit Gaza tent camps", "2026-11-05"),
+    { title: "Thousands displaced as floods swamp Gaza tent camps", url: "aj", domain: "aljazeera.com", outlet: "Al Jazeera", date: "2026-11-05", tier: "broadcaster" },
+  ];
+  const picked = pickForCountry(items, { perOutlet: 3 });
+  assert.equal(picked.length, 4);
+  assert.equal(picked.at(-1).outlet, "Al Jazeera");
+  assert.equal(pickForCountry([{ ...reuters("A story about camps", "2026-11-01"), domain: "bbc.com", outlet: "BBC" }, ...["x one two", "y three four", "z five six"].map((t, i) => ({ ...reuters(`${t} camps story`, `2026-11-0${i + 2}`), domain: "bbc.co.uk", outlet: "BBC" }))], { perOutlet: 3 }).length, 3); // one outlet, two domains
 });

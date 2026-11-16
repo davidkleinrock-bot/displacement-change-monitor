@@ -2,8 +2,9 @@
 #  1. Starts from the headlines already on the live site, so the news history carries over.
 #  2. Asks UNHCR for a fingerprint of its figures. Only if UNHCR or IDMC published something new or revised
 #     does it re-download everything, rebuild, re-check the totals, and commit the new data.
-#  3. Reads every GDELT news file published since the previous run (GitHub starts this "hourly" job only
-#     5-7 times a day, so a fixed 2-hour lookback would skip hours) and keeps two calendar months of news.
+#  3. Reads every GDELT news file (English and translated) published since the previous run (GitHub starts
+#     this "hourly" job only 5-7 times a day, so a fixed 2-hour lookback would skip hours), the RSS feeds of
+#     hand-picked outlets, and ReliefWeb reports (once the RELIEFWEB_APPNAME variable is set); keeps two calendar months of news.
 #  4. Publishes the site to GitHub Pages.
 # News is committed to the repo about once a day (when the last news commit is over 20 hours old);
 # other runs only publish. Tests run before anything is published.
@@ -23,8 +24,11 @@ on:
         description: "Hours of GDELT news files to read. Leave empty for a normal run (everything since the last run). 1464 = two months, for a backfill."
         default: ""
       news_step:
-        description: "Read every Nth 15-minute file (1 = all; larger values make a quick, sampled backfill)"
+        description: "Read every Nth 15-minute English file (1 = all; larger values make a quick, sampled backfill)"
         default: "1"
+      news_tr_step:
+        description: "Read every Nth 15-minute translated (non-English) file. Leave empty to use news_step."
+        default: ""
       force_data:
         description: "Re-download UNHCR data even if nothing changed"
         type: boolean
@@ -46,7 +50,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 150 # a two-month backfill reads about 5,900 files
+    timeout-minutes: 180 # a two-month backfill reads about 5,900 English files plus translated ones
     env:
       SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
     steps:
@@ -79,7 +83,7 @@ jobs:
           node scripts/fetch-data.mjs
           node scripts/build-data.mjs
 
-      - name: Refresh the list of reputable news outlets (daily, from Wikipedia and Lin et al. 2023)
+      - name: Refresh Wikipedia's outlet ratings (daily; the hand-picked list is data/outlets.json)
         run: |
           if [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             node scripts/fetch-sources.mjs || echo "Could not refresh; keeping the previous list."
@@ -87,11 +91,16 @@ jobs:
             echo "Using the saved list (refreshed daily at 06 UTC)."
           fi
 
-      - name: Read GDELT news files for displacement headlines
+      - name: Read news (GDELT files, outlet feeds) and ReliefWeb reports
         run: node scripts/fetch-news.mjs
+        timeout-minutes: 165 # if it runs out, the steps below still publish the previous news file
         env:
           NEWS_HOURS: ${{ inputs.news_hours }}
           NEWS_STEP: ${{ inputs.news_step || '1' }}
+          NEWS_BUDGET_MIN: 125 # stop reading GDELT files after this, leaving time to check articles and save
+          NEWS_TR_STEP: ${{ inputs.news_tr_step }}
+          # ReliefWeb's API appname (not a secret). Set it under Settings → Secrets and variables → Actions → Variables.
+          RELIEFWEB_APPNAME: ${{ vars.RELIEFWEB_APPNAME }}
         continue-on-error: true
 
       - name: Write the news coverage audit

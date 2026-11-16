@@ -1,0 +1,531 @@
+{
+  "updated": "2026-11-16",
+  "note": "Feeds of outlets on data/outlets.json; each is read every run and its items go through the same topic, country, date and link checks as GDELT articles.",
+  "feeds": [
+    {
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "domain": "bbc.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "BBC News, World"
+    },
+    {
+      "url": "https://www.theguardian.com/world/rss",
+      "domain": "theguardian.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "The Guardian, World"
+    },
+    {
+      "url": "https://www.theguardian.com/global-development/rss",
+      "domain": "theguardian.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "The Guardian, Global development"
+    },
+    {
+      "url": "https://www.theguardian.com/world/migration/rss",
+      "domain": "theguardian.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "The Guardian, Migration"
+    },
+    {
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "domain": "nytimes.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "The New York Times, World"
+    },
+    {
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "domain": "aljazeera.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "Al Jazeera English, All"
+    },
+    {
+      "url": "https://rss.dw.com/xml/rss-en-all",
+      "domain": "dw.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "Deutsche Welle, English"
+    },
+    {
+      "url": "https://rss.dw.com/xml/rss-sp-all",
+      "domain": "dw.com",
+      "lang": "es",
+      "region": "Global",
+      "label": "Deutsche Welle, Espanol"
+    },
+    {
+      "url": "https://www.france24.com/en/rss",
+      "domain": "france24.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "France 24, English"
+    },
+    {
+      "url": "https://www.france24.com/fr/rss",
+      "domain": "france24.com",
+      "lang": "fr",
+      "region": "Global",
+      "label": "France 24, Francais"
+    },
+    {
+      "url": "https://www.france24.com/es/rss",
+      "domain": "france24.com",
+      "lang": "es",
+      "region": "Global",
+      "label": "France 24, Espanol"
+    },
+    {
+      "url": "https://www.rfi.fr/en/rss",
+      "domain": "rfi.fr",
+      "lang": "en",
+      "region": "Global",
+      "label": "RFI, English"
+    },
+    {
+      "url": "https://www.rfi.fr/fr/rss",
+      "domain": "rfi.fr",
+      "lang": "fr",
+      "region": "Global",
+      "label": "RFI, Francais"
+    },
+    {
+      "url": "https://www.rfi.fr/fr/afrique/rss",
+      "domain": "rfi.fr",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "RFI, Afrique"
+    },
+    {
+      "url": "https://www.rfi.fr/es/rss",
+      "domain": "rfi.fr",
+      "lang": "es",
+      "region": "Global",
+      "label": "RFI, Espanol"
+    },
+    {
+      "url": "https://www.euronews.com/rss",
+      "domain": "euronews.com",
+      "lang": "en",
+      "region": "Europe",
+      "label": "Euronews, All"
+    },
+    {
+      "url": "https://www.africanews.com/feed/rss",
+      "domain": "africanews.com",
+      "lang": "en",
+      "region": "Africa",
+      "label": "Africanews, All"
+    },
+    {
+      "url": "https://information.tv5monde.com/rss.xml",
+      "domain": "tv5monde.com",
+      "lang": "fr",
+      "region": "Global",
+      "label": "TV5Monde, Info"
+    },
+    {
+      "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+      "domain": "news.un.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "UN News, English"
+    },
+    {
+      "url": "https://news.un.org/feed/subscribe/es/news/all/rss.xml",
+      "domain": "news.un.org",
+      "lang": "es",
+      "region": "Global",
+      "label": "UN News, Espanol"
+    },
+    {
+      "url": "https://news.un.org/feed/subscribe/fr/news/all/rss.xml",
+      "domain": "news.un.org",
+      "lang": "fr",
+      "region": "Global",
+      "label": "UN News, Francais"
+    },
+    {
+      "url": "https://www.thenewhumanitarian.org/rss/all.xml",
+      "domain": "thenewhumanitarian.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "The New Humanitarian, All"
+    },
+    {
+      "url": "https://www.hrw.org/rss",
+      "domain": "hrw.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "Human Rights Watch, All"
+    },
+    {
+      "url": "https://www.amnesty.org/en/feed/",
+      "domain": "amnesty.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "Amnesty International, All"
+    },
+    {
+      "url": "https://www.refugeesinternational.org/feed/",
+      "domain": "refugeesinternational.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "Refugees International, All"
+    },
+    {
+      "url": "https://www.crisisgroup.org/rss.xml",
+      "domain": "crisisgroup.org",
+      "lang": "en",
+      "region": "Global",
+      "label": "International Crisis Group, All"
+    },
+    {
+      "url": "https://www.ipsnews.net/feed/",
+      "domain": "ipsnews.net",
+      "lang": "en",
+      "region": "Global",
+      "label": "Inter Press Service, All"
+    },
+    {
+      "url": "https://insightcrime.org/feed/",
+      "domain": "insightcrime.org",
+      "lang": "en",
+      "region": "Latin America and the Caribbean",
+      "label": "InSight Crime, All"
+    },
+    {
+      "url": "https://www.lemonde.fr/international/rss_full.xml",
+      "domain": "lemonde.fr",
+      "lang": "fr",
+      "region": "Global",
+      "label": "Le Monde, International"
+    },
+    {
+      "url": "https://www.lemonde.fr/afrique/rss_full.xml",
+      "domain": "lemonde.fr",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Le Monde, Afrique"
+    },
+    {
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/america/portada",
+      "domain": "elpais.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Pais, America"
+    },
+    {
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada",
+      "domain": "elpais.com",
+      "lang": "es",
+      "region": "Global",
+      "label": "El Pais, Internacional"
+    },
+    {
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/america/",
+      "domain": "infobae.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "Infobae, America"
+    },
+    {
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+      "domain": "lanacion.com.ar",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "La Nacion (Argentina), All"
+    },
+    {
+      "url": "https://www.eltiempo.com/rss/mundo.xml",
+      "domain": "eltiempo.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Tiempo, Mundo"
+    },
+    {
+      "url": "https://www.elnacional.com/feed/",
+      "domain": "elnacional.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Nacional (Venezuela), All"
+    },
+    {
+      "url": "https://talcualdigital.com/feed/",
+      "domain": "talcualdigital.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "TalCual, All"
+    },
+    {
+      "url": "https://www.laprensa.hn/rss/honduras.xml",
+      "domain": "laprensa.hn",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "La Prensa (Honduras), Honduras"
+    },
+    {
+      "url": "https://criterio.hn/feed/",
+      "domain": "criterio.hn",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "Criterio.hn, All"
+    },
+    {
+      "url": "https://confidencial.digital/feed/",
+      "domain": "confidencial.digital",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "Confidencial, All"
+    },
+    {
+      "url": "https://www.eluniverso.com/arc/outboundfeeds/rss/?outputType=xml",
+      "domain": "eluniverso.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Universo, All"
+    },
+    {
+      "url": "https://www.latercera.com/arc/outboundfeeds/rss/?outputType=xml",
+      "domain": "latercera.com",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "La Tercera, All"
+    },
+    {
+      "url": "https://elcomercio.pe/arc/outboundfeeds/rss/?outputType=xml",
+      "domain": "elcomercio.pe",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Comercio (Peru), All"
+    },
+    {
+      "url": "https://www.jornada.com.mx/rss/edicion.xml",
+      "domain": "jornada.com.mx",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "La Jornada, Edicion"
+    },
+    {
+      "url": "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml",
+      "domain": "eluniversal.com.mx",
+      "lang": "es",
+      "region": "Latin America and the Caribbean",
+      "label": "El Universal (Mexico), All"
+    },
+    {
+      "url": "https://feeds.folha.uol.com.br/mundo/rss091.xml",
+      "domain": "folha.uol.com.br",
+      "lang": "pt",
+      "region": "Latin America and the Caribbean",
+      "label": "Folha de S.Paulo, Mundo"
+    },
+    {
+      "url": "https://g1.globo.com/rss/g1/mundo/",
+      "domain": "g1.globo.com",
+      "lang": "pt",
+      "region": "Latin America and the Caribbean",
+      "label": "G1, Mundo"
+    },
+    {
+      "url": "https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/internacional/",
+      "domain": "estadao.com.br",
+      "lang": "pt",
+      "region": "Latin America and the Caribbean",
+      "label": "O Estado de S. Paulo, Internacional"
+    },
+    {
+      "url": "https://haitiantimes.com/feed/",
+      "domain": "haitiantimes.com",
+      "lang": "en",
+      "region": "Latin America and the Caribbean",
+      "label": "The Haitian Times, All"
+    },
+    {
+      "url": "https://lenouvelliste.com/rss.xml",
+      "domain": "lenouvelliste.com",
+      "lang": "fr",
+      "region": "Latin America and the Caribbean",
+      "label": "Le Nouvelliste, All"
+    },
+    {
+      "url": "https://jamaica-gleaner.com/feed/rss.xml",
+      "domain": "jamaica-gleaner.com",
+      "lang": "en",
+      "region": "Latin America and the Caribbean",
+      "label": "The Gleaner, All"
+    },
+    {
+      "url": "https://www.borderreport.com/feed/",
+      "domain": "borderreport.com",
+      "lang": "en",
+      "region": "Northern America",
+      "label": "Border Report, All"
+    },
+    {
+      "url": "https://www.radiookapi.net/feed",
+      "domain": "radiookapi.net",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Radio Okapi, All"
+    },
+    {
+      "url": "https://actualite.cd/rss.xml",
+      "domain": "actualite.cd",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Actualite.cd, All"
+    },
+    {
+      "url": "https://www.jeuneafrique.com/feed/",
+      "domain": "jeuneafrique.com",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Jeune Afrique, All"
+    },
+    {
+      "url": "https://www.studiotamani.org/feed",
+      "domain": "studiotamani.org",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Studio Tamani, All"
+    },
+    {
+      "url": "https://mondafrique.com/feed/",
+      "domain": "mondafrique.com",
+      "lang": "fr",
+      "region": "Africa",
+      "label": "Mondafrique, All"
+    },
+    {
+      "url": "https://www.dailymaverick.co.za/dmrss/",
+      "domain": "dailymaverick.co.za",
+      "lang": "en",
+      "region": "Africa",
+      "label": "Daily Maverick, All"
+    },
+    {
+      "url": "https://www.premiumtimesng.com/feed",
+      "domain": "premiumtimesng.com",
+      "lang": "en",
+      "region": "Africa",
+      "label": "Premium Times, All"
+    },
+    {
+      "url": "https://www.rnz.co.nz/rss/pacific.xml",
+      "domain": "rnz.co.nz",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "RNZ, Pacific"
+    },
+    {
+      "url": "https://www.abc.net.au/news/feed/1534/rss.xml",
+      "domain": "abc.net.au",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "ABC News, Pacific"
+    },
+    {
+      "url": "https://islandsbusiness.com/feed/",
+      "domain": "islandsbusiness.com",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "Islands Business, All"
+    },
+    {
+      "url": "https://postcourier.com.pg/feed/",
+      "domain": "postcourier.com.pg",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "Post-Courier, All"
+    },
+    {
+      "url": "https://www.dailypost.vu/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
+      "domain": "dailypost.vu",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "Vanuatu Daily Post, News search"
+    },
+    {
+      "url": "https://pina.com.fj/feed/",
+      "domain": "pina.com.fj",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "PINA, All"
+    },
+    {
+      "url": "https://www.cookislandsnews.com/feed/",
+      "domain": "cookislandsnews.com",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "Cook Islands News, All"
+    },
+    {
+      "url": "https://www.lowyinstitute.org/the-interpreter/rss.xml",
+      "domain": "lowyinstitute.org",
+      "lang": "en",
+      "region": "Oceania",
+      "label": "Lowy Institute, The Interpreter"
+    },
+    {
+      "url": "https://kabulnow.com/feed",
+      "domain": "kabulnow.com",
+      "lang": "en",
+      "region": "Asia",
+      "label": "KabulNow, All"
+    },
+    {
+      "url": "https://amu.tv/feed/",
+      "domain": "amu.tv",
+      "lang": "en",
+      "region": "Asia",
+      "label": "Amu TV, All"
+    },
+    {
+      "url": "https://myanmar-now.org/en/feed/",
+      "domain": "myanmar-now.org",
+      "lang": "en",
+      "region": "Asia",
+      "label": "Myanmar Now, English"
+    },
+    {
+      "url": "https://english.dvb.no/feed/",
+      "domain": "dvb.no",
+      "lang": "en",
+      "region": "Asia",
+      "label": "DVB, English"
+    },
+    {
+      "url": "https://kyivindependent.com/news-archive/rss/",
+      "domain": "kyivindependent.com",
+      "lang": "en",
+      "region": "Europe",
+      "label": "The Kyiv Independent, News"
+    },
+    {
+      "url": "https://www.dawn.com/feeds/home",
+      "domain": "dawn.com",
+      "lang": "en",
+      "region": "Asia",
+      "label": "Dawn, Home"
+    },
+    {
+      "url": "https://www.thehindu.com/news/international/feeder/default.rss",
+      "domain": "thehindu.com",
+      "lang": "en",
+      "region": "Asia",
+      "label": "The Hindu, International"
+    },
+    {
+      "url": "https://english.enabbaladi.net/feed/",
+      "domain": "enabbaladi.net",
+      "lang": "en",
+      "region": "Middle East",
+      "label": "Enab Baladi, English"
+    }
+  ]
+}

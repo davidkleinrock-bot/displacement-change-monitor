@@ -1,0 +1,1558 @@
+{
+  "updated": "2026-11-16",
+  "definition": "An outlet counts if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, specialist humanitarian and migration outlets, UN agencies and NGOs, and respected regional outlets that fill gaps in Latin America, Africa and the Pacific), or if Wikipedia's Perennial Sources list rates it generally reliable. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
+  "tiers": {
+    "wire": "News agency",
+    "broadcaster": "Broadcaster (public, international or national network)",
+    "newspaper": "Newspaper of record or major national outlet",
+    "humanitarian": "Humanitarian or migration specialist, UN agency or NGO",
+    "specialist": "Specialist newsroom (environment, organized crime, investigations)",
+    "regional": "Regional or national outlet covering a region with few international reporters"
+  },
+  "allow": {
+    "abc.net.au": {
+      "name": "ABC News (Australia)",
+      "tier": "broadcaster",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Public broadcaster of Australia"
+    },
+    "abcnews.com": {
+      "name": "ABC News (US)",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "News division of the US network ABC; Wikipedia Perennial Sources: generally reliable"
+    },
+    "abcnews.go.com": {
+      "name": "ABC News (US)",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "News division of the US network ABC; Wikipedia Perennial Sources: generally reliable"
+    },
+    "acaps.org": {
+      "name": "ACAPS",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Independent humanitarian analysis organisation based in Geneva"
+    },
+    "actualite.cd": {
+      "name": "Actualite.cd",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "fr",
+      "why": "News site in Kinshasa, DR Congo"
+    },
+    "addisstandard.com": {
+      "name": "Addis Standard",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Ethiopian news outlet based in Addis Ababa"
+    },
+    "afp.com": {
+      "name": "Agence France-Presse",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "fr",
+      "why": "French international news agency; Wikipedia Perennial Sources: generally reliable"
+    },
+    "africanews.com": {
+      "name": "Africanews",
+      "tier": "broadcaster",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Pan-African news channel run by Euronews"
+    },
+    "al-monitor.com": {
+      "name": "Al-Monitor",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "News site on the Middle East"
+    },
+    "aljazeera.com": {
+      "name": "Al Jazeera",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "International broadcaster based in Doha, Qatar; Wikipedia Perennial Sources: generally reliable"
+    },
+    "americasquarterly.org": {
+      "name": "Americas Quarterly",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "en",
+      "why": "Policy magazine of the Americas Society/Council of the Americas"
+    },
+    "amnesty.org": {
+      "name": "Amnesty International",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Human rights NGO; Wikipedia Perennial Sources: generally reliable"
+    },
+    "amu.tv": {
+      "name": "Amu TV",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Afghan news outlet based outside Afghanistan"
+    },
+    "animalpolitico.com": {
+      "name": "Animal Politico",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Mexican digital news outlet"
+    },
+    "ansa.it": {
+      "name": "ANSA",
+      "tier": "wire",
+      "region": "Europe",
+      "lang": "it",
+      "why": "Italian news agency"
+    },
+    "ap.org": {
+      "name": "Associated Press",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "en",
+      "why": "US-based international news agency; Wikipedia Perennial Sources: generally reliable"
+    },
+    "apnews.com": {
+      "name": "Associated Press",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "en",
+      "why": "US-based international news agency; Wikipedia Perennial Sources: generally reliable"
+    },
+    "asia.nikkei.com": {
+      "name": "Nikkei Asia",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "English-language edition of the Japanese business daily Nikkei"
+    },
+    "axios.com": {
+      "name": "Axios",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US news website; Wikipedia Perennial Sources: generally reliable"
+    },
+    "ayibopost.com": {
+      "name": "AyiboPost",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "fr",
+      "why": "Haitian digital news outlet"
+    },
+    "bbc.co.uk": {
+      "name": "BBC",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "Public broadcaster of the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+    },
+    "bbc.com": {
+      "name": "BBC",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "Public broadcaster of the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+    },
+    "bellingcat.com": {
+      "name": "Bellingcat",
+      "tier": "specialist",
+      "region": "Global",
+      "lang": "en",
+      "why": "Open-source investigations collective based in the Netherlands; Wikipedia Perennial Sources: generally reliable"
+    },
+    "borderreport.com": {
+      "name": "Border Report",
+      "tier": "regional",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US news site on the US-Mexico border"
+    },
+    "cbc.ca": {
+      "name": "CBC News",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Public broadcaster of Canada"
+    },
+    "channelnewsasia.com": {
+      "name": "CNA",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Singapore-based English-language news channel; Wikipedia Perennial Sources: generally reliable"
+    },
+    "clarin.com": {
+      "name": "Clarin",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Buenos Aires, Argentina"
+    },
+    "cnn.com": {
+      "name": "CNN",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US cable news network; Wikipedia Perennial Sources: generally reliable"
+    },
+    "codastory.com": {
+      "name": "Coda Story",
+      "tier": "specialist",
+      "region": "Global",
+      "lang": "en",
+      "why": "Investigative news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "confidencial.digital": {
+      "name": "Confidencial",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Nicaraguan digital news outlet"
+    },
+    "cookislandsnews.com": {
+      "name": "Cook Islands News",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Rarotonga, Cook Islands"
+    },
+    "crisisgroup.org": {
+      "name": "International Crisis Group",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Independent NGO that analyses conflict"
+    },
+    "criterio.hn": {
+      "name": "Criterio.hn",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Honduran digital news outlet"
+    },
+    "csmonitor.com": {
+      "name": "Christian Science Monitor",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US news organization published in Boston; Wikipedia Perennial Sources: generally reliable"
+    },
+    "dailymaverick.co.za": {
+      "name": "Daily Maverick",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "South African online daily newspaper"
+    },
+    "dailypost.vu": {
+      "name": "Vanuatu Daily Post",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Port Vila, Vanuatu"
+    },
+    "dailytrust.com": {
+      "name": "Daily Trust",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Daily newspaper in Abuja, Nigeria"
+    },
+    "dawn.com": {
+      "name": "Dawn",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in Karachi, Pakistan"
+    },
+    "devex.com": {
+      "name": "Devex",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Media platform covering international development and humanitarian aid"
+    },
+    "devpolicy.org": {
+      "name": "Devpolicy Blog",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Blog of the Development Policy Centre at the Australian National University"
+    },
+    "dpa-international.com": {
+      "name": "dpa International",
+      "tier": "wire",
+      "region": "Europe",
+      "lang": "en",
+      "why": "English-language service of the German news agency dpa"
+    },
+    "dvb.no": {
+      "name": "Democratic Voice of Burma",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Myanmar news outlet based in Oslo and Chiang Mai"
+    },
+    "dw.com": {
+      "name": "Deutsche Welle",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "Public international broadcaster of Germany; Wikipedia Perennial Sources: generally reliable"
+    },
+    "economist.com": {
+      "name": "The Economist",
+      "tier": "newspaper",
+      "region": "Global",
+      "lang": "en",
+      "why": "Weekly newspaper published in London; Wikipedia Perennial Sources: generally reliable"
+    },
+    "efe.com": {
+      "name": "EFE",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "es",
+      "why": "Spanish international news agency"
+    },
+    "efectococuyo.com": {
+      "name": "Efecto Cocuyo",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Venezuelan digital news outlet"
+    },
+    "elcomercio.pe": {
+      "name": "El Comercio",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Lima, Peru"
+    },
+    "elespectador.com": {
+      "name": "El Espectador",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Bogota, Colombia"
+    },
+    "elfaro.net": {
+      "name": "El Faro",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Salvadoran digital newspaper"
+    },
+    "elmundo.es": {
+      "name": "El Mundo",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "es",
+      "why": "Daily newspaper in Madrid, Spain"
+    },
+    "elnacional.com": {
+      "name": "El Nacional",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Venezuelan newspaper founded in Caracas"
+    },
+    "elpais.com": {
+      "name": "El Pais",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "es",
+      "why": "Spanish newspaper with an Americas edition"
+    },
+    "eltiempo.com": {
+      "name": "El Tiempo",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Bogota, Colombia"
+    },
+    "eluniversal.com.mx": {
+      "name": "El Universal",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Mexico City"
+    },
+    "eluniverso.com": {
+      "name": "El Universo",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Guayaquil, Ecuador"
+    },
+    "enabbaladi.net": {
+      "name": "Enab Baladi",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "Syrian independent news outlet"
+    },
+    "estadao.com.br": {
+      "name": "O Estado de S. Paulo",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "pt",
+      "why": "Daily newspaper in Sao Paulo, Brazil"
+    },
+    "euronews.com": {
+      "name": "Euronews",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Pan-European news channel based in Lyon, France"
+    },
+    "fao.org": {
+      "name": "FAO",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Food and Agriculture Organization; part of the UN system"
+    },
+    "fijitimes.com.fj": {
+      "name": "The Fiji Times",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Suva, Fiji"
+    },
+    "folha.uol.com.br": {
+      "name": "Folha de S.Paulo",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "pt",
+      "why": "Daily newspaper in Sao Paulo, Brazil"
+    },
+    "france24.com": {
+      "name": "France 24",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "International news channel of France"
+    },
+    "franceinfo.fr": {
+      "name": "franceinfo",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "News service of the French public broadcasters Radio France and France Télévisions"
+    },
+    "francetvinfo.fr": {
+      "name": "franceinfo",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "News site of the French public broadcaster France Télévisions"
+    },
+    "frontiermyanmar.net": {
+      "name": "Frontier Myanmar",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Myanmar news magazine"
+    },
+    "ft.com": {
+      "name": "Financial Times",
+      "tier": "newspaper",
+      "region": "Global",
+      "lang": "en",
+      "why": "Daily newspaper published in London; Wikipedia Perennial Sources: generally reliable"
+    },
+    "g1.globo.com": {
+      "name": "G1",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "pt",
+      "why": "News portal of the Globo group, Brazil"
+    },
+    "haaretz.com": {
+      "name": "Haaretz",
+      "tier": "newspaper",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "Daily newspaper in Tel Aviv, Israel; Wikipedia Perennial Sources: generally reliable"
+    },
+    "haitiantimes.com": {
+      "name": "The Haitian Times",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "en",
+      "why": "New York-based English-language outlet covering Haiti and its diaspora"
+    },
+    "hrw.org": {
+      "name": "Human Rights Watch",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Human rights NGO"
+    },
+    "icrc.org": {
+      "name": "ICRC",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "International Committee of the Red Cross"
+    },
+    "ifrc.org": {
+      "name": "IFRC",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "International Federation of Red Cross and Red Crescent Societies"
+    },
+    "independent.co.uk": {
+      "name": "The Independent",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Online newspaper in the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+    },
+    "indianexpress.com": {
+      "name": "The Indian Express",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in India; Wikipedia Perennial Sources: generally reliable"
+    },
+    "infobae.com": {
+      "name": "Infobae",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Digital news outlet based in Buenos Aires, Argentina"
+    },
+    "infomigrants.net": {
+      "name": "InfoMigrants",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Migration news site run by France Médias Monde with Deutsche Welle and ANSA, co-funded by the EU"
+    },
+    "inquirer.net": {
+      "name": "Philippine Daily Inquirer",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in Manila, Philippines"
+    },
+    "insightcrime.org": {
+      "name": "InSight Crime",
+      "tier": "specialist",
+      "region": "Latin America and the Caribbean",
+      "lang": "en",
+      "why": "Foundation reporting on organized crime in Latin America and the Caribbean"
+    },
+    "internal-displacement.org": {
+      "name": "IDMC",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Internal Displacement Monitoring Centre, part of the Norwegian Refugee Council"
+    },
+    "iom.int": {
+      "name": "IOM",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Migration Agency; part of the UN system"
+    },
+    "ipsnews.net": {
+      "name": "Inter Press Service",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "News agency covering development and global affairs; Wikipedia Perennial Sources: generally reliable"
+    },
+    "ipsnoticias.net": {
+      "name": "IPS Noticias",
+      "tier": "humanitarian",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Spanish-language service of Inter Press Service; Wikipedia Perennial Sources: generally reliable"
+    },
+    "iranwire.com": {
+      "name": "IranWire",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "Independent news outlet on Iran"
+    },
+    "irishtimes.com": {
+      "name": "The Irish Times",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Daily newspaper in Dublin, Ireland"
+    },
+    "irrawaddy.com": {
+      "name": "The Irrawaddy",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Myanmar news outlet"
+    },
+    "islandsbusiness.com": {
+      "name": "Islands Business",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Pacific regional magazine published in Suva, Fiji"
+    },
+    "jamaica-gleaner.com": {
+      "name": "The Gleaner",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "en",
+      "why": "Daily newspaper in Kingston, Jamaica"
+    },
+    "japantimes.co.jp": {
+      "name": "The Japan Times",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "English-language daily newspaper in Tokyo"
+    },
+    "jeuneafrique.com": {
+      "name": "Jeune Afrique",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "fr",
+      "why": "Pan-African news magazine published in Paris"
+    },
+    "jornada.com.mx": {
+      "name": "La Jornada",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Mexico City"
+    },
+    "kabulnow.com": {
+      "name": "KabulNow",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Afghan independent news outlet"
+    },
+    "kyivindependent.com": {
+      "name": "The Kyiv Independent",
+      "tier": "regional",
+      "region": "Europe",
+      "lang": "en",
+      "why": "English-language news outlet in Kyiv, Ukraine"
+    },
+    "kyodonews.net": {
+      "name": "Kyodo News",
+      "tier": "wire",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Japanese news agency"
+    },
+    "lanacion.com.ar": {
+      "name": "La Nacion",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Buenos Aires, Argentina"
+    },
+    "laprensa.hn": {
+      "name": "La Prensa (Honduras)",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in San Pedro Sula, Honduras"
+    },
+    "laprensani.com": {
+      "name": "La Prensa (Nicaragua)",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Managua, Nicaragua"
+    },
+    "latercera.com": {
+      "name": "La Tercera",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Santiago, Chile"
+    },
+    "latimes.com": {
+      "name": "Los Angeles Times",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Daily newspaper in Los Angeles; Wikipedia Perennial Sources: generally reliable"
+    },
+    "lemonde.fr": {
+      "name": "Le Monde",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "Daily newspaper in Paris, France"
+    },
+    "lenouvelliste.com": {
+      "name": "Le Nouvelliste",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "fr",
+      "why": "Daily newspaper in Port-au-Prince, Haiti"
+    },
+    "lorientlejour.com": {
+      "name": "L'Orient-Le Jour",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "fr",
+      "why": "French-language daily newspaper in Beirut, Lebanon"
+    },
+    "lowyinstitute.org": {
+      "name": "Lowy Institute",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Think tank in Sydney; its Interpreter blog covers the Pacific"
+    },
+    "lusa.pt": {
+      "name": "Lusa",
+      "tier": "wire",
+      "region": "Europe",
+      "lang": "pt",
+      "why": "Portuguese news agency"
+    },
+    "meduza.io": {
+      "name": "Meduza",
+      "tier": "regional",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Russian-language outlet based in Riga, Latvia, with an English edition; Wikipedia Perennial Sources: generally reliable"
+    },
+    "mg.co.za": {
+      "name": "Mail & Guardian",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Weekly newspaper in South Africa; Wikipedia Perennial Sources: generally reliable"
+    },
+    "migrationpolicy.org": {
+      "name": "Migration Policy Institute",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Think tank on migration policy"
+    },
+    "mixedmigration.org": {
+      "name": "Mixed Migration Centre",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Research and data initiative on mixed migration"
+    },
+    "mondafrique.com": {
+      "name": "Mondafrique",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "fr",
+      "why": "French-language news site on Africa and the Mediterranean"
+    },
+    "monde-diplomatique.fr": {
+      "name": "Le Monde diplomatique",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "Monthly newspaper published in Paris; Wikipedia Perennial Sources: generally reliable"
+    },
+    "mongabay.com": {
+      "name": "Mongabay",
+      "tier": "specialist",
+      "region": "Global",
+      "lang": "en",
+      "why": "Nonprofit environmental news outlet"
+    },
+    "monitor.co.ug": {
+      "name": "Daily Monitor",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Daily newspaper in Kampala, Uganda"
+    },
+    "msf.org": {
+      "name": "Medecins Sans Frontieres",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "International medical humanitarian NGO"
+    },
+    "mvariety.com": {
+      "name": "Marianas Variety",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Saipan, Northern Mariana Islands"
+    },
+    "myanmar-now.org": {
+      "name": "Myanmar Now",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Myanmar news outlet"
+    },
+    "nation.africa": {
+      "name": "Nation",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Daily newspaper in Nairobi, Kenya"
+    },
+    "nationalpost.com": {
+      "name": "National Post",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Daily newspaper in Toronto, Canada; Wikipedia Perennial Sources: generally reliable"
+    },
+    "nbcnews.com": {
+      "name": "NBC News",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "News division of the US network NBC; Wikipedia Perennial Sources: generally reliable"
+    },
+    "news.sky.com": {
+      "name": "Sky News",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "en",
+      "why": "UK television news channel; Wikipedia Perennial Sources: generally reliable"
+    },
+    "news.un.org": {
+      "name": "UN News",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "News service of the United Nations"
+    },
+    "newsroom.co.nz": {
+      "name": "Newsroom",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "New Zealand digital news outlet"
+    },
+    "newyorker.com": {
+      "name": "The New Yorker",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US magazine with reporting and long-form journalism; Wikipedia Perennial Sources: generally reliable"
+    },
+    "nhk.or.jp": {
+      "name": "NHK",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "ja",
+      "why": "Public broadcaster of Japan"
+    },
+    "nikkei.com": {
+      "name": "Nikkei",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "ja",
+      "why": "Daily newspaper in Tokyo, Japan"
+    },
+    "npr.org": {
+      "name": "NPR",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US public radio network; Wikipedia Perennial Sources: generally reliable"
+    },
+    "nrc.no": {
+      "name": "Norwegian Refugee Council",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Humanitarian NGO"
+    },
+    "nytimes.com": {
+      "name": "The New York Times",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Daily newspaper in New York; Wikipedia Perennial Sources: generally reliable"
+    },
+    "nzherald.co.nz": {
+      "name": "New Zealand Herald",
+      "tier": "newspaper",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Auckland, New Zealand; Wikipedia Perennial Sources: generally reliable"
+    },
+    "ohchr.org": {
+      "name": "UN Human Rights Office",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Office of the High Commissioner for Human Rights; part of the UN system"
+    },
+    "pbs.org": {
+      "name": "PBS",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US public television network; Wikipedia Perennial Sources: generally reliable"
+    },
+    "pina.com.fj": {
+      "name": "PINA",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Pacific Islands News Association, Suva, Fiji"
+    },
+    "plazapublica.com.gt": {
+      "name": "Plaza Publica",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Guatemalan digital news outlet"
+    },
+    "politico.com": {
+      "name": "Politico",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US political news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "postcourier.com.pg": {
+      "name": "Post-Courier",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Port Moresby, Papua New Guinea"
+    },
+    "premiumtimesng.com": {
+      "name": "Premium Times",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Online newspaper in Abuja, Nigeria"
+    },
+    "prensalibre.com": {
+      "name": "Prensa Libre",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Daily newspaper in Guatemala City"
+    },
+    "primicias.ec": {
+      "name": "Primicias",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Ecuadorian digital news outlet"
+    },
+    "proceso.com.mx": {
+      "name": "Proceso",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Mexican weekly news magazine"
+    },
+    "propublica.org": {
+      "name": "ProPublica",
+      "tier": "specialist",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US nonprofit investigative newsroom; Wikipedia Perennial Sources: generally reliable"
+    },
+    "punchng.com": {
+      "name": "The Punch",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Daily newspaper in Lagos, Nigeria"
+    },
+    "radio-canada.ca": {
+      "name": "Radio-Canada",
+      "tier": "broadcaster",
+      "region": "Northern America",
+      "lang": "fr",
+      "why": "French-language service of the Canadian public broadcaster CBC/Radio-Canada"
+    },
+    "radiofrance.fr": {
+      "name": "Radio France",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "Public radio broadcaster of France"
+    },
+    "radiookapi.net": {
+      "name": "Radio Okapi",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "fr",
+      "why": "UN-backed radio of the UN mission in DR Congo (MONUSCO)"
+    },
+    "radiotamazuj.org": {
+      "name": "Radio Tamazuj",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Radio and online news on South Sudan and Sudan"
+    },
+    "rappler.com": {
+      "name": "Rappler",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Philippine digital news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "refugeesinternational.org": {
+      "name": "Refugees International",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Advocacy NGO for displaced people"
+    },
+    "reuters.com": {
+      "name": "Reuters",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "en",
+      "why": "International news agency; Wikipedia Perennial Sources: generally reliable"
+    },
+    "rfi.fr": {
+      "name": "RFI",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "fr",
+      "why": "International public radio of France"
+    },
+    "rnz.co.nz": {
+      "name": "RNZ",
+      "tier": "broadcaster",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Public broadcaster of New Zealand"
+    },
+    "rtbf.be": {
+      "name": "RTBF",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "Public broadcaster of French-speaking Belgium"
+    },
+    "rte.ie": {
+      "name": "RTE",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Public broadcaster of Ireland"
+    },
+    "rtp.pt": {
+      "name": "RTP",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "pt",
+      "why": "Public broadcaster of Portugal"
+    },
+    "rts.ch": {
+      "name": "RTS",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "fr",
+      "why": "French-language public broadcaster of Switzerland (SRG SSR)"
+    },
+    "rtve.es": {
+      "name": "RTVE",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "es",
+      "why": "Public broadcaster of Spain"
+    },
+    "samoaobserver.ws": {
+      "name": "Samoa Observer",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Apia, Samoa"
+    },
+    "sbs.com.au": {
+      "name": "SBS",
+      "tier": "broadcaster",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Multicultural public broadcaster of Australia"
+    },
+    "scmp.com": {
+      "name": "South China Morning Post",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in Hong Kong; Wikipedia Perennial Sources: generally reliable"
+    },
+    "smh.com.au": {
+      "name": "The Sydney Morning Herald",
+      "tier": "newspaper",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Sydney, Australia; Wikipedia Perennial Sources: generally reliable"
+    },
+    "spiegel.de": {
+      "name": "Der Spiegel",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "de",
+      "why": "German news magazine; Wikipedia Perennial Sources: generally reliable"
+    },
+    "stabroeknews.com": {
+      "name": "Stabroek News",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "en",
+      "why": "Daily newspaper in Georgetown, Guyana"
+    },
+    "straitstimes.com": {
+      "name": "The Straits Times",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in Singapore; Wikipedia Perennial Sources: generally reliable"
+    },
+    "studiotamani.org": {
+      "name": "Studio Tamani",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "fr",
+      "why": "Malian news radio run by the Fondation Hirondelle"
+    },
+    "sudantribune.com": {
+      "name": "Sudan Tribune",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "News site on Sudan and South Sudan, published from Paris"
+    },
+    "swissinfo.ch": {
+      "name": "Swissinfo",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "en",
+      "why": "International service of the Swiss public broadcaster SRG SSR"
+    },
+    "tagesschau.de": {
+      "name": "Tagesschau",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "de",
+      "why": "News service of the German public broadcaster ARD"
+    },
+    "talcualdigital.com": {
+      "name": "TalCual",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Venezuelan digital news outlet"
+    },
+    "texastribune.org": {
+      "name": "The Texas Tribune",
+      "tier": "regional",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Nonprofit newsroom in Texas covering immigration and the border"
+    },
+    "theage.com.au": {
+      "name": "The Age",
+      "tier": "newspaper",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Melbourne, Australia; Wikipedia Perennial Sources: generally reliable"
+    },
+    "theatlantic.com": {
+      "name": "The Atlantic",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US monthly magazine; Wikipedia Perennial Sources: generally reliable"
+    },
+    "theaustralian.com.au": {
+      "name": "The Australian",
+      "tier": "newspaper",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "National daily newspaper of Australia; Wikipedia Perennial Sources: generally reliable"
+    },
+    "thecable.ng": {
+      "name": "TheCable",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Online newspaper in Lagos, Nigeria"
+    },
+    "thecitizen.co.tz": {
+      "name": "The Citizen",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Daily newspaper in Dar es Salaam, Tanzania"
+    },
+    "theconversation.com": {
+      "name": "The Conversation",
+      "tier": "newspaper",
+      "region": "Global",
+      "lang": "en",
+      "why": "News site with articles written by academics; Wikipedia Perennial Sources: generally reliable"
+    },
+    "thediplomat.com": {
+      "name": "The Diplomat",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Magazine on Asia-Pacific affairs; Wikipedia Perennial Sources: generally reliable"
+    },
+    "theeastafrican.co.ke": {
+      "name": "The EastAfrican",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "en",
+      "why": "Weekly newspaper of the Nation Media Group, Nairobi"
+    },
+    "theglobeandmail.com": {
+      "name": "The Globe and Mail",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "National daily newspaper of Canada; Wikipedia Perennial Sources: generally reliable"
+    },
+    "theguardian.com": {
+      "name": "The Guardian",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Daily newspaper in the United Kingdom"
+    },
+    "thehill.com": {
+      "name": "The Hill",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US political news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "thehindu.com": {
+      "name": "The Hindu",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Daily newspaper in Chennai, India; Wikipedia Perennial Sources: generally reliable"
+    },
+    "theintercept.com": {
+      "name": "The Intercept",
+      "tier": "specialist",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US investigative news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "themoscowtimes.com": {
+      "name": "The Moscow Times",
+      "tier": "regional",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Independent Russia news outlet based in Amsterdam"
+    },
+    "thenational.com.pg": {
+      "name": "The National (PNG)",
+      "tier": "regional",
+      "region": "Oceania",
+      "lang": "en",
+      "why": "Daily newspaper in Port Moresby, Papua New Guinea"
+    },
+    "thenewhumanitarian.org": {
+      "name": "The New Humanitarian",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "Nonprofit newsroom covering humanitarian crises"
+    },
+    "thetimes.co.uk": {
+      "name": "The Times",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Daily newspaper in London; Wikipedia Perennial Sources: generally reliable"
+    },
+    "thetimes.com": {
+      "name": "The Times",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "en",
+      "why": "Daily newspaper in London; Wikipedia Perennial Sources: generally reliable"
+    },
+    "thewire.in": {
+      "name": "The Wire",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Indian digital news outlet; Wikipedia Perennial Sources: generally reliable"
+    },
+    "time.com": {
+      "name": "Time",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US news magazine; Wikipedia Perennial Sources: generally reliable"
+    },
+    "timesofisrael.com": {
+      "name": "The Times of Israel",
+      "tier": "newspaper",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "Israeli online newspaper; Wikipedia Perennial Sources: generally reliable"
+    },
+    "tolonews.com": {
+      "name": "TOLOnews",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Afghan television news channel in Kabul"
+    },
+    "tv5monde.com": {
+      "name": "TV5Monde",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "fr",
+      "why": "French-language international television network"
+    },
+    "un.org": {
+      "name": "United Nations",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "United Nations; part of the UN system"
+    },
+    "undp.org": {
+      "name": "UNDP",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Development Programme; part of the UN system"
+    },
+    "unfpa.org": {
+      "name": "UNFPA",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Population Fund; part of the UN system"
+    },
+    "unhcr.org": {
+      "name": "UNHCR",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Refugee Agency; part of the UN system"
+    },
+    "unicef.org": {
+      "name": "UNICEF",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Children's Fund; part of the UN system"
+    },
+    "unocha.org": {
+      "name": "UN OCHA",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN Office for the Coordination of Humanitarian Affairs; part of the UN system"
+    },
+    "unrwa.org": {
+      "name": "UNRWA",
+      "tier": "humanitarian",
+      "region": "Middle East",
+      "lang": "en",
+      "why": "UN agency for Palestine refugees; part of the UN system"
+    },
+    "usatoday.com": {
+      "name": "USA Today",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "US national daily newspaper; Wikipedia Perennial Sources: generally reliable"
+    },
+    "voanews.com": {
+      "name": "Voice of America",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "International broadcaster funded by the US government; Wikipedia Perennial Sources: generally reliable"
+    },
+    "washingtonpost.com": {
+      "name": "The Washington Post",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Daily newspaper in Washington, DC; Wikipedia Perennial Sources: generally reliable"
+    },
+    "wfp.org": {
+      "name": "WFP",
+      "tier": "humanitarian",
+      "region": "Global",
+      "lang": "en",
+      "why": "UN World Food Programme; part of the UN system"
+    },
+    "wsj.com": {
+      "name": "The Wall Street Journal",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Daily newspaper in New York; Wikipedia Perennial Sources: generally reliable"
+    },
+    "wyborcza.pl": {
+      "name": "Gazeta Wyborcza",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "pl",
+      "why": "Daily newspaper in Poland; Wikipedia Perennial Sources: generally reliable"
+    }
+  },
+  "block": {
+    "allafrica.com": "Aggregator: republishes stories from African outlets and press releases",
+    "aol.co.uk": "Aggregator and portal: republishes wire and other outlets' stories",
+    "aol.com": "Aggregator and portal: republishes wire and other outlets' stories",
+    "aon.com": "Insurance and consulting company site, not a newsroom",
+    "arstechnica.co.uk": "Technology site",
+    "arstechnica.com": "Technology site",
+    "avclub.com": "Entertainment and pop culture site",
+    "avn.com": "Adult entertainment trade site",
+    "barrons.com": "Finance trade press",
+    "behindthevoiceactors.com": "Entertainment database",
+    "bignewsnetwork.com": "Aggregator: republishes press releases and other outlets' stories",
+    "billboard.com": "Music trade press",
+    "bing.com": "Search engine and aggregator: links to other outlets' stories",
+    "bleacherreport.com": "Sports site",
+    "burkespeerage.com": "Genealogy reference publisher",
+    "businessweek.com": "Finance and business trade press",
+    "businesswire.com": "Press-release site: paid corporate releases",
+    "buzzfeed.com": "Entertainment and viral content site",
+    "buzzfeednews.com": "Defunct news site of BuzzFeed",
+    "cbssports.com": "Sports site",
+    "commonsensemedia.org": "Media ratings for parents: reviews of entertainment",
+    "complex.com": "Entertainment and streetwear media",
+    "dailystar.co.uk": "Tabloid; Wikipedia rates it deprecated",
+    "deadline.com": "Entertainment trade press",
+    "deadlinehollywooddaily.com": "Entertainment trade press",
+    "debretts.com": "Etiquette and peerage reference publisher",
+    "denofgeek.com": "Entertainment and pop culture site",
+    "digg.com": "Aggregator: links to other outlets' stories",
+    "digitalspy.co.uk": "Entertainment and television site",
+    "digitalspy.com": "Entertainment and television site",
+    "digitaltrends.com": "Consumer technology site",
+    "einpresswire.com": "Press-release site: paid and unvetted releases",
+    "elle.com": "Fashion and lifestyle magazine",
+    "engadget.com": "Consumer technology site",
+    "espn.com": "Sports broadcaster",
+    "eurekalert.org": "Press-release site: embargoed institutional releases",
+    "eurogamer.cz": "Video game site",
+    "eurogamer.de": "Video game site",
+    "eurogamer.es": "Video game site",
+    "eurogamer.net": "Video game site",
+    "eurogamer.nl": "Video game site",
+    "eurogamer.pl": "Video game site",
+    "eurogamer.pt": "Video game site",
+    "everydayhealth.com": "Consumer health information site",
+    "ew.com": "Entertainment magazine",
+    "express.co.uk": "Tabloid; Wikipedia rates it generally unreliable",
+    "flipboard.com": "Aggregator: curates other outlets' stories",
+    "fool.com": "Investor advice site",
+    "foxsports.com": "Sports site",
+    "gamasutra.com": "Video game industry trade press",
+    "gamedeveloper.com": "Video game industry trade press",
+    "gameinformer.com": "Video game magazine",
+    "gamerankings.com": "Review aggregator for video games",
+    "gamespot.co.uk": "Video game site",
+    "gamespot.com": "Video game site",
+    "gizmodo.com": "Consumer technology and pop culture site",
+    "glamour.com": "Fashion and lifestyle magazine",
+    "globenewswire.com": "Press-release site: paid corporate releases",
+    "gq-magazine.co.uk": "Lifestyle and fashion magazine",
+    "gq.com": "Lifestyle and fashion magazine",
+    "grubstreet.com": "Food and restaurant section of New York magazine",
+    "hardcoregaming101.net": "Video game history site",
+    "harpersbazaar.com": "Fashion and lifestyle magazine",
+    "health.com": "Consumer health information site",
+    "hollywoodreporter.com": "Entertainment trade press",
+    "howtogeek.com": "Consumer technology how-to site",
+    "idolator.com": "Pop music blog",
+    "ign.com": "Video game and entertainment site",
+    "iheart.com": "Radio and entertainment platform: not a newsroom",
+    "india.com": "Portal: mixes news, entertainment and republished content",
+    "kirkusreviews.com": "Book review publisher",
+    "kotaku.com": "Video game site",
+    "lifehacker.com": "Lifestyle tips site",
+    "lwn.net": "Linux and open-source software news",
+    "makeuseof.com": "Consumer technology how-to site",
+    "marketwatch.com": "Finance trade press",
+    "medicalnewstoday.com": "Consumer health information site",
+    "medicinenet.com": "Consumer health information site",
+    "medscape.com": "Health trade press for clinicians",
+    "mentalfloss.com": "Trivia and entertainment site",
+    "metacritic.com": "Review aggregator for games, film and music",
+    "metro.co.uk": "Tabloid",
+    "miragenews.com": "Aggregator: republishes press releases",
+    "mirror.co.uk": "Tabloid",
+    "msn.com": "Aggregator and portal: republishes other outlets' stories",
+    "nbcsports.com": "Sports site",
+    "news.google.com": "Aggregator: links to other outlets' stories",
+    "news.yahoo.com": "Aggregator and portal: republishes wire and other outlets' stories",
+    "newsbreak.com": "Aggregator: republishes other outlets' stories; Wikipedia rates it deprecated",
+    "newsnow.co.uk": "Aggregator: links to other outlets' stories",
+    "nme.com": "Music and entertainment magazine",
+    "nydailynews.com": "Tabloid",
+    "nymag.com": "Lifestyle and culture magazine",
+    "nypost.com": "Tabloid; Wikipedia rates it generally unreliable",
+    "oneindia.com": "Aggregator and portal: mixes republished and sponsored content",
+    "patch.com": "Hyperlocal US network: community and promotional content",
+    "people.com": "Celebrity and entertainment magazine",
+    "playboy.com": "Adult entertainment magazine",
+    "polygon.com": "Video game site",
+    "presseportal.de": "Press-release site: corporate and agency releases",
+    "prnewswire.com": "Press-release site: paid corporate releases",
+    "psychologytoday.com": "Consumer health and psychology magazine",
+    "reliefweb.int": "Republishes other organizations' reports and news; its own reports are listed separately through the ReliefWeb API",
+    "rottentomatoes.com": "Film and television review aggregator",
+    "seekingalpha.com": "Finance site: investor commentary and contributor posts",
+    "smartnews.com": "Aggregator: republishes other outlets' stories",
+    "space.com": "Space and science enthusiast site",
+    "thecut.com": "Lifestyle section of New York magazine",
+    "themarysue.com": "Pop culture and geek entertainment site",
+    "theregister.co.uk": "IT trade press",
+    "theregister.com": "IT trade press",
+    "thestreet.com": "Finance trade press",
+    "thesun.co.uk": "Tabloid; Wikipedia rates it deprecated",
+    "theverge.com": "Consumer technology and culture site",
+    "thewrap.com": "Entertainment trade press",
+    "torrentfreak.com": "Technology site on file sharing and copyright",
+    "tvguide.com": "Television listings and entertainment site",
+    "tvguidemagazine.com": "Television listings and entertainment magazine",
+    "usgamer.net": "Video game site",
+    "vanityfair.com": "Culture and fashion magazine",
+    "variety.com": "Entertainment trade press",
+    "vogue.com": "Fashion magazine",
+    "vulture.com": "Entertainment and pop culture section of New York magazine",
+    "webmd.com": "Consumer health information site",
+    "wired.co.uk": "Technology magazine",
+    "wired.com": "Technology magazine",
+    "wn.com": "Aggregator: republishes other outlets' stories",
+    "yahoo.com": "Aggregator and portal: republishes wire and other outlets' stories"
+  }
+}

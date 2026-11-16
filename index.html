@@ -253,6 +253,7 @@ select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .news a:hover { text-decoration: underline; }
 .news .meta { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
 .news .desc { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.news .tag { display: inline-block; margin-right: 6px; padding: 0 5px; border: 1px solid var(--line-strong); border-radius: 3px; font-size: 11.5px; line-height: 1.5; color: var(--ink-2); }
 .news-group + .news-group { margin-top: 12px; }
 .news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 14px; }
@@ -325,7 +326,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   .band { background: none; color: #000; border-bottom: 2px solid #000; }
   .band .lede, .kicker { color: #222; }
   .updated { color: #000; }
-  .band-links, .controls, .zoom, .map-hint, .map-tools, .brief-actions, .ledger-foot .actions, .filters, .skip, .back, .spark-hit, #news-section, .reset { display: none !important; }
+  .band-links, .controls, .zoom, .map-hint, .map-tools, .brief-actions, .ledger-foot .actions, .filters, .skip, .back, .spark-hit, #news-section, #reports-section, .reset { display: none !important; }
   .stage { grid-template-columns: minmax(0, 1fr); }
   .panel { position: static; max-height: none; overflow: visible; }
   .card, .tile, .brief { break-inside: avoid; }
@@ -531,21 +532,25 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>News headlines and which outlets count</h3>
-      <p>Headlines come from GDELT, which tracks news coverage worldwide. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 25 October 2026, that is 25 August to 25 October). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
-      <p>Each article's date is its publication date as stated on the publisher's page. Where the page doesn't state one, the date GDELT first saw the article is shown and labeled "first seen". Articles published before the window, with a future date, or whose link is dead or leads to a different story are left out. The short description under a headline is the publisher's own summary; when a publisher provides none, none is shown. An article is kept only if all of these hold:</p>
+      <p>Headlines come from three free sources: GDELT, which tracks news coverage worldwide and translates articles from other languages; 75 RSS feeds from about 60 hand-picked outlets, chosen to cover Latin America, French-speaking Africa and the Pacific, which GDELT covers thinly; and, when switched on, ReliefWeb (listed separately, below the news). Articles in English, Spanish, French and Portuguese are kept, with their original headline and a language label. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 16 November 2026, that is 16 September to 16 November). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
+      <p>Each article's date is its publication date as stated on the publisher's page. Where the page doesn't state one, the date the article was first seen is shown and labeled "first seen". Articles published before the window, with a future date, or whose link is dead or leads to a different story are left out. The short description under a headline is the publisher's own summary; when a publisher provides none, none is shown. An article is kept only if all of these hold:</p>
       <ul>
-        <li><b>It is about forced displacement.</b> It mentions refugees, asylum, internally displaced people, statelessness or returnees. Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "millions"), so wildfire evacuations, crime suspects and job "displacement" are left out.</li>
-        <li><b>It is about that country's displacement.</b> The headline ties the country to displaced people ("Sudanese refugees", "fled Sudan", "displaced in Darfur"). A passing mention, the publisher's location or GDELT's location tags are not enough. Names inside other names ("Sudan" in "South Sudan", "Guinea" in "Papua New Guinea", "Georgia" next to "Atlanta") don't count.</li>
-        <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person, opinion pieces, podcasts and live blogs are left out.</li>
-        <li><b>The outlet is rated reliable and has national or international reach</b>, by public repositories:
+        <li><b>It is about forced displacement.</b> The headline mentions refugees, asylum, internally displaced people, statelessness or returnees (or the Spanish, French or Portuguese terms). Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "thousands"). Spanish, French and Portuguese words that also mean "travelled" or "deployed" ("desplazados", "déplacés") count only in phrases such as "miles de desplazados" or "déplacés internes". Bomb-threat and drill evacuations, house fires, medical evacuations, job "displacement" and old-age homes ("asilo de ancianos") are left out. For articles found through GDELT, GDELT's own topic tags, which it assigns from the full text, must also mark the article as about refugees or displacement.</li>
+        <li><b>It is about that country's displacement.</b> The headline ties the country to displaced people ("Sudanese refugees", "fled Sudan", "refugiados venezolanos en Colombia"). A passing mention, the publisher's location or GDELT's location tags are not enough. Names inside other names ("Sudan" in "South Sudan", "Guinea" in "Papua New Guinea", "Georgia" next to "Atlanta", "Niger" in a Nigerian paper) don't count. When a headline ties displaced people to more than three countries, it is listed only under the country they fled.</li>
+        <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person (including individual asylum cases), opinion pieces, podcasts and live blogs are left out.</li>
+        <li><b>The outlet counts.</b> It is one of:
           <ul>
+            <li>about 200 outlets on the project's <b>hand-picked list</b>: news agencies, public and international broadcasters, newspapers of record, humanitarian and migration specialists (such as The New Humanitarian, UN News and Refugees International), and regional outlets in Latin America, Africa, Asia and the Pacific, each with a one-line reason;</li>
             <li>outlets <a href="https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources" target="_blank" rel="noopener">Wikipedia's Perennial Sources list</a> rates generally reliable;</li>
-            <li>where Wikipedia has not rated an outlet, or rates it reliable only for some sections: a score above 0.66 (of 1) in <a href="https://doi.org/10.1093/pnasnexus/pgad286" target="_blank" rel="noopener">Lin et al. (2023)</a>, which combines six expert news-quality rating sets, <em>and</em> a place among the 10,000 most-visited websites in the <a href="https://tranco-list.eu" target="_blank" rel="noopener">Tranco research ranking</a>, which leaves out small local papers;</li>
-            <li>intergovernmental and UN system organizations (<a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a>, un.org, UNHCR, WFP and others in the <a href="https://unsceb.org/directory" target="_blank" rel="noopener">UN system directory</a>).</li>
+            <li>UN and intergovernmental bodies (<a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a>, un.org, UNHCR, WFP and others in the <a href="https://unsceb.org/directory" target="_blank" rel="noopener">UN system directory</a>).</li>
           </ul>
-        </li>
+          Aggregators that republish other outlets' stories (such as WN, AOL, MSN and Yahoo), press-release sites, tabloids and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.</li>
       </ul>
-      <p>Outlets Wikipedia never rates generally reliable are always left out. Articles are matched automatically and are not read by a person. "No relevant news found in the selected period" means the search ran and found nothing that meets these rules; it is not an error. News gives context and does not explain why a figure changed. The full outlet list, with the reason each qualifies, is in <code>data/processed/news-sources.json</code> in the repository.</p>
+      <p>When several outlets report the same event, it is listed once, from the best-documented copy. At most three articles per outlet and eight per country are shown. Hover over an outlet's name to see which rule it meets. Articles are matched automatically and are not read by a person. "No relevant news found in the selected period" means the search ran and found nothing that meets these rules; it is not an error. News gives context and does not explain why a figure changed. The outlet list, with the reason each qualifies, is in <code>data/outlets.json</code> in the repository, and the feeds read are in <code>data/feeds.json</code>.</p>
+      <div id="about-reports" hidden>
+      <h3>Humanitarian reports</h3>
+      <p>Below the news, a country's panel lists up to five recent reports from <a href="https://reliefweb.int" target="_blank" rel="noopener">ReliefWeb</a>, the humanitarian information service of the UN Office for the Coordination of Humanitarian Affairs (OCHA). These are situation reports, assessments and updates from UN agencies, NGOs and governments, which ReliefWeb's editors tag by country. Only reports whose title is about displacement, or whose author is a refugee, migration or displacement organization (such as UNHCR, IOM or the Norwegian Refugee Council), are listed, and only where the country is the report's main subject. They are read through ReliefWeb's API with every update.</p>
+      </div>
     </section>
     <section>
       <h3>Using figures in a brief</h3>
@@ -557,13 +562,15 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <li><a href="https://api.unhcr.org/docs/refugee-statistics.html" target="_blank" rel="noopener">UNHCR Refugee Population Statistics API</a>, the source of every UNHCR figure here</li>
         <li><a href="https://www.unhcr.org/refugee-statistics/" target="_blank" rel="noopener">UNHCR Refugee Data Finder</a> and <a href="https://www.unhcr.org/refugee-statistics/methodology" target="_blank" rel="noopener">its methodology</a></li>
         <li><a href="https://www.internal-displacement.org/database/displacement-data/" target="_blank" rel="noopener">IDMC Global Internal Displacement Database</a>, published through the UNHCR API</li>
-        <li><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener">GDELT 2.0 news files</a> (Global Knowledge Graph)</li>
+        <li><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener">GDELT 2.0 news files</a> (Global Knowledge Graph, English and translated)</li>
+        <li>RSS feeds of the hand-picked outlets listed in <code>data/feeds.json</code></li>
+        <li><a href="https://reliefweb.int" target="_blank" rel="noopener">ReliefWeb</a> (UN OCHA) API, for humanitarian reports once switched on</li>
         <li>Boundaries: Natural Earth via <a href="https://github.com/topojson/world-atlas" target="_blank" rel="noopener">world-atlas</a>. Boundaries and names do not imply endorsement by UNHCR or the project team.</li>
       </ul>
     </section>
     <section>
       <h3>Updates and accessibility</h3>
-      <p>An automatic job is scheduled every hour; GitHub, which runs it, has been starting it about 5 to 7 times a day. Each run reads all GDELT news files published since the previous run and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
+      <p>An automatic job is scheduled every hour; GitHub, which runs it, has been starting it about 5 to 7 times a day. Each run reads all GDELT news files published since the previous run, the outlets' feeds and, when switched on, ReliefWeb's latest reports, and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
       <p>The ranking table holds every figure shown on the map, so the dashboard can be used with a keyboard or screen reader. Report problems through the GitHub repository.</p>
     </section>
   </section>
@@ -613,7 +620,9 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     view: { o: "origin", h: "host" },
     rank: { abs: "people", pct: "percent" },
   };
-  const BASIS = { wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", lin2023: "Lin et al. (2023) news-quality score above 0.66", tranco: "Among the 10,000 most-visited websites (Tranco)", intergovernmental: "Intergovernmental or UN system organization" };
+  const BASIS = { curated: "On the project's hand-picked outlet list", wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", intergovernmental: "UN or intergovernmental body" };
+  const TIER = { wire: "news agency", broadcaster: "broadcaster", newspaper: "newspaper of record or major outlet", humanitarian: "humanitarian or migration specialist", specialist: "specialist newsroom", regional: "regional outlet" };
+  const LANG = { es: "Spanish", fr: "French", pt: "Portuguese" };
 
   const state = { ...DEFAULTS, sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
 
@@ -1156,19 +1165,20 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   const newsPeriod = () => (NEWS?.window ? `${fmtDate(NEWS.window.from)} – ${fmtDate(NEWS.window.to)}` : "the last two months");
   function newsNote() {
     const failed = NEWS?.lastAttempt && NEWS.lastAttempt.ok === false;
-    return `<p class="note">Published ${esc(newsPeriod())}, from outlets rated reliable (<a href="#about">how articles are chosen</a>). News gives context; it does not show why the figures changed.${failed ? ` The latest news update failed on ${fmtDate(NEWS.lastAttempt.at)}; these are from the last successful update on ${fmtDate(NEWS.retrievedAt)}.` : ""}</p>`;
+    return `<p class="note">Published ${esc(newsPeriod())}, from hand-picked or rated outlets, in English, Spanish, French and Portuguese (<a href="#about">how articles are chosen</a>). News gives context; it does not show why the figures changed.${failed ? ` The latest news update failed on ${fmtDate(NEWS.lastAttempt.at)}; these are from the last successful update on ${fmtDate(NEWS.retrievedAt)}.` : ""}</p>`;
   }
 
   function newsList(items) {
     const safe = items.filter((a) => /^https?:\/\//i.test(a.url));
     return `<ul class="news">${safe
       .map((a) => {
-        const basis = (a.basis || "").split("+").map((b) => BASIS[b]).filter(Boolean).join("; ");
+        const basis = [BASIS[a.basis], TIER[a.tier]].filter(Boolean).join(": ");
+        const lang = LANG[a.lang];
         const when = a.date ? (a.dateKind === "published" ? fmtDate(a.date) : `first seen ${fmtDate(a.date)}`) : "";
         const link = a.link === "unverified" ? `<span class="na"> · link not checked (the site blocked or timed out our check)</span>` : "";
-        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a>
-          <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${esc(a.publisher || a.domain)}${when ? " · " + when : ""}${link}</span>
-          ${a.description ? `<span class="desc">${esc(a.description)}</span>` : ""}</li>`;
+        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.title)}</a>
+          <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${lang ? `<span class="tag">In ${lang}</span>` : ""}${esc(a.publisher || a.domain)}${when ? " · " + when : ""}${link}</span>
+          ${a.description ? `<span class="desc"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.description)}</span>` : ""}</li>`;
       })
       .join("")}</ul>`;
   }
@@ -1247,6 +1257,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       ${ctx.length ? `<dl class="context">${ctx.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("")}</dl>` : ""}
       ${flowHtml}
       <section id="news-section"><h3>News from the last two months</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
+      ${countryReportsHtml(i)}
       <section><h3>Check the source</h3>${sourceLinks(c)}
         <p class="note">Figures are counts on 31 December of each year. UNHCR data retrieved ${fmtDate(D.meta.retrievedAt)}.</p></section>`;
     drawPanelSpark(arr, row);
@@ -1308,6 +1319,21 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     const saved = NEWS.byCountry?.[c.id];
     if (saved?.length) return newsList(saved) + newsNote();
     return `<p class="note">No relevant news found in the selected period (${esc(newsPeriod())}).</p>` + (NEWS.lastAttempt?.ok === false ? newsNote() : "");
+  }
+
+  // ReliefWeb reports: UN agencies, NGOs and governments, tagged by country by ReliefWeb's editors.
+  // Shown apart from news, with the author organization instead of a news outlet.
+  function countryReportsHtml(i) {
+    const c = C[i];
+    const R = NEWS?.reports;
+    if (!R?.enabled || !(NEWS.searched || []).includes(c.id)) return "";
+    const items = (R.byCountry?.[c.id] || []).filter((r) => /^https:\/\/reliefweb\.int\//.test(r.url));
+    const body = items.length
+      ? `<ul class="news">${items.map((r) => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a>
+          <span class="meta">${esc(r.source || "ReliefWeb")} · ${fmtDate(r.date)}${r.countries > 1 ? ` · covers ${r.countries} countries` : ""}</span></li>`).join("")}</ul>`
+      : `<p class="note">No displacement reports on ReliefWeb in the selected period (${esc(newsPeriod())}).</p>`;
+    return `<section id="reports-section"><h3>Humanitarian reports</h3>${body}
+      <p class="note">From <a href="https://reliefweb.int/country/${esc(c.id.toLowerCase())}" target="_blank" rel="noopener">ReliefWeb</a> (UN OCHA): reports by UN agencies, NGOs and governments, tagged by country by ReliefWeb's editors. Only reports about displacement, or by refugee and migration organizations, are listed.${R.retrievedAt ? ` Updated ${fmtDate(R.retrievedAt)}.` : ""}</p></section>`;
   }
 
   function renderPanel() {
@@ -1580,6 +1606,8 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   document.getElementById("stamp-latest").textContent = `31 Dec ${YN}`;
   document.getElementById("stamp-retrieved").textContent = fmtDate(D.meta.retrievedAt);
   document.getElementById("stamp-news").textContent = NEWS ? fmtDate(NEWS.retrievedAt) : "not yet";
+  const showReportsAbout = () => { document.getElementById("about-reports").hidden = !NEWS?.reports?.enabled; };
+  showReportsAbout();
   const v = D.meta.verification;
   document.getElementById("verify-text").textContent =
     `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
@@ -1595,6 +1623,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         if (fresh && fresh.retrievedAt !== NEWS?.retrievedAt) {
           NEWS = fresh;
           document.getElementById("stamp-news").textContent = fmtDate(NEWS.retrievedAt);
+          showReportsAbout();
           renderPanel();
         }
         s.remove();

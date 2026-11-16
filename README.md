@@ -9,8 +9,9 @@ An interactive map that ranks displacement situations by how fast they are chang
 - **Country panel:** start and end figures, change and % change, a 2000–2025 trend, top host countries or origins, returns, IDMC internal displacement, recent news, and links to the exact UNHCR API query behind the numbers.
 - **Ranked table:** sortable and searchable, with the same figures as the map. Missing figures are marked "Unavailable". Territories are labeled with their governing country; "Unknown origin", "Stateless" and "Tibetan" are explained and never ranked.
 - **Briefing tools:** key-findings sentences at the top, plus a "Summary for your brief" for the world and every country with Copy summary, Copy citation and Copy link buttons. Links reproduce the exact view. Download the map as PNG or the table as CSV, or print/save as PDF.
-- **News from rated outlets only:** headlines about forced displacement, from outlets rated reliable (Wikipedia's Perennial Sources list, or Lin et al. 2023 quality scores plus national or international reach in the Tranco ranking) and UN/intergovernmental bodies. Personal profiles, opinion and local news are left out. Each article shows its publisher, publication date and the publisher's own summary, and its link is checked. The panel covers the previous two calendar months. See [the audit](docs/ux-audit.md#news-sources-how-reputable-is-defined) and the [coverage audit](docs/news-coverage-audit.md).
-- **Self-updating:** a GitHub Actions job, scheduled hourly and in practice run 5 to 7 times a day, reads the GDELT news published since its last run and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
+- **News from trusted outlets only:** headlines about forced displacement in English, Spanish, French and Portuguese, from about 200 hand-picked outlets (news agencies, public broadcasters, newspapers of record, humanitarian and migration specialists, regional outlets; `data/outlets.json`, each with a reason), outlets Wikipedia's Perennial Sources list rates generally reliable, and UN/intergovernmental bodies. Aggregators, press-release sites, tabloids and trade press are blocked. GDELT articles must also carry GDELT's own refugee/displacement topic tags. Personal profiles, opinion and individual asylum cases are left out, and one event reported by many outlets is listed once. Each article shows its publisher, publication date, language and the publisher's own summary, and its link is checked. The panel covers the previous two calendar months. See the [coverage audit](docs/news-coverage-audit.md).
+- **Humanitarian reports (switched on once ReliefWeb approves an appname):** up to five recent ReliefWeb (UN OCHA) reports per country about displacement, from UN agencies, NGOs and governments, tagged by country by ReliefWeb's editors. See [Switching on ReliefWeb](#switching-on-reliefweb).
+- **Self-updating:** a GitHub Actions job, scheduled hourly and in practice run 5 to 7 times a day, reads the GDELT news (English and translated) published since its last run, the outlets' RSS feeds and (once switched on) ReliefWeb, and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
 
 ## Data
 
@@ -22,8 +23,10 @@ An interactive map that ranks displacement situations by how fast they are chang
 | Country names, codes, regions | same API, `/countries/` | `data/raw/unhcr_countries.json` |
 | Map shapes (Natural Earth 1:50m) | [world-atlas](https://github.com/topojson/world-atlas) | `data/raw/geo/countries-50m.json` |
 | ISO codes and country reference points for arrows | [world-countries](https://github.com/mledoze/countries) | `data/raw/geo/world-countries.json` |
-| Displacement headlines by country, previous two calendar months | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, every 15 minutes) | `data/news.js` |
-| Which news outlets count as reputable | [Wikipedia: Perennial sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) (CC BY-SA 4.0), [Lin et al. 2023](https://doi.org/10.1093/pnasnexus/pgad286) ([data](https://github.com/hauselin/domain-quality-ratings)) and the [Tranco](https://tranco-list.eu) top-10,000 sites | `data/processed/news-sources.json` (raw downloads in `data/raw/sources/` are not committed) |
+| Displacement headlines by country, previous two calendar months | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, English and translated, every 15 minutes) and the RSS feeds in `data/feeds.json` | `data/news.js` |
+| Humanitarian reports by country | [ReliefWeb API](https://apidoc.reliefweb.int) (UN OCHA), once an appname is approved | `data/news.js` (`reports`) |
+| Which news outlets count | Hand-picked list maintained by the team, with a reason for each outlet and a block list of aggregators and tabloids | `data/outlets.json` |
+| Outlet ratings used alongside the list | [Wikipedia: Perennial sources](https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources) (CC BY-SA 4.0) and the UN system directory | `data/processed/news-sources.json` (raw downloads in `data/raw/sources/` are not committed) |
 
 `data/raw/manifest.json` records when each file was downloaded and from which URL. The dashboard shows both the dates the statistics cover (31 December of each year) and the date they were retrieved.
 
@@ -41,6 +44,15 @@ For spot checks in a spreadsheet, `data/processed/country_totals.csv` has every 
 - "-" in the API means nothing was reported. It stays distinct from a reported zero.
 - Big swings can reflect how a government counts people. In 2025, refugees hosted in Iran fell from 3.49M to 0.77M and "Unknown origin" people needing international protection rose by about 1.5M.
 
+### Switching on ReliefWeb
+
+ReliefWeb (UN OCHA) only allows its data to be read through its API with an appname it has approved. It is free.
+1. Request one with the short form linked from https://apidoc.reliefweb.int ("Appname"). ReliefWeb asks for an organization email address (a university address works; Gmail and similar are not accepted) and replies by email.
+2. In the GitHub repository, open Settings → Secrets and variables → Actions → Variables, and add a variable named `RELIEFWEB_APPNAME` with the approved name. The appname is not a secret.
+3. The next run adds a "Humanitarian reports" list to each country panel and a paragraph about it under "About the data". Until then, nothing is requested from ReliefWeb and both stay hidden.
+
+Scripted requests to ReliefWeb's public RSS pages were refused by its firewall on 16 Nov 2026 (HTTP 406/429), so the dashboard does not use them.
+
 ## Run it locally
 
 Requires Node 18 or newer. There are no packages to install.
@@ -48,10 +60,10 @@ Requires Node 18 or newer. There are no packages to install.
 ```bash
 node scripts/fetch-data.mjs     # download UNHCR, IDMC and map data into data/raw/
 node scripts/build-data.mjs     # build data/*.js and run the checks
-node scripts/fetch-sources.mjs  # build the list of reputable news outlets
-node scripts/fetch-news.mjs     # read GDELT news files since the last run (NEWS_HOURS=1464 for a two-month backfill; NEWS_STEP=8 to sample)
+node scripts/fetch-sources.mjs  # refresh Wikipedia's outlet ratings (the hand-picked list is data/outlets.json)
+node scripts/fetch-news.mjs     # read GDELT files since the last run, outlet feeds and ReliefWeb (NEWS_HOURS=1464 for a two-month backfill; NEWS_STEP=8 to sample; RELIEFWEB_APPNAME=… for reports)
 node scripts/news-coverage-audit.mjs  # per-country coverage report: docs/news-coverage-audit.md
-node --test "tests/*.test.mjs"  # tests for dates, country matching, duplicates, empty results and failures
+node --test "tests/*.test.mjs"  # tests for dates, topic and country rules (4 languages), outlets, duplicates, feeds, empty results and failures
 node scripts/serve.mjs          # open http://localhost:8080
 ```
 
