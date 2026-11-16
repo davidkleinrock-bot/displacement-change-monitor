@@ -64,9 +64,11 @@ jobs:
           if curl -fsSL "$SITE_URL/data/news.js" -o "$RUNNER_TEMP/live-news.js"; then
             node -e '
               const fs = require("fs");
-              const read = (p) => { try { const s = fs.readFileSync(p, "utf8"); return JSON.parse(s.slice(s.indexOf("{"), s.lastIndexOf("}") + 1)).retrievedAt || ""; } catch { return ""; } };
-              const live = read(process.argv[1]), repo = read("data/news.js");
-              if (live > repo) { fs.copyFileSync(process.argv[1], "data/news.js"); console.log(`Using the live site copy (${live}).`); }
+              const load = (p) => { try { const s = fs.readFileSync(p, "utf8"); return JSON.parse(s.slice(s.indexOf("{"), s.lastIndexOf("}") + 1)); } catch { return null; } };
+              const L = load(process.argv[1]), R = load("data/news.js");
+              const live = L?.retrievedAt || "", repo = R?.retrievedAt || "";
+              // A live file written by the rules before Nov 2026 has no feed counts; starting from it would drop most saved articles.
+              if (live > repo && L?.lastRun?.feeds) { fs.copyFileSync(process.argv[1], "data/news.js"); console.log(`Using the live site copy (${live}).`); }
               else console.log(`Keeping the repo copy (${repo}); live is ${live || "unreadable"}.`);
             ' "$RUNNER_TEMP/live-news.js"
           else

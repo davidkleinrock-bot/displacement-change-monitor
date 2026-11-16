@@ -304,3 +304,12 @@ test("events: different stories about one country stay apart; a full outlet give
   assert.equal(picked.at(-1).outlet, "Al Jazeera");
   assert.equal(pickForCountry([{ ...reuters("A story about camps", "2026-11-01"), domain: "bbc.com", outlet: "BBC" }, ...["x one two", "y three four", "z five six"].map((t, i) => ({ ...reuters(`${t} camps story`, `2026-11-0${i + 2}`), domain: "bbc.co.uk", outlet: "BBC" }))], { perOutlet: 3 }).length, 3); // one outlet, two domains
 });
+
+test("individual cases and place-name look-alikes found in the 16 Nov backfill", () => {
+  for (const t of ["How I rejected US asylum, landed in prison", "SA 'refugee' indicted in US over child abuse material",
+    "Sri Lankan refugee gets seven years jail for sexual assault case", "Presidencia argentina afirma que Flávio Bolsonaro no ha solicitado asilo",
+    "Lituânia recusa asilo a russo que nadou de Kaliningrado"]) assert.ok(isPersonalOrOpinion(t), t);
+  assert.ok(!isPersonalOrOpinion("Estados Unidos aumenta las tarifas para solicitar asilo, TPS y permisos de trabajo"));
+  assert.ok(!isDisplacement("Más de 100 policías desplegados para cazar al 'Ruso', el ex legionario huido tras matar a un agente"));
+  assert.ok(!about("Diplomat led operation to save desperate refugees afloat on the South China Sea").includes("CHN"));
+});

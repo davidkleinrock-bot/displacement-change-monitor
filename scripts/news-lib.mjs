@@ -55,7 +55,7 @@ const NOT_FORCED = anyOf([
 ].join("|"));
 // Fugitives and prisoners "flee" too. This only blocks the "fled + a number" path, so "10,000 flee as gangs
 // attack; two suspects arrested" still counts.
-const FUGITIVE = anyOf("fugitives?|extradit\\w*|arrested|manhunt|jailbreak|suspects?|escaped (?:from )?(?:prison|jail|custody)|prófugos?|fugitifs?|reos|presos|reclusos|detenidos|détenus|prisonniers|detentos|cárcel|prisión|presídio|prisons?|jails?");
+const FUGITIVE = anyOf("fugitives?|extradit\\w*|arrested|manhunt|jailbreak|suspects?|escaped (?:from )?(?:prison|jail|custody)|prófugos?|fugitifs?|polic(?:e|ías?|iais)|manhunts?|cazar|matar|reos|presos|reclusos|detenidos|détenus|prisonniers|detentos|cárcel|prisión|presídio|prisons?|jails?");
 const FLIGHT = anyOf("fle(?:e|es|eing|d)|evacuat\\w*|exodus|uproot\\w*"
   + "|hu(?:yen|yeron|ir|yendo|yó|ido)|huid[oa]s|evacuad[oa]s|evacuación|éxodo|desplaz(?:a|an|ó|aron)|desplazamientos?"
   + "|fuient|fuir|fuyant|fuyaient|ont fui|avaient fui|évacu\\w*|exode|déplacements? de population"
@@ -122,7 +122,9 @@ const PERSONAL = [
   /^([\p{L}'’-]+\s){0,2}(man|woman|boy|girl|teen|teenager|couple|grandmother|grandfather|pastor|activist|footballer|singer|rapper)\b/iu, // "Russian man swims…"
   /\b(his|her) (story|journey|life|family|wife|husband|son|daughter|mother|father|dream)\b/i,
   /\b(political asylum|asilo político|asile politique)\b/i, // nearly always one named person's case
-  /(?<![\p{L}])(su|sus|mi|tu|son|sa|seu|sua|pide|pidió|solicita|solicitó|obtiene|recibe|concede|concedió|otorga|otorgó|demande|obtient|pede|pediu|recebe|concede) asil[oe](?![\p{L}])/iu,
+  /(^|[:\s'"‘“])(how|why|when) I\b/i, // first-person accounts ("How I rejected US asylum…")
+  /\b(indicted|sentenced|convicted|jailed|gets \d+ years|\d+ years (?:in )?(?:jail|prison)|prison term|sexual assault|child abuse)\b/i, // one person's criminal case
+  /(?<![\p{L}])(su|sus|mi|tu|son|sa|seu|sua|pide|pidió|solicita|solicitó|obtiene|recibe|concede|concedió|otorga|otorgó|demande|obtient|pede|pediu|recebe|solicitado|rechaza|rechazó|recusa|recusou|refuse|refusé|concede) asil[oe](?![\p{L}])/iu,
 ];
 const SECTION_TITLE = /^(opinion|editorial|podcast|letters?|column|commentary|live|watch|video|photos?|review|quiz)\b\s*[:|–-]/i;
 const SECTION_URL = /\/(opinion|opinions|editorials?|letters?|obituar\w*|podcasts?|sports?|lifestyle|life-?style|entertainment|arts?|culture|food|travel|commentisfree|comment|blogs?|videos?|live|liveblog|live-news)\//i;
@@ -207,6 +209,7 @@ const GUARDS = {
   Russian: { before: ["study ", "speak ", "learn ", "speaking ", "studying ", "learning "], after: [" language", " lessons", " classes"] }, // the language
   Congo: { before: ["Republic of the ", "Republic of ", "DR ", "D.R. ", "RD ", "Democratic Republic of the ", "Democratic Republic of ", "eastern ", "République démocratique du ", "République du ", "República Democrática del ", "República del ", "República Democrática do "], after: ["-Brazzaville", "-Kinshasa"] },
   Macedonian: { before: ["Greek "] },
+  China: { before: ["South ", "East "], after: [" Sea"] },
 };
 // Shared demonyms go to the state that dominates displacement reporting.
 // Keys are compared without accents, so "Americaine" follows "Américaine".
