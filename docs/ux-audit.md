@@ -60,6 +60,8 @@ Severity: **High** means it blocks a core task or excludes users. **Medium** mea
 ## News sources: how "reputable" is defined
 
 > **Changed on 16 November 2026.** The rules below were replaced. In practice the Lin et al. + Tranco route admitted aggregators and tabloids (wn.com was the most frequent outlet on the panel, 38 of 229 articles, and AOL and Metro also appeared), because a domain-level quality score and popularity say nothing about original reporting, while specialist outlets such as The New Humanitarian were left out. An outlet now counts if it is on a hand-picked list with a reason for each entry (`data/outlets.json`), or Wikipedia's Perennial Sources list rates it generally reliable, or it is a UN or intergovernmental body; aggregators, press-release sites, tabloids and trade press are blocked. The page's "About the data" section has the current rules. The original definition is kept below as a record.
+>
+> **Changed again on 18 November 2026.** At David's request, Wikipedia's ratings are no longer used at all: an outlet counts only if it is on the hand-picked list in `data/outlets.json` (each with its own reason) or is a UN or intergovernmental body. `scripts/fetch-sources.mjs` and `data/processed/news-sources.json` were removed.
 
 Defined from public repositories, not by us. Built by `scripts/fetch-sources.mjs`, refreshed daily, and saved with the reason for each outlet in `data/processed/news-sources.json`.
 

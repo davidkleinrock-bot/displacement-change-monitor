@@ -381,7 +381,7 @@ export function dedupe(items) {
 // they share at least three words and 60% of the shorter headline, not counting words every story about
 // that country shares (its names, "refugees", "displaced"…). The best-documented copy is shown.
 const TIER_RANK = { wire: 5, broadcaster: 4, humanitarian: 4, newspaper: 3, specialist: 3, regional: 2 };
-const docScore = (a) => (a.link === "verified" ? 8 : 0) + (a.description ? 4 : 0) + (TIER_RANK[a.tier] || (a.basis === "wikipedia" ? 3 : 1)) + (a.lang === "en" || !a.lang ? 0.5 : 0);
+const docScore = (a) => (a.link === "verified" ? 8 : 0) + (a.description ? 4 : 0) + (TIER_RANK[a.tier] || 1) + (a.lang === "en" || !a.lang ? 0.5 : 0);
 const GENERIC = new Set(("refugee refugees displaced displacement migrants migrant asylum seekers idps idp people thousands hundreds flee fled fleeing"
   + " camp camps crisis returnees return returns civilians families children war fighting violence says warns new"
   + " refugiados refugiadas desplazados desplazadas migrantes miles personas huyen crisis refugies deplaces milliers personnes deslocados pessoas milhares").split(" "));
@@ -429,29 +429,21 @@ export function pickForCountry(items, { max = 8, perOutlet = 3, ignore = [] } = 
 }
 
 // ---------- Which outlets count ----------
-// An outlet counts if it (or a parent domain: edition.cnn.com → cnn.com) is on the hand-picked list in
-// data/outlets.json, or Wikipedia's Perennial Sources list rates it generally reliable, or it is a UN or
-// intergovernmental body. Blocked domains (aggregators, tabloids, trade press) never count, and neither
-// do outlets Wikipedia rates generally unreliable, deprecated or blacklisted, even if hand-picked.
-// `sources` is data/processed/news-sources.json; `curated` is data/outlets.json.
-const NEVER = /generally unreliable|deprecated|blacklisted/i;
-export function makeOutletChecker(sources, curated) {
-  const clean = (s) => (s ? s.replace(/\s*\(.*?\)\s*/g, " ").trim() : null);
+// An outlet counts only if it (or a parent domain: edition.cnn.com → cnn.com) is on the hand-picked list
+// in data/outlets.json, each entry with its reason, or it is a UN or intergovernmental body. Blocked
+// domains (aggregators, tabloids, trade press) never count. No outside rating list is used.
+// `curated` is data/outlets.json.
+export function makeOutletChecker(curated) {
   return (domain) => {
     const d = (domain || "").toLowerCase().replace(/^www\./, "");
     const parts = d.split(".");
     for (let i = 0; i < parts.length - 1; i++) {
       const c = parts.slice(i).join(".");
       if (curated.block?.[c]) return null;
-      const ex = sources.excluded?.[c];
-      if (ex && NEVER.test(ex)) return null;
       const pick = curated.allow?.[c];
       if (pick) return { basis: "curated", tier: pick.tier, name: pick.name || null, lang: pick.lang || null };
-      if (ex) return null; // no consensus, or reliable only for some sections, and not hand-picked
-      const rated = sources.allowed?.[c];
-      if (rated?.basis?.includes("wikipedia")) return { basis: "wikipedia", tier: null, name: clean(rated.name), lang: null };
     }
-    const ig = sources.intergovernmental || { suffixes: [], domains: [] };
+    const ig = curated.intergovernmental || { suffixes: [], domains: [] };
     if (ig.suffixes.some((s) => d.endsWith(s)) || ig.domains.some((x) => d === x || d.endsWith("." + x))) return { basis: "intergovernmental", tier: "humanitarian", name: null, lang: null };
     return null;
   };

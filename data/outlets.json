@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16",
-  "definition": "An outlet counts if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, specialist humanitarian and migration outlets, UN agencies and NGOs, and respected regional outlets that fill gaps in Latin America, Africa and the Pacific), or if Wikipedia's Perennial Sources list rates it generally reliable. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
+  "updated": "2026-11-18",
+  "definition": "An outlet's articles are shown only if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, humanitarian and migration specialists, specialist newsrooms, and regional outlets that fill gaps in Latin America, Africa, Asia and the Pacific), each with a reason, or if it is a UN or intergovernmental body. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked.",
   "tiers": {
     "wire": "News agency",
     "broadcaster": "Broadcaster (public, international or national network)",
@@ -8,6 +8,39 @@
     "humanitarian": "Humanitarian or migration specialist, UN agency or NGO",
     "specialist": "Specialist newsroom (environment, organized crime, investigations)",
     "regional": "Regional or national outlet covering a region with few international reporters"
+  },
+  "intergovernmental": {
+    "source": "Any .int domain (IANA grants .int only to treaty-based intergovernmental bodies, https://www.iana.org/domains/int/policy), plus UN system organizations in the UN System Chief Executives Board directory (https://unsceb.org/directory)",
+    "suffixes": [
+      ".int"
+    ],
+    "domains": [
+      "un.org",
+      "unhcr.org",
+      "unicef.org",
+      "wfp.org",
+      "undp.org",
+      "unocha.org",
+      "unfpa.org",
+      "unrwa.org",
+      "ohchr.org",
+      "unesco.org",
+      "ilo.org",
+      "fao.org",
+      "ifad.org",
+      "unwomen.org",
+      "unops.org",
+      "unep.org",
+      "unhabitat.org",
+      "unodc.org",
+      "unaids.org",
+      "unctad.org",
+      "unido.org",
+      "worldbank.org",
+      "imf.org",
+      "unu.edu",
+      "unitar.org"
+    ]
   },
   "allow": {
     "abc.net.au": {
@@ -22,14 +55,14 @@
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network ABC; Wikipedia Perennial Sources: generally reliable"
+      "why": "News division of the US network ABC"
     },
     "abcnews.go.com": {
       "name": "ABC News (US)",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network ABC; Wikipedia Perennial Sources: generally reliable"
+      "why": "News division of the US network ABC"
     },
     "acaps.org": {
       "name": "ACAPS",
@@ -57,7 +90,7 @@
       "tier": "wire",
       "region": "Global",
       "lang": "fr",
-      "why": "French international news agency; Wikipedia Perennial Sources: generally reliable"
+      "why": "French international news agency"
     },
     "africanews.com": {
       "name": "Africanews",
@@ -78,7 +111,7 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "International broadcaster based in Doha, Qatar; Wikipedia Perennial Sources: generally reliable"
+      "why": "International broadcaster based in Doha, Qatar"
     },
     "americasquarterly.org": {
       "name": "Americas Quarterly",
@@ -92,7 +125,7 @@
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Human rights NGO; Wikipedia Perennial Sources: generally reliable"
+      "why": "International human rights NGO"
     },
     "amu.tv": {
       "name": "Amu TV",
@@ -120,14 +153,14 @@
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "US-based international news agency; Wikipedia Perennial Sources: generally reliable"
+      "why": "US-based international news agency"
     },
     "apnews.com": {
       "name": "Associated Press",
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "US-based international news agency; Wikipedia Perennial Sources: generally reliable"
+      "why": "US-based international news agency"
     },
     "asia.nikkei.com": {
       "name": "Nikkei Asia",
@@ -141,7 +174,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news website; Wikipedia Perennial Sources: generally reliable"
+      "why": "US news website"
     },
     "ayibopost.com": {
       "name": "AyiboPost",
@@ -155,21 +188,21 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public broadcaster of the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+      "why": "Public broadcaster of the United Kingdom"
     },
     "bbc.com": {
       "name": "BBC",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public broadcaster of the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+      "why": "Public broadcaster of the United Kingdom"
     },
     "bellingcat.com": {
       "name": "Bellingcat",
       "tier": "specialist",
       "region": "Global",
       "lang": "en",
-      "why": "Open-source investigations collective based in the Netherlands; Wikipedia Perennial Sources: generally reliable"
+      "why": "Open-source investigations collective based in the Netherlands"
     },
     "borderreport.com": {
       "name": "Border Report",
@@ -190,7 +223,7 @@
       "tier": "broadcaster",
       "region": "Asia",
       "lang": "en",
-      "why": "Singapore-based English-language news channel; Wikipedia Perennial Sources: generally reliable"
+      "why": "Singapore-based English-language news channel"
     },
     "clarin.com": {
       "name": "Clarin",
@@ -204,14 +237,14 @@
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US cable news network; Wikipedia Perennial Sources: generally reliable"
+      "why": "US cable news network"
     },
     "codastory.com": {
       "name": "Coda Story",
       "tier": "specialist",
       "region": "Global",
       "lang": "en",
-      "why": "Investigative news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "Investigative news outlet"
     },
     "confidencial.digital": {
       "name": "Confidencial",
@@ -246,7 +279,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news organization published in Boston; Wikipedia Perennial Sources: generally reliable"
+      "why": "US general news organization in Boston, founded in 1908"
     },
     "dailymaverick.co.za": {
       "name": "Daily Maverick",
@@ -309,14 +342,14 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public international broadcaster of Germany; Wikipedia Perennial Sources: generally reliable"
+      "why": "Public international broadcaster of Germany"
     },
     "economist.com": {
       "name": "The Economist",
       "tier": "newspaper",
       "region": "Global",
       "lang": "en",
-      "why": "Weekly newspaper published in London; Wikipedia Perennial Sources: generally reliable"
+      "why": "Weekly newspaper published in London"
     },
     "efe.com": {
       "name": "EFE",
@@ -470,7 +503,7 @@
       "tier": "newspaper",
       "region": "Global",
       "lang": "en",
-      "why": "Daily newspaper published in London; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper published in London"
     },
     "g1.globo.com": {
       "name": "G1",
@@ -484,7 +517,7 @@
       "tier": "newspaper",
       "region": "Middle East",
       "lang": "en",
-      "why": "Daily newspaper in Tel Aviv, Israel; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Tel Aviv, Israel"
     },
     "haitiantimes.com": {
       "name": "The Haitian Times",
@@ -519,14 +552,14 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Online newspaper in the United Kingdom; Wikipedia Perennial Sources: generally reliable"
+      "why": "Online newspaper in the United Kingdom"
     },
     "indianexpress.com": {
       "name": "The Indian Express",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in India; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in India"
     },
     "infobae.com": {
       "name": "Infobae",
@@ -575,14 +608,14 @@
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "News agency covering development and global affairs; Wikipedia Perennial Sources: generally reliable"
+      "why": "News agency covering development and global affairs"
     },
     "ipsnoticias.net": {
       "name": "IPS Noticias",
       "tier": "humanitarian",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Spanish-language service of Inter Press Service; Wikipedia Perennial Sources: generally reliable"
+      "why": "Spanish-language service of Inter Press Service"
     },
     "iranwire.com": {
       "name": "IranWire",
@@ -694,7 +727,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Los Angeles; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Los Angeles"
     },
     "lemonde.fr": {
       "name": "Le Monde",
@@ -736,14 +769,14 @@
       "tier": "regional",
       "region": "Europe",
       "lang": "en",
-      "why": "Russian-language outlet based in Riga, Latvia, with an English edition; Wikipedia Perennial Sources: generally reliable"
+      "why": "Russian-language outlet based in Riga, Latvia, with an English edition"
     },
     "mg.co.za": {
       "name": "Mail & Guardian",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Weekly newspaper in South Africa; Wikipedia Perennial Sources: generally reliable"
+      "why": "Weekly newspaper in South Africa"
     },
     "migrationpolicy.org": {
       "name": "Migration Policy Institute",
@@ -771,7 +804,7 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "fr",
-      "why": "Monthly newspaper published in Paris; Wikipedia Perennial Sources: generally reliable"
+      "why": "Monthly newspaper published in Paris"
     },
     "mongabay.com": {
       "name": "Mongabay",
@@ -820,21 +853,21 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Toronto, Canada; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Toronto, Canada"
     },
     "nbcnews.com": {
       "name": "NBC News",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network NBC; Wikipedia Perennial Sources: generally reliable"
+      "why": "News division of the US network NBC"
     },
     "news.sky.com": {
       "name": "Sky News",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "en",
-      "why": "UK television news channel; Wikipedia Perennial Sources: generally reliable"
+      "why": "UK television news channel"
     },
     "news.un.org": {
       "name": "UN News",
@@ -855,7 +888,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US magazine with reporting and long-form journalism; Wikipedia Perennial Sources: generally reliable"
+      "why": "US magazine with reporting and long-form journalism"
     },
     "nhk.or.jp": {
       "name": "NHK",
@@ -876,7 +909,7 @@
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US public radio network; Wikipedia Perennial Sources: generally reliable"
+      "why": "US public radio network"
     },
     "nrc.no": {
       "name": "Norwegian Refugee Council",
@@ -890,14 +923,14 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in New York; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in New York"
     },
     "nzherald.co.nz": {
       "name": "New Zealand Herald",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Auckland, New Zealand; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Auckland, New Zealand"
     },
     "ohchr.org": {
       "name": "UN Human Rights Office",
@@ -911,7 +944,7 @@
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US public television network; Wikipedia Perennial Sources: generally reliable"
+      "why": "US public television network"
     },
     "pina.com.fj": {
       "name": "PINA",
@@ -932,7 +965,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US political news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "US political news outlet"
     },
     "postcourier.com.pg": {
       "name": "Post-Courier",
@@ -974,7 +1007,7 @@
       "tier": "specialist",
       "region": "Northern America",
       "lang": "en",
-      "why": "US nonprofit investigative newsroom; Wikipedia Perennial Sources: generally reliable"
+      "why": "US nonprofit investigative newsroom"
     },
     "punchng.com": {
       "name": "The Punch",
@@ -1016,7 +1049,7 @@
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Philippine digital news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "Philippine digital news outlet"
     },
     "refugeesinternational.org": {
       "name": "Refugees International",
@@ -1030,7 +1063,7 @@
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "International news agency; Wikipedia Perennial Sources: generally reliable"
+      "why": "International news agency"
     },
     "rfi.fr": {
       "name": "RFI",
@@ -1100,21 +1133,21 @@
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Hong Kong; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Hong Kong"
     },
     "smh.com.au": {
       "name": "The Sydney Morning Herald",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Sydney, Australia; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Sydney, Australia"
     },
     "spiegel.de": {
       "name": "Der Spiegel",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "de",
-      "why": "German news magazine; Wikipedia Perennial Sources: generally reliable"
+      "why": "German news magazine"
     },
     "stabroeknews.com": {
       "name": "Stabroek News",
@@ -1128,7 +1161,7 @@
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Singapore; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Singapore"
     },
     "studiotamani.org": {
       "name": "Studio Tamani",
@@ -1177,21 +1210,21 @@
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Melbourne, Australia; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Melbourne, Australia"
     },
     "theatlantic.com": {
       "name": "The Atlantic",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US monthly magazine; Wikipedia Perennial Sources: generally reliable"
+      "why": "US monthly magazine"
     },
     "theaustralian.com.au": {
       "name": "The Australian",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "National daily newspaper of Australia; Wikipedia Perennial Sources: generally reliable"
+      "why": "National daily newspaper of Australia"
     },
     "thecable.ng": {
       "name": "TheCable",
@@ -1212,14 +1245,14 @@
       "tier": "newspaper",
       "region": "Global",
       "lang": "en",
-      "why": "News site with articles written by academics; Wikipedia Perennial Sources: generally reliable"
+      "why": "News site with articles written by academics"
     },
     "thediplomat.com": {
       "name": "The Diplomat",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Magazine on Asia-Pacific affairs; Wikipedia Perennial Sources: generally reliable"
+      "why": "Magazine on Asia-Pacific affairs"
     },
     "theeastafrican.co.ke": {
       "name": "The EastAfrican",
@@ -1233,7 +1266,7 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "National daily newspaper of Canada; Wikipedia Perennial Sources: generally reliable"
+      "why": "National daily newspaper of Canada"
     },
     "theguardian.com": {
       "name": "The Guardian",
@@ -1247,21 +1280,21 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US political news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "US political news outlet"
     },
     "thehindu.com": {
       "name": "The Hindu",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Chennai, India; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Chennai, India"
     },
     "theintercept.com": {
       "name": "The Intercept",
       "tier": "specialist",
       "region": "Northern America",
       "lang": "en",
-      "why": "US investigative news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "US investigative news outlet"
     },
     "themoscowtimes.com": {
       "name": "The Moscow Times",
@@ -1289,35 +1322,35 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in London; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in London"
     },
     "thetimes.com": {
       "name": "The Times",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in London; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in London"
     },
     "thewire.in": {
       "name": "The Wire",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Indian digital news outlet; Wikipedia Perennial Sources: generally reliable"
+      "why": "Indian digital news outlet"
     },
     "time.com": {
       "name": "Time",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news magazine; Wikipedia Perennial Sources: generally reliable"
+      "why": "US news magazine"
     },
     "timesofisrael.com": {
       "name": "The Times of Israel",
       "tier": "newspaper",
       "region": "Middle East",
       "lang": "en",
-      "why": "Israeli online newspaper; Wikipedia Perennial Sources: generally reliable"
+      "why": "Israeli online newspaper"
     },
     "tolonews.com": {
       "name": "TOLOnews",
@@ -1387,21 +1420,21 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US national daily newspaper; Wikipedia Perennial Sources: generally reliable"
+      "why": "US national daily newspaper"
     },
     "voanews.com": {
       "name": "Voice of America",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "International broadcaster funded by the US government; Wikipedia Perennial Sources: generally reliable"
+      "why": "International broadcaster funded by the US government"
     },
     "washingtonpost.com": {
       "name": "The Washington Post",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Washington, DC; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Washington, DC"
     },
     "wfp.org": {
       "name": "WFP",
@@ -1415,14 +1448,14 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in New York; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in New York"
     },
     "wyborcza.pl": {
       "name": "Gazeta Wyborcza",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "pl",
-      "why": "Daily newspaper in Poland; Wikipedia Perennial Sources: generally reliable"
+      "why": "Daily newspaper in Poland"
     }
   },
   "block": {

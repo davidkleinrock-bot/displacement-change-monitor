@@ -253,6 +253,8 @@ select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .news a:hover { text-decoration: underline; }
 .news .meta { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
 .news .desc { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.news .tr { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.news .tr-label { font-size: 12px; color: var(--muted); }
 .news .tag { display: inline-block; margin-right: 6px; padding: 0 5px; border: 1px solid var(--line-strong); border-radius: 3px; font-size: 11.5px; line-height: 1.5; color: var(--ink-2); }
 .news-group + .news-group { margin-top: 12px; }
 .news-country { display: inline-block; margin-bottom: 6px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
@@ -532,19 +534,18 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>News headlines and which outlets count</h3>
-      <p>Headlines come from three free sources: GDELT, which tracks news coverage worldwide and translates articles from other languages; 75 RSS feeds from about 60 hand-picked outlets, chosen to cover Latin America, French-speaking Africa and the Pacific, which GDELT covers thinly; and, when switched on, ReliefWeb (listed separately, below the news). Articles in English, Spanish, French and Portuguese are kept, with their original headline and a language label. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 16 November 2026, that is 16 September to 16 November). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
+      <p>Headlines come from three free sources: GDELT, which tracks news coverage worldwide and translates articles from other languages; 75 RSS feeds from about 60 hand-picked outlets, chosen to cover Latin America, French-speaking Africa and the Pacific, which GDELT covers thinly; and, when switched on, ReliefWeb (listed separately, below the news). Articles in English, Spanish, French and Portuguese are kept, with their original headline and a language label. Spanish, French and Portuguese headlines and summaries also get an English machine translation, made with the free <a href="https://github.com/Helsinki-NLP/Opus-MT" target="_blank" rel="noopener">OPUS-MT</a> model from the University of Helsinki. Machine translation can get names wrong ("Cabo Delgado" can come out as "Corporal Delgado"), so the original is always shown first. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 16 November 2026, that is 16 September to 16 November). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
       <p>Each article's date is its publication date as stated on the publisher's page. Where the page doesn't state one, the date the article was first seen is shown and labeled "first seen". Articles published before the window, with a future date, or whose link is dead or leads to a different story are left out. The short description under a headline is the publisher's own summary; when a publisher provides none, none is shown. An article is kept only if all of these hold:</p>
       <ul>
         <li><b>It is about forced displacement.</b> The headline mentions refugees, asylum, internally displaced people, statelessness or returnees (or the Spanish, French or Portuguese terms). Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "thousands"). Spanish, French and Portuguese words that also mean "travelled" or "deployed" ("desplazados", "déplacés") count only in phrases such as "miles de desplazados" or "déplacés internes". Bomb-threat and drill evacuations, house fires, medical evacuations, job "displacement" and old-age homes ("asilo de ancianos") are left out. For articles found through GDELT, GDELT's own topic tags, which it assigns from the full text, must also mark the article as about refugees or displacement.</li>
         <li><b>It is about that country's displacement.</b> The headline ties the country to displaced people ("Sudanese refugees", "fled Sudan", "refugiados venezolanos en Colombia"). A passing mention, the publisher's location or GDELT's location tags are not enough. Names inside other names ("Sudan" in "South Sudan", "Guinea" in "Papua New Guinea", "Georgia" next to "Atlanta", "Niger" in a Nigerian paper) don't count. When a headline ties displaced people to more than three countries, it is listed only under the country they fled.</li>
         <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person (including individual asylum cases), opinion pieces, podcasts and live blogs are left out.</li>
-        <li><b>The outlet counts.</b> It is one of:
+        <li><b>The outlet is on the project's list.</b> Only two kinds of outlet count:
           <ul>
-            <li>about 200 outlets on the project's <b>hand-picked list</b>: news agencies, public and international broadcasters, newspapers of record, humanitarian and migration specialists (such as The New Humanitarian, UN News and Refugees International), and regional outlets in Latin America, Africa, Asia and the Pacific, each with a one-line reason;</li>
-            <li>outlets <a href="https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources/Perennial_sources" target="_blank" rel="noopener">Wikipedia's Perennial Sources list</a> rates generally reliable;</li>
+            <li>about 200 outlets the team picked by hand, each with a one-line reason: news agencies, broadcasters, newspapers of record, humanitarian and migration specialists (such as The New Humanitarian, UN News and Refugees International), specialist newsrooms, and regional outlets in Latin America, Africa, Asia and the Pacific (such as Radio Okapi in DR Congo and Radio Tamazuj for Sudan and South Sudan);</li>
             <li>UN and intergovernmental bodies (<a href="https://www.iana.org/domains/int/policy" target="_blank" rel="noopener">.int domains</a>, un.org, UNHCR, WFP and others in the <a href="https://unsceb.org/directory" target="_blank" rel="noopener">UN system directory</a>).</li>
           </ul>
-          Aggregators that republish other outlets' stories (such as WN, AOL, MSN and Yahoo), press-release sites, tabloids and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.</li>
+          No outside rating list decides it. Aggregators that republish other outlets' stories (such as WN, AOL, MSN and Yahoo), press-release sites, tabloids and entertainment or finance trade press are blocked.</li>
       </ul>
       <p>When several outlets report the same event, it is listed once, from the best-documented copy. At most three articles per outlet and eight per country are shown. Hover over an outlet's name to see which rule it meets. Articles are matched automatically and are not read by a person. "No relevant news found in the selected period" means the search ran and found nothing that meets these rules; it is not an error. News gives context and does not explain why a figure changed. The outlet list, with the reason each qualifies, is in <code>data/outlets.json</code> in the repository, and the feeds read are in <code>data/feeds.json</code>.</p>
       <div id="about-reports" hidden>
@@ -564,6 +565,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <li><a href="https://www.internal-displacement.org/database/displacement-data/" target="_blank" rel="noopener">IDMC Global Internal Displacement Database</a>, published through the UNHCR API</li>
         <li><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener">GDELT 2.0 news files</a> (Global Knowledge Graph, English and translated)</li>
         <li>RSS feeds of the hand-picked outlets listed in <code>data/feeds.json</code></li>
+        <li>English machine translations: <a href="https://github.com/Helsinki-NLP/Opus-MT" target="_blank" rel="noopener">OPUS-MT</a> (University of Helsinki, CC BY 4.0), run with <a href="https://github.com/huggingface/transformers.js" target="_blank" rel="noopener">transformers.js</a></li>
         <li><a href="https://reliefweb.int" target="_blank" rel="noopener">ReliefWeb</a> (UN OCHA) API, for humanitarian reports once switched on</li>
         <li>Boundaries: Natural Earth via <a href="https://github.com/topojson/world-atlas" target="_blank" rel="noopener">world-atlas</a>. Boundaries and names do not imply endorsement by UNHCR or the project team.</li>
       </ul>
@@ -620,7 +622,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     view: { o: "origin", h: "host" },
     rank: { abs: "people", pct: "percent" },
   };
-  const BASIS = { curated: "On the project's hand-picked outlet list", wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", intergovernmental: "UN or intergovernmental body" };
+  const BASIS = { curated: "On the project's hand-picked outlet list", intergovernmental: "UN or intergovernmental body" };
   const TIER = { wire: "news agency", broadcaster: "broadcaster", newspaper: "newspaper of record or major outlet", humanitarian: "humanitarian or migration specialist", specialist: "specialist newsroom", regional: "regional outlet" };
   const LANG = { es: "Spanish", fr: "French", pt: "Portuguese" };
 
@@ -1176,9 +1178,13 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         const lang = LANG[a.lang];
         const when = a.date ? (a.dateKind === "published" ? fmtDate(a.date) : `first seen ${fmtDate(a.date)}`) : "";
         const link = a.link === "unverified" ? `<span class="na"> · link not checked (the site blocked or timed out our check)</span>` : "";
-        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.title)}</a>
+        // Other languages: the original headline, then an English machine translation when there is one.
+        const tr = lang && a.titleEn ? `<span class="tr" lang="en"><span class="tr-label">Machine translation from ${lang}:</span> ${esc(a.titleEn)}</span>` : "";
+        const desc = lang && a.descriptionEn ? `<span class="desc" lang="en">${esc(a.descriptionEn)}</span>`
+          : a.description ? `<span class="desc"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.description)}</span>` : "";
+        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.title)}</a>${tr}
           <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${lang ? `<span class="tag">In ${lang}</span>` : ""}${esc(a.publisher || a.domain)}${when ? " · " + when : ""}${link}</span>
-          ${a.description ? `<span class="desc"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.description)}</span>` : ""}</li>`;
+          ${desc}</li>`;
       })
       .join("")}</ul>`;
   }
