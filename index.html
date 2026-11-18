@@ -243,6 +243,10 @@ select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .context div { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 6px; }
 .context dt { color: var(--ink-2); }
 .context dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.context dd small { font-size: 13px; font-weight: 400; color: var(--muted); }
+.acled .context { margin-bottom: 4px; }
+.acled .context .glyph { font-size: 12px; }
+.acled-none { margin: 0; font-size: 14px; }
 .mini { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
 .mini th { text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); padding: 0 0 4px; border-bottom: 1px solid var(--line-strong); }
 .mini td { padding: 5px 0; border-bottom: 1px solid var(--line); }
@@ -251,6 +255,7 @@ select { height: 38px; padding: 0 8px; border: 1px solid var(--line-strong); bor
 .news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .news a { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-decoration: none; }
 .news a:hover { text-decoration: underline; }
+.news [dir="rtl"] { display: block; text-align: right; } /* Arabic headlines and summaries read right to left */
 .news .meta { display: block; margin-top: 2px; font-size: 12.5px; color: var(--muted); }
 .news .desc { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
 .news .tag { display: inline-block; margin-right: 6px; padding: 0 5px; border: 1px solid var(--line-strong); border-radius: 3px; font-size: 11.5px; line-height: 1.5; color: var(--ink-2); }
@@ -532,10 +537,10 @@ table.rank tbody tr.is-sel { background: var(--tint); }
     </section>
     <section>
       <h3>News headlines and which outlets count</h3>
-      <p>Headlines come from three free sources: GDELT, which tracks news coverage worldwide and translates articles from other languages; 75 RSS feeds from about 60 hand-picked outlets, chosen to cover Latin America, French-speaking Africa and the Pacific, which GDELT covers thinly; and, when switched on, ReliefWeb (listed separately, below the news). Articles in English, Spanish, French and Portuguese are kept, with their original headline and a language label. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 16 November 2026, that is 16 September to 16 November). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
+      <p>Headlines come from free sources: GDELT, which tracks news coverage worldwide and translates articles from other languages; 103 RSS feeds from about 80 hand-picked outlets, chosen to cover Latin America, French-speaking Africa, the Arab world, the former Soviet states and the Pacific, which GDELT covers thinly; and, when switched on, searches of the <a href="https://search.mediacloud.org" target="_blank" rel="noopener">Media Cloud</a> and <a href="https://newsdata.io" target="_blank" rel="noopener">NewsData.io</a> news indexes, whose articles must pass the same checks. ReliefWeb reports, when switched on, are listed separately below the news. Articles in English, Spanish, French, Portuguese, Arabic and Russian are kept, with their original headline and a language label. The panel shows articles published in the <b>previous two calendar months</b>: from the same date two months ago through today, both days included, in UTC (on 16 November 2026, that is 16 September to 16 November). If the earlier month is shorter, the start moves to its last day. This window is only for news; it does not change the period of the UNHCR or IDMC figures, which are year-end counts.</p>
       <p>Each article's date is its publication date as stated on the publisher's page. Where the page doesn't state one, the date the article was first seen is shown and labeled "first seen". Articles published before the window, with a future date, or whose link is dead or leads to a different story are left out. The short description under a headline is the publisher's own summary; when a publisher provides none, none is shown. An article is kept only if all of these hold:</p>
       <ul>
-        <li><b>It is about forced displacement.</b> The headline mentions refugees, asylum, internally displaced people, statelessness or returnees (or the Spanish, French or Portuguese terms). Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "thousands"). Spanish, French and Portuguese words that also mean "travelled" or "deployed" ("desplazados", "déplacés") count only in phrases such as "miles de desplazados" or "déplacés internes". Bomb-threat and drill evacuations, house fires, medical evacuations, job "displacement" and old-age homes ("asilo de ancianos") are left out. For articles found through GDELT, GDELT's own topic tags, which it assigns from the full text, must also mark the article as about refugees or displacement.</li>
+        <li><b>It is about forced displacement.</b> The headline mentions refugees, asylum, internally displaced people, statelessness or returnees (or the Spanish, French, Portuguese, Arabic or Russian terms). Words like "fled" or "evacuated" count only alongside conflict or scale ("fighting", "siege", "thousands"). Spanish, French and Portuguese words that also mean "travelled" or "deployed" ("desplazados", "déplacés") count only in phrases such as "miles de desplazados" or "déplacés internes". Bomb-threat and drill evacuations, house fires, medical evacuations, job "displacement", old-age homes ("asilo de ancianos"), bomb shelters (Russian "<bdi lang="ru">бомбоубежище</bdi>"), capital flight (Arabic "<bdi lang="ar">نزوح رؤوس الأموال</bdi>") and "resorting to" (Arabic "<bdi lang="ar">اللجوء إلى</bdi>") are left out. For articles found through GDELT, GDELT's own topic tags, which it assigns from the full text, must also mark the article as about refugees or displacement.</li>
         <li><b>It is about that country's displacement.</b> The headline ties the country to displaced people ("Sudanese refugees", "fled Sudan", "refugiados venezolanos en Colombia"). A passing mention, the publisher's location or GDELT's location tags are not enough. Names inside other names ("Sudan" in "South Sudan", "Guinea" in "Papua New Guinea", "Georgia" next to "Atlanta", "Niger" in a Nigerian paper) don't count. When a headline ties displaced people to more than three countries, it is listed only under the country they fled.</li>
         <li><b>It is reporting, not a profile or opinion.</b> Stories built around one person (including individual asylum cases), opinion pieces, podcasts and live blogs are left out.</li>
         <li><b>The outlet counts.</b> It is one of:
@@ -552,6 +557,12 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       <p>Below the news, a country's panel lists up to five recent reports from <a href="https://reliefweb.int" target="_blank" rel="noopener">ReliefWeb</a>, the humanitarian information service of the UN Office for the Coordination of Humanitarian Affairs (OCHA). These are situation reports, assessments and updates from UN agencies, NGOs and governments, which ReliefWeb's editors tag by country. Only reports whose title is about displacement, or whose author is a refugee, migration or displacement organization (such as UNHCR, IOM or the Norwegian Refugee Council), are listed, and only where the country is the report's main subject. They are read through ReliefWeb's API with every update.</p>
       </div>
     </section>
+    <section id="about-acled" hidden>
+      <h3>Conflict and protest events (ACLED)</h3>
+      <p>Near the news, a country's panel shows how many political violence and protest events <a href="https://acleddata.com" target="_blank" rel="noopener">ACLED</a> (Armed Conflict Location &amp; Event Data) recorded there in the two most recent complete calendar months available, compared with the two months before. ACLED codes each event from news, local partners and other reports into one of six types: battles; explosions and remote violence; violence against civilians; protests; riots; and strategic developments. Events are counted by the date they happened. Fatalities are the numbers ACLED records from those reports.</p>
+      <p>How the figures are made: once a day the project reads ACLED's event data through its API, adds up events and fatalities per country, event type and two-month period, and keeps only those totals. Individual events are not stored or shown. Kosovo, which ACLED records separately, is counted with Serbia, as UNHCR reports them together; places the dashboard has no row for are left out. ACLED gives some account types its event data with a delay of up to a year, so the months shown can be well behind the news; the panel names them. Counts reflect what was reported and recorded, so they depend on media access and ACLED's coverage. They are not a measure of displacement, and a change in them does not explain a change in the UNHCR or IDMC figures.</p>
+      <p>Source: Armed Conflict Location &amp; Event Data (ACLED), <a href="https://acleddata.com" target="_blank" rel="noopener">acleddata.com</a>, data read <span id="acled-read">—</span>. The totals by country, type and period are calculated by the Displacement Change Monitor, not by ACLED.</p>
+    </section>
     <section>
       <h3>Using figures in a brief</h3>
       <p>Open a country, or use the world view, and copy the summary from the "Summary for your brief" box. "Copy citation" gives the source line, with the dates the figures cover and when they were retrieved. "Copy link to this view" opens exactly what you see: the same measure, period and country. "Download map (PNG)" saves the map with its title, legend and source for slides.</p>
@@ -565,12 +576,13 @@ table.rank tbody tr.is-sel { background: var(--tint); }
         <li><a href="https://www.gdeltproject.org/data.html" target="_blank" rel="noopener">GDELT 2.0 news files</a> (Global Knowledge Graph, English and translated)</li>
         <li>RSS feeds of the hand-picked outlets listed in <code>data/feeds.json</code></li>
         <li><a href="https://reliefweb.int" target="_blank" rel="noopener">ReliefWeb</a> (UN OCHA) API, for humanitarian reports once switched on</li>
+        <li><a href="https://acleddata.com" target="_blank" rel="noopener">Armed Conflict Location &amp; Event Data (ACLED)</a> API, for counts of conflict and protest events once switched on (totals calculated by this project)</li>
         <li>Boundaries: Natural Earth via <a href="https://github.com/topojson/world-atlas" target="_blank" rel="noopener">world-atlas</a>. Boundaries and names do not imply endorsement by UNHCR or the project team.</li>
       </ul>
     </section>
     <section>
       <h3>Updates and accessibility</h3>
-      <p>An automatic job is scheduled every hour; GitHub, which runs it, has been starting it about 5 to 7 times a day. Each run reads all GDELT news files published since the previous run, the outlets' feeds and, when switched on, ReliefWeb's latest reports, and checks whether UNHCR or IDMC have published new or revised figures. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
+      <p>An automatic job is scheduled every hour; GitHub, which runs it, has been starting it about 5 to 7 times a day. Each run reads all GDELT news files published since the previous run, the outlets' feeds and, when switched on, Media Cloud and NewsData.io searches and ReliefWeb's latest reports, and checks whether UNHCR or IDMC have published new or revised figures. Once a day, when switched on, it also counts ACLED's conflict and protest events. Only when they have does it download everything again, rebuild and re-run the checks. If a check fails, the previous data stays up. An open page picks up new headlines every 30 minutes.</p>
       <p>The ranking table holds every figure shown on the map, so the dashboard can be used with a keyboard or screen reader. Report problems through the GitHub repository.</p>
     </section>
   </section>
@@ -582,6 +594,65 @@ table.rank tbody tr.is-sel { background: var(--tint); }
 <script src="data/world.js"></script>
 <script src="data/dashboard-data.js"></script>
 <script src="data/news.js"></script>
+<script src="data/acled.js"></script>
+<script>
+// ACLED view: the country panel's "Conflict and protest events (ACLED)" item, built from window.ACLED_DATA
+// (data/acled.js, written by scripts/fetch-acled.mjs). Self-contained, so tests/acled.test.mjs can run it in node.
+window.ACLED_VIEW = (() => {
+  "use strict";
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  const int = (v) => Math.round(Number(v) || 0).toLocaleString("en-US");
+  const sign = (v) => (v > 0 ? "+" : v < 0 ? "−" : "");
+  const dir = (v) => (v > 0 ? "up" : v < 0 ? "down" : "flat");
+  const glyph = (v) => `<span class="glyph ${dir(v)}" aria-hidden="true">${v > 0 ? "▲" : v < 0 ? "▼" : "●"}</span>`;
+  const pct = (p) => sign(Math.round(p * 10)) + (Math.abs(p) >= 100 ? Math.round(Math.abs(p)) : Math.abs(p).toFixed(1)) + "%";
+  const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "—");
+  const empty = { events: 0, fatalities: 0, types: {} };
+  const TYPES = ["Battles", "Explosions/Remote violence", "Violence against civilians", "Protests", "Riots", "Strategic developments"];
+
+  // Shown only once ACLED is switched on and a successful update has counts.
+  const on = (A) => !!(A && A.status === "ok" && A.periods && A.countries);
+
+  function top(types, n) {
+    return TYPES.map((t, i) => ({ t, v: Number(types?.[t]) || 0, i })).filter((x) => x.v > 0).sort((a, b) => b.v - a.v || a.i - b.i).slice(0, n);
+  }
+
+  // "" (hidden) when ACLED is off or has no record of the place; "No events recorded" when ACLED covers the
+  // place but counted none in the latest period.
+  function panelHtml(A, id) {
+    if (!on(A)) return "";
+    const e = A.countries[id];
+    if (!e && !(A.covered || []).includes(id)) return "";
+    const cur = e?.current || empty, prev = e?.previous || empty;
+    const P = A.periods;
+    let body;
+    if (!cur.events) {
+      body = `<p class="acled-none"><b>No events recorded</b> in ${esc(P.current.label)}.${prev.events ? ` ${esc(P.previous.label)}: ${int(prev.events)} event${prev.events === 1 ? "" : "s"}.` : ""}</p>`;
+    } else {
+      const d = cur.events - prev.events;
+      const changeText = prev.events
+        ? `${glyph(d)} ${d ? sign(d) + int(Math.abs(d)) : "No change"}${d ? ` <small>(${pct((d / prev.events) * 100)})</small>` : ""}`
+        : `<small>none recorded before</small>`;
+      const types = top(cur.types, 3).map((x) => `${esc(x.t)} ${int(x.v)}`).join(" · ");
+      body = `<dl class="context">
+          <div><dt>Events, ${esc(P.current.label)}</dt><dd>${int(cur.events)}</dd></div>
+          <div><dt>Change from ${esc(P.previous.label)} (${int(prev.events)} events)</dt><dd>${changeText}</dd></div>
+          <div><dt>Reported fatalities</dt><dd>${int(cur.fatalities)} <small>(${esc(P.previous.label)}: ${int(prev.fatalities)})</small></dd></div>
+        </dl>
+        ${types ? `<p class="note">Most common: ${types}</p>` : ""}`;
+    }
+    const notes = [];
+    if (e?.includes?.length) notes.push(`Includes events ACLED records under ${e.includes.map(esc).join(", ")}.`);
+    // Accounts at ACLED's Research level see events with a 12-month lag; say so when the months are old.
+    const lagDays = A.retrievedAt ? (new Date(A.retrievedAt) - new Date(P.current.to)) / 864e5 : 0;
+    if (lagDays > 62) notes.push("The latest months ACLED makes available to this project, so older than the news above.");
+    return `<section id="acled-section" class="acled"><h3>Conflict and protest events (ACLED)</h3>${body}
+      <p class="note">${notes.length ? notes.join(" ") + " " : ""}Events ACLED recorded from reports: a sign of violence and protest, not displacement; fatalities are estimates. Source: <a href="https://acleddata.com" target="_blank" rel="noopener">ACLED</a>, data read ${fmtDate(A.retrievedAt)}; totals by this project (<a href="#about-acled">how</a>).</p></section>`;
+  }
+
+  return { on, panelHtml, fmtDate };
+})();
+</script>
 <script>
 (() => {
   "use strict";
@@ -622,7 +693,13 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   };
   const BASIS = { curated: "On the project's hand-picked outlet list", wikipedia: "Rated generally reliable on Wikipedia's Perennial Sources list", intergovernmental: "UN or intergovernmental body" };
   const TIER = { wire: "news agency", broadcaster: "broadcaster", newspaper: "newspaper of record or major outlet", humanitarian: "humanitarian or migration specialist", specialist: "specialist newsroom", regional: "regional outlet" };
-  const LANG = { es: "Spanish", fr: "French", pt: "Portuguese" };
+  const LANG = { es: "Spanish", fr: "French", pt: "Portuguese", ar: "Arabic", ru: "Russian" };
+  const RTL = new Set(["ar"]); // languages written right to left
+  // "English, Spanish, French and Portuguese", from the languages the news file says its rules read.
+  const newsLanguages = () => {
+    const n = (NEWS?.languages?.length ? NEWS.languages : ["en", "es", "fr", "pt"]).map((l) => (l === "en" ? "English" : LANG[l] || l));
+    return n.length > 1 ? `${n.slice(0, -1).join(", ")} and ${n.at(-1)}` : n[0];
+  };
 
   const state = { ...DEFAULTS, sel: null, q: "", area: "", showAll: false, sort: { key: "rank", dir: 1 } };
 
@@ -1165,7 +1242,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   const newsPeriod = () => (NEWS?.window ? `${fmtDate(NEWS.window.from)} – ${fmtDate(NEWS.window.to)}` : "the last two months");
   function newsNote() {
     const failed = NEWS?.lastAttempt && NEWS.lastAttempt.ok === false;
-    return `<p class="note">Published ${esc(newsPeriod())}, from hand-picked or rated outlets, in English, Spanish, French and Portuguese (<a href="#about">how articles are chosen</a>). News gives context; it does not show why the figures changed.${failed ? ` The latest news update failed on ${fmtDate(NEWS.lastAttempt.at)}; these are from the last successful update on ${fmtDate(NEWS.retrievedAt)}.` : ""}</p>`;
+    return `<p class="note">Published ${esc(newsPeriod())}, from hand-picked or rated outlets, in ${esc(newsLanguages())} (<a href="#about">how articles are chosen</a>). News gives context; it does not show why the figures changed.${failed ? ` The latest news update failed on ${fmtDate(NEWS.lastAttempt.at)}; these are from the last successful update on ${fmtDate(NEWS.retrievedAt)}.` : ""}</p>`;
   }
 
   function newsList(items) {
@@ -1174,11 +1251,12 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       .map((a) => {
         const basis = [BASIS[a.basis], TIER[a.tier]].filter(Boolean).join(": ");
         const lang = LANG[a.lang];
+        const attrs = lang ? ` lang="${esc(a.lang)}"${RTL.has(a.lang) ? ' dir="rtl"' : ""}` : "";
         const when = a.date ? (a.dateKind === "published" ? fmtDate(a.date) : `first seen ${fmtDate(a.date)}`) : "";
         const link = a.link === "unverified" ? `<span class="na"> · link not checked (the site blocked or timed out our check)</span>` : "";
-        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.title)}</a>
-          <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${lang ? `<span class="tag">In ${lang}</span>` : ""}${esc(a.publisher || a.domain)}${when ? " · " + when : ""}${link}</span>
-          ${a.description ? `<span class="desc"${lang ? ` lang="${esc(a.lang)}"` : ""}>${esc(a.description)}</span>` : ""}</li>`;
+        return `<li><a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer"${attrs}>${esc(a.title)}</a>
+          <span class="meta" ${basis ? `title="${esc(basis)}"` : ""}>${lang ? `<span class="tag">In ${lang}</span>` : ""}<bdi>${esc(a.publisher || a.domain)}</bdi>${when ? " · " + when : ""}${link}</span>
+          ${a.description ? `<span class="desc"${attrs}>${esc(a.description)}</span>` : ""}</li>`;
       })
       .join("")}</ul>`;
   }
@@ -1258,6 +1336,7 @@ table.rank tbody tr.is-sel { background: var(--tint); }
       ${flowHtml}
       <section id="news-section"><h3>News from the last two months</h3><div id="news-box">${countryNewsHtml(i)}</div></section>
       ${countryReportsHtml(i)}
+      ${window.ACLED_VIEW ? window.ACLED_VIEW.panelHtml(window.ACLED_DATA, c.id) : ""}
       <section><h3>Check the source</h3>${sourceLinks(c)}
         <p class="note">Figures are counts on 31 December of each year. UNHCR data retrieved ${fmtDate(D.meta.retrievedAt)}.</p></section>`;
     drawPanelSpark(arr, row);
@@ -1609,6 +1688,10 @@ table.rank tbody tr.is-sel { background: var(--tint); }
   const showReportsAbout = () => { document.getElementById("about-reports").hidden = !NEWS?.reports?.enabled; };
   showReportsAbout();
   const v = D.meta.verification;
+  if (window.ACLED_VIEW?.on(window.ACLED_DATA)) {
+    document.getElementById("about-acled").hidden = false;
+    document.getElementById("acled-read").textContent = window.ACLED_VIEW.fmtDate(window.ACLED_DATA.retrievedAt);
+  }
   document.getElementById("verify-text").textContent =
     `Each origin-to-host figure for ${FY0}–${FYN} was added up and compared with UNHCR's own published totals: ${fmtInt(v.byOrigin.compared)} origin checks and ${fmtInt(v.byHost.compared)} host checks, with ${v.byOrigin.mismatched + v.byHost.mismatched} differences.`;
   document.getElementById("foot").textContent = `Figures: UNHCR Refugee Population Statistics and IDMC, retrieved ${fmtDate(D.meta.retrievedAt)}. Data built ${fmtDate(D.meta.builtAt)}.`;

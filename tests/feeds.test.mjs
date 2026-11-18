@@ -151,3 +151,23 @@ test("feeds in ISO-8859-1 are decoded by their declared charset", async () => {
   const utf8 = new TextEncoder().encode(`<rss><channel><item><title>Réfugiés</title><link>https://n.example/b</link></item></channel></rss>`);
   assert.equal(parseFeed(decodeFeed(utf8.buffer, "application/rss+xml; charset=utf-8"))[0].title, "Réfugiés");
 });
+
+// Encodes text in a legacy single-byte charset by inverting TextDecoder (Node has no legacy encoder).
+const legacyBytes = (text, charset) => {
+  const dec = new TextDecoder(charset);
+  const map = new Map([...Array(256).keys()].map((b) => [dec.decode(new Uint8Array([b])), b]));
+  return new Uint8Array([...text].map((ch) => map.get(ch) ?? 0x3f));
+};
+
+test("Arabic and Russian feeds in windows-1256, windows-1251 and KOI8-R are decoded", async () => {
+  const ar = "نزوح آلاف السودانيين إلى تشاد";
+  const ru = "Тысячи беженцев из Судана прибыли в Чад";
+  const item = (title, decl) => `<?xml version="1.0" encoding="${decl}"?><rss version="2.0"><channel><item><title>${title}</title><link>https://n.example/a</link></item></channel></rss>`;
+  assert.equal(parseFeed(decodeFeed(legacyBytes(item(ar, "windows-1256"), "windows-1256").buffer, "text/xml"))[0].title, ar);
+  assert.equal(parseFeed(decodeFeed(legacyBytes(item(ru, "windows-1251"), "windows-1251").buffer, "application/rss+xml"))[0].title, ru);
+  assert.equal(parseFeed(decodeFeed(legacyBytes(item(ru, "x-unknown"), "koi8-r").buffer, "text/xml; charset=KOI8-R"))[0].title, ru); // the HTTP header wins
+  const bytes = legacyBytes(item(ru, "windows-1251"), "windows-1251");
+  const viaFetch = await fetchFeed("u", { fetchImpl: fakeFetch(() => ({ status: 200, ok: true, headers: { get: () => "text/xml" }, arrayBuffer: async () => bytes.buffer })) });
+  assert.equal(viaFetch.items[0].title, ru);
+  assert.equal(parseFeed(decodeFeed(new TextEncoder().encode(item(ar, "utf-8")).buffer, ""))[0].title, ar); // UTF-8 stays UTF-8
+});

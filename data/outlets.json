@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-16",
-  "definition": "An outlet counts if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, specialist humanitarian and migration outlets, UN agencies and NGOs, and respected regional outlets that fill gaps in Latin America, Africa and the Pacific), or if Wikipedia's Perennial Sources list rates it generally reliable. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
+  "updated": "2026-11-18",
+  "definition": "An outlet counts if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, specialist humanitarian and migration outlets, UN agencies and NGOs, and respected regional outlets that fill gaps in Latin America, Africa, the Pacific, the Arab world, the Caucasus and Central Asia), or if Wikipedia's Perennial Sources list rates it generally reliable. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked. Outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
   "tiers": {
     "wire": "News agency",
     "broadcaster": "Broadcaster (public, international or national network)",
@@ -10,6 +10,13 @@
     "regional": "Regional or national outlet covering a region with few international reporters"
   },
   "allow": {
+    "24.kg": {
+      "name": "24.kg",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "News agency in Bishkek, Kyrgyzstan"
+    },
     "abc.net.au": {
       "name": "ABC News (Australia)",
       "tier": "broadcaster",
@@ -108,6 +115,13 @@
       "lang": "es",
       "why": "Mexican digital news outlet"
     },
+    "annahar.com": {
+      "name": "Annahar",
+      "tier": "newspaper",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Daily newspaper of record in Beirut, Lebanon"
+    },
     "ansa.it": {
       "name": "ANSA",
       "tier": "wire",
@@ -136,6 +150,20 @@
       "lang": "en",
       "why": "English-language edition of the Japanese business daily Nikkei"
     },
+    "asiaplus.news": {
+      "name": "Asia-Plus",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Independent news agency in Dushanbe, Tajikistan"
+    },
+    "asiaplus.tj": {
+      "name": "Asia-Plus",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Independent news agency in Dushanbe, Tajikistan (former domain of asiaplus.news)"
+    },
     "axios.com": {
       "name": "Axios",
       "tier": "newspaper",
@@ -149,6 +177,27 @@
       "region": "Latin America and the Caribbean",
       "lang": "fr",
       "why": "Haitian digital news outlet"
+    },
+    "azattyk.org": {
+      "name": "Azattyk (RFE/RL)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "ky",
+      "why": "Kyrgyz service of Radio Free Europe/Radio Liberty; its Russian pages (rus.azattyk.org) now lead to azattyqasia.org; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
+    },
+    "azattyq.org": {
+      "name": "Azattyq (RFE/RL)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "kk",
+      "why": "Kazakh service of Radio Free Europe/Radio Liberty; its Russian pages (rus.azattyq.org) now lead to azattyqasia.org; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
+    },
+    "azattyqasia.org": {
+      "name": "Azattyq Asia (RFE/RL)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Russian-language Central Asia service of Radio Free Europe/Radio Liberty; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
     },
     "bbc.co.uk": {
       "name": "BBC",
@@ -247,6 +296,20 @@
       "region": "Northern America",
       "lang": "en",
       "why": "US news organization published in Boston; Wikipedia Perennial Sources: generally reliable"
+    },
+    "currenttime.tv": {
+      "name": "Current Time",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Russian-language TV and online network of Radio Free Europe/Radio Liberty; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
+    },
+    "dabangasudan.org": {
+      "name": "Radio Dabanga",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "ar",
+      "why": "Independent Sudanese radio and news site in Arabic and English, based in Amsterdam, focused on Darfur and displacement across Sudan"
     },
     "dailymaverick.co.za": {
       "name": "Daily Maverick",
@@ -612,6 +675,13 @@
       "lang": "en",
       "why": "Pacific regional magazine published in Suva, Fiji"
     },
+    "jam-news.net": {
+      "name": "JAMnews",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Independent news outlet on the South Caucasus with reporters in Armenia, Azerbaijan and Georgia; Russian, English and local-language editions"
+    },
     "jamaica-gleaner.com": {
       "name": "The Gleaner",
       "tier": "regional",
@@ -646,6 +716,13 @@
       "region": "Asia",
       "lang": "en",
       "why": "Afghan independent news outlet"
+    },
+    "kavkaz-uzel.eu": {
+      "name": "Caucasian Knot",
+      "tier": "regional",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "News site on the North and South Caucasus founded by the human rights group Memorial; covers conflict, displacement and rights"
     },
     "kyivindependent.com": {
       "name": "The Kyiv Independent",
@@ -730,6 +807,20 @@
       "region": "Europe",
       "lang": "pt",
       "why": "Portuguese news agency"
+    },
+    "madamasr.com": {
+      "name": "Mada Masr",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Independent Egyptian news site in Arabic and English"
+    },
+    "mc-doualiya.com": {
+      "name": "Monte Carlo Doualiya",
+      "tier": "broadcaster",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Arabic-language public radio of France Médias Monde, sister station of RFI and France 24"
     },
     "meduza.io": {
       "name": "Meduza",
@@ -871,6 +962,13 @@
       "lang": "ja",
       "why": "Daily newspaper in Tokyo, Japan"
     },
+    "novayagazeta.eu": {
+      "name": "Novaya Gazeta Europe",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Independent Russian newspaper published in exile from Riga by former Novaya Gazeta staff"
+    },
     "npr.org": {
       "name": "NPR",
       "tier": "broadcaster",
@@ -906,6 +1004,13 @@
       "lang": "en",
       "why": "UN Office of the High Commissioner for Human Rights; part of the UN system"
     },
+    "ozodi.org": {
+      "name": "Ozodi (RFE/RL)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "tg",
+      "why": "Tajik service of Radio Free Europe/Radio Liberty; its Russian pages (rus.ozodi.org) now lead to azattyqasia.org; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
+    },
     "pbs.org": {
       "name": "PBS",
       "tier": "broadcaster",
@@ -940,6 +1045,13 @@
       "region": "Oceania",
       "lang": "en",
       "why": "Daily newspaper in Port Moresby, Papua New Guinea"
+    },
+    "pravda.com.ua": {
+      "name": "Ukrainska Pravda",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "uk",
+      "why": "Ukrainian online newspaper founded in 2000, with Ukrainian, Russian and English editions"
     },
     "premiumtimesng.com": {
       "name": "Premium Times",
@@ -1143,6 +1255,20 @@
       "region": "Africa",
       "lang": "en",
       "why": "News site on Sudan and South Sudan, published from Paris"
+    },
+    "sudantribune.net": {
+      "name": "Sudan Tribune",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "ar",
+      "why": "Arabic edition of the Sudan Tribune, published from Paris (the English edition, sudantribune.com, is listed)"
+    },
+    "svoboda.org": {
+      "name": "Radio Svoboda",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Russian service of Radio Free Europe/Radio Liberty, an international broadcaster funded by the US Congress; Wikipedia Perennial Sources: no consensus (rferl.org); hand-picked like Voice of America, which Wikipedia rates generally reliable"
     },
     "swissinfo.ch": {
       "name": "Swissinfo",

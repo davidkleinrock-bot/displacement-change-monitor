@@ -7,18 +7,34 @@
 //        NEWS_TRANSLINGUAL=0  skip GDELT's translated (non-English) files
 //        NEWS_BUDGET_MIN=120  stop reading GDELT files after 120 minutes (long backfills), keeping what was read
 //        RELIEFWEB_APPNAME=…  ReliefWeb API appname (approved by ReliefWeb); without it, reports are skipped
+//        MEDIACLOUD_API_KEY=…  Media Cloud API key (secret); without it, Media Cloud is skipped
+//          MEDIACLOUD_MAX_CALLS=30 search calls per run; MEDIACLOUD_LOOKUPS=60 outlet lookups per run;
+//          MEDIACLOUD_DAILY_CAP=430 and MEDIACLOUD_WEEKLY_CAP=3000 quota units per UTC day / 7 days;
+//          MEDIACLOUD_MAX_PAGES=2 pages of 1,000 stories per place; MEDIACLOUD_COLLECTIONS=id,id (optional)
+//        NEWSDATA_API_KEY=…  NewsData.io API key (secret); without it, NewsData is skipped
+//          NEWSDATA_MAX_CREDITS=24 credits per run (never over 30); NEWSDATA_DAILY_CAP=180 credits per 24 hours
+//          (never over 199); NEWSDATA_MAX_PAGES=3 pages of 10 articles per query
 // Writes data/news.js → window.DISPLACEMENT_NEWS
 //
-// Three kinds of source, all free:
+// Three kinds of source, all free, plus two news APIs when their keys are set:
 //   1. GDELT's raw 15-minute "Global Knowledge Graph" files (http://data.gdeltproject.org/gdeltv2/): the
-//      English file, and the translated file for articles GDELT finds in other languages. Spanish, French
-//      and Portuguese articles are kept, with their original headline. Downloading these files is how
+//      English file, and the translated file for articles GDELT finds in other languages. Articles in the
+//      other languages the rules read (READ_LANGS in news-lib.mjs: Spanish, French, Portuguese, Arabic and
+//      Russian) are kept, with their original headline. Downloading these files is how
 //      GDELT expects bulk users to work, so this never touches its rate-limited search API.
 //   2. RSS feeds of hand-picked outlets (data/feeds.json), for regions GDELT covers thinly.
 //   3. ReliefWeb (UN OCHA): recent displacement reports by UN agencies, NGOs and governments, tagged by
 //      country by ReliefWeb's editors, through ReliefWeb's official API. The API needs an appname that
 //      ReliefWeb approves; until the repository has one, this step is skipped. Reports are kept apart from
 //      the news, as "humanitarian reports".
+//   4. Media Cloud (search.mediacloud.org, free with an API key): searches by place for displacement
+//      headlines in the outlets the outlet rule accepts, places with the fewest articles first, each place
+//      at most once a UTC day, within a per-run budget and under the weekly quota (see news-apis-lib.mjs).
+//   5. NewsData.io (free plan, API key): displacement keyword searches in each language the rules read,
+//      within a per-run budget and the free plan's daily and 15-minute limits. It returns only articles
+//      from the last two days, so its history builds up run by run.
+//   The quota ledgers and per-place search times are kept in data/news.js (newsApis). Articles from both
+//   APIs follow the feed rules below; an API that fails is counted and the run carries on.
 // A news article is kept only if:
 //   - its outlet counts (data/outlets.json, Wikipedia's Perennial Sources list, or UN/intergovernmental;
 //     see makeOutletChecker in news-lib.mjs);
@@ -35,9 +51,10 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DEFAULT_MONTHS, newsWindow, checkDate, isDisplacement, isCoreDisplacement, isPersonalOrOpinion, buildMatchers, attributeCountries,
-  displacementThemes, sourceLanguage, makeOutletChecker, cleanTitle, dedupe, pickForCountry, fetchArticleMeta, summarize, downloadFile,
+  displacementThemes, sourceLanguage, READ_LANGS, makeOutletChecker, cleanTitle, dedupe, pickForCountry, fetchArticleMeta, summarize, downloadFile,
 } from "./news-lib.mjs";
 import { fetchFeed, reliefWebPage, RELIEFWEB_FIELDS } from "./feeds-lib.mjs";
+import { readMediaCloud, readNewsData, fileApiItems, acceptedDomains, MEDIACLOUD_DEFAULTS, NEWSDATA_DEFAULTS } from "./news-apis-lib.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const FEED = "https://data.gdeltproject.org/gdeltv2";
@@ -45,7 +62,7 @@ const MONTHS = Number(process.env.NEWS_MONTHS || DEFAULT_MONTHS);
 const STEP = Math.max(1, Number(process.env.NEWS_STEP || 1));
 const TR_STEP = Math.max(1, Number(process.env.NEWS_TR_STEP || STEP));
 const TRANSLINGUAL = process.env.NEWS_TRANSLINGUAL !== "0";
-const TR_LANGS = new Set(["es", "fr", "pt"]); // languages whose headlines the rules can read
+const TR_LANGS = new Set(READ_LANGS.filter((l) => l !== "en")); // translated languages the rules can read (news-lib.mjs)
 const BUDGET_MIN = Number(process.env.NEWS_BUDGET_MIN || 0); // stop reading GDELT files after this many minutes (0 = no limit)
 const DEADLINE = BUDGET_MIN ? Date.now() + BUDGET_MIN * 60000 : Infinity;
 const MAX_PENDING = 6000; // articles waiting for their page to be checked, carried to the next run
@@ -60,6 +77,26 @@ const RELIEFWEB_APPNAME = process.env.RELIEFWEB_APPNAME || "";
 const REPORTS_PER_COUNTRY = 5;
 const REPORTS_MAX_PAGES = 5; // per search; 1,000 reports a page
 const REPORTS_PAUSE_MS = 1000;
+const envNum = (name, def) => { const v = Number(process.env[name]); return process.env[name] && Number.isFinite(v) && v >= 0 ? v : def; };
+const MEDIACLOUD_API_KEY = process.env.MEDIACLOUD_API_KEY || "";
+const MEDIACLOUD_CONFIG = {
+  maxCalls: envNum("MEDIACLOUD_MAX_CALLS", MEDIACLOUD_DEFAULTS.maxCalls),
+  lookups: envNum("MEDIACLOUD_LOOKUPS", MEDIACLOUD_DEFAULTS.lookups),
+  dailyCap: envNum("MEDIACLOUD_DAILY_CAP", MEDIACLOUD_DEFAULTS.dailyCap),
+  weeklyCap: Math.min(3500, envNum("MEDIACLOUD_WEEKLY_CAP", MEDIACLOUD_DEFAULTS.weeklyCap)), // Media Cloud allows 4,000 a week
+  maxPages: Math.max(1, envNum("MEDIACLOUD_MAX_PAGES", MEDIACLOUD_DEFAULTS.maxPages)),
+  collections: (process.env.MEDIACLOUD_COLLECTIONS || "").split(",").map((s) => s.trim()).filter((s) => /^\d+$/.test(s)),
+};
+const NEWSDATA_API_KEY = process.env.NEWSDATA_API_KEY || "";
+const NEWSDATA_CONFIG = {
+  maxCredits: envNum("NEWSDATA_MAX_CREDITS", NEWSDATA_DEFAULTS.maxCredits), // capped at 30 in news-apis-lib.mjs
+  dailyCap: envNum("NEWSDATA_DAILY_CAP", NEWSDATA_DEFAULTS.dailyCap), // capped at 199
+  maxPages: Math.max(1, envNum("NEWSDATA_MAX_PAGES", NEWSDATA_DEFAULTS.maxPages)),
+};
+const API_SOURCES = new Set(["mediacloud", "newsdata"]);
+const LANG_NAMES = { en: "English", es: "Spanish", fr: "French", pt: "Portuguese", ar: "Arabic", ru: "Russian" };
+const orList = (codes) => { const n = codes.map((l) => LANG_NAMES[l] || l); return n.length > 1 ? `${n.slice(0, -1).join(", ")} or ${n.at(-1)}` : n[0]; };
+let apiState = null; // the APIs' quota ledgers, saved even if the run fails after calling them
 const COL = { date: 1, source: 3, url: 4, themes: 7, translation: 25, extras: 26 }; // GKG 2.1 columns (tab-separated)
 // ReliefWeb searches: reports whose title is about displacement (English, Spanish, French, Portuguese), and
 // reports by refugee, migration and displacement organizations (ReliefWeb short names).
@@ -220,11 +257,28 @@ async function main(previous) {
   const data = await readJS("data/dashboard-data.js");
   const wc = await readJSON("data", "raw", "geo", "world-countries.json");
   const matchers = buildMatchers(data.countries, wc);
-  const outlet = makeOutletChecker(await readJSON("data", "processed", "news-sources.json"), await readJSON("data", "outlets.json"));
+  const ratedSources = await readJSON("data", "processed", "news-sources.json"), curated = await readJSON("data", "outlets.json");
+  const outlet = makeOutletChecker(ratedSources, curated);
   const feeds = (await readJSON("data", "feeds.json")).feeds;
   const t0 = Date.now();
   const took = () => `${Math.round((Date.now() - t0) / 1000)} s`;
   console.log(`Window ${window.from} to ${window.to} (${MONTHS} months).`);
+
+  // The news APIs wait between calls (Media Cloud allows two searches a minute), so they run while the
+  // GDELT files are read. Their articles are filed after the feeds. They never throw.
+  const savedCounts = Object.fromEntries(Object.entries(previous?.byCountry || {}).map(([iso, l]) => [iso, l.length]));
+  const apiRun = Promise.all([
+    readMediaCloud({
+      key: MEDIACLOUD_API_KEY, state: previous?.newsApis?.mediacloud || null, window, now, config: MEDIACLOUD_CONFIG, log: console.log,
+      places: [...matchers.values()].map((m) => ({ iso: m.iso, terms: m.terms })), counts: savedCounts, domains: acceptedDomains(curated, ratedSources, outlet),
+    }),
+    readNewsData({ key: NEWSDATA_API_KEY, state: previous?.newsApis?.newsdata || null, langs: READ_LANGS, now, config: NEWSDATA_CONFIG, log: console.log }),
+  ]).then(([mediacloud, newsdata]) => {
+    apiState = { mediacloud: mediacloud.state, newsdata: newsdata.state };
+    return { mediacloud, newsdata };
+  });
+  if (!MEDIACLOUD_API_KEY) console.log("Media Cloud: skipped (no MEDIACLOUD_API_KEY).");
+  if (!NEWSDATA_API_KEY) console.log("NewsData: skipped (no NEWSDATA_API_KEY).");
 
   const found = new Map(); // iso → candidate items
   const counts = { articles: 0, otherLanguage: 0, topical: 0, untagged: 0, personal: 0, outlet: 0, unattributed: 0, kept: 0 };
@@ -297,10 +351,21 @@ async function main(previous) {
   });
   console.log(`Feeds (${took()}): ${feedCounts.read} of ${feedCounts.feeds} read (${feedCounts.failed} failed), ${feedCounts.items} items, ${feedCounts.inWindow} in the window, ${feedCounts.kept} kept.`);
 
+  // News APIs: the feed rules, plus a language the rules read (news-apis-lib.mjs, fileApiItems).
+  const apis = await apiRun;
+  const apiCounts = {};
+  for (const [source, r] of Object.entries(apis)) {
+    const filed = fileApiItems(r.items, { window, outlet, matchers, langs: READ_LANGS });
+    for (const { item, date, isos } of filed.kept) file({ title: cleanTitle(item.title), url: item.url, domain: item.domain, seen: date, source, lang: item.lang }, isos);
+    apiCounts[source] = r.counts.enabled ? { ...r.counts, ...filed.counts } : r.counts;
+    if (r.counts.enabled) console.log(`${source} (${took()}): ${r.items.length} articles, ${filed.counts.inWindow} in the window, ${filed.counts.kept} kept (left out: ${filed.counts.otherLanguage} other languages, ${filed.counts.offTopic} off topic or opinion, ${filed.counts.outlet} outlets that don't count, ${filed.counts.unattributed} not tied to a place).`);
+  }
+
   // Combine with earlier headlines, re-checking each one against today's rules and outlet list.
   // Headlines saved before November 2026 carry no source or GDELT tags; a full read finds them again.
   const stillValid = (a, iso) =>
-    (a.source === "gdelt" ? isDisplacement(a.title) && a.themes?.length > 0 : a.source === "feed" ? isCoreDisplacement(a.title) : false) &&
+    (a.source === "gdelt" ? isDisplacement(a.title) && a.themes?.length > 0 : a.source === "feed" ? isCoreDisplacement(a.title)
+      : API_SOURCES.has(a.source) ? isCoreDisplacement(a.title) && READ_LANGS.includes(a.lang) : false) &&
     !isPersonalOrOpinion(a.title, a.url) && outlet(a.domain) && attributeCountries(a.title, matchers, { domain: a.domain }).includes(iso);
   const candidates = new Map();
   for (const iso of matchers.keys()) {
@@ -320,7 +385,7 @@ async function main(previous) {
     const r = await fetchArticleMeta(url, a.title);
     const o = outlet(a.domain);
     if (r.link === "broken" || r.link === "mismatched") { linkCounts[r.link]++; checked.set(url, { drop: r.link }); return; }
-    let date = a.seen, dateKind = a.source === "feed" ? "published" : "seen"; // a feed's date is the publisher's
+    let date = a.seen, dateKind = a.source === "feed" || API_SOURCES.has(a.source) ? "published" : "seen"; // a feed's or API's date is the publisher's
     let description = null, publisher = o?.name || a.domain;
     if (r.link === "verified") {
       const pub = checkDate(r.meta.published, window);
@@ -371,27 +436,30 @@ async function main(previous) {
     checkedThrough: english.readThrough || previous?.checkedThrough || null,
     checkedThroughTranslated: translated?.readThrough || previous?.checkedThroughTranslated || null,
     window,
-    source: "GDELT 2.0 Global Knowledge Graph (English and translated 15-minute files) and RSS feeds of hand-picked outlets",
+    source: ["GDELT 2.0 Global Knowledge Graph (English and translated 15-minute files)", "RSS feeds of hand-picked outlets",
+      ...(MEDIACLOUD_API_KEY ? ["Media Cloud's online news search (search.mediacloud.org)"] : []), ...(NEWSDATA_API_KEY ? ["NewsData.io's latest-news API"] : [])]
+      .join(", ").replace(/, ([^,]*)$/, " and $1"),
     sourceUrl: "https://www.gdeltproject.org/data.html",
     languages: ["en", ...TR_LANGS],
     reputable: "Outlets on the project's hand-picked list (data/outlets.json: news agencies, public broadcasters, newspapers of record, humanitarian and migration specialists, and regional outlets), outlets Wikipedia's Perennial Sources list rates generally reliable, and UN or intergovernmental bodies. Aggregators, press-release sites, tabloids and trade press are blocked; outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
-    rules: "Headline must be about forced displacement (in English, Spanish, French or Portuguese), with GDELT's own refugee or displacement tags agreeing for GDELT articles; tie it to the country it is listed under; and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window. One copy per story; at most three per outlet and eight per country.",
+    rules: `Headline must be about forced displacement (in ${orList(READ_LANGS)}), with GDELT's own refugee or displacement tags agreeing for GDELT articles; tie it to the country it is listed under; and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window. One copy per story; at most three per outlet and eight per country.`,
     searched: places,
     lastRun: {
       at: now.toISOString(), hoursRead: +english.hours.toFixed(2), step: STEP, filesRead: english.files, filesMissing: english.missing, filesOutOfTime: english.outOfTime,
       ...(gdeltError ? { gdeltError } : {}),
       translated: translated ? { hoursRead: +translated.hours.toFixed(2), step: translated.step, filesRead: translated.files, filesMissing: translated.missing, filesOutOfTime: translated.outOfTime } : null,
-      ...counts, feeds: feedCounts, links: linkCounts, pendingChecks: pendingCount, byLanguage,
+      ...counts, feeds: feedCounts, mediacloud: apiCounts.mediacloud, newsdata: apiCounts.newsdata, links: linkCounts, pendingChecks: pendingCount, byLanguage,
     },
     byCountry,
     pending,
     reports,
+    newsApis: apiState, // quota ledgers and per-place search times, read back by the next run
   };
   // Keep the record of the last run that read a whole window, since normal runs only add recent hours.
   payload.lastBackfill = english.hours >= 24 * 28 ? { ...payload.lastRun, checkedThrough: english.readThrough } : previous?.lastBackfill?.feeds ? previous.lastBackfill : null;
   await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(payload)};\n`);
   console.log(`Read ${english.files} English and ${translated?.files ?? 0} translated files, ${counts.articles.toLocaleString()} articles (${counts.otherLanguage.toLocaleString()} in other languages skipped); peak memory ${Math.round(process.memoryUsage().rss / 1e6)} MB.`);
-  console.log(`Displacement headlines ${counts.topical}: left out ${counts.untagged} without GDELT's displacement tags, ${counts.personal} profiles/opinion, ${counts.outlet} from outlets that don't count, ${counts.unattributed} not tied to a country; kept ${counts.kept} (plus ${feedCounts.kept} from feeds).`);
+  console.log(`Displacement headlines ${counts.topical}: left out ${counts.untagged} without GDELT's displacement tags, ${counts.personal} profiles/opinion, ${counts.outlet} from outlets that don't count, ${counts.unattributed} not tied to a country; kept ${counts.kept} (plus ${feedCounts.kept} from feeds${Object.entries(apiCounts).filter(([, c]) => c.enabled).map(([s, c]) => `, ${c.kept} from ${s}`).join("")}).`);
   console.log(`Article pages checked ${verifyNow.length}: ${JSON.stringify(linkCounts)}${pendingCount ? `, ${pendingCount} left for the next run` : ""}.`);
   console.log(`Saved data/news.js: ${Object.keys(byCountry).length} of ${matchers.size} places have at least one article (${JSON.stringify(byLanguage)})${reports.enabled ? `; ${Object.keys(reports.byCountry).length} have ReliefWeb reports` : ""}.`);
   const top = [...leftOut].sort((a, b) => b[1] - a[1]).slice(0, 20).map(([d, n]) => `${d} ${n}`);
@@ -403,7 +471,8 @@ try { previous = await readJS("data/news.js"); } catch { /* first run */ }
 main(previous).catch(async (err) => {
   console.error(err.message);
   // Keep the last good headlines, and record the failure so the page can say so.
-  const failed = { ...(previous || { status: "error", byCountry: {}, searched: [] }), lastAttempt: { at: new Date().toISOString(), ok: false, error: err.message } };
+  // The APIs' quota ledgers are kept from this run if it got that far, so calls already made still count.
+  const failed = { ...(previous || { status: "error", byCountry: {}, searched: [] }), ...(apiState ? { newsApis: apiState } : {}), lastAttempt: { at: new Date().toISOString(), ok: false, error: err.message } };
   try { await writeFile(join(ROOT, "data", "news.js"), `window.DISPLACEMENT_NEWS = ${JSON.stringify(failed)};\n`); } catch { /* nothing more to do */ }
   process.exit(1);
 });
