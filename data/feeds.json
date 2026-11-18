@@ -38,6 +38,13 @@
       "label": "The New York Times, World"
     },
     {
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "domain": "aljazeera.com",
+      "lang": "en",
+      "region": "Global",
+      "label": "Al Jazeera English, All"
+    },
+    {
       "url": "https://rss.dw.com/xml/rss-en-all",
       "domain": "dw.com",
       "lang": "en",

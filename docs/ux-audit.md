@@ -63,7 +63,7 @@ Severity: **High** means it blocks a core task or excludes users. **Medium** mea
 >
 > **Changed again on 18 November 2026.** At David's request, Wikipedia's ratings are no longer used at all: an outlet counts only if it is on the hand-picked list in `data/outlets.json` (each with its own reason) or is a UN or intergovernmental body. `scripts/fetch-sources.mjs` and `data/processed/news-sources.json` were removed.
 >
-> **Changed again later on 18 November 2026.** Every outlet was checked against two written tests (independent; own reporting) with sources, and against outside databases (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils). See the project log for the outcome.
+> **Changed again later on 18 November 2026.** Every outlet was checked against two written tests (independent; own reporting) with sources, and against outside databases (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils). See the project log for the outcome. The independence test was dropped the same day at David's request; only the own-reporting test decides, and owners are shown.
 
 Defined from public repositories, not by us. Built by `scripts/fetch-sources.mjs`, refreshed daily, and saved with the reason for each outlet in `data/processed/news-sources.json`.
 

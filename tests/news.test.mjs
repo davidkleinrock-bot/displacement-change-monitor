@@ -236,9 +236,11 @@ test("the real outlet and feed lists are consistent", () => {
     assert.ok(!curated.excluded[d], `${d} is both allowed and excluded`);
   }
   for (const [d, x] of Object.entries(curated.excluded)) assert.ok(x.reason && outlet(d) === null, `${d} is excluded without a reason, or still counts`);
-  // The two tests: a church-owned paper and state-controlled channels fail; a local outlet that doesn't
-  // publish its owner but states its independence and has its own reporters passes, marked as such.
-  for (const d of ["csmonitor.com", "aljazeera.com", "channelnewsasia.com", "theconversation.com"]) assert.equal(outlet(d), null, d);
+  // Only the own-reporting test applies (the independence test was dropped on 18 Nov 2026): commentary sites
+  // fail; state-funded and church-owned outlets with their own reporters count, with their owner recorded.
+  for (const d of ["theconversation.com", "lowyinstitute.org", "pina.com.fj"]) assert.equal(outlet(d), null, d);
+  assert.match(outlet("aljazeera.com").owner, /Qatar/);
+  assert.match(outlet("csmonitor.com").owner, /Church/);
   assert.equal(outlet("radiotamazuj.org").level, "owner-not-published");
   assert.equal(outlet("www.bbc.co.uk").level, "checked");
   assert.ok(outlet("punchng.com").databases.length > 0);

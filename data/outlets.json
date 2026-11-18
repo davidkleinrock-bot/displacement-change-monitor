@@ -1,9 +1,9 @@
 {
   "updated": "2026-11-18",
-  "definition": "An outlet's articles are shown only if it passes two tests, checked on 18 Nov 2026 with sources: (1) independent: no church, political party or government controls it, unless a law or charter guarantees its editorial independence (as for the BBC or Deutsche Welle); (2) its own reporting: a news agency, a broadcaster or newspaper with its own correspondents, a humanitarian specialist with field staff, or a local outlet with reporters where displacement happens. Each outlet records which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, European Broadcasting Union, Public Media Alliance, The Trust Project, press councils). Local outlets whose owner is not published but show no sign of outside control are kept and marked 'owner not published'. UN and intergovernmental bodies count as official sources. Aggregators, press-release sites, tabloids and trade press are blocked; outlets that failed a test are listed under 'excluded' with the reason.",
+  "definition": "An outlet's articles are shown only if it does its own reporting: a news agency, a broadcaster or newspaper with its own correspondents, a humanitarian specialist with field staff, or a local outlet with reporters where displacement happens (checked on 18 Nov 2026, with sources). Each outlet records its owner and which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, European Broadcasting Union, Public Media Alliance, The Trust Project, press councils). Outlets whose owner is not published are marked 'owner not published'. UN and intergovernmental bodies count as official sources. Aggregators, press-release sites, tabloids, trade press and commentary sites are left out; those checked and left out are listed under 'excluded' with the reason.",
   "levels": {
     "checked": "Owner published, or listed by an outside trust database",
-    "owner-not-published": "Owner not published or not confirmed; has its own reporters and no sign of government, party or church control",
+    "owner-not-published": "Owner not published or not confirmed; has its own reporters",
     "official": "UN or intergovernmental source"
   },
   "tiers": {
@@ -205,6 +205,27 @@
         "databases": [],
         "evidence": [
           "https://www.al-monitor.com/about"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "aljazeera.com": {
+      "name": "Al Jazeera",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "Funded by the State of Qatar (Al Jazeera Media Network). Own correspondents worldwide. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the State of Qatar (Al Jazeera Media Network)",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://network.aljazeera.net/en/about-us"
         ],
         "checked": "2026-11-18"
       }
@@ -497,6 +518,29 @@
         "checked": "2026-11-18"
       }
     },
+    "channelnewsasia.com": {
+      "name": "CNA",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Owned by Mediacorp, a Singapore state investment company. Own correspondents in Asia. Listed by: Public Media Alliance, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Owned by Mediacorp, a Singapore state investment company",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.mediacorp.sg/en/about-us",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/singapore",
+          "https://statemediamonitor.com/?p=212"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "clarin.com": {
       "name": "Clarin",
       "tier": "regional",
@@ -611,6 +655,26 @@
         "databases": [],
         "evidence": [
           "https://criterio.hn"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "csmonitor.com": {
+      "name": "Christian Science Monitor",
+      "tier": "newspaper",
+      "region": "Northern America",
+      "lang": "en",
+      "why": "Owned by The First Church of Christ, Scientist. Own correspondents in the US and abroad. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Owned by The First Church of Christ, Scientist",
+        "ownerType": "religious organization",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.csmonitor.com/About"
         ],
         "checked": "2026-11-18"
       }
@@ -795,6 +859,27 @@
         ],
         "evidence": [
           "https://www.economist.com/about-us"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "efe.com": {
+      "name": "EFE",
+      "tier": "wire",
+      "region": "Global",
+      "lang": "es",
+      "why": "State-owned Spanish news agency. Own correspondents worldwide, strongest in Latin America. Listed by: Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "State-owned Spanish news agency",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "news agency",
+        "databases": [
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://docta.ucm.es/bitstreams/c92152fd-3401-4358-8d38-934b7cf30ff7/download",
+          "https://www.congreso.es/public_oficiales/L14/CONG/BOCG/B/BOCG-14-B-219-1.PDF"
         ],
         "checked": "2026-11-18"
       }
@@ -1907,6 +1992,28 @@
         "checked": "2026-11-18"
       }
     },
+    "lusa.pt": {
+      "name": "Lusa",
+      "tier": "wire",
+      "region": "Europe",
+      "lang": "pt",
+      "why": "State-owned Portuguese news agency. Own correspondents in Portugal and Portuguese-speaking countries. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "State-owned Portuguese news agency",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "news agency",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://eco.sapo.pt/2025/11/21/estado-ja-detem-100-da-lusa-e-aprova-projeto-de-novos-estatutos/",
+          "https://portugal.gov.pt/gc25/comunicacao/comunicados/agencia-lusa-novos-estatutos-aumento-de-capital-e-novo-conselho-de-administracao",
+          "https://observador.pt/2026/07/18/relatorio-sobre-estado-de-direito-da-por-ultrapassadas-questoes-sobre-estatutos-da-lusa/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "meduza.io": {
       "name": "Meduza",
       "tier": "regional",
@@ -2351,6 +2458,24 @@
         ],
         "evidence": [
           "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "plazapublica.com.gt": {
+      "name": "Plaza Pública",
+      "tier": "regional",
+      "region": "Latin America and the Caribbean",
+      "lang": "es",
+      "why": "Run by the Jesuit Universidad Rafael Landívar. Own reporters in Guatemala.",
+      "check": {
+        "level": "checked",
+        "owner": "Run by the Jesuit Universidad Rafael Landívar",
+        "ownerType": "religious organization",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.niemanlab.org/2012/08/plaza-publica-aims-to-challenge-and-improve-guatemalas-journalistic-culture/"
         ],
         "checked": "2026-11-18"
       }
@@ -2926,6 +3051,27 @@
         "databases": [],
         "evidence": [
           "https://www.stabroeknews.com/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "straitstimes.com": {
+      "name": "The Straits Times",
+      "tier": "newspaper",
+      "region": "Asia",
+      "lang": "en",
+      "why": "Published by SPH Media Trust, funded by the Singapore government. Own reporters in Singapore and Asia. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Published by SPH Media Trust, funded by the Singapore government",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://reutersinstitute.politics.ox.ac.uk/opportunities-and-challenges-retaining-trust-singapores-state-funded-media",
+          "https://www.scmp.com/week-asia/economics/article/3132525/singapore-media-spin-non-profit-entity-sparks-questions-over"
         ],
         "checked": "2026-11-18"
       }
@@ -3585,6 +3731,27 @@
         "checked": "2026-11-18"
       }
     },
+    "voanews.com": {
+      "name": "Voice of America",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "en",
+      "why": "Funded by the US government (US Agency for Global Media). Own correspondents worldwide. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media)",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://wtop.com/national/2026/03/federal-judge-rules-trump-administrations-actions-to-dismantle-voice-of-america-are-illegal/",
+          "https://thedesk.net/2026/11/voice-of-america-appeal-court-order-blocking-firing/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "washingtonpost.com": {
       "name": "The Washington Post",
       "tier": "newspaper",
@@ -3672,29 +3839,11 @@
       ],
       "checked": "2026-11-18"
     },
-    "aljazeera.com": {
-      "name": "Al Jazeera",
-      "reason": "Funded by the State of Qatar; no law or charter guarantees its editorial independence.",
-      "evidence": [
-        "https://network.aljazeera.net/en/about-us"
-      ],
-      "checked": "2026-11-18"
-    },
     "americasquarterly.org": {
       "name": "Americas Quarterly",
       "reason": "Policy magazine: mostly analysis by outside contributors.",
       "evidence": [
         "https://www.americasquarterly.org"
-      ],
-      "checked": "2026-11-18"
-    },
-    "channelnewsasia.com": {
-      "name": "CNA",
-      "reason": "Owned by Mediacorp, a Singapore state investment company; no statutory editorial-independence guarantee.",
-      "evidence": [
-        "https://www.mediacorp.sg/en/about-us",
-        "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/singapore",
-        "https://statemediamonitor.com/?p=212"
       ],
       "checked": "2026-11-18"
     },
@@ -3706,14 +3855,6 @@
       ],
       "checked": "2026-11-18"
     },
-    "csmonitor.com": {
-      "name": "Christian Science Monitor",
-      "reason": "Owned by The First Church of Christ, Scientist (a religious organization).",
-      "evidence": [
-        "https://www.csmonitor.com/About"
-      ],
-      "checked": "2026-11-18"
-    },
     "devpolicy.org": {
       "name": "Devpolicy Blog",
       "reason": "University blog: commentary, not news reporting.",
@@ -3722,30 +3863,11 @@
       ],
       "checked": "2026-11-18"
     },
-    "efe.com": {
-      "name": "EFE",
-      "reason": "State-owned Spanish agency; its editorial statute is an internal agreement, not a law.",
-      "evidence": [
-        "https://docta.ucm.es/bitstreams/c92152fd-3401-4358-8d38-934b7cf30ff7/download",
-        "https://www.congreso.es/public_oficiales/L14/CONG/BOCG/B/BOCG-14-B-219-1.PDF"
-      ],
-      "checked": "2026-11-18"
-    },
     "lowyinstitute.org": {
       "name": "Lowy Institute",
       "reason": "Think-tank blog: commentary by contributors, not news reporting.",
       "evidence": [
         "https://www.lowyinstitute.org/"
-      ],
-      "checked": "2026-11-18"
-    },
-    "lusa.pt": {
-      "name": "Lusa",
-      "reason": "State-owned Portuguese agency with government-appointed directors; no legal independence guarantee.",
-      "evidence": [
-        "https://eco.sapo.pt/2025/11/21/estado-ja-detem-100-da-lusa-e-aprova-projeto-de-novos-estatutos/",
-        "https://portugal.gov.pt/gc25/comunicacao/comunicados/agencia-lusa-novos-estatutos-aumento-de-capital-e-novo-conselho-de-administracao",
-        "https://observador.pt/2026/07/18/relatorio-sobre-estado-de-direito-da-por-ultrapassadas-questoes-sobre-estatutos-da-lusa/"
       ],
       "checked": "2026-11-18"
     },
@@ -3781,23 +3903,6 @@
       ],
       "checked": "2026-11-18"
     },
-    "plazapublica.com.gt": {
-      "name": "Plaza Publica",
-      "reason": "Run and funded by a Jesuit university (Universidad Rafael Landívar).",
-      "evidence": [
-        "https://www.niemanlab.org/2012/08/plaza-publica-aims-to-challenge-and-improve-guatemalas-journalistic-culture/"
-      ],
-      "checked": "2026-11-18"
-    },
-    "straitstimes.com": {
-      "name": "The Straits Times",
-      "reason": "Published by SPH Media Trust, funded by the Singapore government; no statutory editorial-independence guarantee.",
-      "evidence": [
-        "https://reutersinstitute.politics.ox.ac.uk/opportunities-and-challenges-retaining-trust-singapores-state-funded-media",
-        "https://www.scmp.com/week-asia/economics/article/3132525/singapore-media-spin-non-profit-entity-sparks-questions-over"
-      ],
-      "checked": "2026-11-18"
-    },
     "theconversation.com": {
       "name": "The Conversation",
       "reason": "Articles are commentary by outside academics, not reporting by its own journalists.",
@@ -3811,15 +3916,6 @@
       "reason": "Mostly analysis by outside contributors.",
       "evidence": [
         "https://thediplomat.com/about-the-diplomat/"
-      ],
-      "checked": "2026-11-18"
-    },
-    "voanews.com": {
-      "name": "Voice of America",
-      "reason": "US government-funded; whether its legal firewall still protects editorial independence has been disputed in court since 2025.",
-      "evidence": [
-        "https://wtop.com/national/2026/03/federal-judge-rules-trump-administrations-actions-to-dismantle-voice-of-america-are-illegal/",
-        "https://thedesk.net/2026/11/voice-of-america-appeal-court-order-blocking-firing/"
       ],
       "checked": "2026-11-18"
     }

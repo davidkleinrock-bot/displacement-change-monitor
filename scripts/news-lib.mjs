@@ -430,7 +430,7 @@ export function pickForCountry(items, { max = 8, perOutlet = 3, ignore = [] } = 
 
 // ---------- Which outlets count ----------
 // An outlet counts only if it (or a parent domain: edition.cnn.com → cnn.com) is on the list in
-// data/outlets.json, where each outlet passed two tests (independent, own reporting) and records which
+// data/outlets.json, where each outlet was checked for its own reporting and records its owner and which
 // outside databases list it, or it is a UN or intergovernmental body. Blocked and excluded domains never
 // count. `curated` is data/outlets.json.
 export function makeOutletChecker(curated) {
@@ -441,7 +441,7 @@ export function makeOutletChecker(curated) {
       const c = parts.slice(i).join(".");
       if (curated.block?.[c] || curated.excluded?.[c]) return null;
       const pick = curated.allow?.[c];
-      if (pick) return { basis: "curated", tier: pick.tier, name: pick.name || null, lang: pick.lang || null, level: pick.check?.level || "checked", databases: pick.check?.databases || [] };
+      if (pick) return { basis: "curated", tier: pick.tier, name: pick.name || null, lang: pick.lang || null, level: pick.check?.level || "checked", databases: pick.check?.databases || [], owner: pick.check?.owner || null };
     }
     const ig = curated.intergovernmental || { suffixes: [], domains: [] };
     if (ig.suffixes.some((s) => d.endsWith(s)) || ig.domains.some((x) => d === x || d.endsWith("." + x))) return { basis: "intergovernmental", tier: "humanitarian", name: null, lang: null, level: "official", databases: [] };
