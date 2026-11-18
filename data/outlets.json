@@ -175,10 +175,10 @@
       "tier": "broadcaster",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: Euronews S.A. (majority held by Alpac Capital, per press reports; not re-verified). Own reporters: Africa (Brazzaville hub, correspondents). Listed by: European Broadcasting Union, ReliefWeb sources (UN OCHA).",
+      "why": "Private company: Euronews S.A. Own reporters: Africa. Listed by: European Broadcasting Union, ReliefWeb sources (UN OCHA).",
       "check": {
         "level": "checked",
-        "owner": "Euronews S.A. (majority held by Alpac Capital, per press reports; not re-verified)",
+        "owner": "Euronews S.A",
         "ownerType": "private company",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -1251,10 +1251,10 @@
       "tier": "newspaper",
       "region": "Middle East",
       "lang": "en",
-      "why": "Private company: Haaretz Group: Schocken family about 75%, Leonid Nevzlin about 25% (older reports 2011-2019, not re-confirmed). Own reporters: Israel, West Bank and Gaza coverage, foreign correspondents.",
+      "why": "Private company: Haaretz Group (Schocken family). Own reporters: Israel, West Bank and Gaza coverage, foreign correspondents.",
       "check": {
         "level": "checked",
-        "owner": "Haaretz Group: Schocken family about 75%, Leonid Nevzlin about 25% (older reports 2011-2019, not re-confirmed)",
+        "owner": "Haaretz Group (Schocken family)",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [],
@@ -1270,10 +1270,10 @@
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "Private company: Founder Garry Pierre-Pierre and publisher/editor-in-chief Vania Andre (part ownership transferred 2018); legal form not confirmed. Own reporters: Haiti and New York diaspora.",
+      "why": "Private company owned by its founder Garry Pierre-Pierre and its publisher Vania Andre. Own reporters: Haiti and New York diaspora.",
       "check": {
         "level": "checked",
-        "owner": "Founder Garry Pierre-Pierre and publisher/editor-in-chief Vania Andre (part ownership transferred 2018); legal form not confirmed",
+        "owner": "Private company owned by its founder Garry Pierre-Pierre and its publisher Vania Andre",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [],
@@ -1309,10 +1309,10 @@
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Nonprofit: International Committee of the Red Cross (private association under Swiss law, mandate from Geneva Conventions) (independence: Geneva Conventions mandate and Swiss private-association status (not rechecked)). Own reporters: Global (delegations in 90+ countries; not checked in this run).",
+      "why": "Nonprofit: International Committee of the Red Cross. Own reporters: Global.",
       "check": {
         "level": "checked",
-        "owner": "International Committee of the Red Cross (private association under Swiss law, mandate from Geneva Conventions)",
+        "owner": "International Committee of the Red Cross",
         "ownerType": "nonprofit or foundation",
         "reporting": "humanitarian or migration specialist with field staff",
         "databases": [],
@@ -1449,10 +1449,10 @@
       "tier": "specialist",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "Nonprofit: InSight Crime Foundation (nonprofit; Latin America based, funded by grants). Own reporters: Latin America and the Caribbean (investigators in the region; headcount not confirmed).",
+      "why": "Nonprofit: InSight Crime Foundation. Own reporters: Latin America and the Caribbean.",
       "check": {
         "level": "checked",
-        "owner": "InSight Crime Foundation (nonprofit; Latin America based, funded by grants)",
+        "owner": "InSight Crime Foundation",
         "ownerType": "nonprofit or foundation",
         "reporting": "newspaper or news site with own reporters",
         "databases": [],
@@ -1872,10 +1872,10 @@
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "fr",
-      "why": "Private company: Le Nouvelliste (Chauvet family; Max Chauvet named as owner in a 2010 CPJ report, current structure not confirmed). Own reporters: Haiti.",
+      "why": "Private company: Le Nouvelliste. Own reporters: Haiti.",
       "check": {
         "level": "checked",
-        "owner": "Le Nouvelliste (Chauvet family; Max Chauvet named as owner in a 2010 CPJ report, current structure not confirmed)",
+        "owner": "Le Nouvelliste",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [],
@@ -1891,10 +1891,10 @@
       "tier": "regional",
       "region": "Middle East",
       "lang": "fr",
-      "why": "Private company: L'Orient-Le Jour SAL (Lebanon; owner group not rechecked). Own reporters: Lebanon. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF).",
+      "why": "Private company: L'Orient-Le Jour SAL. Own reporters: Lebanon. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF).",
       "check": {
         "level": "checked",
-        "owner": "L'Orient-Le Jour SAL (Lebanon; owner group not rechecked)",
+        "owner": "L'Orient-Le Jour SAL",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [
@@ -1930,10 +1930,10 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: M&G Media Ltd (privately owned; majority held by publisher Trevor Ncube per general knowledge, not re-verified). Own reporters: South Africa. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "why": "Private company: M&G Media Ltd. Own reporters: South Africa. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "M&G Media Ltd (privately owned; majority held by publisher Trevor Ncube per general knowledge, not re-verified)",
+        "owner": "M&G Media Ltd",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -1951,10 +1951,10 @@
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Nonprofit: Mixed Migration Centre (hosted by the Danish Refugee Council, a humanitarian NGO) - host relationship from general knowledge. Own reporters: Africa, Middle East, Asia, Latin America (field data collection through its 4Mi monitoring). Listed by: ReliefWeb sources (UN OCHA).",
+      "why": "Nonprofit: Mixed Migration Centre. Own reporters: Africa, Middle East, Asia, Latin America. Listed by: ReliefWeb sources (UN OCHA).",
       "check": {
         "level": "checked",
-        "owner": "Mixed Migration Centre (hosted by the Danish Refugee Council, a humanitarian NGO) - host relationship from general knowledge",
+        "owner": "Mixed Migration Centre",
         "ownerType": "nonprofit or foundation",
         "reporting": "humanitarian or migration specialist with field staff",
         "databases": [
@@ -1990,10 +1990,10 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge). Own reporters: Uganda. Listed by: Media Council of Kenya via parent company.",
+      "why": "Private company: Nation Media Group PLC. Own reporters: Uganda. Listed by: Media Council of Kenya via parent company.",
       "check": {
         "level": "checked",
-        "owner": "Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge)",
+        "owner": "Nation Media Group PLC",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [
@@ -2067,10 +2067,10 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: Nation Media Group PLC (listed company; Aga Khan Fund for Economic Development largest shareholder per general knowledge). Own reporters: Kenya, Uganda, Tanzania, Rwanda. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "why": "Private company: Nation Media Group PLC. Own reporters: Kenya, Uganda, Tanzania, Rwanda. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Nation Media Group PLC (listed company; Aga Khan Fund for Economic Development largest shareholder per general knowledge)",
+        "owner": "Nation Media Group PLC",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -2090,10 +2090,10 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Private company: Postmedia Network Canada Corp (publicly traded; large holders include US funds such as Chatham Asset Management, per general knowledge). Own reporters: Canada. Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Postmedia Network Canada Corp. Own reporters: Canada. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Postmedia Network Canada Corp (publicly traded; large holders include US funds such as Chatham Asset Management, per general knowledge)",
+        "owner": "Postmedia Network Canada Corp",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -2453,10 +2453,10 @@
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Private company: Comunicacion e Informacion S.A. de C.V. (private, founded by Julio Scherer Garcia in 1976; from general knowledge). Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF).",
+      "why": "Private company: Comunicacion e Informacion S.A. de C.V. Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF).",
       "check": {
         "level": "checked",
-        "owner": "Comunicacion e Informacion S.A. de C.V. (private, founded by Julio Scherer Garcia in 1976; from general knowledge)",
+        "owner": "Comunicacion e Informacion S.A. de C.V.",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -2536,10 +2536,10 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public service with legal independence: Radio France (societe nationale de radiodiffusion; 100% French state-owned public company) (independence: French law of 30 Sept 1986 on freedom of communication (public broadcasting mission, Arcom oversight) - from general knowledge, not re-fetched). Own reporters: France plus foreign correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
+      "why": "Public service with legal independence: Radio France. Own reporters: France plus foreign correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
       "check": {
         "level": "checked",
-        "owner": "Radio France (societe nationale de radiodiffusion; 100% French state-owned public company)",
+        "owner": "Radio France",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -2597,10 +2597,10 @@
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Private company: Rappler Inc. (private, founded by Maria Ressa and colleagues; employee/founder and investor ownership) - from general knowledge, not re-fetched. Own reporters: Philippines. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "why": "Private company: Rappler Inc. Own reporters: Philippines. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Rappler Inc. (private, founded by Maria Ressa and colleagues; employee/founder and investor ownership) - from general knowledge, not re-fetched",
+        "owner": "Rappler Inc",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -2659,10 +2659,10 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "fr",
-      "why": "Public service with legal independence: France Medias Monde (100% French state-owned holding) (independence: French law of 30 Sept 1986 on freedom of communication; Arcom oversight (general knowledge)). Own reporters: Global, with correspondents in Africa, Middle East, Asia, Americas. Listed by: European Broadcasting Union via parent company, Journalism Trust Initiative (RSF) via parent company, Media Council of Kenya.",
+      "why": "Public service with legal independence: France Médias Monde. Own reporters: Global, with correspondents in Africa, Middle East, Asia, Americas. Listed by: European Broadcasting Union via parent company, Journalism Trust Initiative (RSF) via parent company, Media Council of Kenya.",
       "check": {
         "level": "checked",
-        "owner": "France Medias Monde (100% French state-owned holding)",
+        "owner": "France Médias Monde",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -2706,10 +2706,10 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public service with legal independence: RTBF (public institution of the French Community of Belgium) (independence: RTBF decree / management contract of the Federation Wallonia-Brussels (from general knowledge, exact decree not re-fetched)). Own reporters: Belgium (Wallonia, Brussels) and abroad. Listed by: European Broadcasting Union, Public Media Alliance.",
+      "why": "Public service with legal independence: RTBF. Own reporters: Belgium. Listed by: European Broadcasting Union, Public Media Alliance.",
       "check": {
         "level": "checked",
-        "owner": "RTBF (public institution of the French Community of Belgium)",
+        "owner": "RTBF",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -2752,10 +2752,10 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "pt",
-      "why": "Public service with legal independence: Radio e Televisao de Portugal (state-owned public company) (independence: Portuguese Constitution art. 38 and the Television/Radio laws (independent editorial council); from general knowledge). Own reporters: Portugal and abroad. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
+      "why": "Public service with legal independence: Rádio e Televisão de Portugal. Own reporters: Portugal and abroad. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Radio e Televisao de Portugal (state-owned public company)",
+        "owner": "Rádio e Televisão de Portugal",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -2795,10 +2795,10 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "es",
-      "why": "Public service with legal independence: Corporacion RTVE (Spanish state public company) (independence: Law 17/2006 on state-owned radio and television (reformed 2022 for parliamentary-qualified-majority appointments); general knowledge). Own reporters: Spain and abroad. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
+      "why": "Public service with legal independence: Corporacion RTVE. Own reporters: Spain and abroad. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Corporacion RTVE (Spanish state public company)",
+        "owner": "Corporacion RTVE",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
@@ -2897,10 +2897,10 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "de",
-      "why": "Private company: Spiegel-Verlag Rudolf Augstein GmbH & Co. KG (Mitarbeiter KG staff-owned about 50.5%, Augstein heirs 24%, Gruner + Jahr/Bertelsmann about 25%) - general knowledge. Own reporters: Germany and international bureaus. Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Spiegel-Verlag Rudolf Augstein GmbH & Co. KG. Own reporters: Germany and international bureaus. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Spiegel-Verlag Rudolf Augstein GmbH & Co. KG (Mitarbeiter KG staff-owned about 50.5%, Augstein heirs 24%, Gruner + Jahr/Bertelsmann about 25%) - general knowledge",
+        "owner": "Spiegel-Verlag Rudolf Augstein GmbH & Co. KG",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -3082,10 +3082,10 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Private company: The Atlantic Monthly Group (majority held by Emerson Collective, Laurene Powell Jobs) - general knowledge. Own reporters: United States.",
+      "why": "Private company: The Atlantic Monthly Group. Own reporters: United States.",
       "check": {
         "level": "checked",
-        "owner": "The Atlantic Monthly Group (majority held by Emerson Collective, Laurene Powell Jobs) - general knowledge",
+        "owner": "The Atlantic Monthly Group",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [],
@@ -3121,10 +3121,10 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: TheCable (Nigerian private company, founder Simon Kolawole) - general knowledge. Own reporters: Nigeria (Lagos, Abuja). Listed by: Journalism Trust Initiative (RSF).",
+      "why": "Private company: TheCable. Own reporters: Nigeria. Listed by: Journalism Trust Initiative (RSF).",
       "check": {
         "level": "checked",
-        "owner": "TheCable (Nigerian private company, founder Simon Kolawole) - general knowledge",
+        "owner": "TheCable",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [
@@ -3161,10 +3161,10 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: Nation Media Group (listed; Aga Khan Fund for Economic Development is the largest shareholder, general knowledge). Own reporters: Kenya, Uganda, Tanzania, Rwanda, East Africa. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya.",
+      "why": "Private company: Nation Media Group. Own reporters: Kenya, Uganda, Tanzania, Rwanda, East Africa. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya.",
       "check": {
         "level": "checked",
-        "owner": "Nation Media Group (listed; Aga Khan Fund for Economic Development is the largest shareholder, general knowledge)",
+        "owner": "Nation Media Group",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [
@@ -3344,10 +3344,10 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Private company: Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (independence: Independent national directors of Times Newspapers Holdings (undertakings given on the 1981 and 1993 acquisitions); not re-verified). Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Times Newspapers Ltd. Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Times Newspapers Ltd, part of News UK, a subsidiary of News Corp",
+        "owner": "Times Newspapers Ltd",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -3364,10 +3364,10 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Private company: Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (same outlet as thetimes.co.uk) (independence: Independent national directors of Times Newspapers Holdings; not re-verified). Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Times Newspapers Ltd. Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (same outlet as thetimes.co.uk)",
+        "owner": "Times Newspapers Ltd",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -3570,10 +3570,10 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Private company: Gannett (renamed USA TODAY Co. in 2025, from memory; not confirmed this round), publicly traded. Own reporters: US (national desk, Washington, plus network of Gannett local newsrooms). Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Gannett. Own reporters: US. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Gannett (renamed USA TODAY Co. in 2025, from memory; not confirmed this round), publicly traded",
+        "owner": "Gannett",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
@@ -3626,10 +3626,10 @@
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Private company: Dow Jones & Company, subsidiary of News Corp (independence: Dow Jones acquisition agreement 2007 created a Special Committee on editorial integrity (from memory, not re-checked)). Own reporters: US and bureaus worldwide. Listed by: Reuters Institute Digital News Report.",
+      "why": "Private company: Dow Jones & Company. Own reporters: US and bureaus worldwide. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
-        "owner": "Dow Jones & Company, subsidiary of News Corp",
+        "owner": "Dow Jones & Company",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
