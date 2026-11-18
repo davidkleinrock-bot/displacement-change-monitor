@@ -1,6 +1,6 @@
 ﻿iso3,country,region,status,valid_articles,verified_links,reliefweb_reports,latest_article,window,issues
 AB9,Abyei Area,,No map point,0,0,0,,2026-09-18 to 2026-11-18,No map point; news not searched.
-AFG,Afghanistan,Asia,Country,5,5,0,2026-11-18,2026-09-18 to 2026-11-18,1 not in English (fr).
+AFG,Afghanistan,Asia,Country,7,7,0,2026-11-18,2026-09-18 to 2026-11-18,1 not in English (fr).
 ALB,Albania,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 DZA,Algeria,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 AND,Andorra,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -34,11 +34,11 @@ BFA,Burkina Faso,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant arti
 BDI,Burundi,Africa,Country,1,1,0,2026-10-08,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
 CPV,Cabo Verde,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 KHM,Cambodia,Asia,Country,1,1,0,2026-11-02,2026-09-18 to 2026-11-18,
-CMR,Cameroon,Africa,Country,2,2,0,2026-10-05,2026-09-18 to 2026-11-18,1 not in English (fr).
+CMR,Cameroon,Africa,Country,3,3,0,2026-10-05,2026-09-18 to 2026-11-18,1 not in English (fr).
 CAN,Canada,Northern America,Country,2,2,0,2026-11-03,2026-09-18 to 2026-11-18,
 CYM,Cayman Islands,Latin America and the Caribbean,UK overseas territory,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 CAF,Central African Rep.,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-TCD,Chad,Africa,Country,2,2,0,2026-10-20,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
+TCD,Chad,Africa,Country,3,3,0,2026-10-20,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
 CHL,Chile,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 CHN,China,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 HKG,"China, Hong Kong SAR",Asia,Special administrative region of China,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -57,7 +57,7 @@ CZE,Czechia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article f
 PRK,Dem. People's Rep. of Korea,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window. Matched only as 'North Korea(n)'.
 COD,Dem. Rep. of the Congo,Africa,Country,8,8,0,2026-11-02,2026-09-18 to 2026-11-18,3 dated by when GDELT first saw it (publisher page gave no date). 4 not in English (fr). 'Congo' and 'Congolese' are filed under DR Congo; 'Republic of the Congo' and 'Congo-Brazzaville' are not.
 DNK,Denmark,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-DJI,Djibouti,Africa,Country,4,4,0,2026-10-20,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
+DJI,Djibouti,Africa,Country,5,5,0,2026-10-20,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
 DMA,Dominica,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window. Matched only as 'Dominica'; 'Dominican' goes to the Dominican Republic.
 DOM,Dominican Rep.,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window. 'Dominican' is filed under the Dominican Republic.
 ECU,Ecuador,Latin America and the Caribbean,Country,2,1,0,2026-10-12,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 2 not in English (es). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary.
@@ -67,7 +67,7 @@ GNQ,Equatorial Guinea,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant
 ERI,Eritrea,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 EST,Estonia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 SWZ,Eswatini,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-ETH,Ethiopia,Africa,Country,3,3,0,2026-11-13,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
+ETH,Ethiopia,Africa,Country,5,5,0,2026-11-13,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date).
 FJI,Fiji,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 FIN,Finland,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 FRA,France,Europe,Country,1,1,0,2026-11-01,2026-09-18 to 2026-11-18,'Fort Frances' (Canada) is not counted: the name takes no plural.
@@ -79,7 +79,7 @@ GEO,Georgia,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,"No relevant article fo
 DEU,Germany,Europe,Country,1,1,0,2026-11-16,2026-09-18 to 2026-11-18,1 not in English (es).
 GHA,Ghana,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 GIB,Gibraltar,Europe,UK overseas territory,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-GRC,Greece,Europe,Country,4,4,0,2026-11-09,2026-09-18 to 2026-11-18,
+GRC,Greece,Europe,Country,8,8,0,2026-11-09,2026-09-18 to 2026-11-18,
 GRD,Grenada,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 GLP,Guadeloupe,Latin America and the Caribbean,Part of France (overseas department),0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 GTM,Guatemala,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -93,7 +93,7 @@ HUN,Hungary,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article f
 ISL,Iceland,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 IND,India,Asia,Country,2,2,0,2026-11-16,2026-09-18 to 2026-11-18,1 without a publisher summary. 'Indian Ocean' and 'Native/American Indian' are not counted.
 IDN,Indonesia,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-IRN,Iran (Islamic Rep. of),Asia,Country,1,1,0,2026-10-08,2026-09-18 to 2026-11-18,
+IRN,Iran (Islamic Rep. of),Asia,Country,2,1,0,2026-10-08,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary.
 IRQ,Iraq,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 IRL,Ireland,Europe,Country,1,1,0,2026-10-21,2026-09-18 to 2026-11-18,1 without a publisher summary. 'Northern Ireland' (UK) is not counted.
 ISR,Israel,Asia,Country,1,1,0,2026-09-23,2026-09-18 to 2026-11-18,
@@ -108,7 +108,7 @@ KWT,Kuwait,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article foun
 KGZ,Kyrgyzstan,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 LAO,Lao People's Dem. Rep.,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 LVA,Latvia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-LBN,Lebanon,Asia,Country,5,3,0,2026-11-11,2026-09-18 to 2026-11-18,2 dated by when GDELT first saw it (publisher page gave no date). 2 link(s) could not be checked (site blocked or timed out). 2 without a publisher summary.
+LBN,Lebanon,Asia,Country,6,4,0,2026-11-13,2026-09-18 to 2026-11-18,2 dated by when GDELT first saw it (publisher page gave no date). 2 link(s) could not be checked (site blocked or timed out). 2 without a publisher summary.
 LSO,Lesotho,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 LBR,Liberia,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 LBY,Libya,Africa,Country,1,1,0,2026-10-28,2026-09-18 to 2026-11-18,
@@ -117,7 +117,7 @@ LTU,Lithuania,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article
 LUX,Luxembourg,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 MDG,Madagascar,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 MWI,Malawi,Africa,Country,1,1,0,2026-11-05,2026-09-18 to 2026-11-18,
-MYS,Malaysia,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
+MYS,Malaysia,Asia,Country,1,1,0,2026-09-30,2026-09-18 to 2026-11-18,
 MDV,Maldives,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 MLI,Mali,Africa,Country,2,2,0,2026-11-03,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 1 not in English (fr).
 MLT,Malta,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -147,7 +147,7 @@ NIU,Niue,Oceania,In free association with New Zealand,0,0,0,,2026-09-18 to 2026-
 MKD,North Macedonia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 NOR,Norway,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 OMN,Oman,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-PAK,Pakistan,Asia,Country,2,2,0,2026-11-16,2026-09-18 to 2026-11-18,1 not in English (fr).
+PAK,Pakistan,Asia,Country,3,3,0,2026-11-16,2026-09-18 to 2026-11-18,1 not in English (fr).
 PLW,Palau,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 PAN,Panama,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 PNG,Papua New Guinea,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -161,8 +161,8 @@ QAT,Qatar,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found
 KOR,Rep. of Korea,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window. Matched only as 'South Korea(n)'.
 MDA,Rep. of Moldova,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 ROU,Romania,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-RUS,Russian Federation,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-RWA,Rwanda,Africa,Country,6,6,0,2026-11-18,2026-09-18 to 2026-11-18,"5 not in English (fr, es)."
+RUS,Russian Federation,Europe,Country,1,1,0,2026-10-16,2026-09-18 to 2026-11-18,
+RWA,Rwanda,Africa,Country,7,7,0,2026-11-18,2026-09-18 to 2026-11-18,"5 not in English (fr, es)."
 KNA,Saint Kitts and Nevis,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 LCA,Saint Lucia,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 VCT,Saint Vincent and the Grenadines,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -180,17 +180,17 @@ SVK,Slovakia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article 
 SVN,Slovenia,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 SLB,Solomon Islands,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 SOM,Somalia,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-ZAF,South Africa,Africa,Country,4,4,0,2026-10-09,2026-09-18 to 2026-11-18,2 dated by when GDELT first saw it (publisher page gave no date).
+ZAF,South Africa,Africa,Country,6,6,0,2026-10-09,2026-09-18 to 2026-11-18,2 dated by when GDELT first saw it (publisher page gave no date).
 SSD,South Sudan,Africa,Country,1,1,0,2026-11-04,2026-09-18 to 2026-11-18,Matched only as 'South Sudan' / 'South Sudanese'.
 ESP,Spain,Europe,Country,2,2,0,2026-11-02,2026-09-18 to 2026-11-18,1 not in English (es).
 LKA,Sri Lanka,Asia,Country,1,1,0,2026-09-25,2026-09-18 to 2026-11-18,1 without a publisher summary.
-PSE,State of Palestine,Asia,Country,6,5,0,2026-11-17,2026-09-18 to 2026-11-18,"1 dated by when GDELT first saw it (publisher page gave no date). 2 not in English (fr, es). 1 link(s) could not be checked (site blocked or timed out). 2 without a publisher summary. West Bank towns (Hebron, Jenin, Nablus, Tulkarm, Ramallah) and Gaza places are filed under Palestine."
+PSE,State of Palestine,Asia,Country,8,7,0,2026-11-17,2026-09-18 to 2026-11-18,"1 dated by when GDELT first saw it (publisher page gave no date). 3 not in English (fr, es). 1 link(s) could not be checked (site blocked or timed out). 2 without a publisher summary. West Bank towns (Hebron, Jenin, Nablus, Tulkarm, Ramallah) and Gaza places are filed under Palestine."
 XXA,Stateless,,Not a place,0,0,0,,2026-09-18 to 2026-11-18,Not a place; news not searched.
-SDN,Sudan,Africa,Country,5,5,0,2026-11-13,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 'Sudan' inside 'South Sudan' is not counted for Sudan.
+SDN,Sudan,Africa,Country,8,8,0,2026-11-13,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 'Sudan' inside 'South Sudan' is not counted for Sudan.
 SUR,Suriname,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 SWE,Sweden,Europe,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 CHE,Switzerland,Europe,Country,4,4,0,2026-11-06,2026-09-18 to 2026-11-18,2 not in English (fr).
-SYR,Syrian Arab Rep.,Asia,Country,2,2,0,2026-10-15,2026-09-18 to 2026-11-18,
+SYR,Syrian Arab Rep.,Asia,Country,3,3,0,2026-11-06,2026-09-18 to 2026-11-18,
 TJK,Tajikistan,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 THA,Thailand,Asia,Country,1,1,0,2026-11-02,2026-09-18 to 2026-11-18,
 TLS,Timor-Leste,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -205,9 +205,9 @@ TUV,Tuvalu,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article f
 UGA,Uganda,Africa,Country,1,1,0,2026-10-16,2026-09-18 to 2026-11-18,1 not in English (fr).
 UKR,Ukraine,Europe,Country,8,7,0,2026-11-18,2026-09-18 to 2026-11-18,"2 not in English (fr, es). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary."
 ARE,United Arab Emirates,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-GBR,United Kingdom of Great Britain and Northern Ireland,Europe,Country,7,7,0,2026-11-16,2026-09-18 to 2026-11-18,1 not in English (fr). 'UK' must be in capitals; 'British Columbia' is not counted.
+GBR,United Kingdom of Great Britain and Northern Ireland,Europe,Country,8,8,0,2026-11-16,2026-09-18 to 2026-11-18,1 not in English (fr). 'UK' must be in capitals; 'British Columbia' is not counted.
 TZA,United Rep. of Tanzania,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
-USA,United States of America,Northern America,Country,6,5,0,2026-11-17,2026-09-18 to 2026-11-18,"1 dated by when GDELT first saw it (publisher page gave no date). 4 not in English (es). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary. 'US' must be in capitals; 'Latin American', 'South American' and similar are not counted."
+USA,United States of America,Northern America,Country,8,7,0,2026-11-17,2026-09-18 to 2026-11-18,"1 dated by when GDELT first saw it (publisher page gave no date). 5 not in English (es). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary. 'US' must be in capitals; 'Latin American', 'South American' and similar are not counted."
 UNK,Unknown origin,,Not a place,0,0,0,,2026-09-18 to 2026-11-18,Not a place; news not searched.
 URY,Uruguay,Latin America and the Caribbean,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 UZB,Uzbekistan,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
@@ -215,6 +215,6 @@ VUT,Vanuatu,Oceania,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article 
 VEN,Venezuela (Bolivarian Republic of),Latin America and the Caribbean,Country,4,3,0,2026-11-17,2026-09-18 to 2026-11-18,1 dated by when GDELT first saw it (publisher page gave no date). 4 not in English (es). 1 link(s) could not be checked (site blocked or timed out). 1 without a publisher summary.
 VNM,Viet Nam,Asia,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
 ESH,Western Sahara,Africa,Non-self-governing territory (UN list),1,1,0,2026-11-02,2026-09-18 to 2026-11-18,
-YEM,Yemen,Asia,Country,6,6,0,2026-11-18,2026-09-18 to 2026-11-18,"2 dated by when GDELT first saw it (publisher page gave no date). 4 not in English (fr, es, pt)."
+YEM,Yemen,Asia,Country,8,8,0,2026-11-18,2026-09-18 to 2026-11-18,"2 dated by when GDELT first saw it (publisher page gave no date). 4 not in English (fr, es, pt)."
 ZMB,Zambia,Africa,Country,1,1,0,2026-10-08,2026-09-18 to 2026-11-18,
 ZWE,Zimbabwe,Africa,Country,0,0,0,,2026-09-18 to 2026-11-18,No relevant article found in the window.
