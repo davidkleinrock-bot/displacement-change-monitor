@@ -252,15 +252,14 @@
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Private company: Animal Politico (private independent Mexican digital media company). Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "why": "Private company: Animal Politico (private independent Mexican digital media company). Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF).",
       "check": {
         "level": "checked",
         "owner": "Animal Politico (private independent Mexican digital media company)",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
-          "Media Ownership Monitor (RSF)",
-          "Reuters Institute Digital News Report"
+          "Media Ownership Monitor (RSF)"
         ],
         "evidence": [
           "https://animalpolitico.com/quienes-somos",
@@ -680,7 +679,7 @@
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Private company: Pakistan Herald Publications (Pvt) Ltd / DAWN Group (Haroon family). Own reporters: Pakistan. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "why": "Private company: Pakistan Herald Publications (Pvt) Ltd / DAWN Group (Haroon family). Own reporters: Pakistan. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA).",
       "check": {
         "level": "checked",
         "owner": "Pakistan Herald Publications (Pvt) Ltd / DAWN Group (Haroon family)",
@@ -688,8 +687,7 @@
         "reporting": "newspaper or news site with own reporters",
         "databases": [
           "Media Ownership Monitor (RSF)",
-          "ReliefWeb sources (UN OCHA)",
-          "Reuters Institute Digital News Report"
+          "ReliefWeb sources (UN OCHA)"
         ],
         "evidence": [
           "https://pakistan.mom-gmr.org/en/",
@@ -1126,15 +1124,15 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public service with legal independence: France Medias Monde, 100% owned by the French State (holding company) (independence: French law of 30 September 1986 on freedom of communication (national programme company, supervised by Arcom)). Own reporters: Global (Paris plus bureaus and correspondents). Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
+      "why": "Public service with legal independence: France Medias Monde, 100% owned by the French State (holding company) (independence: French law of 30 September 1986 on freedom of communication (national programme company, supervised by Arcom)). Own reporters: Global (Paris plus bureaus and correspondents). Listed by: European Broadcasting Union via parent company, Journalism Trust Initiative (RSF) via parent company.",
       "check": {
         "level": "checked",
         "owner": "France Medias Monde, 100% owned by the French State (holding company)",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
-          "European Broadcasting Union",
-          "Journalism Trust Initiative (RSF)"
+          "European Broadcasting Union via parent company",
+          "Journalism Trust Initiative (RSF) via parent company"
         ],
         "evidence": [
           "https://www.francemediasmonde.com",
@@ -1148,7 +1146,7 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public service with legal independence: franceinfo is a joint service of Radio France, France Televisions, France Medias Monde and INA; public companies owned by the French State (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "why": "Public service with legal independence: franceinfo is a joint service of Radio France, France Televisions, France Medias Monde and INA; public companies owned by the French State (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF) via parent company, Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
         "owner": "franceinfo is a joint service of Radio France, France Televisions, France Medias Monde and INA; public companies owned by the French State",
@@ -1156,7 +1154,7 @@
         "reporting": "broadcaster with own correspondents",
         "databases": [
           "European Broadcasting Union",
-          "Journalism Trust Initiative (RSF)",
+          "Journalism Trust Initiative (RSF) via parent company",
           "Reuters Institute Digital News Report"
         ],
         "evidence": [
@@ -1171,7 +1169,7 @@
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public service with legal independence: France Televisions (State-owned public group) (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "why": "Public service with legal independence: France Televisions (State-owned public group) (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF) via parent company, Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
         "owner": "France Televisions (State-owned public group)",
@@ -1179,7 +1177,7 @@
         "reporting": "broadcaster with own correspondents",
         "databases": [
           "European Broadcasting Union",
-          "Journalism Trust Initiative (RSF)",
+          "Journalism Trust Initiative (RSF) via parent company",
           "Reuters Institute Digital News Report"
         ],
         "evidence": [
@@ -1992,14 +1990,14 @@
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Private company: Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge). Own reporters: Uganda. Listed by: Media Council of Kenya.",
+      "why": "Private company: Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge). Own reporters: Uganda. Listed by: Media Council of Kenya via parent company.",
       "check": {
         "level": "checked",
         "owner": "Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge)",
         "ownerType": "private company",
         "reporting": "local or regional outlet with reporters on the ground",
         "databases": [
-          "Media Council of Kenya"
+          "Media Council of Kenya via parent company"
         ],
         "evidence": [
           "https://www.monitor.co.ug"
@@ -2661,15 +2659,15 @@
       "tier": "broadcaster",
       "region": "Global",
       "lang": "fr",
-      "why": "Public service with legal independence: France Medias Monde (100% French state-owned holding) (independence: French law of 30 Sept 1986 on freedom of communication; Arcom oversight (general knowledge)). Own reporters: Global, with correspondents in Africa, Middle East, Asia, Americas. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Media Council of Kenya.",
+      "why": "Public service with legal independence: France Medias Monde (100% French state-owned holding) (independence: French law of 30 Sept 1986 on freedom of communication; Arcom oversight (general knowledge)). Own reporters: Global, with correspondents in Africa, Middle East, Asia, Americas. Listed by: European Broadcasting Union via parent company, Journalism Trust Initiative (RSF) via parent company, Media Council of Kenya.",
       "check": {
         "level": "checked",
         "owner": "France Medias Monde (100% French state-owned holding)",
         "ownerType": "public service with legal independence",
         "reporting": "broadcaster with own correspondents",
         "databases": [
-          "European Broadcasting Union",
-          "Journalism Trust Initiative (RSF)",
+          "European Broadcasting Union via parent company",
+          "Journalism Trust Initiative (RSF) via parent company",
           "Media Council of Kenya"
         ],
         "evidence": [
@@ -3207,14 +3205,13 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Nonprofit: Guardian Media Group, wholly owned by The Scott Trust Limited (trust set up to secure the Guardian's financial and editorial independence) (independence: Scott Trust constitution (private trust, not a statute)). Own reporters: UK, US, Australia and worldwide correspondents. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "why": "Nonprofit: Guardian Media Group, wholly owned by The Scott Trust Limited (trust set up to secure the Guardian's financial and editorial independence) (independence: Scott Trust constitution (private trust, not a statute)). Own reporters: UK, US, Australia and worldwide correspondents. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
         "owner": "Guardian Media Group, wholly owned by The Scott Trust Limited (trust set up to secure the Guardian's financial and editorial independence)",
         "ownerType": "nonprofit or foundation",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
-          "Journalism Trust Initiative (RSF)",
           "Reuters Institute Digital News Report"
         ],
         "evidence": [
@@ -3246,14 +3243,13 @@
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Private company: THG Publishing, majority-held by Kasturi & Sons Ltd (unlisted holding company controlled by descendants of S. Kasturi Ranga Iyengar). Own reporters: India (Chennai HQ, many state bureaus), some foreign correspondents. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "why": "Private company: THG Publishing, majority-held by Kasturi & Sons Ltd (unlisted holding company controlled by descendants of S. Kasturi Ranga Iyengar). Own reporters: India (Chennai HQ, many state bureaus), some foreign correspondents. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
         "owner": "THG Publishing, majority-held by Kasturi & Sons Ltd (unlisted holding company controlled by descendants of S. Kasturi Ranga Iyengar)",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
-          "Journalism Trust Initiative (RSF)",
           "Media Ownership Monitor (RSF)",
           "Reuters Institute Digital News Report"
         ],
@@ -3650,14 +3646,13 @@
       "tier": "newspaper",
       "region": "Europe",
       "lang": "pl",
-      "why": "Private company: Agora S.A. (Wyborcza sp. z o.o. is its Agora-group publishing subsidiary), listed on the Warsaw Stock Exchange since 1999. Own reporters: Poland (national and regional editions), foreign correspondents. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "why": "Private company: Agora S.A. (Wyborcza sp. z o.o. is its Agora-group publishing subsidiary), listed on the Warsaw Stock Exchange since 1999. Own reporters: Poland (national and regional editions), foreign correspondents. Listed by: Reuters Institute Digital News Report.",
       "check": {
         "level": "checked",
         "owner": "Agora S.A. (Wyborcza sp. z o.o. is its Agora-group publishing subsidiary), listed on the Warsaw Stock Exchange since 1999",
         "ownerType": "private company",
         "reporting": "newspaper or news site with own reporters",
         "databases": [
-          "Journalism Trust Initiative (RSF)",
           "Reuters Institute Digital News Report"
         ],
         "evidence": [
