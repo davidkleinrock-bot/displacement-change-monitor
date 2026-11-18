@@ -178,13 +178,6 @@
       "label": "Refugees International, All"
     },
     {
-      "url": "https://www.crisisgroup.org/rss.xml",
-      "domain": "crisisgroup.org",
-      "lang": "en",
-      "region": "Global",
-      "label": "International Crisis Group, All"
-    },
-    {
       "url": "https://www.ipsnews.net/feed/",
       "domain": "ipsnews.net",
       "lang": "en",
@@ -395,13 +388,6 @@
       "label": "Studio Tamani, All"
     },
     {
-      "url": "https://mondafrique.com/feed/",
-      "domain": "mondafrique.com",
-      "lang": "fr",
-      "region": "Africa",
-      "label": "Mondafrique, All"
-    },
-    {
       "url": "https://www.dailymaverick.co.za/dmrss/",
       "domain": "dailymaverick.co.za",
       "lang": "en",
@@ -451,25 +437,11 @@
       "label": "Vanuatu Daily Post, News search"
     },
     {
-      "url": "https://pina.com.fj/feed/",
-      "domain": "pina.com.fj",
-      "lang": "en",
-      "region": "Oceania",
-      "label": "PINA, All"
-    },
-    {
       "url": "https://www.cookislandsnews.com/feed/",
       "domain": "cookislandsnews.com",
       "lang": "en",
       "region": "Oceania",
       "label": "Cook Islands News, All"
-    },
-    {
-      "url": "https://www.lowyinstitute.org/the-interpreter/rss.xml",
-      "domain": "lowyinstitute.org",
-      "lang": "en",
-      "region": "Oceania",
-      "label": "Lowy Institute, The Interpreter"
     },
     {
       "url": "https://kabulnow.com/feed",

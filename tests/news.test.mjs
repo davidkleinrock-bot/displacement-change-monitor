@@ -209,23 +209,17 @@ test("one event takes one slot; one outlet can't fill a country's list", () => {
   assert.equal(picked[0].date, "2026-11-05"); // newest first
 });
 
-test("outlets: hand-picked list, Wikipedia ratings, UN bodies, blocks", () => {
-  const sources = {
-    allowed: { "nytimes.com": { basis: ["wikipedia"], name: "The New York Times" }, "variety.com": { basis: ["wikipedia"], name: "Variety" }, "wn.com": { basis: ["lin2023", "tranco"], name: null } },
-    excluded: { "dailymail.co.uk": "Wikipedia: deprecated", "rferl.org": "Wikipedia: no consensus", "foxnews.com": "Wikipedia: generally unreliable" },
+test("outlets: only the hand-picked list and UN bodies count; blocks win", () => {
+  const curated = {
+    allow: { "thenewhumanitarian.org": { name: "The New Humanitarian", tier: "humanitarian", lang: "en" }, "radiotamazuj.org": { name: "Radio Tamazuj", tier: "regional" } },
+    block: { "variety.com": "Entertainment trade press", "yahoo.com": "Aggregator" },
     intergovernmental: { suffixes: [".int"], domains: ["un.org"] },
   };
-  const curated = {
-    allow: { "thenewhumanitarian.org": { name: "The New Humanitarian", tier: "humanitarian", lang: "en" }, "rferl.org": { name: "RFE/RL", tier: "broadcaster" }, "foxnews.com": { name: "Fox", tier: "newspaper" } },
-    block: { "variety.com": "Entertainment trade press", "yahoo.com": "Aggregator" },
-  };
-  const outlet = makeOutletChecker(sources, curated);
-  assert.equal(outlet("www.nytimes.com").basis, "wikipedia");
+  const outlet = makeOutletChecker(curated);
   assert.equal(outlet("thenewhumanitarian.org").tier, "humanitarian");
-  assert.equal(outlet("rferl.org").basis, "curated"); // "no consensus" can be hand-picked
-  assert.equal(outlet("foxnews.com"), null); // "generally unreliable" never counts
-  assert.equal(outlet("video.foxnews.com"), null);
-  assert.equal(outlet("wn.com"), null); // the old quality-score route no longer counts
+  assert.equal(outlet("www.radiotamazuj.org").basis, "curated");
+  assert.equal(outlet("nytimes.com"), null); // not on the list: no outside rating list is used
+  assert.equal(outlet("wn.com"), null);
   assert.equal(outlet("variety.com"), null);
   assert.equal(outlet("news.yahoo.com"), null);
   assert.equal(outlet("iom.int").basis, "intergovernmental");
@@ -234,17 +228,28 @@ test("outlets: hand-picked list, Wikipedia ratings, UN bodies, blocks", () => {
 });
 
 test("the real outlet and feed lists are consistent", () => {
-  const sources = JSON.parse(readFileSync("data/processed/news-sources.json", "utf8"));
   const curated = JSON.parse(readFileSync("data/outlets.json", "utf8"));
   const feeds = JSON.parse(readFileSync("data/feeds.json", "utf8")).feeds;
-  const outlet = makeOutletChecker(sources, curated);
+  const outlet = makeOutletChecker(curated);
   for (const d of Object.keys(curated.allow)) {
     assert.ok(!curated.block[d], `${d} is both allowed and blocked`);
     assert.ok(curated.tiers[curated.allow[d].tier], `${d} has an unknown tier`);
     assert.ok(curated.allow[d].why, `${d} has no reason`);
-    assert.ok(!/unreliable|deprecated|blacklisted/i.test(sources.excluded[d] || ""), `${d} is rated unreliable on Wikipedia`);
+    assert.ok(!/wikipedia/i.test(curated.allow[d].why), `${d}'s reason relies on Wikipedia`);
+    assert.ok(curated.levels[curated.allow[d].check?.level], `${d} has no outlet-test result`);
+    assert.ok(!curated.excluded[d], `${d} is both allowed and excluded`);
   }
-  for (const d of ["wn.com", "aol.com", "msn.com", "yahoo.com", "metro.co.uk", "seekingalpha.com"]) assert.equal(outlet(d), null, d);
+  for (const [d, x] of Object.entries(curated.excluded)) assert.ok(x.reason && outlet(d) === null, `${d} is excluded without a reason, or still counts`);
+  // Only the own-reporting test applies (the independence test was dropped on 18 Nov 2026): commentary sites
+  // fail; state-funded and church-owned outlets with their own reporters count, with their owner recorded.
+  for (const d of ["theconversation.com", "lowyinstitute.org", "pina.com.fj"]) assert.equal(outlet(d), null, d);
+  assert.match(outlet("aljazeera.com").owner, /Qatar/);
+  assert.match(outlet("csmonitor.com").owner, /Church/);
+  assert.equal(outlet("radiotamazuj.org").level, "owner-not-published");
+  assert.equal(outlet("www.bbc.co.uk").level, "checked");
+  assert.ok(outlet("punchng.com").databases.length > 0);
+  assert.equal(outlet("news.un.org").level, "official");
+  for (const d of ["wn.com", "aol.com", "msn.com", "yahoo.com", "metro.co.uk", "seekingalpha.com", "reliefweb.int"]) assert.equal(outlet(d), null, d);
   for (const f of feeds) {
     assert.match(f.url, /^https:\/\//, f.url);
     assert.ok(outlet(f.domain), `feed outlet ${f.domain} does not count`);
@@ -493,4 +498,40 @@ test("publisher pages in windows-1256, windows-1251 and KOI8-R are decoded and c
   assert.equal((await fetchArticleMeta("https://n.example/a", ar, { fetchImpl: fakeFetch(() => response(200, `<meta property="og:title" content="نتائج مباريات كرة القدم في نهاية الأسبوع">`)) })).link, "mismatched");
   assert.equal(decodeBytes(new TextEncoder().encode(`\uFEFF${ru}`).buffer, "text/html; charset=windows-1251"), ru); // a UTF-8 byte-order mark wins
   assert.match(summarize("وثقت المنظمة الدولية للهجرة نزوح أكثر من 400 شخص من منطقة أبو زبد خلال الأيام الماضية", ar), /^وثقت/);
+});
+
+test("translations: only Spanish, French and Portuguese, once per text, kept from earlier runs", async () => {
+  const { translateItems } = await import("../scripts/translate.mjs");
+  const calls = [];
+  const translate = async (t) => (calls.push(t), `EN(${t})`);
+  const items = [
+    { lang: "es", title: "Miles de desplazados", description: "Resumen" },
+    { lang: "es", title: "Miles de desplazados", description: "Resumen" }, // same article filed under two countries
+    { lang: "fr", title: "Réfugiés au Tchad", titleEn: "Refugees in Chad" }, // translated in an earlier run
+    { lang: "en", title: "Refugees in Chad" },
+    { lang: "pt", title: "Deslocados internos" },
+  ];
+  const r = await translateItems(items, { translate });
+  assert.equal(r.translated, 3);
+  assert.deepEqual(calls, ["Miles de desplazados", "Resumen", "Deslocados internos"]);
+  assert.equal(items[1].titleEn, "EN(Miles de desplazados)");
+  assert.equal(items[1].descriptionEn, "EN(Resumen)");
+  assert.equal(items[2].titleEn, "Refugees in Chad");
+  assert.equal(items[3].titleEn, undefined);
+  const failing = await translateItems([{ lang: "es", title: "x" }], { translate: async () => { throw new Error("model failed"); } });
+  assert.equal(failing.translated, 0);
+});
+
+test("translations: names the model mangles are put back", async () => {
+  const { fixNames } = await import("../scripts/translate.mjs");
+  assert.equal(fixNames("Corporal Delgado, at least 1,235 people have escaped"), "Cabo Delgado, at least 1,235 people have escaped");
+  assert.equal(fixNames("DRC: Pnud relays the cry of displaced persons"), "DRC: UNDP relays the cry of displaced persons");
+  assert.equal(fixNames("refugees facing precarious conditions in Rutsh-Hur"), "refugees facing precarious conditions in Rutshuru");
+});
+
+test("translations: a phrase the model repeats is kept once", async () => {
+  const { fixNames } = await import("../scripts/translate.mjs");
+  assert.equal(fixNames("fled attacks by armed ins armed ins in four districts"), "fled attacks by armed ins in four districts");
+  assert.equal(fixNames("Thousands flee flee fighting"), "Thousands flee fighting");
+  assert.equal(fixNames("Refugees in Chad and Chad's camps"), "Refugees in Chad and Chad's camps");
 });

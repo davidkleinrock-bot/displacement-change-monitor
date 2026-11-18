@@ -36,14 +36,16 @@
 //   The quota ledgers and per-place search times are kept in data/news.js (newsApis). Articles from both
 //   APIs follow the feed rules below; an API that fails is counted and the run carries on.
 // A news article is kept only if:
-//   - its outlet counts (data/outlets.json, Wikipedia's Perennial Sources list, or UN/intergovernmental;
-//     see makeOutletChecker in news-lib.mjs);
+//   - its outlet is on the hand-picked list in data/outlets.json, or is a UN or intergovernmental body
+//     (see makeOutletChecker in news-lib.mjs);
 //   - its headline is about forced displacement, and for GDELT articles GDELT's own topic tags agree;
 //   - its headline ties it to the country it is filed under (see attributeCountries in news-lib.mjs);
 //   - it is not a profile of one person, an opinion piece, a podcast or a live blog;
 //   - its page opens and matches the headline, and its publication date falls in the window.
 // The publisher's own summary and date are read from the article page. Nothing is written for an
 // article that doesn't provide them. Earlier headlines are re-checked against the rules on every run.
+// Spanish, French and Portuguese headlines and summaries also get an English machine translation
+// (see translate.mjs); HF_CACHE_DIR sets where the translation model is kept between runs.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { inflateRawSync } from "node:zlib";
@@ -55,6 +57,7 @@ import {
 } from "./news-lib.mjs";
 import { fetchFeed, reliefWebPage, RELIEFWEB_FIELDS } from "./feeds-lib.mjs";
 import { readMediaCloud, readNewsData, fileApiItems, acceptedDomains, MEDIACLOUD_DEFAULTS, NEWSDATA_DEFAULTS } from "./news-apis-lib.mjs";
+import { translateItems, MT_MODEL } from "./translate.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const FEED = "https://data.gdeltproject.org/gdeltv2";
@@ -257,8 +260,8 @@ async function main(previous) {
   const data = await readJS("data/dashboard-data.js");
   const wc = await readJSON("data", "raw", "geo", "world-countries.json");
   const matchers = buildMatchers(data.countries, wc);
-  const ratedSources = await readJSON("data", "processed", "news-sources.json"), curated = await readJSON("data", "outlets.json");
-  const outlet = makeOutletChecker(ratedSources, curated);
+  const curated = await readJSON("data", "outlets.json");
+  const outlet = makeOutletChecker(curated);
   const feeds = (await readJSON("data", "feeds.json")).feeds;
   const t0 = Date.now();
   const took = () => `${Math.round((Date.now() - t0) / 1000)} s`;
@@ -270,7 +273,7 @@ async function main(previous) {
   const apiRun = Promise.all([
     readMediaCloud({
       key: MEDIACLOUD_API_KEY, state: previous?.newsApis?.mediacloud || null, window, now, config: MEDIACLOUD_CONFIG, log: console.log,
-      places: [...matchers.values()].map((m) => ({ iso: m.iso, terms: m.terms })), counts: savedCounts, domains: acceptedDomains(curated, ratedSources, outlet),
+      places: [...matchers.values()].map((m) => ({ iso: m.iso, terms: m.terms })), counts: savedCounts, domains: acceptedDomains(curated, outlet),
     }),
     readNewsData({ key: NEWSDATA_API_KEY, state: previous?.newsApis?.newsdata || null, langs: READ_LANGS, now, config: NEWSDATA_CONFIG, log: console.log }),
   ]).then(([mediacloud, newsdata]) => {
@@ -392,7 +395,7 @@ async function main(previous) {
       if (pub.reason === "older") { linkCounts.older++; checked.set(url, { drop: "older" }); return; }
       if (pub.date) { date = pub.date; dateKind = "published"; }
       description = summarize(r.meta.description, a.title);
-      if (r.meta.siteName) publisher = r.meta.siteName;
+      if (r.meta.siteName && r.meta.siteName.length <= 40) publisher = r.meta.siteName; // some sites put the headline there
     }
     linkCounts[r.link]++;
     checked.set(url, {
@@ -407,7 +410,11 @@ async function main(previous) {
     const items = list
       .map((a) => checked.get(a.url))
       .filter((a) => a && !a.drop && checkDate(a.date, window).date)
-      .map((a) => { const o = outlet(a.domain); return { ...a, basis: o?.basis || null, tier: o?.tier || null, outlet: o?.name || a.domain }; });
+      .map((a) => {
+        const o = outlet(a.domain);
+        const publisher = a.publisher && a.publisher.length <= 40 ? a.publisher : o?.name || a.domain;
+        return { ...a, publisher, basis: o?.basis || null, tier: o?.tier || null, outlet: o?.name || a.domain, trust: o?.level || null, owner: o?.owner || undefined, listedBy: o?.databases?.length ? o.databases : undefined };
+      });
     const top = pickForCountry(dedupe(items), { max: PER_COUNTRY, perOutlet: PER_OUTLET, ignore: matchers.get(iso)?.terms || [] });
     if (top.length) byCountry[iso] = top;
   }
@@ -422,6 +429,10 @@ async function main(previous) {
       pendingCount++;
     }
   }
+
+  // English machine translations for the articles shown (earlier ones keep theirs).
+  const translation = process.env.NEWS_TRANSLATE === "0" ? { translated: 0, skipped: 0 } : await translateItems(Object.values(byCountry).flat(), { cacheDir: process.env.HF_CACHE_DIR });
+  console.log(`Translation (${took()}): ${translation.translated} articles translated${translation.skipped ? `, ${translation.skipped} not translated` : ""}.`);
 
   const places = [...matchers.keys()].sort();
   const reports = await readReports(previous, places, window, now);
@@ -441,14 +452,15 @@ async function main(previous) {
       .join(", ").replace(/, ([^,]*)$/, " and $1"),
     sourceUrl: "https://www.gdeltproject.org/data.html",
     languages: ["en", ...TR_LANGS],
-    reputable: "Outlets on the project's hand-picked list (data/outlets.json: news agencies, public broadcasters, newspapers of record, humanitarian and migration specialists, and regional outlets), outlets Wikipedia's Perennial Sources list rates generally reliable, and UN or intergovernmental bodies. Aggregators, press-release sites, tabloids and trade press are blocked; outlets Wikipedia rates generally unreliable, deprecated or blacklisted are never shown.",
+    reputable: "Only outlets on the project's list (data/outlets.json) that were checked on 18 Nov 2026 for their own reporting (agencies, broadcasters and newspapers with correspondents, humanitarian specialists with field staff, local outlets with reporters where displacement happens). Each records its owner and which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils). UN and intergovernmental bodies count as official sources. Aggregators, press-release sites, tabloids and trade press are blocked.",
+    translation: { model: MT_MODEL, by: "OPUS-MT, University of Helsinki (CC BY 4.0)", note: "English machine translations of Spanish, French and Portuguese headlines and summaries; the original is always shown first." },
     rules: `Headline must be about forced displacement (in ${orList(READ_LANGS)}), with GDELT's own refugee or displacement tags agreeing for GDELT articles; tie it to the country it is listed under; and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window. One copy per story; at most three per outlet and eight per country.`,
     searched: places,
     lastRun: {
       at: now.toISOString(), hoursRead: +english.hours.toFixed(2), step: STEP, filesRead: english.files, filesMissing: english.missing, filesOutOfTime: english.outOfTime,
       ...(gdeltError ? { gdeltError } : {}),
       translated: translated ? { hoursRead: +translated.hours.toFixed(2), step: translated.step, filesRead: translated.files, filesMissing: translated.missing, filesOutOfTime: translated.outOfTime } : null,
-      ...counts, feeds: feedCounts, mediacloud: apiCounts.mediacloud, newsdata: apiCounts.newsdata, links: linkCounts, pendingChecks: pendingCount, byLanguage,
+      ...counts, feeds: feedCounts, mediacloud: apiCounts.mediacloud, newsdata: apiCounts.newsdata, links: linkCounts, translation, pendingChecks: pendingCount, byLanguage,
     },
     byCountry,
     pending,

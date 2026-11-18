@@ -467,7 +467,7 @@ export function fileApiItems(items, { window, outlet, matchers, langs = READ_LAN
 }
 
 // Outlet domains for Media Cloud's source filter: every listed domain the outlet rule accepts.
-export function acceptedDomains(curated, sources, outlet) {
-  const all = [...Object.keys(curated?.allow || {}), ...Object.keys(sources?.allowed || {}), ...(sources?.intergovernmental?.domains || [])];
+export function acceptedDomains(curated, outlet) {
+  const all = [...Object.keys(curated?.allow || {}), ...(curated?.intergovernmental?.domains || [])];
   return [...new Set(all.map((d) => d.toLowerCase().replace(/^www\./, "")))].filter((d) => outlet(d)).sort();
 }

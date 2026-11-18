@@ -401,8 +401,8 @@ test("NewsData: spent credits stop at once; 500, bad JSON and errors in the body
 // ---------- Filing ----------
 const data = readJS("data/dashboard-data.js");
 const matchers = buildMatchers(data.countries, readJSON("data/raw/geo/world-countries.json"));
-const sources = readJSON("data/processed/news-sources.json"), curated = readJSON("data/outlets.json");
-const outlet = makeOutletChecker(sources, curated);
+const curated = readJSON("data/outlets.json");
+const outlet = makeOutletChecker(curated);
 
 test("filing: items failing the window, language, topic, outlet or place rules are dropped", () => {
   assert.ok(outlet("aljazeera.com"), "test outlet counts");
@@ -430,7 +430,7 @@ test("filing: items failing the window, language, topic, outlet or place rules a
 });
 
 test("filing: Media Cloud's source filter gets only outlets the outlet rule accepts", () => {
-  const domains = acceptedDomains(curated, sources, outlet);
+  const domains = acceptedDomains(curated, outlet);
   assert.ok(domains.length > 100);
   assert.ok(domains.every((d) => outlet(d)));
   assert.ok(domains.includes("aljazeera.com"));
