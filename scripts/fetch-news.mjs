@@ -348,7 +348,7 @@ async function main(previous) {
       .map((a) => {
         const o = outlet(a.domain);
         const publisher = a.publisher && a.publisher.length <= 40 ? a.publisher : o?.name || a.domain;
-        return { ...a, publisher, basis: o?.basis || null, tier: o?.tier || null, outlet: o?.name || a.domain };
+        return { ...a, publisher, basis: o?.basis || null, tier: o?.tier || null, outlet: o?.name || a.domain, trust: o?.level || null, listedBy: o?.databases?.length ? o.databases : undefined };
       });
     const top = pickForCountry(dedupe(items), { max: PER_COUNTRY, perOutlet: PER_OUTLET, ignore: matchers.get(iso)?.terms || [] });
     if (top.length) byCountry[iso] = top;
@@ -385,7 +385,7 @@ async function main(previous) {
     source: "GDELT 2.0 Global Knowledge Graph (English and translated 15-minute files) and RSS feeds of hand-picked outlets",
     sourceUrl: "https://www.gdeltproject.org/data.html",
     languages: ["en", ...TR_LANGS],
-    reputable: "Only outlets on the project's hand-picked list (data/outlets.json: news agencies, broadcasters, newspapers of record, humanitarian and migration specialists, specialist newsrooms and regional outlets, each with a reason) and UN or intergovernmental bodies. Aggregators, press-release sites, tabloids and trade press are blocked.",
+    reputable: "Only outlets on the project's list (data/outlets.json) that passed two tests on 18 Nov 2026: independent (no church, party or government control unless a law or charter guarantees editorial independence) and their own reporting (agencies, broadcasters and newspapers with correspondents, humanitarian specialists with field staff, local outlets with reporters where displacement happens). Each records which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils). UN and intergovernmental bodies count as official sources. Aggregators, press-release sites, tabloids and trade press are blocked.",
     translation: { model: MT_MODEL, by: "OPUS-MT, University of Helsinki (CC BY 4.0)", note: "English machine translations of Spanish, French and Portuguese headlines and summaries; the original is always shown first." },
     rules: "Headline must be about forced displacement (in English, Spanish, French or Portuguese), with GDELT's own refugee or displacement tags agreeing for GDELT articles; tie it to the country it is listed under; and not be a personal profile, opinion piece, podcast or live blog. The article page must open and match the headline, and its publication date must fall in the window. One copy per story; at most three per outlet and eight per country.",
     searched: places,

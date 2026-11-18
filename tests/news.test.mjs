@@ -232,8 +232,17 @@ test("the real outlet and feed lists are consistent", () => {
     assert.ok(curated.tiers[curated.allow[d].tier], `${d} has an unknown tier`);
     assert.ok(curated.allow[d].why, `${d} has no reason`);
     assert.ok(!/wikipedia/i.test(curated.allow[d].why), `${d}'s reason relies on Wikipedia`);
+    assert.ok(curated.levels[curated.allow[d].check?.level], `${d} has no outlet-test result`);
+    assert.ok(!curated.excluded[d], `${d} is both allowed and excluded`);
   }
-  assert.ok(outlet("radiotamazuj.org") && outlet("csmonitor.com"));
+  for (const [d, x] of Object.entries(curated.excluded)) assert.ok(x.reason && outlet(d) === null, `${d} is excluded without a reason, or still counts`);
+  // The two tests: a church-owned paper and state-controlled channels fail; a local outlet that doesn't
+  // publish its owner but states its independence and has its own reporters passes, marked as such.
+  for (const d of ["csmonitor.com", "aljazeera.com", "channelnewsasia.com", "theconversation.com"]) assert.equal(outlet(d), null, d);
+  assert.equal(outlet("radiotamazuj.org").level, "owner-not-published");
+  assert.equal(outlet("www.bbc.co.uk").level, "checked");
+  assert.ok(outlet("punchng.com").databases.length > 0);
+  assert.equal(outlet("news.un.org").level, "official");
   for (const d of ["wn.com", "aol.com", "msn.com", "yahoo.com", "metro.co.uk", "seekingalpha.com", "reliefweb.int"]) assert.equal(outlet(d), null, d);
   for (const f of feeds) {
     assert.match(f.url, /^https:\/\//, f.url);

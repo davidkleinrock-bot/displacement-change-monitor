@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-18",
   "note": "Feeds of outlets on data/outlets.json; each is read every run and its items go through the same topic, country, date and link checks as GDELT articles.",
   "feeds": [
     {
@@ -36,13 +36,6 @@
       "lang": "en",
       "region": "Global",
       "label": "The New York Times, World"
-    },
-    {
-      "url": "https://www.aljazeera.com/xml/rss/all.xml",
-      "domain": "aljazeera.com",
-      "lang": "en",
-      "region": "Global",
-      "label": "Al Jazeera English, All"
     },
     {
       "url": "https://rss.dw.com/xml/rss-en-all",
@@ -176,13 +169,6 @@
       "lang": "en",
       "region": "Global",
       "label": "Refugees International, All"
-    },
-    {
-      "url": "https://www.crisisgroup.org/rss.xml",
-      "domain": "crisisgroup.org",
-      "lang": "en",
-      "region": "Global",
-      "label": "International Crisis Group, All"
     },
     {
       "url": "https://www.ipsnews.net/feed/",
@@ -395,13 +381,6 @@
       "label": "Studio Tamani, All"
     },
     {
-      "url": "https://mondafrique.com/feed/",
-      "domain": "mondafrique.com",
-      "lang": "fr",
-      "region": "Africa",
-      "label": "Mondafrique, All"
-    },
-    {
       "url": "https://www.dailymaverick.co.za/dmrss/",
       "domain": "dailymaverick.co.za",
       "lang": "en",
@@ -451,25 +430,11 @@
       "label": "Vanuatu Daily Post, News search"
     },
     {
-      "url": "https://pina.com.fj/feed/",
-      "domain": "pina.com.fj",
-      "lang": "en",
-      "region": "Oceania",
-      "label": "PINA, All"
-    },
-    {
       "url": "https://www.cookislandsnews.com/feed/",
       "domain": "cookislandsnews.com",
       "lang": "en",
       "region": "Oceania",
       "label": "Cook Islands News, All"
-    },
-    {
-      "url": "https://www.lowyinstitute.org/the-interpreter/rss.xml",
-      "domain": "lowyinstitute.org",
-      "lang": "en",
-      "region": "Oceania",
-      "label": "Lowy Institute, The Interpreter"
     },
     {
       "url": "https://kabulnow.com/feed",

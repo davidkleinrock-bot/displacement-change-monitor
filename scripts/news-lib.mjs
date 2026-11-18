@@ -429,22 +429,22 @@ export function pickForCountry(items, { max = 8, perOutlet = 3, ignore = [] } = 
 }
 
 // ---------- Which outlets count ----------
-// An outlet counts only if it (or a parent domain: edition.cnn.com → cnn.com) is on the hand-picked list
-// in data/outlets.json, each entry with its reason, or it is a UN or intergovernmental body. Blocked
-// domains (aggregators, tabloids, trade press) never count. No outside rating list is used.
-// `curated` is data/outlets.json.
+// An outlet counts only if it (or a parent domain: edition.cnn.com → cnn.com) is on the list in
+// data/outlets.json, where each outlet passed two tests (independent, own reporting) and records which
+// outside databases list it, or it is a UN or intergovernmental body. Blocked and excluded domains never
+// count. `curated` is data/outlets.json.
 export function makeOutletChecker(curated) {
   return (domain) => {
     const d = (domain || "").toLowerCase().replace(/^www\./, "");
     const parts = d.split(".");
     for (let i = 0; i < parts.length - 1; i++) {
       const c = parts.slice(i).join(".");
-      if (curated.block?.[c]) return null;
+      if (curated.block?.[c] || curated.excluded?.[c]) return null;
       const pick = curated.allow?.[c];
-      if (pick) return { basis: "curated", tier: pick.tier, name: pick.name || null, lang: pick.lang || null };
+      if (pick) return { basis: "curated", tier: pick.tier, name: pick.name || null, lang: pick.lang || null, level: pick.check?.level || "checked", databases: pick.check?.databases || [] };
     }
     const ig = curated.intergovernmental || { suffixes: [], domains: [] };
-    if (ig.suffixes.some((s) => d.endsWith(s)) || ig.domains.some((x) => d === x || d.endsWith("." + x))) return { basis: "intergovernmental", tier: "humanitarian", name: null, lang: null };
+    if (ig.suffixes.some((s) => d.endsWith(s)) || ig.domains.some((x) => d === x || d.endsWith("." + x))) return { basis: "intergovernmental", tier: "humanitarian", name: null, lang: null, level: "official", databases: [] };
     return null;
   };
 }

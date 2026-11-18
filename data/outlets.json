@@ -1,6 +1,11 @@
 {
   "updated": "2026-11-18",
-  "definition": "An outlet's articles are shown only if it is on this hand-picked list (news agencies, public and international broadcasters, newspapers of record, humanitarian and migration specialists, specialist newsrooms, and regional outlets that fill gaps in Latin America, Africa, Asia and the Pacific), each with a reason, or if it is a UN or intergovernmental body. Aggregators, press-release sites, tabloids, and entertainment or finance trade press are blocked.",
+  "definition": "An outlet's articles are shown only if it passes two tests, checked on 18 Nov 2026 with sources: (1) independent: no church, political party or government controls it, unless a law or charter guarantees its editorial independence (as for the BBC or Deutsche Welle); (2) its own reporting: a news agency, a broadcaster or newspaper with its own correspondents, a humanitarian specialist with field staff, or a local outlet with reporters where displacement happens. Each outlet records which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, European Broadcasting Union, Public Media Alliance, The Trust Project, press councils). Local outlets whose owner is not published but show no sign of outside control are kept and marked 'owner not published'. UN and intergovernmental bodies count as official sources. Aggregators, press-release sites, tabloids and trade press are blocked; outlets that failed a test are listed under 'excluded' with the reason.",
+  "levels": {
+    "checked": "Owner published, or listed by an outside trust database",
+    "owner-not-published": "Owner not published or not confirmed; has its own reporters and no sign of government, party or church control",
+    "official": "UN or intergovernmental source"
+  },
   "tiers": {
     "wire": "News agency",
     "broadcaster": "Broadcaster (public, international or national network)",
@@ -48,1414 +53,3780 @@
       "tier": "broadcaster",
       "region": "Oceania",
       "lang": "en",
-      "why": "Public broadcaster of Australia"
+      "why": "Public service with legal independence: Australian Broadcasting Corporation (statutory corporation) (independence: ABC Act 1983 (Charter, editorial independence provisions)). Own reporters: Australia, Asia-Pacific, global bureaux. Listed by: European Broadcasting Union, Public Media Alliance, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Australian Broadcasting Corporation (statutory corporation)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://about.abc.net.au/",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/australia"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "abcnews.com": {
       "name": "ABC News (US)",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network ABC"
+      "why": "Private company: The Walt Disney Company (ABC News division). Own reporters: United States and global bureaux. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "The Walt Disney Company (ABC News division)",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/united-states"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "abcnews.go.com": {
       "name": "ABC News (US)",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network ABC"
-    },
-    "acaps.org": {
-      "name": "ACAPS",
-      "tier": "humanitarian",
-      "region": "Global",
-      "lang": "en",
-      "why": "Independent humanitarian analysis organisation based in Geneva"
+      "why": "Private company: The Walt Disney Company (ABC News division). Own reporters: United States and global bureaux. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "The Walt Disney Company (ABC News division)",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/united-states"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "actualite.cd": {
       "name": "Actualite.cd",
       "tier": "regional",
       "region": "Africa",
       "lang": "fr",
-      "why": "News site in Kinshasa, DR Congo"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: DR Congo.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://actualite.cd"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "addisstandard.com": {
       "name": "Addis Standard",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Ethiopian news outlet based in Addis Ababa"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Ethiopia.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://addisstandard.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "afp.com": {
       "name": "Agence France-Presse",
       "tier": "wire",
       "region": "Global",
       "lang": "fr",
-      "why": "French international news agency"
+      "why": "Public service with legal independence: Agence France-Presse (autonomous public body under 1957 statute, no shareholders) (independence: AFP statute, law of 10 January 1957). Own reporters: about 150 countries. Listed by: Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Agence France-Presse (autonomous public body under 1957 statute, no shareholders)",
+        "ownerType": "public service with legal independence",
+        "reporting": "news agency",
+        "databases": [
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/app-jti/transparency-report/?jti_action=view_transparency_report&report_id=tr-44-1768403671"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "africanews.com": {
       "name": "Africanews",
       "tier": "broadcaster",
       "region": "Africa",
       "lang": "en",
-      "why": "Pan-African news channel run by Euronews"
+      "why": "Private company: Euronews S.A. (majority held by Alpac Capital, per press reports; not re-verified). Own reporters: Africa (Brazzaville hub, correspondents). Listed by: European Broadcasting Union, ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Euronews S.A. (majority held by Alpac Capital, per press reports; not re-verified)",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.africanews.com/about"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "al-monitor.com": {
       "name": "Al-Monitor",
       "tier": "regional",
       "region": "Middle East",
       "lang": "en",
-      "why": "News site on the Middle East"
-    },
-    "aljazeera.com": {
-      "name": "Al Jazeera",
-      "tier": "broadcaster",
-      "region": "Global",
-      "lang": "en",
-      "why": "International broadcaster based in Doha, Qatar"
-    },
-    "americasquarterly.org": {
-      "name": "Americas Quarterly",
-      "tier": "regional",
-      "region": "Latin America and the Caribbean",
-      "lang": "en",
-      "why": "Policy magazine of the Americas Society/Council of the Americas"
+      "why": "Private company: Al-Monitor, LLC (founded 2012 by Jamal Daniel). Own reporters: Washington DC, New York, Middle East.",
+      "check": {
+        "level": "checked",
+        "owner": "Al-Monitor, LLC (founded 2012 by Jamal Daniel)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.al-monitor.com/about"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "amnesty.org": {
       "name": "Amnesty International",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "International human rights NGO"
+      "why": "Nonprofit: Amnesty International (membership-based non-profit). Own reporters: global, researchers in the field. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Amnesty International (membership-based non-profit)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.amnesty.org/en/about-us/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "amu.tv": {
       "name": "Amu TV",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Afghan news outlet based outside Afghanistan"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Afghanistan (sources inside), exile newsroom.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://amu.tv"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "animalpolitico.com": {
       "name": "Animal Politico",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Mexican digital news outlet"
+      "why": "Private company: Animal Politico (private independent Mexican digital media company). Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Animal Politico (private independent Mexican digital media company)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://animalpolitico.com/quienes-somos",
+          "https://mexico.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ansa.it": {
       "name": "ANSA",
       "tier": "wire",
       "region": "Europe",
       "lang": "it",
-      "why": "Italian news agency"
+      "why": "Cooperative: ANSA cooperative of Italian newspaper publishers. Own reporters: Italy and foreign bureaux. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "ANSA cooperative of Italian newspaper publishers",
+        "ownerType": "cooperative or journalist-owned",
+        "reporting": "news agency",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.ansa.it/sito/static/ansa_en.html",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/italy"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ap.org": {
       "name": "Associated Press",
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "US-based international news agency"
+      "why": "Cooperative: The Associated Press (not-for-profit cooperative owned by member news organisations). Own reporters: about 250 locations worldwide. Listed by: Media Council of Kenya, ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "The Associated Press (not-for-profit cooperative owned by member news organisations)",
+        "ownerType": "cooperative or journalist-owned",
+        "reporting": "news agency",
+        "databases": [
+          "Media Council of Kenya",
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.ap.org/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "apnews.com": {
       "name": "Associated Press",
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "US-based international news agency"
+      "why": "Cooperative: The Associated Press (cooperative). Own reporters: about 250 locations worldwide. Listed by: Media Council of Kenya, ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "The Associated Press (cooperative)",
+        "ownerType": "cooperative or journalist-owned",
+        "reporting": "news agency",
+        "databases": [
+          "Media Council of Kenya",
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.ap.org/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "asia.nikkei.com": {
       "name": "Nikkei Asia",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "English-language edition of the Japanese business daily Nikkei"
+      "why": "Private company: Nikkei Inc. (private Japanese media group). Own reporters: Asia (Tokyo and regional bureaux). Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Nikkei Inc. (private Japanese media group)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://asia.nikkei.com/About-us",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/japan"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "axios.com": {
       "name": "Axios",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news website"
+      "why": "Private company: Cox Enterprises (acquired Axios in 2022). Own reporters: United States.",
+      "check": {
+        "level": "checked",
+        "owner": "Cox Enterprises (acquired Axios in 2022)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.axios.com/about"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ayibopost.com": {
       "name": "AyiboPost",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "fr",
-      "why": "Haitian digital news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Haiti.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://ayibopost.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "bbc.co.uk": {
       "name": "BBC",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public broadcaster of the United Kingdom"
+      "why": "Public service with legal independence: British Broadcasting Corporation (independence: Royal Charter and Framework Agreement with UK government). Own reporters: global bureaux. Listed by: European Broadcasting Union, Public Media Alliance, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "British Broadcasting Corporation",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://www.bbc.com/aboutthebbc",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/united-kingdom"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "bbc.com": {
       "name": "BBC",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public broadcaster of the United Kingdom"
+      "why": "Public service with legal independence: British Broadcasting Corporation (independence: Royal Charter and Framework Agreement). Own reporters: global bureaux. Listed by: European Broadcasting Union, Public Media Alliance, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "British Broadcasting Corporation",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://www.bbc.com/aboutthebbc"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "bellingcat.com": {
       "name": "Bellingcat",
       "tier": "specialist",
       "region": "Global",
       "lang": "en",
-      "why": "Open-source investigations collective based in the Netherlands"
+      "why": "Nonprofit: Stichting Bellingcat (Dutch foundation). Own reporters: global open-source investigations (Netherlands-based).",
+      "check": {
+        "level": "checked",
+        "owner": "Stichting Bellingcat (Dutch foundation)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.bellingcat.com/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "borderreport.com": {
       "name": "Border Report",
       "tier": "regional",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news site on the US-Mexico border"
+      "why": "Private company: Nexstar Media Group, Inc. (publicly traded). Own reporters: US-Mexico border states.",
+      "check": {
+        "level": "checked",
+        "owner": "Nexstar Media Group, Inc. (publicly traded)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.borderreport.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "cbc.ca": {
       "name": "CBC News",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "Public broadcaster of Canada"
-    },
-    "channelnewsasia.com": {
-      "name": "CNA",
-      "tier": "broadcaster",
-      "region": "Asia",
-      "lang": "en",
-      "why": "Singapore-based English-language news channel"
+      "why": "Public service with legal independence: Canadian Broadcasting Corporation (Crown corporation) (independence: Broadcasting Act 1991 (journalistic, creative and programming independence)). Own reporters: Canada and foreign bureaux. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Public Media Alliance, Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "Canadian Broadcasting Corporation (Crown corporation)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/app-jti/transparency-report/?jti_action=view_transparency_report&report_id=tr-45-1768403672"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "clarin.com": {
       "name": "Clarin",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Buenos Aires, Argentina"
+      "why": "Private company: Grupo Clarin (private Argentine media group). Own reporters: Argentina. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Grupo Clarin (private Argentine media group)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://argentina.mom-gmr.org/en/",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/argentina"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "cnn.com": {
       "name": "CNN",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US cable news network"
+      "why": "Private company: Warner Bros. Discovery (check for any pending sale). Own reporters: global bureaux. Listed by: Media Council of Kenya, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Warner Bros. Discovery (check for any pending sale)",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "Media Council of Kenya",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://reliefweb.int/organization/cnn",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/united-states"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "codastory.com": {
       "name": "Coda Story",
       "tier": "specialist",
       "region": "Global",
       "lang": "en",
-      "why": "Investigative news outlet"
+      "why": "Nonprofit: Coda Media, Inc. (US 501(c)(3) non-profit). Own reporters: global (staff plus collaborating journalists).",
+      "check": {
+        "level": "checked",
+        "owner": "Coda Media, Inc. (US 501(c)(3) non-profit)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.codastory.com/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "confidencial.digital": {
       "name": "Confidencial",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Nicaraguan digital news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Nicaragua, newsroom in exile in Costa Rica.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://confidencial.digital"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "cookislandsnews.com": {
       "name": "Cook Islands News",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Rarotonga, Cook Islands"
-    },
-    "crisisgroup.org": {
-      "name": "International Crisis Group",
-      "tier": "humanitarian",
-      "region": "Global",
-      "lang": "en",
-      "why": "Independent NGO that analyses conflict"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Cook Islands.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.cookislandsnews.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "criterio.hn": {
       "name": "Criterio.hn",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Honduran digital news outlet"
-    },
-    "csmonitor.com": {
-      "name": "Christian Science Monitor",
-      "tier": "newspaper",
-      "region": "Northern America",
-      "lang": "en",
-      "why": "US general news organization in Boston, founded in 1908"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Honduras.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://criterio.hn"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dailymaverick.co.za": {
       "name": "Daily Maverick",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "South African online daily newspaper"
+      "why": "Private company: Daily Maverick (Pty) Ltd, South Africa (private; founders/staff and investors). Own reporters: South Africa. Listed by: Press Council of South Africa, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Daily Maverick (Pty) Ltd, South Africa (private; founders/staff and investors)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Press Council of South Africa",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://presscouncilsa.org.za/subscriber-members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dailypost.vu": {
       "name": "Vanuatu Daily Post",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Port Vila, Vanuatu"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Vanuatu.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Trading Post Ltd, Port Vila; current owner not confirmed from a primary source",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.rnz.co.nz/news/pacific/544431/marc-neil-jones-vanuatu-s-media-pioneer-passes-away"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dailytrust.com": {
       "name": "Daily Trust",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Daily newspaper in Abuja, Nigeria"
+      "why": "Private company: Media Trust Limited, Abuja, Nigeria (private). Own reporters: Nigeria (northern Nigeria bureaus). Listed by: Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Media Trust Limited, Abuja, Nigeria (private)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dawn.com": {
       "name": "Dawn",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Karachi, Pakistan"
+      "why": "Private company: Pakistan Herald Publications (Pvt) Ltd / DAWN Group (Haroon family). Own reporters: Pakistan. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Pakistan Herald Publications (Pvt) Ltd / DAWN Group (Haroon family)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://pakistan.mom-gmr.org/en/",
+          "https://reliefweb.int/organization/dawn"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "devex.com": {
       "name": "Devex",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Media platform covering international development and humanitarian aid"
-    },
-    "devpolicy.org": {
-      "name": "Devpolicy Blog",
-      "tier": "regional",
-      "region": "Oceania",
-      "lang": "en",
-      "why": "Blog of the Development Policy Centre at the Australian National University"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Washington DC, Barcelona, Manila; global development.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Devex (private, Washington DC; founder Raj Kumar); shareholders not disclosed",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://pages.devex.com/about-devex"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dpa-international.com": {
       "name": "dpa International",
       "tier": "wire",
       "region": "Europe",
       "lang": "en",
-      "why": "English-language service of the German news agency dpa"
+      "why": "Private company: dpa Deutsche Presse-Agentur GmbH, owned by about 180 German media companies as shareholders (no single owner). Own reporters: Germany and worldwide bureaus. Listed by: ReliefWeb sources (UN OCHA), The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "dpa Deutsche Presse-Agentur GmbH, owned by about 180 German media companies as shareholders (no single owner)",
+        "ownerType": "private company",
+        "reporting": "news agency",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://reliefweb.int/organization/dpa"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dvb.no": {
       "name": "Democratic Voice of Burma",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Myanmar news outlet based in Oslo and Chiang Mai"
+      "why": "Nonprofit: Democratic Voice of Burma, Norwegian-registered foundation (Oslo), operating also from Chiang Mai. Own reporters: Myanmar (network of reporters, many now in exile), Thailand. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Democratic Voice of Burma, Norwegian-registered foundation (Oslo), operating also from Chiang Mai",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://english.dvb.no",
+          "https://reliefweb.int/organization/dvb"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "dw.com": {
       "name": "Deutsche Welle",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "Public international broadcaster of Germany"
+      "why": "Public service with legal independence: Deutsche Welle, German federal public-law broadcaster funded from the federal budget (independence: Deutsche Welle Act (DWG), editorial independence and programme autonomy). Own reporters: Global (Berlin, Bonn and bureaus worldwide). Listed by: European Broadcasting Union, Public Media Alliance, ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Deutsche Welle, German federal public-law broadcaster funded from the federal budget",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://corporate.dw.com",
+          "https://reliefweb.int/organization/dw"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "economist.com": {
       "name": "The Economist",
       "tier": "newspaper",
       "region": "Global",
       "lang": "en",
-      "why": "Weekly newspaper published in London"
-    },
-    "efe.com": {
-      "name": "EFE",
-      "tier": "wire",
-      "region": "Global",
-      "lang": "es",
-      "why": "Spanish international news agency"
+      "why": "Private company: The Economist Newspaper Ltd; shareholders include Exor (Agnelli family), Rothschild family and others; independence overseen by four Trustees (independence: Articles of association of The Economist Newspaper Ltd (Trustees must approve editor appointment/removal); company rule, not a statute). Own reporters: Global correspondents. Listed by: The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "The Economist Newspaper Ltd; shareholders include Exor (Agnelli family), Rothschild family and others; independence overseen by four Trustees",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://www.economist.com/about-us"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "efectococuyo.com": {
       "name": "Efecto Cocuyo",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Venezuelan digital news outlet"
+      "why": "Private company: Founders Luz Mely Reyes, Laura Weffer, Josefina Ruggiero (per background sources); funded by crowdfunding then international grants not disclosed by name. Own reporters: Venezuela.",
+      "check": {
+        "level": "checked",
+        "owner": "Founders Luz Mely Reyes, Laura Weffer, Josefina Ruggiero (per background sources); funded by crowdfunding then international grants not disclosed by name",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://gijn.org/es/articulos/fue-un-salto-de-fe-creando-un-medio-independiente-en-la-venezuela-en-crisis/",
+          "https://reutersinstitute.politics.ox.ac.uk/news/how-respected-editor-created-independent-news-venezuela"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elcomercio.pe": {
       "name": "El Comercio",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Lima, Peru"
+      "why": "Private company: Empresa Editora El Comercio / Grupo El Comercio (Miro Quesada family, Peru). Own reporters: Peru. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Empresa Editora El Comercio / Grupo El Comercio (Miro Quesada family, Peru)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://peru.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elespectador.com": {
       "name": "El Espectador",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Bogota, Colombia"
+      "why": "Private company: Grupo Valorem (Santo Domingo family), Colombia. Own reporters: Colombia. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Grupo Valorem (Santo Domingo family), Colombia",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/",
+          "https://colombia.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elfaro.net": {
       "name": "El Faro",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Salvadoran digital newspaper"
+      "why": "Private company: Trípode S.A. de C.V. (El Salvador); founded by Carlos Dada and Jorge Simán; legal seat moved to Costa Rica. Own reporters: El Salvador, Central America.",
+      "check": {
+        "level": "checked",
+        "owner": "Trípode S.A. de C.V. (El Salvador); founded by Carlos Dada and Jorge Simán; legal seat moved to Costa Rica",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://niemanlab.org/encyclo/el-faro/",
+          "https://www.ntn24.com/noticias-politica/el-salvador-el-faro-traslada-su-sede-administrativa-a-costa-rica-tras-denunciar-acoso-del-gobierno-de-bukele-412024"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elmundo.es": {
       "name": "El Mundo",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "es",
-      "why": "Daily newspaper in Madrid, Spain"
+      "why": "Private company: Unidad Editorial S.A., part of RCS MediaGroup (Italy). Own reporters: Spain and foreign correspondents. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Unidad Editorial S.A., part of RCS MediaGroup (Italy)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.unidadeditorial.es"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elnacional.com": {
       "name": "El Nacional",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Venezuelan newspaper founded in Caracas"
+      "why": "Private company: C.A. Editorial El Nacional, Otero family (Miguel Henrique Otero, president-editor, in exile in Spain). Own reporters: Venezuela; digital-only since 2018 with a reporter team partly outside Venezuela.",
+      "check": {
+        "level": "checked",
+        "owner": "C.A. Editorial El Nacional, Otero family (Miguel Henrique Otero, president-editor, in exile in Spain)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.ntn24.com/noticias-actualidad/miguel-henrique-otero-contra-todo-pronostico-75-anos-94774",
+          "https://www.infobae.com/america/venezuela/2018/12/13/asfixiado-por-el-regimen-de-nicolas-maduro-el-periodico-venezolano-el-nacional-dejara-de-salir-en-papel/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "elpais.com": {
       "name": "El Pais",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "es",
-      "why": "Spanish newspaper with an Americas edition"
+      "why": "Private company: Ediciones El País S.L., Grupo PRISA (shareholders include Amber Capital and others). Own reporters: Spain, Latin America (Americas edition in Mexico), other regions. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Ediciones El País S.L., Grupo PRISA (shareholders include Amber Capital and others)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.prisa.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "eltiempo.com": {
       "name": "El Tiempo",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Bogota, Colombia"
+      "why": "Private company: Casa Editorial El Tiempo, controlled by Luis Carlos Sarmiento Angulo (Grupo Aval), Colombia. Own reporters: Colombia. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Casa Editorial El Tiempo, controlled by Luis Carlos Sarmiento Angulo (Grupo Aval), Colombia",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://colombia.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "eluniversal.com.mx": {
       "name": "El Universal",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Mexico City"
+      "why": "Private company: Compania Periodistica Nacional (Ealy Ortiz family), Mexico. Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Compania Periodistica Nacional (Ealy Ortiz family), Mexico",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://mexico.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "eluniverso.com": {
       "name": "El Universo",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Guayaquil, Ecuador"
+      "why": "Private company: Compania Anonima El Universo, Perez family, Guayaquil, Ecuador. Own reporters: Ecuador. Listed by: Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Compania Anonima El Universo, Perez family, Guayaquil, Ecuador",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "enabbaladi.net": {
       "name": "Enab Baladi",
       "tier": "regional",
       "region": "Middle East",
       "lang": "en",
-      "why": "Syrian independent news outlet"
+      "why": "Nonprofit: Enab Baladi, independent Syrian nonprofit media organisation founded 2011 by citizen journalists from Daraya; grant and reader funded. Own reporters: Syria (field correspondents); editorial office in exile.",
+      "check": {
+        "level": "checked",
+        "owner": "Enab Baladi, independent Syrian nonprofit media organisation founded 2011 by citizen journalists from Daraya; grant and reader funded",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://english.enabbaladi.net/about-us",
+          "https://www.mediasupport.org/blogpost/independent-media-in-post-assad-syria-a-new-chapter-begins/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "estadao.com.br": {
       "name": "O Estado de S. Paulo",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "pt",
-      "why": "Daily newspaper in Sao Paulo, Brazil"
+      "why": "Private company: Grupo Estado / S.A. O Estado de S. Paulo (Mesquita family), Brazil. Own reporters: Brazil. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Grupo Estado / S.A. O Estado de S. Paulo (Mesquita family), Brazil",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://brazil.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "euronews.com": {
       "name": "Euronews",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "en",
-      "why": "Pan-European news channel based in Lyon, France"
+      "why": "Private company: Euronews S.A., majority Alpac Capital (Portuguese investment fund, bought 88% from Naguib Sawiris in 2022); remainder held by public broadcasters and local authorities. Own reporters: Lyon HQ plus journalists in several European and other capitals. Listed by: European Broadcasting Union.",
+      "check": {
+        "level": "checked",
+        "owner": "Euronews S.A., majority Alpac Capital (Portuguese investment fund, bought 88% from Naguib Sawiris in 2022); remainder held by public broadcasters and local authorities",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union"
+        ],
+        "evidence": [
+          "https://www.broadbandtvnews.com/2021/12/18/euronews-sold-to-portuguese-fund/",
+          "https://advanced-television.com/?p=189065"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "fao.org": {
       "name": "FAO",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Food and Agriculture Organization; part of the UN system"
+      "why": "UN Food and Agriculture Organization; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "fijitimes.com.fj": {
       "name": "The Fiji Times",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Suva, Fiji"
+      "why": "Private company: Fiji Times Ltd, owned by Motibhai Group (Fiji) since 2010, bought from News Limited. Own reporters: Fiji.",
+      "check": {
+        "level": "checked",
+        "owner": "Fiji Times Ltd, owned by Motibhai Group (Fiji) since 2010, bought from News Limited",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://moodiedavittreport.com/a-historic-moment-for-fiji-motibhai-acquires-the-fiji-times-group",
+          "https://www.rnz.co.nz/international/pacific-news/192577/motibhai-group-plans-to-take-fiji-times-to-new-level"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "folha.uol.com.br": {
       "name": "Folha de S.Paulo",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "pt",
-      "why": "Daily newspaper in Sao Paulo, Brazil"
+      "why": "Private company: Empresa Folha da Manha S.A., Grupo Folha (Frias family), Brazil. Own reporters: Brazil and foreign correspondents. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "Empresa Folha da Manha S.A., Grupo Folha (Frias family), Brazil",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://brazil.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "france24.com": {
       "name": "France 24",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "en",
-      "why": "International news channel of France"
+      "why": "Public service with legal independence: France Medias Monde, 100% owned by the French State (holding company) (independence: French law of 30 September 1986 on freedom of communication (national programme company, supervised by Arcom)). Own reporters: Global (Paris plus bureaus and correspondents). Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "France Medias Monde, 100% owned by the French State (holding company)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://www.francemediasmonde.com",
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "franceinfo.fr": {
       "name": "franceinfo",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "News service of the French public broadcasters Radio France and France Télévisions"
+      "why": "Public service with legal independence: franceinfo is a joint service of Radio France, France Televisions, France Medias Monde and INA; public companies owned by the French State (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "franceinfo is a joint service of Radio France, France Televisions, France Medias Monde and INA; public companies owned by the French State",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.franceinfo.fr",
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "francetvinfo.fr": {
       "name": "franceinfo",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "News site of the French public broadcaster France Télévisions"
+      "why": "Public service with legal independence: France Televisions (State-owned public group) (independence: French law of 30 September 1986 on freedom of communication (as amended; Arcom oversight)). Own reporters: France and worldwide correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "France Televisions (State-owned public group)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.francetelevisions.fr",
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "frontiermyanmar.net": {
       "name": "Frontier Myanmar",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Myanmar news magazine"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Myanmar.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Boomerang Media Pte Ltd (Singapore); share transfer in April 2025",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.frontiermyanmar.net/en/frontier-founder-to-return-as-ceo/",
+          "https://myanmar-now.org/en/news/frontier-myanmars-new-foreign-owner-engaging-with-myanmar-military-junta-officials/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ft.com": {
       "name": "Financial Times",
       "tier": "newspaper",
       "region": "Global",
       "lang": "en",
-      "why": "Daily newspaper published in London"
+      "why": "Private company: The Financial Times Ltd, wholly owned by Nikkei Inc. (Japan) since 2015. Own reporters: Global bureaus. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "The Financial Times Ltd, wholly owned by Nikkei Inc. (Japan) since 2015",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://aboutus.ft.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "g1.globo.com": {
       "name": "G1",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "pt",
-      "why": "News portal of the Globo group, Brazil"
+      "why": "Private company: Globo Comunicacao e Participacoes S.A. (Marinho family), Brazil. Own reporters: Brazil (TV Globo and Globo regional affiliates' reporters). Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Globo Comunicacao e Participacoes S.A. (Marinho family), Brazil",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://brazil.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "haaretz.com": {
       "name": "Haaretz",
       "tier": "newspaper",
       "region": "Middle East",
       "lang": "en",
-      "why": "Daily newspaper in Tel Aviv, Israel"
+      "why": "Private company: Haaretz Group: Schocken family about 75%, Leonid Nevzlin about 25% (older reports 2011-2019, not re-confirmed). Own reporters: Israel, West Bank and Gaza coverage, foreign correspondents.",
+      "check": {
+        "level": "checked",
+        "owner": "Haaretz Group: Schocken family about 75%, Leonid Nevzlin about 25% (older reports 2011-2019, not re-confirmed)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://en.globes.co.il/en/article-1000121482",
+          "https://www.jpost.com/business/business-news/article-224740"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "haitiantimes.com": {
       "name": "The Haitian Times",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "New York-based English-language outlet covering Haiti and its diaspora"
+      "why": "Private company: Founder Garry Pierre-Pierre and publisher/editor-in-chief Vania Andre (part ownership transferred 2018); legal form not confirmed. Own reporters: Haiti and New York diaspora.",
+      "check": {
+        "level": "checked",
+        "owner": "Founder Garry Pierre-Pierre and publisher/editor-in-chief Vania Andre (part ownership transferred 2018); legal form not confirmed",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.cjr.org/the_media_today/haitian-times-gary-pierre-pierre-vania-andre.php",
+          "https://www.voanews.com/a/big-impact-in-little-haiti/7355885.html"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "hrw.org": {
       "name": "Human Rights Watch",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Human rights NGO"
+      "why": "Nonprofit: Human Rights Watch, Inc. (US nonprofit). Own reporters: Global (researchers in 100+ countries). Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Human Rights Watch, Inc. (US nonprofit)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.hrw.org/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "icrc.org": {
       "name": "ICRC",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "International Committee of the Red Cross"
+      "why": "Nonprofit: International Committee of the Red Cross (private association under Swiss law, mandate from Geneva Conventions) (independence: Geneva Conventions mandate and Swiss private-association status (not rechecked)). Own reporters: Global (delegations in 90+ countries; not checked in this run).",
+      "check": {
+        "level": "checked",
+        "owner": "International Committee of the Red Cross (private association under Swiss law, mandate from Geneva Conventions)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [],
+        "evidence": [
+          "https://www.icrc.org/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ifrc.org": {
       "name": "IFRC",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "International Federation of Red Cross and Red Crescent Societies"
+      "why": "Nonprofit: International Federation of Red Cross and Red Crescent Societies (membership federation of national societies). Own reporters: Global (national societies and secretariat delegations). Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "International Federation of Red Cross and Red Crescent Societies (membership federation of national societies)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.ifrc.org/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "independent.co.uk": {
       "name": "The Independent",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Online newspaper in the United Kingdom"
+      "why": "Private company: Independent Digital News & Media Ltd; majority Evgeny Lebedev, with a Saudi investor (Sultan Muhammad Abuljadayel) reported at 25-50% in 2017. Own reporters: UK, US, with foreign correspondents. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Independent Digital News & Media Ltd; majority Evgeny Lebedev, with a Saudi investor (Sultan Muhammad Abuljadayel) reported at 25-50% in 2017",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://pressgazette.co.uk/evening-standard-claims-editorial-integrity-protected-by-contract-after-new-investor-revealed-as-saudi-with-ties-to-independent/",
+          "https://www.arabnews.com/node/1137761"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "indianexpress.com": {
       "name": "The Indian Express",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in India"
+      "why": "Private company: Express Group (Indian Express Group, Goenka family). Own reporters: India (bureaus nationwide). Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Express Group (Indian Express Group, Goenka family)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://india.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "infobae.com": {
       "name": "Infobae",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Digital news outlet based in Buenos Aires, Argentina"
+      "why": "Private company: Infobae / Grupo Infobae (Daniel Hadad). Own reporters: Argentina, with bureaus across Latin America. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Infobae / Grupo Infobae (Daniel Hadad)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://argentina.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "infomigrants.net": {
       "name": "InfoMigrants",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Migration news site run by France Médias Monde with Deutsche Welle and ANSA, co-funded by the EU"
+      "why": "Run by France Médias Monde (JTI-certified) with Deutsche Welle and ANSA, co-funded by the EU; own newsroom covering migration.",
+      "check": {
+        "level": "checked",
+        "owner": "Project of France Medias Monde with Deutsche Welle and ANSA, co-financed by the EU",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [],
+        "evidence": [
+          "https://www.infomigrants.net/en/about"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "inquirer.net": {
       "name": "Philippine Daily Inquirer",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Manila, Philippines"
+      "why": "Private company: Philippine Daily Inquirer, Inc. (Prieto family, Rufino-Prieto). Own reporters: Philippines nationwide. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Philippine Daily Inquirer, Inc. (Prieto family, Rufino-Prieto)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://philippines.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "insightcrime.org": {
       "name": "InSight Crime",
       "tier": "specialist",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "Foundation reporting on organized crime in Latin America and the Caribbean"
+      "why": "Nonprofit: InSight Crime Foundation (nonprofit; Latin America based, funded by grants). Own reporters: Latin America and the Caribbean (investigators in the region; headcount not confirmed).",
+      "check": {
+        "level": "checked",
+        "owner": "InSight Crime Foundation (nonprofit; Latin America based, funded by grants)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://insightcrime.org/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "internal-displacement.org": {
       "name": "IDMC",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Internal Displacement Monitoring Centre, part of the Norwegian Refugee Council"
+      "why": "Nonprofit: Internal Displacement Monitoring Centre, part of Norwegian Refugee Council. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Internal Displacement Monitoring Centre, part of Norwegian Refugee Council",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.internal-displacement.org/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "iom.int": {
       "name": "IOM",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Migration Agency; part of the UN system"
+      "why": "UN Migration Agency; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "ipsnews.net": {
       "name": "Inter Press Service",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "News agency covering development and global affairs"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Global network, HQ Rome. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "IPS Inter Press Service International Association",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "news agency",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.ipsnews.net/about-us/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ipsnoticias.net": {
       "name": "IPS Noticias",
       "tier": "humanitarian",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Spanish-language service of Inter Press Service"
+      "why": "Spanish-language service of Inter Press Service. Owner not published; no sign of government, party or church control found. Own reporters: Global network, HQ Rome. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "IPS Inter Press Service International Association",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "news agency",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.ipsnews.net/about-us/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "iranwire.com": {
       "name": "IranWire",
       "tier": "regional",
       "region": "Middle East",
       "lang": "en",
-      "why": "Independent news outlet on Iran"
+      "why": "Owner not published; no sign of government, party or church control found.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Reported Off-Centre Productions Ltd / Journalism for Change; secondary source only",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://projects.propublica.org/nonprofits/organizations/472148160"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "irishtimes.com": {
       "name": "The Irish Times",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in Dublin, Ireland"
+      "why": "Private company: The Irish Times DAC / Irish Times Group, owned by The Irish Times Trust. Own reporters: Ireland, with foreign correspondents. Listed by: Media Ownership Monitor (RSF), Press Council of Ireland, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "The Irish Times DAC / Irish Times Group, owned by The Irish Times Trust",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Press Council of Ireland",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.pressombudsman.ie/member-publications"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "irrawaddy.com": {
       "name": "The Irrawaddy",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Myanmar news outlet"
+      "why": "Nonprofit: Irrawaddy Publishing Group (nonprofit media organisation, exile origin, Chiang Mai and Yangon). Own reporters: Myanmar and Thailand border. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Irrawaddy Publishing Group (nonprofit media organisation, exile origin, Chiang Mai and Yangon)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.irrawaddy.com/about-us",
+          "https://www.irrawaddy.com/tag/funding"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "islandsbusiness.com": {
       "name": "Islands Business",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Pacific regional magazine published in Suva, Fiji"
+      "why": "Private company: Front Page Pte Limited (Fiji company owned by a consortium of Fijian journalists since 2014). Own reporters: Pacific Islands (Suva based).",
+      "check": {
+        "level": "checked",
+        "owner": "Front Page Pte Limited (Fiji company owned by a consortium of Fijian journalists since 2014)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://pina.com.fj/pina-members/islands-business-2/",
+          "https://islandsbusiness.com/about-islands-business/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "jamaica-gleaner.com": {
       "name": "The Gleaner",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "Daily newspaper in Kingston, Jamaica"
+      "why": "Private company: RJRGLEANER Communications Group (publicly listed company, Jamaica). Own reporters: Jamaica. Listed by: Public Media Alliance.",
+      "check": {
+        "level": "checked",
+        "owner": "RJRGLEANER Communications Group (publicly listed company, Jamaica)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Public Media Alliance"
+        ],
+        "evidence": [
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "japantimes.co.jp": {
       "name": "The Japan Times",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "English-language daily newspaper in Tokyo"
+      "why": "Private company: The Japan Times, Ltd. (owned by News2u Holdings since 2017). Own reporters: Japan. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "The Japan Times, Ltd. (owned by News2u Holdings since 2017)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.japantimes.co.jp/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "jeuneafrique.com": {
       "name": "Jeune Afrique",
       "tier": "regional",
       "region": "Africa",
       "lang": "fr",
-      "why": "Pan-African news magazine published in Paris"
+      "why": "Private company: Groupe Jeune Afrique Media (family-controlled, Ben Yahmed family, Paris). Own reporters: Africa (correspondents) and Paris.",
+      "check": {
+        "level": "checked",
+        "owner": "Groupe Jeune Afrique Media (family-controlled, Ben Yahmed family, Paris)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.jeuneafrique.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "jornada.com.mx": {
       "name": "La Jornada",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Mexico City"
+      "why": "Private company: Desarrollo de Medios, S.A. de C.V. (La Jornada), shareholders include founders and staff. Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Desarrollo de Medios, S.A. de C.V. (La Jornada), shareholders include founders and staff",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://mexico.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "kabulnow.com": {
       "name": "KabulNow",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Afghan independent news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Afghanistan reporters, exile base in US.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Etilaatroz and KabulNow (publisher Zaki Daryabi); legal entity not found",
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://theworld.org/stories/2023/03/16/prominent-afghan-news-organization-operates-out-silver-spring-maryland"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "kyivindependent.com": {
       "name": "The Kyiv Independent",
       "tier": "regional",
       "region": "Europe",
       "lang": "en",
-      "why": "English-language news outlet in Kyiv, Ukraine"
+      "why": "Cooperative: No single owner; 'at least partly owned by its journalists'; co-founded with Jnomics; registered in Ukraine and the UK. Own reporters: Ukraine (Kyiv based; team of 90+).",
+      "check": {
+        "level": "checked",
+        "owner": "No single owner; 'at least partly owned by its journalists'; co-founded with Jnomics; registered in Ukraine and the UK",
+        "ownerType": "cooperative or journalist-owned",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://kyivindependent.com/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "kyodonews.net": {
       "name": "Kyodo News",
       "tier": "wire",
       "region": "Asia",
       "lang": "en",
-      "why": "Japanese news agency"
+      "why": "Cooperative: Kyodo News (nonprofit general incorporated association of about 56 member newspapers and NHK). Own reporters: Japan and global bureaus. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Kyodo News (nonprofit general incorporated association of about 56 member newspapers and NHK)",
+        "ownerType": "cooperative or journalist-owned",
+        "reporting": "news agency",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.kyodo.co.jp/corp/?p=174",
+          "https://en.tansajp.org/investigativejournal/8169/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "lanacion.com.ar": {
       "name": "La Nacion",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Buenos Aires, Argentina"
+      "why": "Private company: S.A. La Nacion (Mitre family). Own reporters: Argentina. Listed by: Media Ownership Monitor (RSF), ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "S.A. La Nacion (Mitre family)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://argentina.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "laprensa.hn": {
       "name": "La Prensa (Honduras)",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in San Pedro Sula, Honduras"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Honduras.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Grupo OPSA / Organizacion Publicitaria S.A. (reported)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.laprensa.hn/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "laprensani.com": {
       "name": "La Prensa (Nicaragua)",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Managua, Nicaragua"
+      "why": "Private company: La Prensa Nicaragua (Chamorro family paper; assets seized by the government in 2021; now run from exile). Own reporters: Costa Rica newsroom in exile covering Nicaragua.",
+      "check": {
+        "level": "checked",
+        "owner": "La Prensa Nicaragua (Chamorro family paper; assets seized by the government in 2021; now run from exile)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://confidencial.digital/en/nation/nicaraguas-la-prensa-turns-100-with-its-newsroom-in-exile/",
+          "https://uk.news.yahoo.com/nicaragua-newspaper-says-staff-fled-210145285.html"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "latercera.com": {
       "name": "La Tercera",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Santiago, Chile"
+      "why": "Private company: Copesa (Grupo Copesa). Own reporters: Chile. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Copesa (Grupo Copesa)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.latercera.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "latimes.com": {
       "name": "Los Angeles Times",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Los Angeles"
+      "why": "Private company: California Times (Patrick Soon-Shiong). Own reporters: US West Coast.",
+      "check": {
+        "level": "checked",
+        "owner": "California Times (Patrick Soon-Shiong)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.latimes.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "lemonde.fr": {
       "name": "Le Monde",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "fr",
-      "why": "Daily newspaper in Paris, France"
+      "why": "Private company: Groupe Le Monde (Pigasse, Niel, Kretinsky, plus independence funds). Own reporters: France plus international correspondents. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Groupe Le Monde (Pigasse, Niel, Kretinsky, plus independence funds)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.lemonde.fr/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "lenouvelliste.com": {
       "name": "Le Nouvelliste",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "fr",
-      "why": "Daily newspaper in Port-au-Prince, Haiti"
+      "why": "Private company: Le Nouvelliste (Chauvet family; Max Chauvet named as owner in a 2010 CPJ report, current structure not confirmed). Own reporters: Haiti.",
+      "check": {
+        "level": "checked",
+        "owner": "Le Nouvelliste (Chauvet family; Max Chauvet named as owner in a 2010 CPJ report, current structure not confirmed)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://cpj.org/2010/04/le-nouvelliste-haitian-paper-resumes-daily-publication/",
+          "https://ijnet.org/en/story/print-media-haiti-brink-extinction"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "lorientlejour.com": {
       "name": "L'Orient-Le Jour",
       "tier": "regional",
       "region": "Middle East",
       "lang": "fr",
-      "why": "French-language daily newspaper in Beirut, Lebanon"
-    },
-    "lowyinstitute.org": {
-      "name": "Lowy Institute",
-      "tier": "regional",
-      "region": "Oceania",
-      "lang": "en",
-      "why": "Think tank in Sydney; its Interpreter blog covers the Pacific"
-    },
-    "lusa.pt": {
-      "name": "Lusa",
-      "tier": "wire",
-      "region": "Europe",
-      "lang": "pt",
-      "why": "Portuguese news agency"
+      "why": "Private company: L'Orient-Le Jour SAL (Lebanon; owner group not rechecked). Own reporters: Lebanon. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "L'Orient-Le Jour SAL (Lebanon; owner group not rechecked)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "meduza.io": {
       "name": "Meduza",
       "tier": "regional",
       "region": "Europe",
       "lang": "en",
-      "why": "Russian-language outlet based in Riga, Latvia, with an English edition"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Riga newsroom covering Russia/Ukraine.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Medusa Project SIA (Latvia), reportedly Galina Timchenko",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.err.ee/1608223627/meduza-portaali-omanik-oleme-muutunud-liiga-tuntuks-ja-heaks"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "mg.co.za": {
       "name": "Mail & Guardian",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Weekly newspaper in South Africa"
-    },
-    "migrationpolicy.org": {
-      "name": "Migration Policy Institute",
-      "tier": "humanitarian",
-      "region": "Global",
-      "lang": "en",
-      "why": "Think tank on migration policy"
+      "why": "Private company: M&G Media Ltd (privately owned; majority held by publisher Trevor Ncube per general knowledge, not re-verified). Own reporters: South Africa. Listed by: ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "M&G Media Ltd (privately owned; majority held by publisher Trevor Ncube per general knowledge, not re-verified)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://mg.co.za"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "mixedmigration.org": {
       "name": "Mixed Migration Centre",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Research and data initiative on mixed migration"
-    },
-    "mondafrique.com": {
-      "name": "Mondafrique",
-      "tier": "regional",
-      "region": "Africa",
-      "lang": "fr",
-      "why": "French-language news site on Africa and the Mediterranean"
-    },
-    "monde-diplomatique.fr": {
-      "name": "Le Monde diplomatique",
-      "tier": "newspaper",
-      "region": "Europe",
-      "lang": "fr",
-      "why": "Monthly newspaper published in Paris"
+      "why": "Nonprofit: Mixed Migration Centre (hosted by the Danish Refugee Council, a humanitarian NGO) - host relationship from general knowledge. Own reporters: Africa, Middle East, Asia, Latin America (field data collection through its 4Mi monitoring). Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Mixed Migration Centre (hosted by the Danish Refugee Council, a humanitarian NGO) - host relationship from general knowledge",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://mixedmigration.org",
+          "https://reliefweb.int/organization/mmc"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "mongabay.com": {
       "name": "Mongabay",
       "tier": "specialist",
       "region": "Global",
       "lang": "en",
-      "why": "Nonprofit environmental news outlet"
+      "why": "Nonprofit: Mongabay (US nonprofit, founded by Rhett Butler). Own reporters: Global; reporters and correspondents in Latin America, Africa, Asia.",
+      "check": {
+        "level": "checked",
+        "owner": "Mongabay (US nonprofit, founded by Rhett Butler)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://mongabay.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "monitor.co.ug": {
       "name": "Daily Monitor",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Daily newspaper in Kampala, Uganda"
+      "why": "Private company: Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge). Own reporters: Uganda. Listed by: Media Council of Kenya.",
+      "check": {
+        "level": "checked",
+        "owner": "Nation Media Group PLC (listed on the Nairobi and Uganda exchanges; Aga Khan Fund for Economic Development is the largest shareholder per general knowledge)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Media Council of Kenya"
+        ],
+        "evidence": [
+          "https://www.monitor.co.ug"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "msf.org": {
       "name": "Medecins Sans Frontieres",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "International medical humanitarian NGO"
+      "why": "Nonprofit: Medecins Sans Frontieres (international medical humanitarian association, Swiss-registered). Own reporters: Over 70 countries with field projects. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Medecins Sans Frontieres (international medical humanitarian association, Swiss-registered)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.msf.org"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "mvariety.com": {
       "name": "Marianas Variety",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Saipan, Northern Mariana Islands"
+      "why": "Private company: Younis Art Studio Inc. (family-owned; founder Abed Younis died 2020). Own reporters: Saipan, Northern Mariana Islands.",
+      "check": {
+        "level": "checked",
+        "owner": "Younis Art Studio Inc. (family-owned; founder Abed Younis died 2020)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.mvariety.com/?p=61481",
+          "https://saipantribune.com/index.php/publisher-younis-writes-30"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "myanmar-now.org": {
       "name": "Myanmar Now",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Myanmar news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Myanmar.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://myanmar-now.org"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nation.africa": {
       "name": "Nation",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Daily newspaper in Nairobi, Kenya"
+      "why": "Private company: Nation Media Group PLC (listed company; Aga Khan Fund for Economic Development largest shareholder per general knowledge). Own reporters: Kenya, Uganda, Tanzania, Rwanda. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Nation Media Group PLC (listed company; Aga Khan Fund for Economic Development largest shareholder per general knowledge)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Council of Kenya",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://nation.africa"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nationalpost.com": {
       "name": "National Post",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Toronto, Canada"
+      "why": "Private company: Postmedia Network Canada Corp (publicly traded; large holders include US funds such as Chatham Asset Management, per general knowledge). Own reporters: Canada. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Postmedia Network Canada Corp (publicly traded; large holders include US funds such as Chatham Asset Management, per general knowledge)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://nationalpost.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nbcnews.com": {
       "name": "NBC News",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "News division of the US network NBC"
+      "why": "Private company: NBCUniversal, a Comcast company. Own reporters: United States and international bureaus. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "NBCUniversal, a Comcast company",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.nbcnews.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "news.sky.com": {
       "name": "Sky News",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "en",
-      "why": "UK television news channel"
+      "why": "Private company: Sky Ltd, owned by Comcast. Own reporters: UK and international bureaus. Listed by: Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "Sky Ltd, owned by Comcast",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://news.sky.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "news.un.org": {
       "name": "UN News",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "News service of the United Nations"
+      "why": "News service of the United Nations",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "newsroom.co.nz": {
       "name": "Newsroom",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "New Zealand digital news outlet"
+      "why": "Private company: Newsroom Ltd (private New Zealand company). Own reporters: New Zealand. Listed by: New Zealand Media Council.",
+      "check": {
+        "level": "checked",
+        "owner": "Newsroom Ltd (private New Zealand company)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "New Zealand Media Council"
+        ],
+        "evidence": [
+          "https://www.mediacouncil.org.nz/membership/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "newyorker.com": {
       "name": "The New Yorker",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US magazine with reporting and long-form journalism"
+      "why": "Private company: Conde Nast, owned by Advance Publications (Newhouse family). Own reporters: United States and abroad (staff writers, long-form).",
+      "check": {
+        "level": "checked",
+        "owner": "Conde Nast, owned by Advance Publications (Newhouse family)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.newyorker.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nhk.or.jp": {
       "name": "NHK",
       "tier": "broadcaster",
       "region": "Asia",
       "lang": "ja",
-      "why": "Public broadcaster of Japan"
+      "why": "Public service with legal independence: Japan Broadcasting Corporation (NHK), a public broadcaster funded by receiver fees (independence: Japan Broadcast Act (editorial freedom provisions); board is appointed with Diet consent, which critics note). Own reporters: Japan and overseas bureaus. Listed by: European Broadcasting Union, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Japan Broadcasting Corporation (NHK), a public broadcaster funded by receiver fees",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.nhk.or.jp"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nikkei.com": {
       "name": "Nikkei",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "ja",
-      "why": "Daily newspaper in Tokyo, Japan"
+      "why": "Private company: Nikkei Inc. (private company, shareholders include employees and corporate holders). Own reporters: Japan and Asia, global bureaus. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Nikkei Inc. (private company, shareholders include employees and corporate holders)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.nikkei.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "npr.org": {
       "name": "NPR",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US public radio network"
+      "why": "Nonprofit: National Public Radio, Inc. (private nonprofit; member station network). Own reporters: United States and international bureaus. Listed by: European Broadcasting Union, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "National Public Radio, Inc. (private nonprofit; member station network)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.npr.org"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nrc.no": {
       "name": "Norwegian Refugee Council",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Humanitarian NGO"
+      "why": "Nonprofit: Norwegian Refugee Council (independent humanitarian foundation/NGO). Own reporters: Over 40 countries with field operations. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Norwegian Refugee Council (independent humanitarian foundation/NGO)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.nrc.no"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nytimes.com": {
       "name": "The New York Times",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in New York"
+      "why": "Private company: The New York Times Company (publicly traded; Ochs-Sulzberger family controls via Class B shares). Own reporters: Global bureaus. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "The New York Times Company (publicly traded; Ochs-Sulzberger family controls via Class B shares)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.nytimes.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "nzherald.co.nz": {
       "name": "New Zealand Herald",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Auckland, New Zealand"
+      "why": "Private company: NZME Ltd (listed on NZX and ASX). Own reporters: New Zealand. Listed by: New Zealand Media Council.",
+      "check": {
+        "level": "checked",
+        "owner": "NZME Ltd (listed on NZX and ASX)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "New Zealand Media Council"
+        ],
+        "evidence": [
+          "https://www.mediacouncil.org.nz/membership/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "ohchr.org": {
       "name": "UN Human Rights Office",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Office of the High Commissioner for Human Rights; part of the UN system"
+      "why": "UN Office of the High Commissioner for Human Rights; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "pbs.org": {
       "name": "PBS",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "en",
-      "why": "US public television network"
-    },
-    "pina.com.fj": {
-      "name": "PINA",
-      "tier": "regional",
-      "region": "Oceania",
-      "lang": "en",
-      "why": "Pacific Islands News Association, Suva, Fiji"
-    },
-    "plazapublica.com.gt": {
-      "name": "Plaza Publica",
-      "tier": "regional",
-      "region": "Latin America and the Caribbean",
-      "lang": "es",
-      "why": "Guatemalan digital news outlet"
+      "why": "Nonprofit: Public Broadcasting Service (private nonprofit owned by its member stations). Own reporters: United States and international (PBS News, with WETA). Listed by: Public Media Alliance, ReliefWeb sources (UN OCHA), The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "Public Broadcasting Service (private nonprofit owned by its member stations)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "Public Media Alliance",
+          "ReliefWeb sources (UN OCHA)",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "politico.com": {
       "name": "Politico",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US political news outlet"
+      "why": "Private company: Axel Springer SE (private German publisher). Own reporters: Washington, US states, Brussels and others.",
+      "check": {
+        "level": "checked",
+        "owner": "Axel Springer SE (private German publisher)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.politico.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "postcourier.com.pg": {
       "name": "Post-Courier",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Port Moresby, Papua New Guinea"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Papua New Guinea.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://pina.com.fj/pina-members/post-courier/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "premiumtimesng.com": {
       "name": "Premium Times",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Online newspaper in Abuja, Nigeria"
+      "why": "Private company: Premium Times Services Ltd (private; founder Dapo Olorunyomi; linked nonprofit Premium Times Centre for Investigative Journalism). Own reporters: Nigeria. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Premium Times Services Ltd (private; founder Dapo Olorunyomi; linked nonprofit Premium Times Centre for Investigative Journalism)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.premiumtimesng.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "prensalibre.com": {
       "name": "Prensa Libre",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Daily newspaper in Guatemala City"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Guatemala.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Prensa Libre S.A. (private)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.prensalibre.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "primicias.ec": {
       "name": "Primicias",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Ecuadorian digital news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Ecuador.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Digital Information Digitinfo S.A. (Ecuador); shareholders not found",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.primicias.ec/about-us/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "proceso.com.mx": {
       "name": "Proceso",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Mexican weekly news magazine"
+      "why": "Private company: Comunicacion e Informacion S.A. de C.V. (private, founded by Julio Scherer Garcia in 1976; from general knowledge). Own reporters: Mexico. Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Comunicacion e Informacion S.A. de C.V. (private, founded by Julio Scherer Garcia in 1976; from general knowledge)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://www.proceso.com.mx"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "propublica.org": {
       "name": "ProPublica",
       "tier": "specialist",
       "region": "Northern America",
       "lang": "en",
-      "why": "US nonprofit investigative newsroom"
+      "why": "Nonprofit: Pro Publica, Inc. (US nonprofit, philanthropy-funded). Own reporters: United States. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Pro Publica, Inc. (US nonprofit, philanthropy-funded)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.propublica.org"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "punchng.com": {
       "name": "The Punch",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Daily newspaper in Lagos, Nigeria"
+      "why": "Private company: Punch (Nigeria) Limited (private, Lagos). Own reporters: Nigeria. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Punch (Nigeria) Limited (private, Lagos)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://punchng.com"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "radio-canada.ca": {
       "name": "Radio-Canada",
       "tier": "broadcaster",
       "region": "Northern America",
       "lang": "fr",
-      "why": "French-language service of the Canadian public broadcaster CBC/Radio-Canada"
+      "why": "Public service with legal independence: Canadian Broadcasting Corporation / Societe Radio-Canada (federal Crown corporation) (independence: Canadian Broadcasting Act (journalistic, creative and programming independence, s.35)). Own reporters: Canada and international bureaus. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Public Media Alliance.",
+      "check": {
+        "level": "checked",
+        "owner": "Canadian Broadcasting Corporation / Societe Radio-Canada (federal Crown corporation)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Public Media Alliance"
+        ],
+        "evidence": [
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "radiofrance.fr": {
       "name": "Radio France",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public radio broadcaster of France"
+      "why": "Public service with legal independence: Radio France (societe nationale de radiodiffusion; 100% French state-owned public company) (independence: French law of 30 Sept 1986 on freedom of communication (public broadcasting mission, Arcom oversight) - from general knowledge, not re-fetched). Own reporters: France plus foreign correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Radio France (societe nationale de radiodiffusion; 100% French state-owned public company)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/",
+          "https://www.ebu.ch/about/members"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "radiookapi.net": {
       "name": "Radio Okapi",
       "tier": "regional",
       "region": "Africa",
       "lang": "fr",
-      "why": "UN-backed radio of the UN mission in DR Congo (MONUSCO)"
+      "why": "UN-run radio of the UN mission in DR Congo (MONUSCO), with Fondation Hirondelle; reporters across DR Congo. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "official",
+        "owner": "UN mission MONUSCO (Fondation Hirondelle co-managed it until 2014)",
+        "ownerType": "intergovernmental",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://reliefweb.int/organization/radio-okapi",
+          "https://www.hirondelle.org/en/democratic-republic-of-congo-okapi"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "radiotamazuj.org": {
       "name": "Radio Tamazuj",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Radio and online news on South Sudan and Sudan"
+      "why": "Owner not published. States it is editorially independent and not affiliated to any government, political party or armed group in Sudan or South Sudan; daily news service with its own team of journalists.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.radiotamazuj.org/en/about-us"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rappler.com": {
       "name": "Rappler",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Philippine digital news outlet"
+      "why": "Private company: Rappler Inc. (private, founded by Maria Ressa and colleagues; employee/founder and investor ownership) - from general knowledge, not re-fetched. Own reporters: Philippines. Listed by: Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Rappler Inc. (private, founded by Maria Ressa and colleagues; employee/founder and investor ownership) - from general knowledge, not re-fetched",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://philippines.mom-gmr.org/en/",
+          "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "refugeesinternational.org": {
       "name": "Refugees International",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Advocacy NGO for displaced people"
+      "why": "Nonprofit: Refugees International (US nonprofit). Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Refugees International (US nonprofit)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://reliefweb.int/organization/refugees-international"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "reuters.com": {
       "name": "Reuters",
       "tier": "wire",
       "region": "Global",
       "lang": "en",
-      "why": "International news agency"
+      "why": "Private company: Thomson Reuters Corporation (listed company; controlled by Woodbridge/Thomson family) (independence: Reuters Trust Principles and Thomson Reuters Founders Share Company (private governance, not law)). Own reporters: Global, about 200 locations. Listed by: Media Council of Kenya.",
+      "check": {
+        "level": "checked",
+        "owner": "Thomson Reuters Corporation (listed company; controlled by Woodbridge/Thomson family) ",
+        "ownerType": "private company",
+        "reporting": "news agency",
+        "databases": [
+          "Media Council of Kenya"
+        ],
+        "evidence": [
+          "https://www.thomsonreuters.com/en/about-us/trust-principles.html"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rfi.fr": {
       "name": "RFI",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "fr",
-      "why": "International public radio of France"
+      "why": "Public service with legal independence: France Medias Monde (100% French state-owned holding) (independence: French law of 30 Sept 1986 on freedom of communication; Arcom oversight (general knowledge)). Own reporters: Global, with correspondents in Africa, Middle East, Asia, Americas. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Media Council of Kenya.",
+      "check": {
+        "level": "checked",
+        "owner": "France Medias Monde (100% French state-owned holding)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Media Council of Kenya"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/",
+          "https://www.francemediasmonde.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rnz.co.nz": {
       "name": "RNZ",
       "tier": "broadcaster",
       "region": "Oceania",
       "lang": "en",
-      "why": "Public broadcaster of New Zealand"
+      "why": "Public service with legal independence: Radio New Zealand (Crown entity) (independence: Radio New Zealand Act 1995 (charter, editorial independence)). Own reporters: New Zealand and Pacific. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), New Zealand Media Council, Public Media Alliance.",
+      "check": {
+        "level": "checked",
+        "owner": "Radio New Zealand (Crown entity)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "New Zealand Media Council",
+          "Public Media Alliance"
+        ],
+        "evidence": [
+          "https://www.mediacouncil.org.nz/membership/",
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rtbf.be": {
       "name": "RTBF",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "Public broadcaster of French-speaking Belgium"
+      "why": "Public service with legal independence: RTBF (public institution of the French Community of Belgium) (independence: RTBF decree / management contract of the Federation Wallonia-Brussels (from general knowledge, exact decree not re-fetched)). Own reporters: Belgium (Wallonia, Brussels) and abroad. Listed by: European Broadcasting Union, Public Media Alliance.",
+      "check": {
+        "level": "checked",
+        "owner": "RTBF (public institution of the French Community of Belgium)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance"
+        ],
+        "evidence": [
+          "https://www.ebu.ch/about/members",
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rte.ie": {
       "name": "RTE",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "en",
-      "why": "Public broadcaster of Ireland"
+      "why": "Public service with legal independence: RTE (statutory corporation, Ireland) (independence: Broadcasting Act 2009 (editorial independence provisions)). Own reporters: Ireland, plus foreign correspondents. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "RTE (statutory corporation, Ireland)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://ireland.mom-gmr.org/en/",
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rtp.pt": {
       "name": "RTP",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "pt",
-      "why": "Public broadcaster of Portugal"
+      "why": "Public service with legal independence: Radio e Televisao de Portugal (state-owned public company) (independence: Portuguese Constitution art. 38 and the Television/Radio laws (independent editorial council); from general knowledge). Own reporters: Portugal and abroad. Listed by: European Broadcasting Union, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Radio e Televisao de Portugal (state-owned public company)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.ebu.ch/about/members"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rts.ch": {
       "name": "RTS",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "fr",
-      "why": "French-language public broadcaster of Switzerland (SRG SSR)"
+      "why": "Public service with legal independence: RTS, unit of SRG SSR (Swiss association under private law, funded by licence fee) (independence: Swiss Federal Constitution art. 93 and Radio and Television Act (autonomy of programming)). Own reporters: French-speaking Switzerland and abroad. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "RTS, unit of SRG SSR (Swiss association under private law, funded by licence fee)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "rtve.es": {
       "name": "RTVE",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "es",
-      "why": "Public broadcaster of Spain"
+      "why": "Public service with legal independence: Corporacion RTVE (Spanish state public company) (independence: Law 17/2006 on state-owned radio and television (reformed 2022 for parliamentary-qualified-majority appointments); general knowledge). Own reporters: Spain and abroad. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Corporacion RTVE (Spanish state public company)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.ebu.ch/about/members",
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "samoaobserver.ws": {
       "name": "Samoa Observer",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Apia, Samoa"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Samoa.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Not confirmed",
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.samoaobserver.ws/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "sbs.com.au": {
       "name": "SBS",
       "tier": "broadcaster",
       "region": "Oceania",
       "lang": "en",
-      "why": "Multicultural public broadcaster of Australia"
+      "why": "Public service with legal independence: Special Broadcasting Service Corporation (Australian federal statutory corporation) (independence: Special Broadcasting Service Act 1991 (editorial independence)). Own reporters: Australia and abroad. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Special Broadcasting Service Corporation (Australian federal statutory corporation)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "scmp.com": {
       "name": "South China Morning Post",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Hong Kong"
+      "why": "Private company: Alibaba Group (since 2015); 2026 reports of pressure to sell to a Chinese buyer, company says no change planned. Own reporters: Hong Kong, mainland China, Asia.",
+      "check": {
+        "level": "checked",
+        "owner": "Alibaba Group (since 2015); 2026 reports of pressure to sell to a Chinese buyer, company says no change planned",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.thestandard.com.hk/section-news/section/11/228459/SCMP-boss-tries-to-calm-staff-over-sale-jitters"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "smh.com.au": {
       "name": "The Sydney Morning Herald",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Sydney, Australia"
+      "why": "Private company: Nine Entertainment Co. (ASX-listed). Own reporters: Sydney, Australia, and abroad. Listed by: Australian Press Council, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Nine Entertainment Co. (ASX-listed)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Australian Press Council",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://presscouncil.org.au/wp-content/uploads/2026/04/Constitutent-Bodies-2026.pdf"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "spiegel.de": {
       "name": "Der Spiegel",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "de",
-      "why": "German news magazine"
+      "why": "Private company: Spiegel-Verlag Rudolf Augstein GmbH & Co. KG (Mitarbeiter KG staff-owned about 50.5%, Augstein heirs 24%, Gruner + Jahr/Bertelsmann about 25%) - general knowledge. Own reporters: Germany and international bureaus. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Spiegel-Verlag Rudolf Augstein GmbH & Co. KG (Mitarbeiter KG staff-owned about 50.5%, Augstein heirs 24%, Gruner + Jahr/Bertelsmann about 25%) - general knowledge",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.spiegel.de/impressum"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "stabroeknews.com": {
       "name": "Stabroek News",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "en",
-      "why": "Daily newspaper in Georgetown, Guyana"
-    },
-    "straitstimes.com": {
-      "name": "The Straits Times",
-      "tier": "newspaper",
-      "region": "Asia",
-      "lang": "en",
-      "why": "Daily newspaper in Singapore"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Guyana.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Not confirmed",
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.stabroeknews.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "studiotamani.org": {
       "name": "Studio Tamani",
       "tier": "regional",
       "region": "Africa",
       "lang": "fr",
-      "why": "Malian news radio run by the Fondation Hirondelle"
+      "why": "Nonprofit: Fondation Hirondelle (Swiss non-profit foundation), donor-funded. Own reporters: Mali. Listed by: Fondation Hirondelle, Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Fondation Hirondelle (Swiss non-profit foundation), donor-funded",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Fondation Hirondelle",
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://www.hirondelle.org/en/",
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "sudantribune.com": {
       "name": "Sudan Tribune",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "News site on Sudan and South Sudan, published from Paris"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Sudan, South Sudan; published from Paris. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Not disclosed on pages reached",
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://reliefweb.int/organization/sudan-tribune"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "swissinfo.ch": {
       "name": "Swissinfo",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "en",
-      "why": "International service of the Swiss public broadcaster SRG SSR"
+      "why": "Public service with legal independence: SRG SSR (Swiss public broadcaster association); federal mandate and funding (independence: Swiss Radio and Television Act / constitution art. 93 (programming autonomy)). Own reporters: Switzerland and international. Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF), Public Media Alliance.",
+      "check": {
+        "level": "checked",
+        "owner": "SRG SSR (Swiss public broadcaster association); federal mandate and funding",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)",
+          "Public Media Alliance"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/",
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "tagesschau.de": {
       "name": "Tagesschau",
       "tier": "broadcaster",
       "region": "Europe",
       "lang": "de",
-      "why": "News service of the German public broadcaster ARD"
+      "why": "Public service with legal independence: ARD (association of regional public broadcasters; ARD-aktuell at NDR) (independence: Basic Law art. 5 and Medienstaatsvertrag; Federal Constitutional Court state-distance rulings). Own reporters: Germany and international bureaus. Listed by: European Broadcasting Union, Public Media Alliance, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "ARD (association of regional public broadcasters; ARD-aktuell at NDR)",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Public Media Alliance",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.ebu.ch/about/members",
+          "https://www.publicmediaalliance.org/about-us/members/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "talcualdigital.com": {
       "name": "TalCual",
       "tier": "regional",
       "region": "Latin America and the Caribbean",
       "lang": "es",
-      "why": "Venezuelan digital news outlet"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Venezuela.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Not confirmed",
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://talcualdigital.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "texastribune.org": {
       "name": "The Texas Tribune",
       "tier": "regional",
       "region": "Northern America",
       "lang": "en",
-      "why": "Nonprofit newsroom in Texas covering immigration and the border"
+      "why": "Nonprofit: The Texas Tribune, Inc. (501(c)(3) nonprofit). Own reporters: Texas, including border and immigration. Listed by: The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "The Texas Tribune, Inc. (501(c)(3) nonprofit)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://network.thetrustproject.org/search"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theage.com.au": {
       "name": "The Age",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Melbourne, Australia"
+      "why": "Private company: Nine Entertainment Co. (ASX-listed). Own reporters: Melbourne, Australia. Listed by: Australian Press Council, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Nine Entertainment Co. (ASX-listed)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Australian Press Council",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://presscouncil.org.au/wp-content/uploads/2026/04/Constitutent-Bodies-2026.pdf"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theatlantic.com": {
       "name": "The Atlantic",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US monthly magazine"
+      "why": "Private company: The Atlantic Monthly Group (majority held by Emerson Collective, Laurene Powell Jobs) - general knowledge. Own reporters: United States.",
+      "check": {
+        "level": "checked",
+        "owner": "The Atlantic Monthly Group (majority held by Emerson Collective, Laurene Powell Jobs) - general knowledge",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.theatlantic.com/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theaustralian.com.au": {
       "name": "The Australian",
       "tier": "newspaper",
       "region": "Oceania",
       "lang": "en",
-      "why": "National daily newspaper of Australia"
+      "why": "Private company: News Corp Australia (News Corp, Murdoch family). Own reporters: Australia and abroad. Listed by: Australian Press Council, Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "News Corp Australia (News Corp, Murdoch family)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Australian Press Council",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://presscouncil.org.au/wp-content/uploads/2026/04/Constitutent-Bodies-2026.pdf"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thecable.ng": {
       "name": "TheCable",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Online newspaper in Lagos, Nigeria"
+      "why": "Private company: TheCable (Nigerian private company, founder Simon Kolawole) - general knowledge. Own reporters: Nigeria (Lagos, Abuja). Listed by: Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "TheCable (Nigerian private company, founder Simon Kolawole) - general knowledge",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thecitizen.co.tz": {
       "name": "The Citizen",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Daily newspaper in Dar es Salaam, Tanzania"
-    },
-    "theconversation.com": {
-      "name": "The Conversation",
-      "tier": "newspaper",
-      "region": "Global",
-      "lang": "en",
-      "why": "News site with articles written by academics"
-    },
-    "thediplomat.com": {
-      "name": "The Diplomat",
-      "tier": "newspaper",
-      "region": "Asia",
-      "lang": "en",
-      "why": "Magazine on Asia-Pacific affairs"
+      "why": "Private company: Mwananchi Communications Ltd, subsidiary of Nation Media Group (listed, Nairobi). Own reporters: Tanzania. Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Mwananchi Communications Ltd, subsidiary of Nation Media Group (listed, Nairobi)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://tanzania.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theeastafrican.co.ke": {
       "name": "The EastAfrican",
       "tier": "regional",
       "region": "Africa",
       "lang": "en",
-      "why": "Weekly newspaper of the Nation Media Group, Nairobi"
+      "why": "Private company: Nation Media Group (listed; Aga Khan Fund for Economic Development is the largest shareholder, general knowledge). Own reporters: Kenya, Uganda, Tanzania, Rwanda, East Africa. Listed by: Journalism Trust Initiative (RSF), Media Council of Kenya.",
+      "check": {
+        "level": "checked",
+        "owner": "Nation Media Group (listed; Aga Khan Fund for Economic Development is the largest shareholder, general knowledge)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Council of Kenya"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/community/",
+          "https://mediacouncil.or.ke/sites/default/files/downloads/Media%20House%20Register%202025_0.pdf"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theglobeandmail.com": {
       "name": "The Globe and Mail",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "National daily newspaper of Canada"
+      "why": "Private company: The Woodbridge Company (Thomson family investment vehicle); full control since BCE's 15% stake was bought out. Own reporters: Canada, plus foreign bureaus (not itemised). Listed by: Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "The Woodbridge Company (Thomson family investment vehicle); full control since BCE's 15% stake was bought out",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://newswire.ca/news-releases/woodbridge-acquires-direct-ownership-of-the-globe-and-mail-545462382.html",
+          "https://network.thetrustproject.org/partner/the-globe-and-mail"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theguardian.com": {
       "name": "The Guardian",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in the United Kingdom"
+      "why": "Nonprofit: Guardian Media Group, wholly owned by The Scott Trust Limited (trust set up to secure the Guardian's financial and editorial independence) (independence: Scott Trust constitution (private trust, not a statute)). Own reporters: UK, US, Australia and worldwide correspondents. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Guardian Media Group, wholly owned by The Scott Trust Limited (trust set up to secure the Guardian's financial and editorial independence)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.theguardian.com/the-scott-trust"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thehill.com": {
       "name": "The Hill",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US political news outlet"
+      "why": "Private company: Nexstar Media Group (bought The Hill in 2021 for about $130 million). Own reporters: Washington DC, US Congress and White House.",
+      "check": {
+        "level": "checked",
+        "owner": "Nexstar Media Group (bought The Hill in 2021 for about $130 million)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.chise.org/ipns/en.wikipedia-on-ipfs.org/wiki/The_Hill_(newspaper)"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thehindu.com": {
       "name": "The Hindu",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Daily newspaper in Chennai, India"
+      "why": "Private company: THG Publishing, majority-held by Kasturi & Sons Ltd (unlisted holding company controlled by descendants of S. Kasturi Ranga Iyengar). Own reporters: India (Chennai HQ, many state bureaus), some foreign correspondents. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "THG Publishing, majority-held by Kasturi & Sons Ltd (unlisted holding company controlled by descendants of S. Kasturi Ranga Iyengar)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://india.mom-rsf.org/en/media/detail/outlet/the-hindu-online/",
+          "https://india.mom-rsf.org/en/owners/companies/detail/company/company/show/the-hindu-group/",
+          "https://india.mom-rsf.org/en/owners/individual-owners/detail/owner/owner/show/the-kasturi-family/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "theintercept.com": {
       "name": "The Intercept",
       "tier": "specialist",
       "region": "Northern America",
       "lang": "en",
-      "why": "US investigative news outlet"
+      "why": "Nonprofit: The Intercept, operated as a nonprofit (page does not name First Look Media; board listed: Pat Christen, Adam Gunther, Jun Harada, Michael D. Mann, Rami Sarafa, Edward Waitzer). Own reporters: United States (investigative, national security), some international.",
+      "check": {
+        "level": "checked",
+        "owner": "The Intercept, operated as a nonprofit (page does not name First Look Media; board listed: Pat Christen, Adam Gunther, Jun Harada, Michael D. Mann, Rami Sarafa, Edward Waitzer)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.theintercept.com/about/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "themoscowtimes.com": {
       "name": "The Moscow Times",
       "tier": "regional",
       "region": "Europe",
       "lang": "en",
-      "why": "Independent Russia news outlet based in Amsterdam"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Amsterdam newsroom covering Russia.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.dutchnews.nl/2022/03/moscow-times-moves-to-amsterdam-in-response-to-russian-media-law/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thenational.com.pg": {
       "name": "The National (PNG)",
       "tier": "regional",
       "region": "Oceania",
       "lang": "en",
-      "why": "Daily newspaper in Port Moresby, Papua New Guinea"
+      "why": "Private company: Rimbunan Hijau group (Malaysian logging and timber conglomerate, Tiong family, Sibu, Sarawak). Own reporters: Papua New Guinea (Port Moresby).",
+      "check": {
+        "level": "checked",
+        "owner": "Rimbunan Hijau group (Malaysian logging and timber conglomerate, Tiong family, Sibu, Sarawak)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://pngforests.com/wp-content/uploads/2014/02/masalai-33-the-national-sales-collapse-150.pdf",
+          "https://greenleft.org.au/node/11123",
+          "https://actnowpng.org/node/4175"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thenewhumanitarian.org": {
       "name": "The New Humanitarian",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "Nonprofit newsroom covering humanitarian crises"
+      "why": "Nonprofit: The New Humanitarian, independent nonprofit newsroom headquartered in Switzerland (spun off from the UN in 2015; formerly IRIN) (independence: Own published editorial independence policy and donor due-diligence rules (board-level), not a law). Own reporters: Global humanitarian crises (Africa, Middle East, Asia, Europe); reporters and local contributors in the field. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "The New Humanitarian, independent nonprofit newsroom headquartered in Switzerland (spun off from the UN in 2015; formerly IRIN)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "humanitarian or migration specialist with field staff",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.thenewhumanitarian.org/fr/node/263551",
+          "https://www.thenewhumanitarian.org/node/263948",
+          "https://www.niemanlab.org/2019/03/the-new-humanitarian-no-longer-an-acronymed-un-agency-wants-to-move-humanitarian-crisis-journalism-beyond-its-wonky-depressing-roots/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thetimes.co.uk": {
       "name": "The Times",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in London"
+      "why": "Private company: Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (independence: Independent national directors of Times Newspapers Holdings (undertakings given on the 1981 and 1993 acquisitions); not re-verified). Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Times Newspapers Ltd, part of News UK, a subsidiary of News Corp",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://newscorp.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thetimes.com": {
       "name": "The Times",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "en",
-      "why": "Daily newspaper in London"
+      "why": "Private company: Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (same outlet as thetimes.co.uk) (independence: Independent national directors of Times Newspapers Holdings; not re-verified). Own reporters: UK and foreign correspondents worldwide. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Times Newspapers Ltd, part of News UK, a subsidiary of News Corp (same outlet as thetimes.co.uk)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://newscorp.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "thewire.in": {
       "name": "The Wire",
       "tier": "newspaper",
       "region": "Asia",
       "lang": "en",
-      "why": "Indian digital news outlet"
+      "why": "Nonprofit: Foundation for Independent Journalism (FIJ), a not-for-profit company registered under Section 8 of India's Companies Act 2013, New Delhi. Own reporters: India (Delhi and states), foreign affairs desk. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Foundation for Independent Journalism (FIJ), a not-for-profit company registered under Section 8 of India's Companies Act 2013, New Delhi",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://thewire.in/media/how-the-wire-is-funded",
+          "https://thewire.in/60255/how-the-wire-is-funded/",
+          "https://www.jti-app.com/report/nBb278LXGkeXgraN/2"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "time.com": {
       "name": "Time",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US news magazine"
+      "why": "Private company: Marc Benioff and Lynne Benioff (bought Time Inc.'s Time magazine in 2018 personally, not via Salesforce). Own reporters: US (Washington, New York) plus international correspondents.",
+      "check": {
+        "level": "checked",
+        "owner": "Marc Benioff and Lynne Benioff (bought Time Inc.'s Time magazine in 2018 personally, not via Salesforce)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.cheddar.com/media/marc-benioff-salesforce-founder-buys-time-magazine",
+          "https://www.axios.com/2018/09/17/west-coast-billionaires-legacy-media-buys"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "timesofisrael.com": {
       "name": "The Times of Israel",
       "tier": "newspaper",
       "region": "Middle East",
       "lang": "en",
-      "why": "Israeli online newspaper"
+      "why": "Owner not published; no sign of government, party or church control found. Own reporters: Israel, West Bank, Middle East.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Reported co-owned by David Horovitz and Seth Klarman; secondary sources only",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://forward.com/news/152169/the-softspoken-man-behind-times-of-israel/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "tolonews.com": {
       "name": "TOLOnews",
       "tier": "regional",
       "region": "Asia",
       "lang": "en",
-      "why": "Afghan television news channel in Kabul"
+      "why": "Private company: MOBY Group (Mohseni family, chaired by Saad Mohseni), Kabul. Own reporters: Afghanistan (Kabul and provinces).",
+      "check": {
+        "level": "checked",
+        "owner": "MOBY Group (Mohseni family, chaired by Saad Mohseni), Kabul",
+        "ownerType": "private company",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [],
+        "evidence": [
+          "https://cpj.org/2026/05/taliban-raids-tolonews-office-in-afghanistan-after-detaining-2-journalists/",
+          "https://kabulnow.com/2026/05/cpj-taliban-raid-moby-group-office-and-interrogate-staff/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "tv5monde.com": {
       "name": "TV5Monde",
       "tier": "broadcaster",
       "region": "Global",
       "lang": "fr",
-      "why": "French-language international television network"
+      "why": "Owned by French, Swiss, Belgian and Canadian public broadcasters; JTI-certified (Bureau Veritas, to Feb 2028). Listed by: European Broadcasting Union, Journalism Trust Initiative (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "TV5MONDE SA, held by public broadcasters (France Televisions, France Medias Monde, RTBF, SRG SSR, Radio-Canada and others); funded by several governments",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union",
+          "Journalism Trust Initiative (RSF)"
+        ],
+        "evidence": [
+          "https://www.cbnews.fr/node/84878",
+          "https://www.canada.ca/fr/patrimoine-canadien/services/tv5.html"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "un.org": {
       "name": "United Nations",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "United Nations; part of the UN system"
+      "why": "United Nations; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "undp.org": {
       "name": "UNDP",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Development Programme; part of the UN system"
+      "why": "UN Development Programme; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "unfpa.org": {
       "name": "UNFPA",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Population Fund; part of the UN system"
+      "why": "UN Population Fund; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "unhcr.org": {
       "name": "UNHCR",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Refugee Agency; part of the UN system"
+      "why": "UN Refugee Agency; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "unicef.org": {
       "name": "UNICEF",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Children's Fund; part of the UN system"
+      "why": "UN Children's Fund; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "unocha.org": {
       "name": "UN OCHA",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN Office for the Coordination of Humanitarian Affairs; part of the UN system"
+      "why": "UN Office for the Coordination of Humanitarian Affairs; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "unrwa.org": {
       "name": "UNRWA",
       "tier": "humanitarian",
       "region": "Middle East",
       "lang": "en",
-      "why": "UN agency for Palestine refugees; part of the UN system"
+      "why": "UN agency for Palestine refugees; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "usatoday.com": {
       "name": "USA Today",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "US national daily newspaper"
-    },
-    "voanews.com": {
-      "name": "Voice of America",
-      "tier": "broadcaster",
-      "region": "Global",
-      "lang": "en",
-      "why": "International broadcaster funded by the US government"
+      "why": "Private company: Gannett (renamed USA TODAY Co. in 2025, from memory; not confirmed this round), publicly traded. Own reporters: US (national desk, Washington, plus network of Gannett local newsrooms). Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Gannett (renamed USA TODAY Co. in 2025, from memory; not confirmed this round), publicly traded",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://www.usatoday.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "washingtonpost.com": {
       "name": "The Washington Post",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in Washington, DC"
+      "why": "Private company: Jeff Bezos (personal ownership via Nash Holdings, since 2013). Own reporters: Washington DC and foreign bureaus worldwide. Listed by: Media Council of Kenya, ReliefWeb sources (UN OCHA), Reuters Institute Digital News Report, The Trust Project.",
+      "check": {
+        "level": "checked",
+        "owner": "Jeff Bezos (personal ownership via Nash Holdings, since 2013)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Council of Kenya",
+          "ReliefWeb sources (UN OCHA)",
+          "Reuters Institute Digital News Report",
+          "The Trust Project"
+        ],
+        "evidence": [
+          "https://network.thetrustproject.org/search",
+          "https://www.foxbusiness.com/business-leaders/from-benioff-to-bezos-billionaires-who-own-news-publications"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "wfp.org": {
       "name": "WFP",
       "tier": "humanitarian",
       "region": "Global",
       "lang": "en",
-      "why": "UN World Food Programme; part of the UN system"
+      "why": "UN World Food Programme; part of the UN system",
+      "check": {
+        "level": "official",
+        "databases": [],
+        "checked": "2026-11-18"
+      }
     },
     "wsj.com": {
       "name": "The Wall Street Journal",
       "tier": "newspaper",
       "region": "Northern America",
       "lang": "en",
-      "why": "Daily newspaper in New York"
+      "why": "Private company: Dow Jones & Company, subsidiary of News Corp (independence: Dow Jones acquisition agreement 2007 created a Special Committee on editorial integrity (from memory, not re-checked)). Own reporters: US and bureaus worldwide. Listed by: Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Dow Jones & Company, subsidiary of News Corp",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://newscorp.com/"
+        ],
+        "checked": "2026-11-18"
+      }
     },
     "wyborcza.pl": {
       "name": "Gazeta Wyborcza",
       "tier": "newspaper",
       "region": "Europe",
       "lang": "pl",
-      "why": "Daily newspaper in Poland"
+      "why": "Private company: Agora S.A. (Wyborcza sp. z o.o. is its Agora-group publishing subsidiary), listed on the Warsaw Stock Exchange since 1999. Own reporters: Poland (national and regional editions), foreign correspondents. Listed by: Journalism Trust Initiative (RSF), Reuters Institute Digital News Report.",
+      "check": {
+        "level": "checked",
+        "owner": "Agora S.A. (Wyborcza sp. z o.o. is its Agora-group publishing subsidiary), listed on the Warsaw Stock Exchange since 1999",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Reuters Institute Digital News Report"
+        ],
+        "evidence": [
+          "https://biznes.pap.pl/wiadomosci/firmy/agora-sa-102025-zakonczenie-negocjacji-i-zawarcie-przez-wyborcza-sp-z-oo-umowy-o",
+          "https://financialreports.eu/companies/agora-sa/"
+        ],
+        "checked": "2026-11-18"
+      }
+    }
+  },
+  "excluded": {
+    "acaps.org": {
+      "name": "ACAPS",
+      "reason": "Humanitarian analysis from secondary data, not news reporting.",
+      "evidence": [
+        "https://www.acaps.org/en/about-us"
+      ],
+      "checked": "2026-11-18"
+    },
+    "aljazeera.com": {
+      "name": "Al Jazeera",
+      "reason": "Funded by the State of Qatar; no law or charter guarantees its editorial independence.",
+      "evidence": [
+        "https://network.aljazeera.net/en/about-us"
+      ],
+      "checked": "2026-11-18"
+    },
+    "americasquarterly.org": {
+      "name": "Americas Quarterly",
+      "reason": "Policy magazine: mostly analysis by outside contributors.",
+      "evidence": [
+        "https://www.americasquarterly.org"
+      ],
+      "checked": "2026-11-18"
+    },
+    "channelnewsasia.com": {
+      "name": "CNA",
+      "reason": "Owned by Mediacorp, a Singapore state investment company; no statutory editorial-independence guarantee.",
+      "evidence": [
+        "https://www.mediacorp.sg/en/about-us",
+        "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/singapore",
+        "https://statemediamonitor.com/?p=212"
+      ],
+      "checked": "2026-11-18"
+    },
+    "crisisgroup.org": {
+      "name": "International Crisis Group",
+      "reason": "Policy analysis and advocacy reports, not news reporting.",
+      "evidence": [
+        "https://www.crisisgroup.org/who-we-are"
+      ],
+      "checked": "2026-11-18"
+    },
+    "csmonitor.com": {
+      "name": "Christian Science Monitor",
+      "reason": "Owned by The First Church of Christ, Scientist (a religious organization).",
+      "evidence": [
+        "https://www.csmonitor.com/About"
+      ],
+      "checked": "2026-11-18"
+    },
+    "devpolicy.org": {
+      "name": "Devpolicy Blog",
+      "reason": "University blog: commentary, not news reporting.",
+      "evidence": [
+        "https://devpolicy.org"
+      ],
+      "checked": "2026-11-18"
+    },
+    "efe.com": {
+      "name": "EFE",
+      "reason": "State-owned Spanish agency; its editorial statute is an internal agreement, not a law.",
+      "evidence": [
+        "https://docta.ucm.es/bitstreams/c92152fd-3401-4358-8d38-934b7cf30ff7/download",
+        "https://www.congreso.es/public_oficiales/L14/CONG/BOCG/B/BOCG-14-B-219-1.PDF"
+      ],
+      "checked": "2026-11-18"
+    },
+    "lowyinstitute.org": {
+      "name": "Lowy Institute",
+      "reason": "Think-tank blog: commentary by contributors, not news reporting.",
+      "evidence": [
+        "https://www.lowyinstitute.org/"
+      ],
+      "checked": "2026-11-18"
+    },
+    "lusa.pt": {
+      "name": "Lusa",
+      "reason": "State-owned Portuguese agency with government-appointed directors; no legal independence guarantee.",
+      "evidence": [
+        "https://eco.sapo.pt/2025/11/21/estado-ja-detem-100-da-lusa-e-aprova-projeto-de-novos-estatutos/",
+        "https://portugal.gov.pt/gc25/comunicacao/comunicados/agencia-lusa-novos-estatutos-aumento-de-capital-e-novo-conselho-de-administracao",
+        "https://observador.pt/2026/07/18/relatorio-sobre-estado-de-direito-da-por-ultrapassadas-questoes-sobre-estatutos-da-lusa/"
+      ],
+      "checked": "2026-11-18"
+    },
+    "migrationpolicy.org": {
+      "name": "Migration Policy Institute",
+      "reason": "Research and policy analysis, not news reporting.",
+      "evidence": [
+        "https://www.migrationpolicy.org"
+      ],
+      "checked": "2026-11-18"
+    },
+    "mondafrique.com": {
+      "name": "Mondafrique",
+      "reason": "Mix of staff and contributor pieces; ownership and own reporting could not be confirmed.",
+      "evidence": [
+        "https://mondafrique.com"
+      ],
+      "checked": "2026-11-18"
+    },
+    "monde-diplomatique.fr": {
+      "name": "Le Monde diplomatique",
+      "reason": "Monthly of long-form analysis rather than news reporting.",
+      "evidence": [
+        "https://www.monde-diplomatique.fr"
+      ],
+      "checked": "2026-11-18"
+    },
+    "pina.com.fj": {
+      "name": "PINA",
+      "reason": "Trade association with no newsroom of its own.",
+      "evidence": [
+        "https://pina.com.fj/pina-members/post-courier/"
+      ],
+      "checked": "2026-11-18"
+    },
+    "plazapublica.com.gt": {
+      "name": "Plaza Publica",
+      "reason": "Run and funded by a Jesuit university (Universidad Rafael Landívar).",
+      "evidence": [
+        "https://www.niemanlab.org/2012/08/plaza-publica-aims-to-challenge-and-improve-guatemalas-journalistic-culture/"
+      ],
+      "checked": "2026-11-18"
+    },
+    "straitstimes.com": {
+      "name": "The Straits Times",
+      "reason": "Published by SPH Media Trust, funded by the Singapore government; no statutory editorial-independence guarantee.",
+      "evidence": [
+        "https://reutersinstitute.politics.ox.ac.uk/opportunities-and-challenges-retaining-trust-singapores-state-funded-media",
+        "https://www.scmp.com/week-asia/economics/article/3132525/singapore-media-spin-non-profit-entity-sparks-questions-over"
+      ],
+      "checked": "2026-11-18"
+    },
+    "theconversation.com": {
+      "name": "The Conversation",
+      "reason": "Articles are commentary by outside academics, not reporting by its own journalists.",
+      "evidence": [
+        "https://theconversation.com/global/who-we-are"
+      ],
+      "checked": "2026-11-18"
+    },
+    "thediplomat.com": {
+      "name": "The Diplomat",
+      "reason": "Mostly analysis by outside contributors.",
+      "evidence": [
+        "https://thediplomat.com/about-the-diplomat/"
+      ],
+      "checked": "2026-11-18"
+    },
+    "voanews.com": {
+      "name": "Voice of America",
+      "reason": "US government-funded; whether its legal firewall still protects editorial independence has been disputed in court since 2025.",
+      "evidence": [
+        "https://wtop.com/national/2026/03/federal-judge-rules-trump-administrations-actions-to-dismantle-voice-of-america-are-illegal/",
+        "https://thedesk.net/2026/11/voice-of-america-appeal-court-order-blocking-firing/"
+      ],
+      "checked": "2026-11-18"
     }
   },
   "block": {
