@@ -48,6 +48,26 @@
     ]
   },
   "allow": {
+    "24.kg": {
+      "name": "24.kg",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Owner not published by the outlet; Kyrgyz Ministry of Justice data reported in March 2024 name Almasbek Turdumamatov as owner, and he signs as its general director. Own reporters: Bishkek newsroom, Kyrgyzstan.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Almasbek Turdumamatov (named owner in Ministry of Justice data reported March 2024; general director)",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://24.kg/",
+          "https://24.kg/obschestvo/364061_nam_20let_chto_budet_s24kg/",
+          "https://kaktus.media/doc/497802_almas_tyrdymamatov_stal_vladelcem_i_rykovoditelem_ia_24.kg.html"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "abc.net.au": {
       "name": "ABC News (Australia)",
       "tier": "broadcaster",
@@ -230,6 +250,28 @@
         "checked": "2026-11-18"
       }
     },
+    "aljazeera.net": {
+      "name": "Al Jazeera Arabic",
+      "tier": "broadcaster",
+      "region": "Global",
+      "lang": "ar",
+      "why": "Funded by the State of Qatar (Al Jazeera Media Network). Own correspondents worldwide (more than 70 bureaus). Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the State of Qatar (Al Jazeera Media Network)",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://network.aljazeera.net/en/about-us",
+          "https://statemediamonitor.com/2026/06/al-jazeera-media-network-ajmn/",
+          "https://reliefweb.int/organization/al-jazeera"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "amnesty.org": {
       "name": "Amnesty International",
       "tier": "humanitarian",
@@ -285,6 +327,27 @@
         "evidence": [
           "https://animalpolitico.com/quienes-somos",
           "https://mexico.mom-gmr.org/en/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "annahar.com": {
+      "name": "Annahar",
+      "tier": "newspaper",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Private company: Annahar SAL (Hariri family 39.6% through Al Mal Investment Co.; Tuéni family 20.62%). Own reporters: Beirut newsroom, Lebanon. Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "Annahar SAL (Hariri family 39.6% through Al Mal Investment Co.; Tuéni family 20.62%; Nadia Tuéni Foundation 2.2%)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://www.annahar.com/about-us",
+          "https://lebanon.mom-gmr.org/en/media/detail/outlet/annahar-3/"
         ],
         "checked": "2026-11-18"
       }
@@ -373,6 +436,44 @@
         "checked": "2026-11-18"
       }
     },
+    "asiaplus.news": {
+      "name": "Asia-Plus",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Owner not published: Asia-Plus News Agency LLC, founded and run by Umed Babakhanov. Own reporters: Dushanbe newsroom, Tajikistan.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Asia-Plus News Agency LLC (OOO IA Asia-Plus), Dushanbe; founder and general director Umed Babakhanov; shareholders not published",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://asiaplus.news/o-nas/",
+          "https://asiaplus.news/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "asiaplus.tj": {
+      "name": "Asia-Plus",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Owner not published: Asia-Plus News Agency LLC, founded and run by Umed Babakhanov. Own reporters: Dushanbe newsroom, Tajikistan. Former domain; now redirects to asiaplus.news.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Asia-Plus News Agency LLC (OOO IA Asia-Plus), Dushanbe; founder and general director Umed Babakhanov; shareholders not published",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://asiaplus.tj/",
+          "https://asiaplus.news/o-nas/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "axios.com": {
       "name": "Axios",
       "tier": "newspaper",
@@ -405,6 +506,74 @@
         "databases": [],
         "evidence": [
           "https://ayibopost.com"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "azattyk.org": {
+      "name": "Azattyk (RFE/RL Kyrgyz service)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "ky",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit. Own reporters: Bishkek bureau, Kyrgyzstan. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.azattyk.org/p/5274.html",
+          "https://about.rferl.org/service/kyrgyz-service/",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "azattyq.org": {
+      "name": "Azattyq (RFE/RL Kazakh service)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "kk",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit. Own reporters: Astana bureau, Kazakhstan. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.azattyq.org/p/4509.html",
+          "https://about.rferl.org/service/kazakh-service/",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "azattyqasia.org": {
+      "name": "Azattyq Asia (RFE/RL)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit. RFE/RL's Russian-language Central Asia desk, formed in October 2024 from the Russian-language desks of its Kazakh, Kyrgyz, Tajik, Turkmen and Uzbek services. Own reporters: Central Asia. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.azattyqasia.org/about-us",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
         ],
         "checked": "2026-11-18"
       }
@@ -675,6 +844,50 @@
         ],
         "evidence": [
           "https://www.csmonitor.com/About"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "currenttime.tv": {
+      "name": "Current Time (RFE/RL with VOA)",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit; created by RFE/RL with Voice of America. Own reporters: newsrooms in Prague, Vilnius and Riga; journalists in Ukraine, the South Caucasus, Moldova and Central Asia. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.currenttime.tv/about",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "dabangasudan.org": {
+      "name": "Radio Dabanga",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "ar",
+      "why": "Nonprofit: Stichting Dabanga Foundation (Dutch foundation, Amsterdam). Own reporters: exiled newsroom in Amsterdam with freelance reporters covering Sudan. Listed by: ReliefWeb sources (UN OCHA).",
+      "check": {
+        "level": "checked",
+        "owner": "Stichting Dabanga Foundation (Dutch non-profit foundation, Amsterdam)",
+        "ownerType": "nonprofit or foundation",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [
+          "ReliefWeb sources (UN OCHA)"
+        ],
+        "evidence": [
+          "https://www.dabangasudan.org/en/about-us",
+          "https://www.dabangasudan.org/wp-content/uploads/2026/06/Annual-Report-2025.pdf",
+          "https://reliefweb.int/organization/radio-dabanga"
         ],
         "checked": "2026-11-18"
       }
@@ -1699,6 +1912,25 @@
         "checked": "2026-11-18"
       }
     },
+    "jam-news.net": {
+      "name": "JAMnews",
+      "tier": "regional",
+      "region": "Asia",
+      "lang": "ru",
+      "why": "Owner not published. Own reporters: journalists from around the Caucasus.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://web.archive.org/web/20260101152913/https://jam-news.net/about-us/",
+          "https://jam-news.net/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "jamaica-gleaner.com": {
       "name": "The Gleaner",
       "tier": "regional",
@@ -1791,6 +2023,44 @@
         "databases": [],
         "evidence": [
           "https://theworld.org/stories/2023/03/16/prominent-afghan-news-organization-operates-out-silver-spring-maryland"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "kavkaz-uzel.eu": {
+      "name": "Caucasian Knot",
+      "tier": "regional",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Private company: MEMO LLC, its founder since 2008 (designated a 'foreign agent' in Russia, which it contests); funded by charitable foundations. Own reporters: 20 regions of Russia's North Caucasus and Southern federal districts and the South Caucasus.",
+      "check": {
+        "level": "checked",
+        "owner": "MEMO LLC (OOO MEMO), founder since 2008; funded by charitable foundations",
+        "ownerType": "private company",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://www.kavkaz-uzel.eu/articles/AboutCaucasianKnot"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "kommersant.ru": {
+      "name": "Kommersant",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Owner not confirmed: publisher AO Kommersant is owned by Kommersant Holding LLC, whose sole owner from 2015 was Alisher Usmanov; its owners have been hidden in the Russian company register since May 2023. Own reporters: Moscow newsroom, Russia.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Kommersant Holding LLC (sole owner of AO Kommersant); owned by Alisher Usmanov from 2015, owners hidden in the Russian company register since May 2023",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://www.kommersant.ru/about",
+          "https://www.vedomosti.ru/media/articles/2023/05/22/976246-kompaniya-vladelets-kommersanta-skrila-informatsiyu-o-uchreditelyah",
+          "https://finance.rambler.ru/economics/32307855-usmanov-stal-pryamym-vladeltsem-100-kommersant-holdinga/"
         ],
         "checked": "2026-11-18"
       }
@@ -2010,6 +2280,51 @@
           "https://eco.sapo.pt/2025/11/21/estado-ja-detem-100-da-lusa-e-aprova-projeto-de-novos-estatutos/",
           "https://portugal.gov.pt/gc25/comunicacao/comunicados/agencia-lusa-novos-estatutos-aumento-de-capital-e-novo-conselho-de-administracao",
           "https://observador.pt/2026/07/18/relatorio-sobre-estado-de-direito-da-por-ultrapassadas-questoes-sobre-estatutos-da-lusa/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "madamasr.com": {
+      "name": "Mada Masr",
+      "tier": "regional",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Owner not published: Mada Masr Media Company (Media Ownership Monitor found its ownership data unavailable). Own reporters: Cairo newsroom, Egypt. Listed by: Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "owner-not-published",
+        "owner": "Mada Masr Media Company (named by Media Ownership Monitor; shareholders not published)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://web.archive.org/web/20250709233630/https://www.madamasr.com/en/about-us/",
+          "https://egypt.mom-rsf.org/en/media/detail/outlet/mada-masr/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "mc-doualiya.com": {
+      "name": "Monte Carlo Doualiya (France Médias Monde)",
+      "tier": "broadcaster",
+      "region": "Middle East",
+      "lang": "ar",
+      "why": "Public service with legal independence: France Médias Monde. Own reporters: Paris newsroom and correspondents worldwide; regional digital office in Beirut. Listed by: European Broadcasting Union via parent company, Journalism Trust Initiative (RSF) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "France Médias Monde",
+        "ownerType": "public service with legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "European Broadcasting Union via parent company",
+          "Journalism Trust Initiative (RSF) via parent company"
+        ],
+        "evidence": [
+          "https://www.mc-doualiya.com/%D9%85%D9%86-%D9%86%D8%AD%D9%86",
+          "https://www.francemediasmonde.com/en/",
+          "https://journalismtrustinitiative.org/community/",
+          "https://www.ebu.ch/about/members"
         ],
         "checked": "2026-11-18"
       }
@@ -2346,6 +2661,24 @@
         "checked": "2026-11-18"
       }
     },
+    "novayagazeta.eu": {
+      "name": "Novaya Gazeta Europe",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Owner not published. Own reporters: newsroom of journalists from Moscow's Novaya Gazeta, most of whom left Russia in 2022, working from several countries.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [],
+        "evidence": [
+          "https://novayagazeta.eu/about"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "npr.org": {
       "name": "NPR",
       "tier": "broadcaster",
@@ -2440,6 +2773,29 @@
         "checked": "2026-11-18"
       }
     },
+    "ozodi.org": {
+      "name": "Ozodi (RFE/RL Tajik service)",
+      "tier": "broadcaster",
+      "region": "Asia",
+      "lang": "tg",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit. Own reporters: Dushanbe bureau, Tajikistan. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.ozodi.org/p/4447.html",
+          "https://about.rferl.org/service/tajik-service/",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
     "pbs.org": {
       "name": "PBS",
       "tier": "broadcaster",
@@ -2512,6 +2868,29 @@
         "databases": [],
         "evidence": [
           "https://pina.com.fj/pina-members/post-courier/"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "pravda.com.ua": {
+      "name": "Ukrainska Pravda",
+      "tier": "newspaper",
+      "region": "Europe",
+      "lang": "uk",
+      "why": "Private company: UP Media Plus LLC (beneficial owner Tomas Fiala). Own reporters: Kyiv newsroom, Ukraine. Listed by: Journalism Trust Initiative (RSF), Media Ownership Monitor (RSF).",
+      "check": {
+        "level": "checked",
+        "owner": "UP Media Plus LLC, Kyiv (beneficial owner Tomas Fiala, per its 2023 JTI transparency report)",
+        "ownerType": "private company",
+        "reporting": "newspaper or news site with own reporters",
+        "databases": [
+          "Journalism Trust Initiative (RSF)",
+          "Media Ownership Monitor (RSF)"
+        ],
+        "evidence": [
+          "https://journalismtrustinitiative.org/app-jti/transparency-report/?jti_action=view_transparency_report&report_id=tr-708-1768404270",
+          "https://journalismtrustinitiative.org/community/",
+          "https://ukraine.mom-gmr.org/en/media/detail/outlet/ukrayinska-pravda/"
         ],
         "checked": "2026-11-18"
       }
@@ -3114,6 +3493,47 @@
         ],
         "evidence": [
           "https://reliefweb.int/organization/sudan-tribune"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "sudantribune.net": {
+      "name": "Sudan Tribune",
+      "tier": "regional",
+      "region": "Africa",
+      "lang": "ar",
+      "why": "Owner not published. Arabic edition of the Sudan Tribune news organisation (the English edition, sudantribune.com, is on this list). Own reporters: datelined reports from Sudan.",
+      "check": {
+        "level": "owner-not-published",
+        "owner": null,
+        "ownerType": "unknown",
+        "reporting": "local or regional outlet with reporters on the ground",
+        "databases": [],
+        "evidence": [
+          "https://sudantribune.net/%d9%85%d9%86-%d9%86%d8%ad%d9%86",
+          "https://sudantribune.net/article/287452"
+        ],
+        "checked": "2026-11-18"
+      }
+    },
+    "svoboda.org": {
+      "name": "Radio Svoboda (RFE/RL Russian service)",
+      "tier": "broadcaster",
+      "region": "Europe",
+      "lang": "ru",
+      "why": "Funded by the US government (US Agency for Global Media) through RFE/RL, a private nonprofit. Own reporters: Russian service headquartered in Prague. Listed by: ReliefWeb sources (UN OCHA) via parent company.",
+      "check": {
+        "level": "checked",
+        "owner": "Funded by the US government (US Agency for Global Media) through RFE/RL, Inc., a private nonprofit",
+        "ownerType": "state-owned or state-funded without legal independence",
+        "reporting": "broadcaster with own correspondents",
+        "databases": [
+          "ReliefWeb sources (UN OCHA) via parent company"
+        ],
+        "evidence": [
+          "https://www.svoboda.org/contact",
+          "https://pressroom.rferl.org/about-rfe-rl/",
+          "https://reliefweb.int/organization/rfe-rl"
         ],
         "checked": "2026-11-18"
       }

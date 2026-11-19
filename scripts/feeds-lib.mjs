@@ -1,7 +1,7 @@
 // Feed reading for the news feature: RSS 2.0, RSS 1.0 (RDF) and Atom parsing with regular expressions,
 // a fetch helper, and the ReliefWeb (UN OCHA) API. Nothing here reads files; the fetch helpers take
 // the fetch function as a parameter so tests can simulate failures.
-import { USER_AGENT } from "./news-lib.mjs";
+import { USER_AGENT, decodeBytes } from "./news-lib.mjs";
 
 // ---------- Text helpers ----------
 const ENTITIES = {
@@ -97,14 +97,10 @@ function parseBlocks(xml) {
 export const parseFeed = (xml) => parseBlocks(xml).map((b) => b.item);
 
 // ---------- Fetching ----------
-// Feeds are not always UTF-8 (Folha de S.Paulo's is ISO-8859-1). The charset comes from the HTTP header,
-// else from the <?xml encoding="..."?> declaration, else UTF-8.
-export function decodeFeed(buf, contentType = "") {
-  const bytes = new Uint8Array(buf);
-  const head = new TextDecoder("latin1").decode(bytes.subarray(0, 200));
-  const charset = (contentType || "").match(/charset=["']?([\w-]+)/i)?.[1] || head.match(/<\?xml[^>]*encoding=["']([\w-]+)["']/i)?.[1] || "utf-8";
-  try { return new TextDecoder(charset.toLowerCase()).decode(bytes); } catch { return new TextDecoder("utf-8").decode(bytes); }
-}
+// Feeds are not always UTF-8: Folha de S.Paulo's is ISO-8859-1, and Arabic and Russian feeds may be
+// windows-1256, windows-1251 or KOI8-R. The charset comes from a byte-order mark, the HTTP header or the
+// <?xml encoding="..."?> declaration, else UTF-8 (decodeBytes in news-lib.mjs, also used for article pages).
+export const decodeFeed = (buf, contentType = "") => decodeBytes(buf, contentType);
 
 export async function fetchFeed(url, { fetchImpl = fetch, timeoutMs = 15000 } = {}) {
   let res, text;

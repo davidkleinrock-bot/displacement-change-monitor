@@ -4,8 +4,9 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   newsWindow, checkDate, isDisplacement, isCoreDisplacement, isPersonalOrOpinion, buildMatchers, attributeCountries,
-  displacementThemes, sourceLanguage, makeOutletChecker, clusterEvents, pickForCountry,
+  displacementThemes, sourceLanguage, READ_LANGS, makeOutletChecker, clusterEvents, pickForCountry,
   cleanTitle, normTitle, dedupe, parseArticleMeta, summarize, fetchArticleMeta, downloadFile, newsState,
+  normScript, titleOverlap, decodeBytes,
 } from "../scripts/news-lib.mjs";
 
 const readJS = (p) => { const s = readFileSync(p, "utf8"); return JSON.parse(s.slice(s.indexOf("{"), s.lastIndexOf("}") + 1)); };
@@ -168,7 +169,10 @@ test("GDELT tags and languages", () => {
   assert.equal(sourceLanguage("srclc:spa;eng:GT-SPA 1.0"), "es");
   assert.equal(sourceLanguage("srclc:fra;eng:GT-FRA 1.0"), "fr");
   assert.equal(sourceLanguage(""), "en");
-  assert.equal(sourceLanguage("srclc:ara;eng:GT-ARA 1.0"), null);
+  assert.equal(sourceLanguage("srclc:ara;eng:GT-ARA 1.0"), "ar");
+  assert.equal(sourceLanguage("srclc:rus;eng:GT-RUS 1.0"), "ru");
+  assert.equal(sourceLanguage("srclc:deu;eng:GT-DEU 1.0"), null); // a language the rules can't read
+  assert.deepEqual(READ_LANGS, ["en", "es", "fr", "pt", "ar", "ru"]);
 });
 
 test("countries: names in Spanish, French and Portuguese, with the same guards", () => {
@@ -249,7 +253,7 @@ test("the real outlet and feed lists are consistent", () => {
   for (const f of feeds) {
     assert.match(f.url, /^https:\/\//, f.url);
     assert.ok(outlet(f.domain), `feed outlet ${f.domain} does not count`);
-    assert.ok(["en", "es", "fr", "pt"].includes(f.lang), f.url);
+    assert.ok(["en", "es", "fr", "pt", "ar", "ru"].includes(f.lang), f.url);
   }
 });
 
@@ -317,6 +321,183 @@ test("individual cases and place-name look-alikes found in the 16 Nov backfill",
   assert.ok(!isPersonalOrOpinion("Estados Unidos aumenta las tarifas para solicitar asilo, TPS y permisos de trabajo"));
   assert.ok(!isDisplacement("Más de 100 policías desplegados para cazar al 'Ruso', el ex legionario huido tras matar a un agente"));
   assert.ok(!about("Diplomat led operation to save desperate refugees afloat on the South China Sea").includes("CHN"));
+});
+
+// ---------- Arabic and Russian (added 18 Nov 2026) ----------
+// Headlines below are real GDELT or feed headlines from 9–18 Nov 2026 unless they test a single rule.
+
+// Encodes text in a legacy single-byte charset (windows-1256, windows-1251, KOI8-R) by inverting TextDecoder.
+const legacyBytes = (text, charset) => {
+  const dec = new TextDecoder(charset);
+  const map = new Map([...Array(256).keys()].map((b) => [dec.decode(new Uint8Array([b])), b]));
+  return new Uint8Array([...text].map((ch) => { if (!map.has(ch)) throw new Error(`${ch} not in ${charset}`); return map.get(ch); }));
+};
+
+test("Arabic and Russian spelling: marks, hamza, ta marbuta, digits and ё are unified; Latin is untouched", () => {
+  assert.equal(normScript("نُزُوحُ آلافِ السّودانيّين"), normScript("نزوح الاف السودانيين"));
+  assert.equal(normScript("أزمة إنسانية في غزّة"), "ازمه انسانيه في غزه");
+  assert.equal(normScript("مستشفى ـــ كبير"), "مستشفي  كبير"); // alif maqsura and tatweel
+  assert.equal(normScript("نزوح ٣٤٠ ألف يمني"), "نزوح 340 الف يمني");
+  assert.equal(normScript("Объединённые Арабские Эмираты"), "Объединенные Арабские Эмираты");
+  assert.equal(normScript("Réfugiés soudanais au Tchad"), "Réfugiés soudanais au Tchad");
+});
+
+test("topic: Arabic displacement headlines are read", () => {
+  for (const t of ["نزوح آلاف السودانيين إلى تشاد بعد هجوم الدعم السريع", "الهجرة الدولية: نزوح 400 شخص من منطقة أبو زبد بغرب كردفان",
+    "مقتل 16 مدنياً في قصف بمسيّرة على مأوى للنازحين بمدينة غبيش في غرب كردفان", "شتاء اليمن... نازحو لحج بين جحيم المعارك وقسوة المخيمات",
+    "أكثر من 21 ألف لاجئ وطالب لجوء في المغرب والسودانيون في الصدارة", "قرار عسكري لجيش الاحتلال يهدد عودة المهجرين",
+    "فرار آلاف المدنيين من الفاشر بعد هجوم الدعم السريع", "إجلاء آلاف السكان من جنوب لبنان بعد غارات إسرائيلية",
+    "مقتل 20 مهاجراً غرقاً قبالة السواحل اليونانية", "اكثر من 11 ألف عراقي تقدم بطلب لجوء لبلدان أوروبية", "عديمو الجنسية في الكويت يطالبون بحقوقهم",
+    "حريق هائل يدمر مخيماً للسوريين في لبنان ويشرّد 486 شخصاً"]) assert.ok(isDisplacement(t), t);
+  assert.ok(!isDisplacement("وفرت الحكومة 500 خيمة للمتضررين من السيول")); // وفّر "provided", not فرّ "fled"
+  assert.ok(isCoreDisplacement("موجة نزوح جديدة في غرب كردفان جراء تصاعد القصف الجوي"));
+  assert.ok(!isCoreDisplacement("ثلاثة قتلى إثر غارات إسرائيلية في غزة مع تقدم دبابات وإخلاء مناطق قرب النصيرات")); // GDELT rules only
+});
+
+test("topic: Arabic look-alikes are left out", () => {
+  for (const t of [
+    "بيتكوين تتعافى لتقترب من 65 ألف دولار وسط نزوح مليارات الدولارات من صناديقها", "نزوح رؤوس الأموال من البورصة المصرية", // capital flight
+    "إخلاء سبيل المتهم بكفالة مالية", "إيطاليا: إخلاء أكثر من 300 مدرسة بعد تلقي تحذيرات بوجود قنابل", "إخلاء 5000 شخص في أمريكا.. جهاز غامض يثير الذعر داخل مجمع صناعي",
+    "الجيش يجلي 12 طفلًا مريضًا من غزة لاستكمال علاجهم في الأردن", "هجوم على ناقلة غاز قبالة عُمان.. إخلاء 24 بحاراً وفقدان آخر", // medical evacuation, ship's crew
+    "مستشار يمني يكشف سر لجوء الميليشيات إلى الصواريخ الباليستية", "الحجر الزراعي: لجوء تونس لاستيراد الطماطم المصرية", // "resorting to"
+    "كيف عزز البابا تواضروس حضور الكنيسة القبطية في المهجر؟", "البلدية تواصل نزح مياه الأمطار من الشوارع", // diaspora; pumping water
+    "افتتاح ملجأ للحيوانات الأليفة في عمان", "سينما غزة في لندن.. خمسة أفلام توثق الصمود تحت القصف وفي خيام النزوح", "عرض فيلم «اللاجئ» في مهرجان القاهرة",
+  ]) assert.ok(!isDisplacement(t), t);
+});
+
+test("topic: Russian displacement headlines are read", () => {
+  for (const t of ["Тысячи беженцев из Судана прибыли в Чад", "ООН: Число вынужденных переселенцев в Йемене превысило 340 тысяч",
+    "Дом в Соборном Одесской области: 70 квартир получили ВПЛ", "Более 50 мигрантов пропали без вести в результате крушения судна у берегов Сенегала",
+    "Из прифронтовых сел Харьковской области эвакуировали более 2 тысяч жителей", "Жители бегут от обстрелов в Покровске",
+    "Бесконечный исход: беженцы из Арцаха брошены в Армении на произвол судьбы", "\"Можно снимать фильм про апокалипсис\": Эвакуированные мирные граждане - о жизни в Константиновке", "В Узбекистане усиливают борьбу с безгражданством: МВД обучают выявлять лиц без гражданства"]) assert.ok(isDisplacement(t), t);
+  assert.ok(isCoreDisplacement("В Польше готовятся к возможной волне беженцев из Украины зимой"));
+  assert.ok(!isCoreDisplacement("Жители бегут от обстрелов в Покровске")); // feeds need a core term
+});
+
+test("topic: Russian look-alikes are left out", () => {
+  for (const t of [
+    "Жители укрылись в бомбоубежище во время воздушной тревоги", "Приют-убежище для бездомных собак открылся в Казани", // shelters
+    "Из-за пожара в многоэтажке эвакуировали 150 жильцов", "В Москве эвакуировали ТЦ из-за сообщения о минировании", // fires, bomb threats
+    "Выступление Баскова в МГИК было сорвано из-за эвакуации", "В школе Атырау во время учебной эвакуации произошла давка: пострадали дети",
+    "Россия эвакуировала сотрудников посольства из Израиля спецбортом", "Украина спасает раненых из \"килл-зон\" на летающих эвакуационных БПЛА",
+    "Переселенцы XIX века: как осваивали Сибирь", "Программа переселения соотечественников: 1500 человек переехали в Калининград", // voluntary or historical settlers
+    "Котёл под Барвиновкой захлопнулся, ВСУ бегут к реке", "Клещи сдавили ВСУ: взломана оборона в Орехове, боевикам уже некуда бежать", // soldiers retreating
+    "Тысячи рыб выпрыгнули из моря на берег в Испании, спасаясь от хищника", "Бегство капитала из России достигло рекорда",
+    "Фильм «Беженцы» получил приз кинофестиваля", "В Омске на мосту эвакуатор насмерть сбил мужчину",
+  ]) assert.ok(!isDisplacement(t), t);
+});
+
+test("profiles and single-person asylum cases in Arabic and Russian are left out", () => {
+  for (const t of ["لاجئة سورية تفوز بجائزة أفضل رواية", "براءة وسط الركام.. طفلة في غزة تلهو أثناء جلب المياه لعائلتها النازحة",
+    "روسيا تمنح الأسد اللجوء", "سوداني يحصل على اللجوء في بريطانيا", "طلب لجوء سياسي لمعارض مصري", "محكمة ألمانية تحكم بالسجن 5 سنوات على سوري",
+    "Беженка из Украины открыла пекарню в Польше", "ФОТО. Африканский беженец купил в Латвии документы за 500 евро", "Российский журналист попросил убежища в Германии",
+    "Асаду предоставили политическое убежище в России", "Россиянин почти сутки бежал через джунгли из скам-центра в Мьянме"]) assert.ok(isPersonalOrOpinion(t), t);
+  for (const t of ["المحكمة العليا الأمريكية تنظر في أمر ترامب بتعليق منح اللجوء على الحدود الجنوبية", "ألمانيا تمنح آلاف الأفغان اللجوء",
+    "330 ألف نازح باليمن وتحذيرات من تفاقم الأزمة الإنسانية في تعز", "Германия отказала в убежище тысячам россиян",
+    "Уганда обсуждает с ЕС создание центра для мигрантов, которым отказали в убежище", "Австрия требует от украинских беженцев вернуть соцпомощь"]) assert.ok(!isPersonalOrOpinion(t), t);
+  assert.ok(isPersonalOrOpinion("نازحو الرقة بين قسوة المخيمات والعودة", "https://www.aljazeera.net/blogs/2026/11/16/x"));
+});
+
+test("countries: Arabic names with clitics, demonyms and guards", () => {
+  assert.deepEqual(about("نزوح آلاف السودانيين إلى تشاد"), ["SDN", "TCD"]);
+  assert.deepEqual(about("لاجئون من جنوب السودان في أوغندا"), ["SSD", "UGA"]); // جنوب السودان is not Sudan
+  assert.deepEqual(about("اللاجئين السوريين في لبنان"), ["LBN", "SYR"]);
+  assert.deepEqual(about("عودة الأفغان من باكستان"), ["AFG", "PAK"]);
+  assert.deepEqual(about("النازحون في غزة يواجهون الشتاء"), ["PSE"]);
+  assert.deepEqual(about("مداهمات في الضفة الغربية تهجر عشرات العائلات"), ["PSE"]);
+  assert.deepEqual(about("مسيرات تلقي براميل متفجرة.. قصف إسرائيلي ونزوح جديد بحي الزيتون في غزة"), ["PSE"]); // "Israeli shelling": the attacker
+  assert.deepEqual(about("دلتا النيجر: نزوح الآلاف بسبب الفيضانات"), []); // the Niger Delta is in Nigeria
+  assert.deepEqual(about("نزوح آلاف في النيجر"), ["NER"]);
+  assert.deepEqual(about("لاجئون نيجيريون في الكاميرون"), ["CMR", "NGA"]);
+  assert.deepEqual(about("لاجئون من غينيا بيساو"), ["GNB"]);
+  assert.deepEqual(about("لاجئون من غينيا"), ["GIN"]);
+  assert.deepEqual(about("نزوح في جمهورية الكونغو الديمقراطية"), ["COD"]);
+  assert.deepEqual(about("لاجئون من الكونغو برازافيل"), ["COG"]);
+  assert.deepEqual(about("لاجئون في دومينيكا"), ["DMA"]);
+  assert.deepEqual(about("لاجئون من جمهورية الدومينيكان"), ["DOM"]);
+  assert.deepEqual(about("طالبو لجوء في ولاية جورجيا الأمريكية"), ["USA"]); // the US state
+  assert.deepEqual(about("لاجئون من مالي في موريتانيا"), ["MLI", "MRT"]);
+  assert.deepEqual(about("دعم مالي للاجئين السوريين"), ["SYR"]); // مالي "financial"
+  assert.deepEqual(about("اللاجئون السوريون في عمان"), ["SYR"]); // عمان is also Amman
+  assert.deepEqual(about("مقتل 20 مهاجراً غرقاً قبالة السواحل اليونانية"), ["GRC"]);
+});
+
+test("countries: Russian names in every case, with the same guards", () => {
+  assert.deepEqual(about("Сирийские беженцы в Турции"), ["SYR", "TUR"]);
+  assert.deepEqual(about("Беженцы из Сирии"), ["SYR"]);
+  assert.deepEqual(about("Ливан выслал беженцев в Сирию"), ["LBN", "SYR"]);
+  assert.deepEqual(about("Беженцы из Южного Судана"), ["SSD"]);
+  assert.deepEqual(about("Тысячи беженцев из Судана прибыли в Чад"), ["SDN", "TCD"]);
+  assert.deepEqual(about("Беженцы из Нигерии в Нигере"), ["NER", "NGA"]);
+  assert.deepEqual(about("Наводнение в дельте Нигера: тысячи беженцев"), []);
+  assert.deepEqual(about("Беженцы из Гвинеи-Бисау"), ["GNB"]);
+  assert.deepEqual(about("Беженцы в Папуа — Новой Гвинее"), ["PNG"]);
+  assert.deepEqual(about("Беженцы из Гвинеи"), ["GIN"]);
+  assert.deepEqual(about("Беженцы из Демократической Республики Конго"), ["COD"]);
+  assert.deepEqual(about("Беженцы из Республики Конго"), ["COG"]);
+  assert.deepEqual(about("Беженцы в Грузии"), ["GEO"]);
+  assert.deepEqual(about("Беженцы в Джорджии и Алабаме"), []); // Джорджия is the US state; Грузия the country
+  assert.deepEqual(about("Беженцы на Доминике"), ["DMA"]);
+  assert.deepEqual(about("Беженцы из Доминиканской Республики"), ["DOM"]);
+  assert.deepEqual(about("Израиль нанес удары по Газе, тысячи палестинцев бежали на юг"), ["PSE"]);
+  assert.deepEqual(about("Поставки газа беженцам в Европе"), []); // "газа" is "of gas"
+  assert.deepEqual(about("Того, кто бежал из Сирии, депортируют"), ["SYR"]); // "Того" is "of that", not Togo
+  assert.deepEqual(about("Австрия требует от украинских беженцев вернуть соцпомощь"), ["AUT", "UKR"]);
+  assert.deepEqual(about("Дом в Соборном Одесской области: 70 квартир получили ВПЛ"), ["UKR"]);
+});
+
+test("duplicates: Arabic and Russian headlines keep their letters, so different stories stay apart", () => {
+  assert.notEqual(normTitle("نزوح آلاف السودانيين إلى تشاد"), "");
+  assert.notEqual(normTitle("نزوح آلاف السودانيين إلى تشاد"), normTitle("330 ألف نازح باليمن"));
+  assert.equal(normTitle("نزوحُ آلافِ السودانيينَ إلى تشاد"), normTitle("نزوح آلاف السودانيين إلى تشاد"));
+  assert.equal(normTitle("Объединённые беженцы"), normTitle("Объединенные беженцы"));
+  const kept = dedupe([
+    { title: "نزوح آلاف السودانيين إلى تشاد", url: "a" }, { title: "330 ألف نازح باليمن وتحذيرات من تفاقم الأزمة", url: "b" },
+    { title: "Тысячи беженцев из Судана прибыли в Чад", url: "c" }, { title: "В Польше готовятся к волне беженцев из Украины", url: "d" },
+    { title: "نزوحُ آلافِ السودانيين إلى تشاد", url: "e" },
+  ]);
+  assert.deepEqual(kept.map((a) => a.url).sort(), ["a", "b", "c", "d"]);
+});
+
+test("titles: Russian and Arabic dashes inside the sentence stay; a trailing outlet name goes", () => {
+  assert.equal(cleanTitle("Удары по Харькову продолжаются — тысячи жителей эвакуированы"), "Удары по Харькову продолжаются — тысячи жителей эвакуированы");
+  assert.equal(cleanTitle("Тысячи беженцев из Судана прибыли в Чад — РИА Новости"), "Тысячи беженцев из Судана прибыли в Чад");
+  assert.equal(cleanTitle("Пять стран ЕС создадут центры для мигрантов | Новости"), "Пять стран ЕС создадут центры для мигрантов");
+  assert.equal(cleanTitle("مقتل 16 مدنياً في قصف على مأوى للنازحين - الجزيرة نت"), "مقتل 16 مدنياً في قصف على مأوى للنازحين");
+  assert.equal(cleanTitle("إيطاليا.. إخلاء أكثر من 300 مدرسة بسبب رسائل إلكترونية – الشروق أونلاين"), "إيطاليا.. إخلاء أكثر من 300 مدرسة بسبب رسائل إلكترونية");
+});
+
+test("events: one Arabic or Russian story in several outlets takes one slot; different stories stay apart", () => {
+  const yem = (domain, title, date = "2026-11-12") => ({ title, url: `${domain}/${title.length}`, domain, date, link: "verified" });
+  assert.equal(clusterEvents([
+    yem("a.com", "الأمم المتحدة: نزوح أكثر من 340 ألف يمني وسط تصاعد القتال"),
+    yem("b.com", "الأمم المتحدة: نزوح أكثر من 340 ألف يمني وسط تصاعد القتال في تعز", "2026-11-13"),
+    yem("c.com", "مركز الملك سلمان يدعم النازحين في لحج ويقدم خدمات تأهيلية في عدن"),
+  ], { ignore: matchers.get("YEM").terms }).length, 2);
+  assert.equal(clusterEvents([
+    yem("a.ru", "Пять стран ЕС создадут центры депортации мигрантов в Руанде"),
+    yem("b.ru", "Пять стран Евросоюза создадут центр депортации мигрантов в Руанде"),
+    yem("c.ru", "Уганда обсуждает с ЕС создание центра для мигрантов"),
+  ], { ignore: matchers.get("RWA").terms }).length, 2);
+  assert.ok(titleOverlap("موجة نزوح جديدة في غرب كردفان جراء تصاعد القصف الجوي - سودان تربيون", "موجة نزوح جديدة في غرب كردفان جراء تصاعد القصف الجوي وانعدام الأمن") >= 0.3);
+  assert.ok(titleOverlap("Беженцы из Сирии возвращаются домой", "Футбол: результаты матчей выходных") < 0.3);
+});
+
+test("publisher pages in windows-1256, windows-1251 and KOI8-R are decoded and checked against the headline", async () => {
+  const ar = "موجة نزوح جديدة في غرب كردفان جراء تصاعد القصف الجوي";
+  const ru = "Тысячи беженцев из Судана прибыли в Чад";
+  const page = (title, charset) => `<html><head><meta http-equiv="Content-Type" content="text/html; charset=${charset}"><meta property="og:title" content="${title}"><meta property="article:published_time" content="2026-11-17T10:00:00Z"></head></html>`;
+  const serve = (bytes, contentType) => fakeFetch(() => ({ status: 200, ok: true, url: "https://n.example/a", headers: { get: () => contentType }, arrayBuffer: async () => bytes.buffer, text: async () => { throw new Error("must decode bytes"); } }));
+  const r1 = await fetchArticleMeta("https://n.example/a", ar, { fetchImpl: serve(legacyBytes(page(ar, "windows-1256"), "windows-1256"), "text/html") });
+  assert.equal(r1.link, "verified");
+  assert.equal(r1.meta.title, ar);
+  const r2 = await fetchArticleMeta("https://n.example/a", ru, { fetchImpl: serve(legacyBytes(page(ru, "windows-1251"), "windows-1251"), "text/html") });
+  assert.equal(r2.link, "verified");
+  const r3 = await fetchArticleMeta("https://n.example/a", ru, { fetchImpl: serve(legacyBytes(page(ru, "x"), "koi8-r"), "text/html; charset=KOI8-R") });
+  assert.equal(r3.meta.title, ru);
+  assert.equal((await fetchArticleMeta("https://n.example/a", ar, { fetchImpl: fakeFetch(() => response(200, `<meta property="og:title" content="نتائج مباريات كرة القدم في نهاية الأسبوع">`)) })).link, "mismatched");
+  assert.equal(decodeBytes(new TextEncoder().encode(`\uFEFF${ru}`).buffer, "text/html; charset=windows-1251"), ru); // a UTF-8 byte-order mark wins
+  assert.match(summarize("وثقت المنظمة الدولية للهجرة نزوح أكثر من 400 شخص من منطقة أبو زبد خلال الأيام الماضية", ar), /^وثقت/);
 });
 
 test("translations: only Spanish, French and Portuguese, once per text, kept from earlier runs", async () => {

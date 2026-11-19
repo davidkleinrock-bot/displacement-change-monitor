@@ -498,6 +498,202 @@
       "lang": "en",
       "region": "Middle East",
       "label": "Enab Baladi, English"
+    },
+    {
+      "url": "https://feeds.bbci.co.uk/arabic/rss.xml",
+      "domain": "bbc.com",
+      "lang": "ar",
+      "region": "Global",
+      "label": "BBC News Arabic"
+    },
+    {
+      "url": "https://rss.dw.com/xml/rss-ar-all",
+      "domain": "dw.com",
+      "lang": "ar",
+      "region": "Global",
+      "label": "Deutsche Welle, Arabic"
+    },
+    {
+      "url": "https://www.france24.com/ar/rss",
+      "domain": "france24.com",
+      "lang": "ar",
+      "region": "Global",
+      "label": "France 24, Arabic"
+    },
+    {
+      "url": "https://news.un.org/feed/subscribe/ar/news/all/rss.xml",
+      "domain": "news.un.org",
+      "lang": "ar",
+      "region": "Global",
+      "label": "UN News, Arabic"
+    },
+    {
+      "url": "https://arabic.euronews.com/rss",
+      "domain": "euronews.com",
+      "lang": "ar",
+      "region": "Global",
+      "label": "Euronews, Arabic"
+    },
+    {
+      "url": "https://arabic.cnn.com/api/v1/rss/rss.xml",
+      "domain": "cnn.com",
+      "lang": "ar",
+      "region": "Global",
+      "label": "CNN Arabic"
+    },
+    {
+      "url": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
+      "domain": "aljazeera.net",
+      "lang": "ar",
+      "region": "Middle East",
+      "label": "Al Jazeera Arabic, All"
+    },
+    {
+      "url": "https://www.annahar.com/rss",
+      "domain": "annahar.com",
+      "lang": "ar",
+      "region": "Middle East",
+      "label": "Annahar (Lebanon)"
+    },
+    {
+      "url": "https://www.enabbaladi.net/feed/",
+      "domain": "enabbaladi.net",
+      "lang": "ar",
+      "region": "Middle East",
+      "label": "Enab Baladi, Arabic"
+    },
+    {
+      "url": "https://www.dabangasudan.org/ar/feed",
+      "domain": "dabangasudan.org",
+      "lang": "ar",
+      "region": "Africa",
+      "label": "Radio Dabanga, Arabic"
+    },
+    {
+      "url": "https://sudantribune.net/feed/",
+      "domain": "sudantribune.net",
+      "lang": "ar",
+      "region": "Africa",
+      "label": "Sudan Tribune, Arabic"
+    },
+    {
+      "url": "https://www.radiotamazuj.org/ar/rss",
+      "domain": "radiotamazuj.org",
+      "lang": "ar",
+      "region": "Africa",
+      "label": "Radio Tamazuj, Arabic"
+    },
+    {
+      "url": "https://feeds.bbci.co.uk/russian/rss.xml",
+      "domain": "bbc.com",
+      "lang": "ru",
+      "region": "Global",
+      "label": "BBC News Russian"
+    },
+    {
+      "url": "https://rss.dw.com/xml/rss-ru-all",
+      "domain": "dw.com",
+      "lang": "ru",
+      "region": "Global",
+      "label": "Deutsche Welle, Russian"
+    },
+    {
+      "url": "https://news.un.org/feed/subscribe/ru/news/all/rss.xml",
+      "domain": "news.un.org",
+      "lang": "ru",
+      "region": "Global",
+      "label": "UN News, Russian"
+    },
+    {
+      "url": "https://ru.euronews.com/rss",
+      "domain": "euronews.com",
+      "lang": "ru",
+      "region": "Global",
+      "label": "Euronews, Russian"
+    },
+    {
+      "url": "https://www.rfi.fr/ru/rss",
+      "domain": "rfi.fr",
+      "lang": "ru",
+      "region": "Global",
+      "label": "RFI, Russian"
+    },
+    {
+      "url": "https://meduza.io/rss/all",
+      "domain": "meduza.io",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Meduza, Russian"
+    },
+    {
+      "url": "https://www.svoboda.org/api/",
+      "domain": "svoboda.org",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Radio Svoboda (RFE/RL), Top stories"
+    },
+    {
+      "url": "https://www.currenttime.tv/api/",
+      "domain": "currenttime.tv",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Current Time (RFE/RL), Top stories"
+    },
+    {
+      "url": "https://novayagazeta.eu/feed/rss",
+      "domain": "novayagazeta.eu",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Novaya Gazeta Europe"
+    },
+    {
+      "url": "https://www.kommersant.ru/RSS/section-world.xml",
+      "domain": "kommersant.ru",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Kommersant, World"
+    },
+    {
+      "url": "https://www.pravda.com.ua/rus/rss/",
+      "domain": "pravda.com.ua",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Ukrainska Pravda, Russian"
+    },
+    {
+      "url": "https://www.kavkaz-uzel.eu/articles.rss",
+      "domain": "kavkaz-uzel.eu",
+      "lang": "ru",
+      "region": "Europe",
+      "label": "Caucasian Knot"
+    },
+    {
+      "url": "https://jam-news.net/ru/feed/",
+      "domain": "jam-news.net",
+      "lang": "ru",
+      "region": "Asia",
+      "label": "JAMnews, Russian"
+    },
+    {
+      "url": "https://rus.azattyk.org/api/",
+      "domain": "azattyqasia.org",
+      "lang": "ru",
+      "region": "Asia",
+      "label": "Azattyq Asia (RFE/RL), Central Asia in Russian"
+    },
+    {
+      "url": "https://24.kg/rss/",
+      "domain": "24.kg",
+      "lang": "ru",
+      "region": "Asia",
+      "label": "24.kg (Kyrgyzstan)"
+    },
+    {
+      "url": "https://asiaplus.news/rss/",
+      "domain": "asiaplus.news",
+      "lang": "ru",
+      "region": "Asia",
+      "label": "Asia-Plus (Tajikistan)"
     }
   ]
 }

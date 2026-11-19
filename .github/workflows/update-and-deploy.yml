@@ -4,10 +4,12 @@
 #     does it re-download everything, rebuild, re-check the totals, and commit the new data.
 #  3. Reads every GDELT news file (English and translated) published since the previous run (GitHub starts
 #     this "hourly" job only 5-7 times a day, so a fixed 2-hour lookback would skip hours), the RSS feeds of
-#     hand-picked outlets, and ReliefWeb reports (once the RELIEFWEB_APPNAME variable is set); keeps two calendar months of news.
+#     hand-picked outlets, Media Cloud and NewsData.io searches (once their API key secrets are set), and ReliefWeb
+#     reports (once the RELIEFWEB_APPNAME variable is set); keeps two calendar months of news.
 #     Spanish, French and Portuguese headlines get an English machine translation, made on this computer
 #     with the free OPUS-MT model (the library and model are not published with the site).
-#  4. Publishes the site to GitHub Pages.
+#  4. Once a day, counts ACLED conflict and protest events per country (once the ACLED secrets are set).
+#  5. Publishes the site to GitHub Pages.
 # News is committed to the repo about once a day (when the last news commit is over 20 hours old);
 # other runs only publish. Tests run before anything is published.
 # If the totals check fails after a UNHCR release, the run fails, nothing is published or committed,
@@ -108,6 +110,19 @@ jobs:
           # ReliefWeb's API appname (not a secret). Set it under Settings → Secrets and variables → Actions → Variables.
           RELIEFWEB_APPNAME: ${{ vars.RELIEFWEB_APPNAME }}
           HF_CACHE_DIR: ${{ runner.temp }}/hf-cache
+          # Free API keys (secrets: Settings → Secrets and variables → Actions → Secrets). Without one, that source is skipped.
+          # Quota ledgers live in data/news.js; budgets and caps are in scripts/fetch-news.mjs and news-apis-lib.mjs.
+          MEDIACLOUD_API_KEY: ${{ secrets.MEDIACLOUD_API_KEY }}
+          NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
+        continue-on-error: true
+
+      - name: Count ACLED conflict and protest events (at most once a day)
+        # Only totals per country, event type and two-month period are saved (ACLED's terms); no event rows.
+        # Without the ACLED_USERNAME and ACLED_PASSWORD secrets this writes an "off" file and the page hides the section.
+        run: node scripts/fetch-acled.mjs
+        env:
+          ACLED_USERNAME: ${{ secrets.ACLED_USERNAME }}
+          ACLED_PASSWORD: ${{ secrets.ACLED_PASSWORD }}
         continue-on-error: true
 
       - name: Write the news coverage audit

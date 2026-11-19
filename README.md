@@ -9,9 +9,10 @@ An interactive map that ranks displacement situations by how fast they are chang
 - **Country panel:** start and end figures, change and % change, a 2000–2025 trend, top host countries or origins, returns, IDMC internal displacement, recent news, and links to the exact UNHCR API query behind the numbers.
 - **Ranked table:** sortable and searchable, with the same figures as the map. Missing figures are marked "Unavailable". Territories are labeled with their governing country; "Unknown origin", "Stateless" and "Tibetan" are explained and never ranked.
 - **Briefing tools:** key-findings sentences at the top, plus a "Summary for your brief" for the world and every country with Copy summary, Copy citation and Copy link buttons. Links reproduce the exact view. Download the map as PNG or the table as CSV, or print/save as PDF.
-- **News from trusted outlets only:** headlines about forced displacement in English, Spanish, French and Portuguese, only from about 180 outlets checked for their own reporting (agencies, broadcasters, newspapers with correspondents, humanitarian specialists with field staff, local outlets with reporters on the ground), each recording its owner and which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils), plus UN/intergovernmental bodies as official sources. Outlets that don't publish their owner are marked. See `data/outlets.json` (`allow`, `excluded` with reasons). Aggregators, press-release sites, tabloids and trade press are blocked. GDELT articles must also carry GDELT's own refugee/displacement topic tags. Personal profiles, opinion and individual asylum cases are left out, and one event reported by many outlets is listed once. Each article shows its publisher, publication date, language and the publisher's own summary, and its link is checked. Spanish, French and Portuguese headlines and summaries also get an English machine translation (OPUS-MT, run free on the update job), shown under the original. The panel covers the previous two calendar months. See the [coverage audit](docs/news-coverage-audit.md).
+- **News from trusted outlets only:** headlines about forced displacement in English, Spanish, French, Portuguese, Arabic and Russian, only from about 200 outlets checked for their own reporting (agencies, broadcasters, newspapers with correspondents, humanitarian specialists with field staff, local outlets with reporters on the ground), each recording its owner and which outside databases list it (Journalism Trust Initiative, ReliefWeb sources, Reuters Institute Digital News Report, EBU, Public Media Alliance, The Trust Project, press councils), plus UN/intergovernmental bodies as official sources. Outlets that don't publish their owner are marked. See `data/outlets.json` (`allow`, `excluded` with reasons). Aggregators, press-release sites, tabloids and trade press are blocked. GDELT articles must also carry GDELT's own refugee/displacement topic tags. Personal profiles, opinion and individual asylum cases are left out, and one event reported by many outlets is listed once. Each article shows its publisher, publication date, language and the publisher's own summary, and its link is checked. Spanish, French and Portuguese headlines and summaries also get an English machine translation (OPUS-MT, run free on the update job), shown under the original. The panel covers the previous two calendar months. See the [coverage audit](docs/news-coverage-audit.md).
 - **Humanitarian reports (switched on once ReliefWeb approves an appname):** up to five recent ReliefWeb (UN OCHA) reports per country about displacement, from UN agencies, NGOs and governments, tagged by country by ReliefWeb's editors. See [Switching on ReliefWeb](#switching-on-reliefweb).
-- **Self-updating:** a GitHub Actions job, scheduled hourly and in practice run 5 to 7 times a day, reads the GDELT news (English and translated) published since its last run, the outlets' RSS feeds and (once switched on) ReliefWeb, and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
+- **Conflict and protest events (switched on once ACLED credentials are added):** for each country, ACLED's event and fatality counts for the two latest complete months available, compared with the two months before, as totals by event type calculated by this project. See [Switching on ACLED](#switching-on-acled).
+- **Self-updating:** a GitHub Actions job, scheduled hourly and in practice run 5 to 7 times a day, reads the GDELT news (English and translated) published since its last run, the outlets' RSS feeds and (once switched on) Media Cloud, NewsData.io and ReliefWeb, counts ACLED events once a day (once switched on), and checks whether UNHCR or IDMC published new figures. It rebuilds and re-checks the data only when they did, then republishes the site.
 
 ## Data
 
@@ -23,8 +24,9 @@ An interactive map that ranks displacement situations by how fast they are chang
 | Country names, codes, regions | same API, `/countries/` | `data/raw/unhcr_countries.json` |
 | Map shapes (Natural Earth 1:50m) | [world-atlas](https://github.com/topojson/world-atlas) | `data/raw/geo/countries-50m.json` |
 | ISO codes and country reference points for arrows | [world-countries](https://github.com/mledoze/countries) | `data/raw/geo/world-countries.json` |
-| Displacement headlines by country, previous two calendar months | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, English and translated, every 15 minutes) and the RSS feeds in `data/feeds.json` | `data/news.js` |
+| Displacement headlines by country, previous two calendar months | [GDELT 2.0 news files](https://www.gdeltproject.org/data.html) (Global Knowledge Graph, English and translated, every 15 minutes) and the RSS feeds in `data/feeds.json`; once their keys are set, [Media Cloud](https://search.mediacloud.org) and [NewsData.io](https://newsdata.io) searches | `data/news.js` |
 | Humanitarian reports by country | [ReliefWeb API](https://apidoc.reliefweb.int) (UN OCHA), once an appname is approved | `data/news.js` (`reports`) |
+| Conflict and protest event totals by country, event type and two-month period | [ACLED API](https://acleddata.com/api-documentation/getting-started), once credentials are set; only totals are stored | `data/acled.js` |
 | Which news outlets count | Outlet list checked on 18 Nov 2026 for own reporting and ownership, with sources and outside databases ([Journalism Trust Initiative](https://journalismtrustinitiative.org/community/), ReliefWeb sources, [Reuters Institute Digital News Report](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026), EBU, Public Media Alliance, The Trust Project, press councils); UN system directory; block list | `data/outlets.json` |
 | English translations of Spanish, French and Portuguese news | [OPUS-MT](https://github.com/Helsinki-NLP/Opus-MT) (University of Helsinki, CC BY 4.0) via [transformers.js](https://github.com/huggingface/transformers.js), installed and run only on the update job | `data/news.js` (`titleEn`, `descriptionEn`) |
 
@@ -53,6 +55,27 @@ ReliefWeb (UN OCHA) only allows its data to be read through its API with an appn
 
 Scripted requests to ReliefWeb's public RSS pages were refused by its firewall on 16 Nov 2026 (HTTP 406/429), so the dashboard does not use them.
 
+### Switching on Media Cloud and NewsData.io
+
+Both are extra ways to find headlines; every article they return goes through the same outlet, topic, country, language and link checks as the RSS feeds. Each needs a free account and API key. Without a key, that source is skipped.
+1. **Media Cloud:** create an account at https://search.mediacloud.org (a university address is best; it is free for research) and copy the API key from your profile page.
+2. **NewsData.io:** create a free account at https://newsdata.io and copy the API key from the dashboard. Its free plan is described as being for testing and personal projects, so check its terms for a public site before switching it on.
+3. In the GitHub repository, open Settings → Secrets and variables → Actions → **Secrets**, and add `MEDIACLOUD_API_KEY` and `NEWSDATA_API_KEY`. These are secrets: never put them in a file in the repo.
+
+What to expect:
+- **Media Cloud** only lets regular accounts search within named outlets, so the first runs look up each accepted outlet in its directory (60 a run, about five runs). Searches start once that is done. Each place is searched at most once a UTC day, places with the fewest articles first. Its first search covers the whole two-month window; later ones cover the time since. Use stays under 3,000 of Media Cloud's 4,000 weekly quota units, and its pacing (two searches a minute) adds about 15 minutes to a run.
+- **NewsData.io**'s free plan returns only articles from the last two days, about 12 hours late, so its share of the window builds up run by run. Each run spends at most 24 credits, and no more than 180 in any 24 hours (the plan allows 200 a day and 30 per 15 minutes).
+- The quota ledgers are kept in `data/news.js` (`newsApis`); budgets can be changed with the environment variables listed at the top of `scripts/fetch-news.mjs`. The coverage audit reports each source's counts.
+
+### Switching on ACLED
+
+ACLED's API needs an account. A free **Research** account (institutional email) has API access and gets event data with a 12-month lag; the free **Open** account has no API access. Government and commercial users need a separate ACLED licence.
+1. Register at https://acleddata.com with your institutional email.
+2. In the GitHub repository, open Settings → Secrets and variables → Actions → **Secrets**, and add `ACLED_USERNAME` (the account email) and `ACLED_PASSWORD`.
+3. The next run reads ACLED (at most once a day) and adds "Conflict and protest events (ACLED)" to each country panel and a note under "About the data". If the first run finds nothing new to read, run `ACLED_FORCE=1 node scripts/fetch-acled.mjs` or wait a day.
+
+ACLED's terms (EULA §3.1, updated 1 Nov 2026) require published figures to be "transformative" so that ACLED's data cannot be rebuilt from them. The project therefore stores and shows only totals per country, event type and two-month period; individual events are never written to disk. Whether that meets the terms is the project's reading, and is worth confirming with ACLED before relying on it. ACLED must be credited wherever the figures appear; the panel and the methods note do so.
+
 ## Run it locally
 
 Requires Node 18 or newer. There are no packages to install.
@@ -60,9 +83,10 @@ Requires Node 18 or newer. There are no packages to install.
 ```bash
 node scripts/fetch-data.mjs     # download UNHCR, IDMC and map data into data/raw/
 node scripts/build-data.mjs     # build data/*.js and run the checks
-node scripts/fetch-news.mjs     # read GDELT files since the last run, outlet feeds and ReliefWeb (NEWS_HOURS=1464 for a two-month backfill; NEWS_STEP=8 to sample; RELIEFWEB_APPNAME=… for reports)
+node scripts/fetch-news.mjs     # read GDELT files since the last run, outlet feeds and ReliefWeb (NEWS_HOURS=1464 for a two-month backfill; NEWS_STEP=8 to sample; RELIEFWEB_APPNAME=… for reports; MEDIACLOUD_API_KEY=… and NEWSDATA_API_KEY=… add those searches)
+node scripts/fetch-acled.mjs    # ACLED totals into data/acled.js (needs ACLED_USERNAME and ACLED_PASSWORD; ACLED_FORCE=1 to read again within a day)
 node scripts/news-coverage-audit.mjs  # per-country coverage report: docs/news-coverage-audit.md
-node --test "tests/*.test.mjs"  # tests for dates, topic and country rules (4 languages), outlets, duplicates, feeds, empty results and failures
+node --test "tests/*.test.mjs"  # tests for dates, topic and country rules (6 languages), outlets, duplicates, feeds, news APIs, ACLED, empty results and failures
 node scripts/serve.mjs          # open http://localhost:8080
 ```
 
@@ -73,8 +97,9 @@ You can also open `index.html` straight from disk. Everything it needs, includin
 `.github/workflows/update-and-deploy.yml` is scheduled every hour (at :47); in practice GitHub has started it 5 to 7 times a day. It also runs on every push to `main` and on demand from the Actions tab:
 
 1. `check-unhcr.mjs` compares a fingerprint of UNHCR's published totals with the one saved at the last download. Only if they differ, because of a new year or a revision, does it run `fetch-data.mjs` and `build-data.mjs` and commit the new data.
-2. `fetch-news.mjs` reads every GDELT news file published since the previous run (so hours between runs are not skipped), keeps headlines that pass the rules, opens each new article to read its date and summary and to check the link, and merges them into the two-month history taken from the live site. Once a day `fetch-sources.mjs` refreshes the list of rated outlets.
-3. The tests run, then the site is republished. News is committed to the repo about once a day; the other runs only publish.
+2. `fetch-news.mjs` reads every GDELT news file published since the previous run (so hours between runs are not skipped), keeps headlines that pass the rules, opens each new article to read its date and summary and to check the link, and merges them into the two-month history taken from the live site. Spanish, French and Portuguese articles get an English machine translation. Once their keys are set, Media Cloud and NewsData.io searches add candidates that go through the same checks.
+3. `fetch-acled.mjs` reads ACLED if its last read is over 20 hours old and saves the totals in `data/acled.js`.
+4. The tests run, then the site is republished. News is committed to the repo about once a day; the other runs only publish.
 
 To fill the two-month window from scratch, run the workflow from the Actions tab with `news_hours` = 1464 (about 5,900 files; allow up to two hours).
 
@@ -90,12 +115,14 @@ vendor/                        d3 7.8.5, topojson-client 3.1.0, Public Sans (SIL
 docs/ux-audit.md               UX/UI audit, news-source definition, usability test script
 data/dashboard-data.js         countries, yearly totals, origin→host flows (built)
 data/world.js                  map shapes keyed by ISO3 (built)
-data/news.js                   saved headlines (fetched)
+data/news.js                   saved headlines (fetched), plus the news APIs' quota ledgers
+data/acled.js                  ACLED totals by country, event type and two-month period (fetched)
 data/verification.json         result of the totals check
 data/processed/                long-format CSV for spot checks; reputable news outlets with reasons
 data/raw/                      untouched downloads + manifest
-scripts/                       fetch, build, news and local server scripts (news-lib.mjs holds the news rules)
-tests/                         node --test suite for the news rules
+scripts/                       fetch, build, news and local server scripts (news-lib.mjs holds the news rules;
+                               news-apis-lib.mjs the Media Cloud and NewsData.io clients; acled-lib.mjs the ACLED client)
+tests/                         node --test suite for the news rules, news APIs, ACLED and the page script
 docs/news-coverage-audit.md    which countries have news, and why some don't
 docs/project-log.md            what changed, when, why, and how it was tested
 ```
